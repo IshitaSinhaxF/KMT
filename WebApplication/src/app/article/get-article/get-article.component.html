@@ -1,0 +1,185 @@
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#paneOne-1" data-toggle="tab" role="tab" aria-controls="tab1">My Articles</a></li>
+        <li role="presentation"><a href="#paneTwo-1" data-toggle="tab" role="tab" aria-controls="tab2">All Articles</a></li>
+        <li role="presentation"><a href="#paneThree-1" data-toggle="tab" role="tab" aria-controls="tab3">Search Results</a></li>
+      </ul>
+      <div id="tabContent1" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="paneOne-1">
+          
+          
+     <br/>     
+    <div class="btn btn-primary btn-lg" data-toggle="modal" data-target="#showModal">Add Article</div>    
+    <div id="showModal" class="modal fade" role="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal
+                    " aria-hidden="true">x</button>
+                    <h3>Add New Article</h3>
+                    <div class="alert alert-success">
+                       <!-- <span><strong>{{employeeInfo.EMP_FST_NM}} </strong> <strong>{{employeeInfo.EMP_LST_NM}} </strong></span> -->
+                        <!-- <strong><span id="EmployeeIDPos">EUID : {{employeeInfo.EMP_UID}}</span></strong> -->
+                       
+             
+                        
+                    </div>
+
+                </div>
+                <div id="modalDetails" class="modal-body">
+                    
+
+                </div>
+               
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>  
+    <div role="tabpanel" id="second-level-tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#paneOne-2" data-toggle="tab" role="tab" aria-controls="tab1">Published <span class="badge">127</span></a> </li>
+        <li role="presentation"><a href="#paneTwo-2" data-toggle="tab" role="tab" aria-controls="tab2">Pending for Approval <span class="badge">2</span></a></li>
+        <li role="presentation"><a href="#paneThree-2" data-toggle="tab" role="tab" aria-controls="tab3">Unpublished <span class="badge">4</span></a></li>
+        <li role="presentation"><a href="#paneFour-2" data-toggle="tab" role="tab" aria-controls="tab4">Draft <span class="badge">2</span></a></li>
+        <!-- <li class="btn btn-primary" style:"padding-left:10px">Add Article</li>    -->
+      </ul>
+      
+      <div id="tabContent2" class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2">
+          
+        
+      <table class="table table-condensed" id="tbl-published">
+        <thead>
+          <tr>
+          <th>Title</th>
+          <th>Date Created</th>
+          <th>Viewed</th>
+          <th>Rated</th>
+          <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+          <td>01/06/2018</td>
+          <td>145</td>
+          <td><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Aenean aliquam cum a ut nec quis turpis parturient.</td>
+          <td>09/03/2017</td>
+          <td>121</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Purus aliquet duis natoque purus lectus et?</td>
+          <td>08/06/2017</td>
+          <td>51</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Mauris mauris est mus? Eros vut enim et.</td>
+          <td>05/18/2017</td>
+          <td>476</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Platea augue auctor porttitor, lundium lundium.</td>
+          <td>02/22/2017</td>
+          <td>453</td>
+          <td><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Amet habitasse dictumst hac! Platea massa nec.</td>
+          <td>01/16/2017</td>
+          <td>12</td>
+          <td><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Nunc, tincidunt montes. Tincidunt enim vut, rhoncus.</td>
+          <td>01/03/2017</td>
+          <td>87</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Et nisi porta tincidunt elit integer cum! Odio.</td>
+          <td>11/26/2016</td>
+          <td>43</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Eros adipiscing ultrices porttitor urna lundium ridiculus.</td>
+          <td>10/18/2016</td>
+          <td>71</td>
+          <td><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+          <tr>
+          <td>Amet rhoncus odio purus nec a rhoncus integer.</td>
+          <td>07/22/2016</td>
+          <td>156</td>
+          <td><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></td>
+          <td><a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>&nbsp;&nbsp;<a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="top"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+          </tr>
+        </tbody>
+        </table>
+      
+            <nav aria-label="Page navigation" id="nav-published">
+        <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        </ul>
+      </nav>
+        
+        
+          </div>
+        <div role="tabpanel" class="tab-pane fade" id="paneTwo-2">
+          <p class="temp">Pending for Approval Table Goes Here!</p>
+          </div>
+        <div role="tabpanel" class="tab-pane fade" id="paneThree-2">
+          <p class="temp">Unpublish Table Goes Here!</p>
+          </div>
+        <div role="tabpanel" class="tab-pane fade" id="paneFour-2">
+          <p class="temp">Draft Table Goes Here!</p>
+          </div>
+      </div>
+    </div>
+     </div>
+        <div role="tabpanel" class="tab-pane fade" id="paneTwo-1">
+          <p class="temp">All Articles Contents goes here!</p>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="paneThree-1">
+          <p class="temp">Search Results goes here!</p>
+        </div>
+      </div>
+
+   

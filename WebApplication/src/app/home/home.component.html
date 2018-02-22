@@ -1,0 +1,89 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <app-login></app-login>  -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <a class="navbar-brand" href="#">xFusionTech Logo</a></div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="inverseNavbar1">
+    <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">My Profile</a></li>
+              <li><a href="#">Change Password</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <section class="row" id="top-banner">
+     <div class="col-sm-2 col-md-2 col-lg-offset-1 col-xs-offset-2 col-xs-8 col-sm-offset-0" id="logo-container"><img src="./assets/images/dot.jpeg" alt="DOT logo" class="img-responsive" id="agency-logo"><span class="hidden-md hidden-sm" id="agency-name">CA Department of Technology</span></div>
+    <div class=" col-lg-8 col-md-10 col-sm-10" id="countyBanner"><img src="./assets/images/sac-banner.jpg"class="img-responsive hidden-xs" alt="Sacramento"></div> 
+  </section>
+  <section class="container-fluid" id="user-info">
+    <div class="row">
+      <div class="col-md-3 info col-lg-offset-1 col-sm-3"><span class="title">Agency:</span><span class="value">CA DOT</span></div>
+      <div class="col-md-3 info col-sm-3"><span class="title">Service:</span><span class="value">Professional Services</span></div>
+      <div class="col-md-3 info col-lg-2 col-sm-3"><span class="title">Group:</span><span class="value">IT Consulting</span></div>
+      <div class="col-md-3 info col-lg-2 col-sm-3"><span class="title">Role:</span><span class="value">Administrator</span></div>
+    </div>
+  </section>
+<section class="container-fluid" id="content-container">
+  <div class="row">
+    <div class="col-md-12 col-lg-offset-1 col-lg-2" id="left-bar">
+      <div class="row">
+
+        <app-summary></app-summary>
+        <app-popular-tags></app-popular-tags>
+
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div role="tabpanel" id="first-level-tabs">
+        <app-search-article></app-search-article>
+        <app-get-article></app-get-article>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="container-fluid" id="footer">
+    <div class="row" id="footerNav">
+      <div class="col-sm-4 col-lg-3 col-lg-offset-1">
+        <h4>Request a Service</h4>
+        <ul>
+          <li><a href="#">Submit a Service Request</a></li>
+          <li><a href="#"> Report an Incident</a></li>
+          <li><a href="#">Technology Services</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 col-lg-4 col-lg-offset-1">
+        <h4>Information Security</h4>
+        <ul>
+          <li><a href="#">Security Awareness</a></li>
+          <li><a href="#"> Risk Management</a></li>
+          <li><a href="#"> Recovery Management</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 col-lg-3">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Find your Account Lead</a></li>
+          <li><a href="#">Online Contact Form</a></li>
+          <li><a href="#">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </footer>
+  <div class="container-fluid" id="copyrightInfo">
+    <div class="row">
+      <div class="col-sm-12">Copyright &copy; 2018 xFusionTech Systems. All rights reserved.</div>
+    </div>
+  </div>
