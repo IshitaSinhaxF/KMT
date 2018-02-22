@@ -1,0 +1,19 @@
+Dev Setup:
+-----------
+Install Nodejs and npm
+https://nodejs.org/en/download/
+
+Install Angular CLI:
+--------------------
+npm install -g @angular/cli
+
+The contents of node_modules is not meant to be committed to source control. The idea behind npm is that it tracks all required node dependencies in a file called package.json. This file should be committed to source control. Then on a different machine, you can check out the code and run
+
+npm install
+
+This looks at the package.json file and downloads all required files from the cloud and puts them all into a new node_modules directory.
+
+To build, deploy and open the app locally:
+-------------------------------------------
+
+ng server --open
