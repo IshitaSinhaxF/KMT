@@ -1,0 +1,83 @@
+
+-- get list of users with roles
+API NAME: GetUserdetails()
+
+SELECT usr."userID", usr."userFirstName", usr."userLastName", usr."userMiddleName", r."roleName", r."lkpRoleID"
+FROM public."User" usr 
+inner join public."userRole" ur on usr."userID" = ur."userID"
+inner join public."LKP_Role" r on r."lkpRoleID" = ur."lkpRoleID" 
+
+-- API NAME: GetArticlesByStatus()
+-- the articles query should be made dyanamic based on the status they send.
+-- this query will bring various articles based on the tab selected. 
+
+SELECT art."articleID",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",
+artSta."StateName", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",
+artFb."rating", artFb."comment"
+FROM public."Article" art 
+inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID"
+inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"
+inner join public."User" usr on usr."userID" = artHis."userID"
+left join public."articleFeedback" artFb on artFb."articleID" = art."articleID"
+inner join public."userRole" usrRl on usrRl."userID" = artHis."userID"
+where 1 = 1
+-- AND artSta."StateName" = 'PUBLISHED'                                      -- add this condition if status has "PUBLISHED" 
+-- AND (artSta."StateName" = 'DRAFT' AND artHis."userID" = 1)                -- add this condition if status has "DRAFT"
+-- AND (artSta."StateName" = 'IN-REVIEW' AND artHis."userID" = 2)            -- add this condition if status has "IN-REVIEW" and roleID = 1 (author) 
+-- AND (artsta."StateName" = 'IN-REVIEW' AND usrRl."approverID" = 3 )          -- add this condition if status has "IN-REVIEW" and "roleID = 2 (Approver)
+
+-- get article details on View article page (which has feedback page too )
+-- API NAME : GetArticleDetailsByID
+
+SELECT art."articleID",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",artHis."ArticleStateID",artSta."StateName",
+artHis."userID", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",artFb."rating",artFb."comment",artFb."dateModified" as "articleLastModifiedDate",
+t1."categoryName", art."categoryID",t2."categoryName" as "parent_category", COALESCE(artVw."viewCounts",0) as "views"
+FROM public."Article" art 
+inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID"
+inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"
+inner join public."User" usr on usr."userID" = artHis."userID"
+left join public."articleFeedback" artFb on art."articleID" = artFb."articleID"
+inner join public."LKP_Category" t1 on t1."categoryID" = art."categoryID" 
+inner join public."LKP_Category" t2 on t1."parentCategoryID" = t2."categoryID"
+left join public."articleViews" artVw on artVw."articleID" = art."articleID"
+where art."articleID" = 1
+
+-- get parent category
+-- API NAME: getParentCategory()
+
+SELECT "categoryID", "categoryDesc", "categoryName", "parentCategoryID"
+	FROM public."LKP_Category" where "parentCategoryID" is null;
+		
+-- get sub categories under main categories list:
+-- API NAME: getSubCategories()
+
+SELECT t1."categoryID", t1."categoryDesc", t1."categoryName", t2."categoryID" as "main_category_id", t2."categoryName" as "main_category_name"
+FROM public."LKP_Category" t1 inner join public."LKP_Category" t2 on t1."parentCategoryID" = t2."categoryID"
+where t1."parentCategoryID" is not null
+
+-- get list of users and their approvers and their roles
+-- API NAME: getApprover() 
+
+SELECT (apprvr."userFirstName"|| ' ' || apprvr."userLastName") as "Approver_Name"
+-- usr."userID", usr."userFirstName", usr."userLastName", usr."userMiddleName", (apprvr."userFirstName"|| ' ' || apprvr."userLastName") as "Approver_Name" , ur."approverID",
+-- rl."roleName",rl."lkpRoleID"
+FROM public."User" usr 
+inner join public."userRole" ur on usr."userID" = ur."userID"
+left outer join public."User" apprvr on ur."approverID" = apprvr."userID"
+inner join public."LKP_Role" rl on rl."lkpRoleID" = ur."lkpRoleID"
+where usr."userID" = 1
+
+
+-- based on need
+-- get list of articles along with author information 
+
+SELECT art."articleID",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",artHis."ArticleStateID",artSta."StateName",
+artHis."userID", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name"
+FROM public."Article" art 
+inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID"
+inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"
+inner join public."User" usr on usr."userID" = artHis."userID"
+
+
+
+

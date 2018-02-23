@@ -1,0 +1,36 @@
+Method: GetUserDetails()
+
+URL: http://8.39.51.27:9763/services/KMTool/GetUserDetails
+
+Method: GetArticles()
+
+URL: http://8.39.51.27:9763/services/KMTool/GetArticles
+
+
+Method: GetArticlesByStatus()
+
+URL: http://8.39.51.27:9763/services/KMTool/GetArticlesByStatus?statuscondition=<<condition>>
+
+Example : http://8.39.51.27:9763/services/KMTool/GetArticlesByStatus?statuscondition=1=1
+
+Method: GetArticleDetailsByID()
+
+URL: http://8.39.51.27:9763/services/KMTool/GetArticleDetailsByID?articleID=<<articleID>>
+
+Example : http://8.39.51.27:9763/services/KMTool/GetArticleDetailsByID?articleID=1
+
+Method: getParentCategory()
+
+URL: http://8.39.51.27:9763/services/KMTool/getParentCategory
+
+Method: GetSubCategories()
+
+URL: http://8.39.51.27:9763/services/KMTool/GetSubCategories
+
+Method: GetApprover() 
+
+URL: http://8.39.51.27:9763/services/KMTool/GetApprover?userID=1
+
+
+
+
