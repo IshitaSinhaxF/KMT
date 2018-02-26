@@ -1,1 +1,1 @@
-# KMT -- knowledge Management Tools
+# KMT -- Knowledge Management Tools
