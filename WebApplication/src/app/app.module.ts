@@ -11,6 +11,15 @@ import { SummaryComponent } from './summary/summary.component';
 import { PopularTagsComponent } from './popular-tags/popular-tags.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
+import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
+import { UnpulishedArticlesComponent } from './article/unpulished-articles/unpulished-articles.component';
+import { RouterLink, RouterModule } from '@angular/router';
+import { StorageServiceModule } from 'angular-webstorage-service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ArticleService } from './article.service';
+
+//import {PopupModule} from 'ng2-opd-popup';
 
 
 @NgModule({
@@ -23,13 +32,25 @@ import { HomeComponent } from './home/home.component';
     SummaryComponent,
     PopularTagsComponent,
     HomeComponent,
-    //AngularFontAwesomeModule
+    PendingForApprovalComponent,
+    UnpulishedArticlesComponent,
+ 
+   //AngularFontAwesomeModule
   ],
   imports: [
+   
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    StorageServiceModule,
+    HttpClientModule,
+    FormsModule,
+ 
   ],
-  providers: [],
+  providers: [
+    ArticleService 
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
