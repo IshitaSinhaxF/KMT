@@ -18,6 +18,8 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ArticleService } from './article.service';
+import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
+
 
 //import {PopupModule} from 'ng2-opd-popup';
 
@@ -34,6 +36,8 @@ import { ArticleService } from './article.service';
     HomeComponent,
     PendingForApprovalComponent,
     UnpulishedArticlesComponent,
+    ViewAricleComponent,
+    
  
    //AngularFontAwesomeModule
   ],
@@ -45,6 +49,7 @@ import { ArticleService } from './article.service';
     StorageServiceModule,
     HttpClientModule,
     FormsModule,
+    //PopupModule.forRoot(),
  
   ],
   providers: [
