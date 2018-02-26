@@ -312,6 +312,9 @@ margin-left: -5px;
 	text-align: right;
 }
 
+td {
+    cursor: default;
+}
 #nav-published {
 	text-align: center;
 }
@@ -364,5 +367,37 @@ margin-left: -5px;
 	display: block;
 }
 }
+.feedback{
+ font:10;
+}
+feedback-container-fluid{
 
-
+      width: 250px;
+	  height: 500px;
+	  padding : 20px;
+}
+.feedback-popup{
+	height: 250;
+}
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	color: orange;
+	font-size: 22px;
+	
+  }
+  .rating > span {
+	display: inline-blocbtn btn-primary btn-lgk;
+	position: relative;
+	width: 1.1em;
+	color: orange;
+	font: 50px;
+  }
+  .rating > span:hover:before,
+  .rating > span:hover ~ span:before {
+	 content: "\2605";
+	 position: absolute;
+	 color: orange;
+	 font: 50px;
+  }
+ 
