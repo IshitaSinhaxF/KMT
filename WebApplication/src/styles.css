@@ -366,6 +366,7 @@ td {
 #user-info .value {
 	display: block;
 }
+<<<<<<< HEAD
 }
 .feedback{
  font:10;
@@ -401,3 +402,6 @@ feedback-container-fluid{
 	 font: 50px;
   }
  
+=======
+}
+>>>>>>> 3de4dc0a3133b9b20e046e60d6c6de9bfa979815

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  userName :any = "";
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+
+   this.userName = this.articleService.getFromSessionStorage("UserName"); 
   }
 
 }
