@@ -37,15 +37,15 @@
 }
 
 .readmore-button-item {
-border-color: #fcfffd; 
-float:right; 
-margin-right: 20px; 
-border: 1px solid; 
-cursor: pointer; 
-font-size: small; 
-padding: 10px 20px; 
-overflow: hidden; 
-background-color: #bc1f62; 
+border-color: #fcfffd;
+float:right;
+margin-right: 20px;
+border: 1px solid;
+cursor: pointer;
+font-size: small;
+padding: 10px 20px;
+overflow: hidden;
+background-color: #bc1f62;
 color: #fcfffd;
 }
 
@@ -327,7 +327,7 @@ td {
 
 
 #footer {
-	background-color: #465165;	
+	background-color: #465165;
 	color: #fff;
 	padding: 1em 1em 0 1em;
 }
@@ -351,7 +351,7 @@ td {
 }
 #footer ul li {
 	color: #FFF;
-	
+
 }
 
 #copyrightInfo {
@@ -360,14 +360,13 @@ td {
 	color: #fff;
 	font-size: 0.8em;
 	padding: 1em 0;
-		
+
 }
 @media screen and (min-width:650px) and (max-width:925px){
 #user-info .value {
 	display: block;
 }
-<<<<<<< HEAD
-}
+
 .feedback{
  font:10;
 }
@@ -385,7 +384,7 @@ feedback-container-fluid{
 	direction: rtl;
 	color: orange;
 	font-size: 22px;
-	
+
   }
   .rating > span {
 	display: inline-blocbtn btn-primary btn-lgk;
@@ -401,7 +400,4 @@ feedback-container-fluid{
 	 color: orange;
 	 font: 50px;
   }
- 
-=======
 }
->>>>>>> 3de4dc0a3133b9b20e046e60d6c6de9bfa979815
