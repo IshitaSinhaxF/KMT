@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
 import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
+import { CreateArticleComponent } from './article/create-article/create-article.component';
 const ROUTES: Routes = [
   { path: '', component: LoginComponent },
   {
@@ -13,6 +14,7 @@ const ROUTES: Routes = [
   },
 
   { path: 'viewArtcile', component: ViewAricleComponent },
+  { path: 'createArticle' , component: CreateArticleComponent },
 
 ]
 @NgModule({
