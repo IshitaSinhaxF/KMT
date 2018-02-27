@@ -8,7 +8,7 @@
           <th>Title</th>
           <th>Date Created</th>
           <th>Viewed</th>
-          <!-- <th>Rated</th> -->
+          <th>Rated</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -21,7 +21,7 @@
           <td>{{d.dateCreated}}</td>
           <td></td>
           <!-- <pre>{{d.rating}}</pre> -->
-          <!-- <td *ngIf="d.rating === '5'">
+          <td *ngIf="d.rating === '5'">
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
             <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-          </td> -->
+          </td>
           <td>
             
               <span class="glyphicon glyphicon-eye-open"   (click)= "getArticleDetail(d.articleID)"aria-hidden="true"></span>

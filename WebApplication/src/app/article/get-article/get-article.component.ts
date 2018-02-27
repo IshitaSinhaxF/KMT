@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 
-//import {Popup} from 'ng2-opd-popup';
-const headers = new HttpHeaders()
-  .set("Content-Type", "application/json");
 
 @Component({
   selector: 'app-get-article',
@@ -21,15 +18,14 @@ export class GetArticleComponent implements OnInit {
   StateName: any;
   // published : any = 'PUBLISHED';
   constructor(private articleService: ArticleService, private http: HttpClient, private router: Router) { }
-  //private popup:Popup
 
   ngOnInit() {
-    this.articleService.getArticleService()
-      .subscribe((res: Response) => {
-        this.result = res;
-        this.data = this.result.entries.entry;
-        console.log(this.data)
-      })
+    // this.articleService.getPublishArticleService()
+    //   .subscribe((res: Response) => {
+    //     this.result = res;
+    //     this.data = this.result.entries.entry;
+    //     console.log(this.data)
+    //   })
   }
 
   onFeedback() {
@@ -53,11 +49,15 @@ export class GetArticleComponent implements OnInit {
       console.log(this.articleDetailsData)
     })
 
-    console.log(articleID);
+    console.log('Article id: '+articleID);
   }
   onEyeOpenClick() {
 
     this.router.navigate(['./viewArtcile']);
 
+  }
+
+  onClick(){
+    console.log("On click ")
   }
 }

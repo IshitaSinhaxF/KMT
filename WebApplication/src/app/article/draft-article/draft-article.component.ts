@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
 
 @Component({
-  selector: 'app-pending-for-approval',
-  templateUrl: './pending-for-approval.component.html',
-  styleUrls: ['./pending-for-approval.component.css']
+  selector: 'app-draft-article',
+  templateUrl: './draft-article.component.html',
+  styleUrls: ['./draft-article.component.css']
 })
-export class PendingForApprovalComponent implements OnInit {
-
+export class DraftArticleComponent implements OnInit {
   data: any = "";
   result: any ;
   userID: any = this.articleService.getFromSessionStorage("UserId"); 
@@ -15,9 +14,9 @@ export class PendingForApprovalComponent implements OnInit {
   constructor(private articleService : ArticleService) { }
   
   ngOnInit() {
-
-   console.log('User Id from sesssion: '+this.userID);
-    this.userID = this.articleService.getInReviewArticleService(this.userID)
+    console.log('User Id from sesssion: '+this.userID);
+    this.articleService.getDraftArticleService(this.userID)
+    //this.userID = this.articleService.getFromSessionStorage("userID")
       .subscribe((res: Response) => {
         this.result = res;
         this.data = this.result.entries.entry;
@@ -38,4 +37,5 @@ export class PendingForApprovalComponent implements OnInit {
 
     console.log('Article id: '+articleID);
   }
+
 }
