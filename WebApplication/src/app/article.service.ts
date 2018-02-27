@@ -5,8 +5,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 
 const headers = new HttpHeaders()
-  .set("Content-Type", "application/json")
-  .set("Accept","Access-Control-Request-Headers");
+  .set("Content-Type", "application/json");
   //.append("Content-Type","application/json")
   //.append("","");
 
@@ -39,13 +38,21 @@ export class ArticleService {
     console.log('user details removed from session: '+ key);
     this.data[key]=this.storage.remove(key);
   }
-
+//User details API
   getUserData(){
   return this.result =  this.http.get("http://8.39.51.27:9763/services/KMTool/GetUserDetails",{headers})
   }
-
-  getArticleService(){
+// Get Artciles by status API for published articles
+  getPublishArticleService(){
     return this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'PUBLISHED'")
+  }
+// Get Artciles by status API for draft articles
+  getDraftArticleService(userID){
+    return this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'DRAFT' AND artHis.\"userID\" ="+ userID +"")
+  }
+// Get Artciles by status API for in-review articles
+  getInReviewArticleService(userID){
+    return this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND artHis.\"userID\" ="+ userID +"")
   }
 
   getUserDataOnLoad(){
@@ -55,8 +62,10 @@ export class ArticleService {
       console.log(this.data);
     });
   }
-
+//get articles by ID api for feed back page
   getArticleDetailsById(articleId){
     return this.result = this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticleDetailsByID?articleID="+ articleId +""  )
   }
+
+
 }
