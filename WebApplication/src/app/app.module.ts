@@ -9,7 +9,7 @@ import { GetArticleComponent } from './article/get-article/get-article.component
 import { CreateArticleComponent } from './article/create-article/create-article.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PopularTagsComponent } from './popular-tags/popular-tags.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
 
@@ -19,8 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ArticleService } from './article.service';
 import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
-
-import {PopupModule} from 'ng2-opd-popup';
 import { DraftArticleComponent } from './article/draft-article/draft-article.component';
 import { MyArticlesComponent } from './article/my-articles/my-articles.component';
 import { PublishedComponent } from './article/published/published.component';
