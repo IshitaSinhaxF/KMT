@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ArticleService } from './article.service';
 
+
 //import {PopupModule} from 'ng2-opd-popup';
 
 
@@ -34,22 +35,22 @@ import { ArticleService } from './article.service';
     HomeComponent,
     PendingForApprovalComponent,
     UnpulishedArticlesComponent,
- 
+
    //AngularFontAwesomeModule
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     StorageServiceModule,
     HttpClientModule,
     FormsModule,
- 
+
   ],
   providers: [
-    ArticleService 
-    
+    ArticleService
+
   ],
   bootstrap: [AppComponent]
 })
