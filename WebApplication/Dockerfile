@@ -1,8 +1,10 @@
 # Stage 0, based on Node.js, to build and compile Angular
 FROM node:8.6 as node
 
+#copy both packages into the application
 COPY package.json package-lock.json ./
 
+#run initial npm setup to cleanup
 RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
 
