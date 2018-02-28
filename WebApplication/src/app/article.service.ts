@@ -35,7 +35,7 @@ export class ArticleService {
   }
 
   removeFromSessionStorage(key){
-    console.log('user details removed from session: '+ key);
+    console.log('Removing '+ key + ' from Session');
     this.data[key]=this.storage.remove(key);
   }
 //User details API

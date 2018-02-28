@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   userFirstName: any = "";
 
 
-
   onLoginClick() {
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
@@ -44,9 +43,18 @@ export class LoginComponent implements OnInit {
 
 
     });
-    this.articleService.saveInSessionStorage("RoleID", this.roleName);
+
+    //this.articleService.saveInSessionStorage("RoleID", this.roleName);
+    if(this.userFirstName == "Mahaboob"){
+      this.articleService.saveInSessionStorage("RoleID", userDetails[0].lkpRoleID);
+      this.articleService.saveInSessionStorage("RoleID", userDetails[1].lkpRoleID);
+    }else{
+      this.articleService.saveInSessionStorage("RoleID", userDetails[0].lkpRoleID);
+    }
+    
     this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
     this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName + ' '+ userDetails[0].userLastName);
+   
     //this.articleService.saveInSessionStorage(this.roles.lkpRoleID, this.roles.roleName);
     //console.log("data: " + this.articleService.data.toString())
     console.log( userDetails)

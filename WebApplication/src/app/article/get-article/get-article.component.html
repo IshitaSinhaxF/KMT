@@ -1,15 +1,12 @@
-<ul class="nav nav-tabs" role="tablist">
+<!-- <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active">
     <a href="#paneOne-1" data-toggle="tab" role="tab" aria-controls="tab1">My Articles</a>
-  </li>
-  <li role="presentation">
-    <a href="#paneTwo-1" data-toggle="tab" role="tab" aria-controls="tab2">All Articles</a>
   </li>
   <li role="presentation">
     <a href="#paneThree-1" data-toggle="tab" role="tab" aria-controls="tab3">Search Results</a>
   </li>
 </ul>
-<div id="tabContent1" class="tab-content">
+<div id="tabContent1" class="tab-content"> -->
   <div role="tabpanel" class="tab-pane fade in active" id="paneOne-1">
 
 
@@ -48,20 +45,16 @@
     <!--Addarticle pop ends here -->
     <!--Feedback popup starts here -->
 
-  <!-- <app-modal id='custom-modal-1'>
-
-           </app-modal> -->
-
   <!--Feedback Popup ends-->
   <div role="tabpanel" id="second-level-tabs">
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
-        <a href="#paneOne-2" data-toggle="tab" role="tab" aria-controls="tab1">Published
-          <span class="badge">127</span>
+        <a routerLink="publishedArticles" data-toggle="tab" role="tab" aria-controls="tab1">Published
+          <!-- <span class="badge">127</span> -->
         </a>
       </li>
       <li role="presentation">
-        <a [routerLink]="['/paneTwo-2']" data-toggle="tab" role="tab" aria-controls="tab2">Pending for Approval
+        <a routerLink="Pending" data-toggle="tab" role="tab" aria-controls="tab2">Pending for Approval
           <!-- <span class="badge">2</span> -->
         </a>
       </li>
@@ -373,7 +366,7 @@
           </tbody>
         </table>
 
-        <nav aria-label="Page navigation" id="nav-published">
+        <!-- <nav aria-label="Page navigation" id="nav-published">
           <ul class="pagination">
             <li>
               <a href="#" aria-label="Previous">
@@ -416,7 +409,7 @@
               </a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
 
 
       </div>
@@ -439,4 +432,4 @@
 <div role="tabpanel" class="tab-pane fade" id="paneThree-1">
   <p class="temp">Search Results goes here!</p>
 </div>
-</div>
+<!-- </div> -->
