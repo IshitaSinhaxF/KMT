@@ -4,10 +4,6 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
-
-const headers = new HttpHeaders()
-  .set("Content-Type", "application/json");
-
 @Component({
   selector: 'app-get-article',
   templateUrl: './get-article.component.html',
@@ -51,4 +47,5 @@ export class GetArticleComponent implements OnInit {
   createNewArticle() {
     this.router.navigate(['./createArticle']);
     };
+
 }

@@ -23,6 +23,9 @@ import { DraftArticleComponent } from './article/draft-article/draft-article.com
 import { MyArticlesComponent } from './article/my-articles/my-articles.component';
 import { PublishedComponent } from './article/published/published.component';
 
+//Import ngb-bootstrap
+
+
 //import {PopupModule} from 'ng2-opd-popup';
 
 
@@ -54,11 +57,9 @@ import { PublishedComponent } from './article/published/published.component';
     StorageServiceModule,
     HttpClientModule,
     FormsModule,
-    //PopupModule.forRoot()
- 
   ],
   providers: [
-    ArticleService 
+    ArticleService ,
     
   ],
   bootstrap: [AppComponent]
