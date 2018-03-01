@@ -15,9 +15,13 @@ During the course of our project, we have heavily relied on collaborative develo
 Our agile process followed various iterations of the stages discussed below:
 
 **Backlog Release** – The team reported the backlogs from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+
 **Sprint Planning** – The team then selected a sprint goal and began decomposing the product backlog items into work tasks and estimating these in hours. We then outlined the tasks that needed to be completed in the next sprint. This was reviewed by the Product Manager and the Agile Coach.
+
 **Stand-Up** - Development team members reported work completed since the last session; planned work before the next session and any blockers. Blockers identified were cleared by the Agile Coach and Delivery Manager. Stand-Up provided a great forum for coordination across the team.
-**Sprint Review** - The team assessed the project development against the sprint goal determined during the sprint planning meeting.  The team presented completed goals in the Sprint to the PM for review and approval. 
+
+**Sprint Review** - The team assessed the project development against the sprint goal determined during the sprint planning meeting.  The team presented completed goals in the Sprint to the Product Manager for review and approval. 
+
 **Sprint Retrospective** – The team reflected on how their tools, processes and peers performed on the recently completed sprint. Each team member was asked to identify areas which met/ exceeded expectations, areas which lagged behind and one area for improvement. 
 
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
