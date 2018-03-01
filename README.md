@@ -7,7 +7,7 @@ Since we had a smaller time-frame to carry out the project, we decided to go ahe
 
 Our execution process was extremely disciplined, complete with formal demos and retrospectives with each sprint, and a complete story board designed with the help of Trello Board overlaying our GitHub Issues and Stories. We conducted daily, in person, scrum meetings to discuss the progress that was made since the previous scrum meeting , goals to accomplish before the next scrum meeting , and any impediments that were preventing team members from performing their work.
 
-During the course of our project, we have heavily relied on collaborative development and communication tools such as [GitHub](https://github.com/xFusionTech/KMT/) and [JIRA] (https://xfusiontech.atlassian.net/secure/RapidBoard.jspa?rapidView=6). The result of our efforts is a collaboratively designed and built Working Prototype that meets the MVP of the RFI requirements using modern, open source technologies within a smaller time frame.
+During the course of our project, we have heavily relied on collaborative development and communication tools such as [GitHub](https://github.com/xFusionTech/KMT/) and [JIRA](https://xfusiontech.atlassian.net/secure/RapidBoard.jspa?rapidView=6) board . The result of our efforts is a collaboratively designed and built Working Prototype that meets the MVP of the RFI requirements using modern, open source technologies within a smaller time frame.
 
 
 ## Agile Process:
