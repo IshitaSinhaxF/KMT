@@ -14,7 +14,7 @@ RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 #set working directory to the app directory
 WORKDIR /ng-app
 
-#copy
+#copy files now
 COPY . .
 
 ARG env=prod
