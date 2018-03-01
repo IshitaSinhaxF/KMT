@@ -9,6 +9,7 @@ import { GetArticleComponent } from './article/get-article/get-article.component
 import { CreateArticleComponent } from './article/create-article/create-article.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PopularTagsComponent } from './popular-tags/popular-tags.component';
+import { UnpulishedArticlesComponent } from './article/unpulished-articles/unpulished-articles.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
@@ -44,13 +45,12 @@ import { PublishedComponent } from './article/published/published.component';
     DraftArticleComponent,
     MyArticlesComponent,
     PublishedComponent,
+    UnpulishedArticlesComponent,
 
-    
- 
    //AngularFontAwesomeModule
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -61,7 +61,10 @@ import { PublishedComponent } from './article/published/published.component';
   providers: [
     ArticleService ,
     
+    //PopupModule.forRoot()
+
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

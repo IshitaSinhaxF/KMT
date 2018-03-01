@@ -1,5 +1,5 @@
 # Stage 0, based on Node.js, to build and compile Angular
-FROM node:8.6 as node
+FROM node:8.9 as node
 
 #copy both packages into the application
 COPY package.json package-lock.json ./
@@ -14,6 +14,7 @@ RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 #set working directory to the app directory
 WORKDIR /ng-app
 
+#copy files now includes node modules
 COPY . .
 
 ARG env=prod
