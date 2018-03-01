@@ -20,7 +20,8 @@ COPY . .
 ARG env=prod
 
 ## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/ng build --prod --build-optimizer --environment $env
+#RUN $(npm bin)/ng build --prod --build-optimizer --environment $env
+RUN $(npm bin)/ng build --prod
 
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
