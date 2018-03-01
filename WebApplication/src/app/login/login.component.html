@@ -69,7 +69,15 @@
                           <input type="email" class="form-control input-lg" id="username">-->
 
                             <label for="username">User Name</label>
-                            <input size="160" type="text" class="form-control " name="username" required [(ngModel)]="userFirstName" />
+                            <input size="160" type="text" class="form-control " name="username" required [(ngModel)]="userFirstName" #name="ngModel"/>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                class="alert alert-danger">
+
+                                <div *ngIf="name.errors.required">
+                                    Name is required.
+                                </div>                               
+
+                            </div>
                             <!-- <span class="text-danger" ng-show="c.submitted && loginform.username.$error.required">Please enter a username.</span> -->
                         </div>
                         <!-- <div class="forgotLink"><a href="javascript:void(0)">I forgot</a></div> -->
@@ -77,7 +85,15 @@
                             <!--<label for="password">Password</label>
                           <input type="password" class="form-control input-lg" id="password">-->
                             <label for="password">Password</label>
-                            <input type="password" class="form-control input-lg" name="password" required [(ngModel)]="value.pwd" />
+                            <input type="password" class="form-control input-lg" name="password" required [(ngModel)]="value.pwd" #pwd="ngModel" />
+                            <div *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)"
+                            class="alert alert-danger">
+
+                            <div *ngIf="pwd.errors.required">
+                                Name is required.
+                            </div>                               
+
+                            </div>
                             <!-- <span class="text-danger" ng-show="c.submitted && loginform.password.$error.required">Please enter a password.</span> -->
                         </div>
                         <!--   <div class="forgotLink"><a href="javascript:void(0)">I forgot</a></div> -->
