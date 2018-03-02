@@ -1,5 +1,5 @@
-<!-- 
-<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script> -->
+
+<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script> 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,42 +27,41 @@
     <div class="col-sm-2 col-md-2 col-lg-offset-1 col-xs-offset-2 col-xs-8 col-sm-offset-0" id="logo-container"><img src="./assets/images/dot.jpeg" alt="DOT logo" class="img-responsive" id="agency-logo"><span class="hidden-md hidden-sm" id="agency-name">CA Department of Technology</span></div>
   <div class=" col-lg-8 col-md-10 col-sm-10" id="countyBanner"><img src="./assets/images/sac-banner.jpg" class="img-responsive hidden-xs" alt="Sacramento"></div>
 </section> -->
-<section class="container-fluid" id="content-container">
+<div class="page-title1" style="text-align:center">
+<h2 class="btn btn-primary btn-lg" style="font-size:23px" >Create New Article </h2>
+</div>
+<section class="container-fluid1" id="content-container">
         <div class="row">
                 <div>
-                  <!-- <div class="row"> -->
-    <!-- <div class="row"> -->
-          
-       
-      
-        <div class="col-md-12 col-lg-22">
+         <div class="col-md-12 col-lg-22">
         <div class="container-fluid"></div>
-        <div class="row">
+        <div class="row" >
           <div class="col-md-12">
-           <h3>Create New Article </h3>
+  
             <div class="row">
               <div class="col-md-12">
                   <form class="form-inline" id="advance-search-g1">
                         <div class="form-group">
                           <label>Article Title</label>
-                          <input id="articleTitle" name="articleTitle" type="text" class="form-control" />
+                          <input id="articleTitle" name="articleTitle" type="text" size="144px" class="form-control" />
                         </div>
+                        <div class="form-group">
+                          <label >Article Content</label>
+                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                          <textarea name="articleSummary" class="form-control" data-role="collapsible" style="width:75.4%" rows="4"></textarea>
+                          </div>
+                         
                         <div class="form-group">
                           <label>Article Summary</label>
                           <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                          <textarea name="articleSummary" class="form-control" data-role="collapsible"></textarea>
+                         
+                           <!-- <div [froalaEditor]></div> -->
+                             <textarea name="articleContent" class="form-control" data-role="collapsible"  style="width:75.4%" rows="8"></textarea> 
+                          
                         </div>
-                        <div class="form-group">
-                          <label>Article Description</label>
-                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                          <textarea name="articleContent" class="form-control" data-role="collapsible"></textarea>
-                          <!-- <script>
-                                CKEDITOR.replace( 'articleContent' );
-                         </script> -->
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group" style="width:60%; height:auto" >
                           <label>Category</label>
-                          <select class="form-control">
+                          <select class="form-control" style="font-size:17px">
                             <option>Manager Pro</option>
                             <option>Form Processor</option>
                             <option>Form Maker</option>
@@ -70,78 +69,70 @@
                             <option>Reference</option>                          
                           </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="width:60%; height:auto" >
                           <label>Sub-Category</label>
-                          <select class="form-control">
+                          <select class="form-control" style="font-size:17px">
                             <option></option>
                             <option></option>
                             <option></option>
                             <option></option>
                           </select>
                         </div>
-                        
-                        
-                  <div class="panel-group" id="accordion3">
+ 
+                  <div class="panel-group" id="accordion3" style="width:88.5%; height:auto"  >
                     <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
+                      <div class="panel-heading1" >
+                        <h4 class="panel-title"  style="font-size:23px;color:black" >
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#popularTags">
                            Tags
                           </a>
                         </h4>
                       </div>
                       <div class="form-group">
+                         &nbsp;&nbsp;
                           <label>Article Tags</label>
-                          <input id="articleTags" name="articleTags" type="text" class="form-control" />
-                          <span><button class="button" (click)="changeThis()" >Add</button></span>
-                          
-                        </div>
-                        <div>
-                        <!-- <script type="text/javascript">
-                                 function changeThis(){
-                                 var formInput = document.getElementById('articleTags').value;
-                                  
-                                 document.getElementById('newText').innerHTML = formInput;
-                                 document.getElementById(formInput).appendChild(newText);  
-        
-                          }
-                                  </script> -->
-                                 <!-- <a href="#" class="badge badge-secondary" id='newText'></a> -->
-                        <a href="#" class="badge badge-secondary" id='newText'></a>
+                          <input id="articleTags" name="articleTags" type="text" class="form-control"/>
+                          <button class="button" (click)="changeThis('')" >Add</button>
+                      </div>
+                        <div>&nbsp;&nbsp;
+                        <a href="#" class="badge badge-secondary" id='newText1'></a>
+                        <a href="#" class="badge badge-secondary" id='newText2'></a>
+                        <a href="#" class="badge badge-secondary" id='newText3'></a>
                         
-                        </div>
-                        
-                        
-                        
-                        
+                    </div>
+      
                       <div id="popularTags" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                        <h5>Choose from the most popular tags</h5>
-                          <a href="#" class="badge badge-secondary">Tag 1</a>
-                          <a href="#" class="badge badge-secondary">Tag 2</a>
-                          <a href="#" class="badge badge-secondary">Tag 3</a>
-                          <a href="#" class="badge badge-secondary">Tag 4</a>
-                          <a href="#" class="badge badge-secondary">Tag 5</a>
-                          <a href="#" class="badge badge-secondary">Tag 6</a>
-                          <a href="#" class="badge badge-secondary">Tag 7</a>
-                          <a href="#" class="badge badge-secondary">Tag 8</a>
-                          <a href="#" class="badge badge-secondary">Tag 9</a>
-                          <a href="#" class="badge badge-secondary">Tag 10</a>
+                        <div class="panel-body" style="font-size:20px">
+                        <h5 style="font-size:20px">Choose from the most popular tags</h5>
+                          <!-- <a class="badge badge-secondary" (click)="changeThis2()" id="myTagBtn" value="tag1">Tag 1</a>
+                          <input type="button" id="myBtn" onclick="myFunction()" value="Try it"> -->
+                          <input type="button"  id="myTagBtn2" (click)="changeThis2()" value="Tag1">
+                          <input type="button"  id="myTagBtn3" (click)="changeThis3()" value="Tag2">
+                          <input type="button"  id="myTagBtn4" (click)="changeThis4()" value="Tag3">
+                          <input type="button"  id="myTagBtn5" (click)="changeThis5()" value="Tag4">
+                          <input type="button"  id="myTagBtn6" (click)="changeThis6()" value="Tag5">
+                          <input type="button"  id="myTagBtn7" (click)="changeThis7()" value="Tag6">
+                          <input type="button"  id="myTagBtn8" (click)="changeThis8()" value="Tag7">
+                          <input type="button"  id="myTagBtn9" (click)="changeThis9()" value="Tag8">
+                          <input type="button"  id="myTagBtn10" (click)="changeThis10()" value="Tag9">
+                          <input type="button"  id="myTagBtn11" (click)="changeThis11()" value="Tag10">
+                       
                         </div>
                       </div>
                     </div>
                   </div>
-               
-              
-                                 
-                        <div class="form-group">
+                     <div class="form-group">
                           <label for="uploadFile">Upload File</label>
-                          <input id="uploadBtn" type="file" class="upload" />
-                      </div>
+                          <div id="igUpload1"></div>
+    <!-- <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> -->
+                          <!-- <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> -->
+                           <input id="uploadBtn0" type="file" class="upload" (Click)="test()" multiple/>
+                      </div> 
+ 
                       <div class="form-group" style="text-align:center">
                           <input type="submit" class="btn btn-primary btn-lg" value="Submit"/>
                           <input type="button" class="btn btn-primary btn-lg" value="Save"/>
-                      </div>
+                      </div> 
                   </form>
               </div>
              
