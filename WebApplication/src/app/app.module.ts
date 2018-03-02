@@ -9,6 +9,7 @@ import { GetArticleComponent } from './article/get-article/get-article.component
 import { CreateArticleComponent } from './article/create-article/create-article.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PopularTagsComponent } from './popular-tags/popular-tags.component';
+import { UnpulishedArticlesComponent } from './article/unpulished-articles/unpulished-articles.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
@@ -22,6 +23,9 @@ import { ViewAricleComponent } from './article/view-aricle/view-aricle.component
 import { DraftArticleComponent } from './article/draft-article/draft-article.component';
 import { MyArticlesComponent } from './article/my-articles/my-articles.component';
 import { PublishedComponent } from './article/published/published.component';
+
+//Import ngb-bootstrap
+
 
 //import {PopupModule} from 'ng2-opd-popup';
 
@@ -41,26 +45,26 @@ import { PublishedComponent } from './article/published/published.component';
     DraftArticleComponent,
     MyArticlesComponent,
     PublishedComponent,
+    UnpulishedArticlesComponent,
 
-    
- 
    //AngularFontAwesomeModule
   ],
   imports: [
-   
+
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     StorageServiceModule,
     HttpClientModule,
     FormsModule,
-    //PopupModule.forRoot()
- 
   ],
   providers: [
-    ArticleService 
+    ArticleService ,
     
+    //PopupModule.forRoot()
+
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

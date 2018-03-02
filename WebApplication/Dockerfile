@@ -1,5 +1,5 @@
 # Stage 0, based on Node.js, to build and compile Angular
-FROM node:8.6 as node
+FROM node:8.9 as node
 
 #copy both packages into the application
 COPY package.json package-lock.json ./
@@ -14,12 +14,14 @@ RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
 #set working directory to the app directory
 WORKDIR /ng-app
 
+#copy files now includes node modules
 COPY . .
 
 ARG env=prod
 
 ## Build the angular app in production mode and store the artifacts in dist folder
-RUN $(npm bin)/ng build --prod --build-optimizer --environment $env
+#RUN $(npm bin)/ng build --prod --build-optimizer --environment $env
+RUN $(npm --max_old_space_size=4096 bin)/ng build
 
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx

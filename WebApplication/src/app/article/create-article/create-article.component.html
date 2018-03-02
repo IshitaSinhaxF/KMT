@@ -1,25 +1,38 @@
 
 <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script> 
 <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        <a class="navbar-brand" href="#">xFusionTech Logo</a></div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="inverseNavbar1">
-		<ul class="nav navbar-nav navbar-right">
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">My Profile</a></li>
-              <li><a href="#">Change Password</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Log Out</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="inverseNavbar1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">My Profile</a>
+            </li>
+            <li>
+              <a href="#">Change Password</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">Log Out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
     <!-- /.container-fluid -->
   </nav>
@@ -34,6 +47,14 @@
         <div class="row">
                 <div>
          <div class="col-md-12 col-lg-22">
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<section class="container-fluid" id="content-container">
+  <div class="row">
+    <div>
+      <div class="col-md-12 col-lg-22">
         <div class="container-fluid"></div>
         <div class="row" >
           <div class="col-md-12">
@@ -80,11 +101,55 @@
                         </div>
  
                   <div class="panel-group" id="accordion3" style="width:88.5%; height:auto"  >
+            <h3>Create New Article </h3>
+            <div class="row">
+              <div class="col-md-12">
+                <!-- <form class="form-inline" id="advance-search-g1"> -->
+                  <div class="form-group">
+                    <label>Article Title</label>
+                    <input  name = "article" type="text" class="form-control" [(ngModel)]="article_title"/>
+                  </div>
+                  <div class="form-group">
+                    <label>Article Summary</label>
+                    <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                    <textarea name="articleSummary" class="form-control" data-role="collapsible" [(ngModel)]="article_content"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Article Description</label>
+                    <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                    <textarea name="articleContent" class="form-control" data-role="collapsible"  [(ngModel)]="article_desc"></textarea>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Category</label>
+                    <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
+                    <select class="form-control" [(ngModel)]="categoryName">
+                      <option value=""> Choose One </option>
+                      <option  *ngFor="let d of data">{{d.categoryName}}</option>
+                    </select>
+
+                    <!-- <label for="userrole">User Role:</label>
+                    <select class="form-control" id="userrole" name="UserRole" [(ngModel)]="roleName" app-Required="race">
+                        <option value="">-- Choose One --</option>
+                        <option [(ngValue)]="r.lkpRoleID" *ngFor="let r of rolesArray">{{r.roleName}}</option>
+
+                    </select> -->
+                  </div>
+                  <div class="form-group">
+                    <label>Sub-Category</label>
+                    <select class="form-control" [(ngModel)]="SubCategoryName">
+                      <option value=""> Choose One </option>
+                      <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
+                    </select>
+                  </div>
+ 
+
+                  <div class="panel-group" id="accordion3">
                     <div class="panel panel-default">
                       <div class="panel-heading1" >
                         <h4 class="panel-title"  style="font-size:23px;color:black" >
                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#popularTags">
-                           Tags
+                            Tags
                           </a>
                         </h4>
                       </div>
@@ -134,52 +199,80 @@
                           <input type="button" class="btn btn-primary btn-lg" value="Save"/>
                       </div> 
                   </form>
+
+
+
+                  <div class="form-group">
+                    <label for="uploadFile">Upload File</label>
+                    <input id="uploadBtn" type="file" class="upload" />
+                  </div>
+                  <div class="form-group" style="text-align:center">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Submit" (click)="insertArticleData()" />
+                    <input type="button" class="btn btn-primary btn-lg" value="Save" />
+                  </div>
+                <!-- </form> -->
               </div>
-             
+
             </div>
           </div>
-          
-              </div>
-           
-          <!-- </div> -->
+
+        </div>
+
         <!-- </div> -->
+        <!-- </div> -->
+      </div>
     </div>
-    </div>
-</div>
+  </div>
 </section>
 <footer class="container-fluid" id="footer">
-        <div class="row" id="footerNav">
-          <div class="col-sm-4 col-lg-3 col-lg-offset-1">
-              <h4>Request a Service</h4>
-            <ul>
-                <li><a href="#">Submit a Service Request</a></li>
-                <li><a href="#"> Report an Incident</a></li>
-                <li><a href="#">Technology Services</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-lg-4 col-lg-offset-1">
-              <h4>Information Security</h4>
-            <ul>
-                <li><a href="#">Security Awareness</a></li>
-                <li><a href="#"> Risk Management</a></li>
-                <li><a href="#"> Recovery Management</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-lg-3">
-              <h4>Support</h4>
-            <ul>
-                <li><a href="#">Find your Account Lead</a></li>
-                <li><a href="#">Online Contact Form</a></li>
-                <li><a href="#">Frequently Asked Questions</a></li>
-            </ul>
-          </div>
-        </div>
-        
-      </footer>
-      <div class="container-fluid" id="copyrightInfo">
-          <div class="row">
-          <div class="col-sm-12">Copyright &copy; 2018 xFusionTech Systems. All rights reserved.</div>
-        </div>
-      </div>
-     	
-  
+  <div class="row" id="footerNav">
+    <div class="col-sm-4 col-lg-3 col-lg-offset-1">
+      <h4>Request a Service</h4>
+      <ul>
+        <li>
+          <a href="#">Submit a Service Request</a>
+        </li>
+        <li>
+          <a href="#"> Report an Incident</a>
+        </li>
+        <li>
+          <a href="#">Technology Services</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-lg-4 col-lg-offset-1">
+      <h4>Information Security</h4>
+      <ul>
+        <li>
+          <a href="#">Security Awareness</a>
+        </li>
+        <li>
+          <a href="#"> Risk Management</a>
+        </li>
+        <li>
+          <a href="#"> Recovery Management</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4 col-lg-3">
+      <h4>Support</h4>
+      <ul>
+        <li>
+          <a href="#">Find your Account Lead</a>
+        </li>
+        <li>
+          <a href="#">Online Contact Form</a>
+        </li>
+        <li>
+          <a href="#">Frequently Asked Questions</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</footer>
+<div class="container-fluid" id="copyrightInfo">
+  <div class="row">
+    <div class="col-sm-12">Copyright &copy; 2018 xFusionTech Systems. All rights reserved.</div>
+  </div>
+</div>

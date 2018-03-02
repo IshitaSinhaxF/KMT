@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../article.service';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-create-article',
@@ -6,124 +8,108 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
- 
+  // name='Angular';
+  // value : number; result:number;
+  data: any = "";
+  subData: any = "";
+  result: any = "";
+  article_title: any = "";
+  article_desc: any = "";
+  article_path: any = "";
+  article_content: any = "";
+  categoryName: any = "";
+  SubCategoryName: any;
+  categoryID: any = "";
+  user_id: any = +this.articleService.getFromSessionStorage("UserId");
+  username: any = this.articleService.getFromSessionStorage("UserName");;
+  article_tag: any = "";
 
-  constructor() {
-   
-   }
+  constructor(private articleService: ArticleService) {
+
+  }
 
   ngOnInit() {
+    this.articleService.getParentCategory()
+      .subscribe((res: Response) => {
+        this.result = res;
+        this.data = this.result.entries.entry;
+        console.log("displaying parent category");
+        console.log(this.data);
+      })
+
+
+
+    this.articleService.getSubCategory()
+      .subscribe((res: Response) => {
+        this.result = res;
+        this.subData = this.result.entries.entry;
+        console.log("displaying sub category")
+        console.log(this.subData)
+      })
+
   }
-  public changeThis(TagName: string){
-    
-    var unit = (<HTMLInputElement>document.getElementById("articleTags")).value; 
-    
-    if(TagName != "")
-    unit = TagName;
-    
-    var oldtext1 = document.getElementById('newText1').innerHTML;
-    var oldtext2 = document.getElementById('newText2').innerHTML;
-    var oldtext3 = document.getElementById('newText3').innerHTML;
+  public changeThis() {
+    var unit = (<HTMLInputElement>document.getElementById("articleTags")).value;
+    document.getElementById('newText').innerHTML = unit;
+    console.log("working");
 
-    if(oldtext1 == "")
-    {document.getElementById('newText1').innerHTML = unit;}
-     else
-     {
-       if(oldtext2 == "")
-       {document.getElementById('newText1').innerHTML = unit;
-         document.getElementById('newText2').innerHTML = oldtext1;
-        }
-        else
-        {document.getElementById('newText1').innerHTML = unit;
-        document.getElementById('newText2').innerHTML = oldtext1;
-        document.getElementById('newText3').innerHTML = oldtext2;
-        }
+  }
+
+  insertArticleData() {
+    console.log(this.article_title)
+    this.categoryID = this.data.categoryID
+    // console.log(this.categoryID)
+    console.log(this.SubCategoryName)
+    // console.log(this.dataObj)
+    let subCategoryId = + this.SubCategoryName
+    let dataObj = {
+      "_postinsertarticle": {
+        "article_title": this.article_title,
+        "article_desc": this.article_desc,
+        "article_path": "test path",
+        "article_content": this.article_content,
+        "user_id": this.user_id,
+        "categoryid": subCategoryId,
+        "article_tag": "test tag",
+        "username": this.username
       }
-      console.log("working");
-     
-       }
-
-       public changeThis2(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn2")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        // if(TagName1 != "")
-        // x = TagName1;
-        // var oldtext1 = document.getElementById('newText1').innerHTML;
-        // var oldtext2 = document.getElementById('newText2').innerHTML;
-        // var oldtext3 = document.getElementById('newText3').innerHTML;
-        // if(oldtext1 == "")
-        
-        // {
-        //   document.getElementById('newText1').innerHTML = x;
-        // }
-        //  else
-        //  {
-        //    if(oldtext2 == "")
-        //    {document.getElementById('newText1').innerHTML = x;
-        //      document.getElementById('newText2').innerHTML = oldtext1;
-        //     }
-        //     else
-        //     {document.getElementById('newText1').innerHTML = x;
-        //     document.getElementById('newText2').innerHTML = oldtext1;
-        //     document.getElementById('newText3').innerHTML = oldtext2;
-        //     }
-        //   }
+    }
+    this.articleService.insertArticle(dataObj)
+      .subscribe((data) => {
+        console.log(data)
+      },
+        (err) => {
+          console.log("Error occured.")
         }
-       changeThis3(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn3")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
+      )
+  }
 
-       }
-       changeThis4(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn4")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis5(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn5")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis6(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn6")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis7(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn7")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis8(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn8")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis9(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn9")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis10(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn10")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
-       changeThis11(){
-        var x = (<HTMLInputElement>document.getElementById("myTagBtn11")).value; 
-        document.getElementById('newText1').innerHTML = x;
-        console.log("tag is working");
-
-       }
 }
+      //  changeThis8(){
+      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn8")).value; 
+      //   document.getElementById('newText1').innerHTML = x;
+      //   console.log("tag is working");
+
+      //  }
+      //  changeThis9(){
+      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn9")).value; 
+      //   document.getElementById('newText1').innerHTML = x;
+      //   console.log("tag is working");
+
+      //  }
+      //  changeThis10(){
+      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn10")).value; 
+      //   document.getElementById('newText1').innerHTML = x;
+      //   console.log("tag is working");
+
+      //  }
+      //  changeThis11(){
+      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn11")).value; 
+      //   document.getElementById('newText1').innerHTML = x;
+      //   console.log("tag is working");
+
+      //  }
+
 
 
 
