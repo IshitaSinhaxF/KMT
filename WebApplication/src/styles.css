@@ -263,13 +263,13 @@ margin-left: -5px;
 .form-control {
 	width: 100px;
 }
- .input-lg{
-	/* padding: 10px 200px */
+ /* .input-lg{
+	/* padding: 10px 200px 
 	
     padding-right: 160px;
   
     padding-left: 160px;
-} 
+}  */
 #first-level-tabs, #second-level-tabs {
 	margin-top: 1.5em;
 }
@@ -423,3 +423,4 @@ hr {
     border-style: inset;
     border-width: 1px;
 } 
+
