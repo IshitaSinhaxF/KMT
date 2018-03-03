@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-published',
   templateUrl: './published.component.html',
@@ -10,7 +10,9 @@ export class PublishedComponent implements OnInit {
   data: any = "";
   result: any;
   articleDetailsData: any = [];
-  constructor(private articleService: ArticleService) { }
+  id : number;
+
+  constructor(private articleService: ArticleService,private router: Router) { }
 
   ngOnInit() {
     this.articleService.getPublishArticleService()
@@ -23,16 +25,9 @@ export class PublishedComponent implements OnInit {
   }
 
   getArticleDetail(articleID) {
-     
-    this.articleService.getArticleDetailsById(articleID).subscribe((res: Response) => {
-      this.result = res;
-      // console.log(this.result.entries)
-
-      this.articleDetailsData = this.result.entries.entry;
-      console.log("article Detail")
-      console.log(this.articleDetailsData)
-    })
-    console.log('Article id: '+articleID);
+      this.id = articleID;
+      this.articleService.saveInSessionStorage("articleID", this.id);
+      this.router.navigate(['./viewArtcile']);
   }
 
 }

@@ -22,6 +22,8 @@ import { ViewAricleComponent } from './article/view-aricle/view-aricle.component
 import { DraftArticleComponent } from './article/draft-article/draft-article.component';
 import { MyArticlesComponent } from './article/my-articles/my-articles.component';
 import { PublishedComponent } from './article/published/published.component';
+import { HttpModule } from '@angular/http';
+import { ArticleFeedbackComponent } from './article/article-feedback/article-feedback.component';
 
 //import {PopupModule} from 'ng2-opd-popup';
 
@@ -41,6 +43,7 @@ import { PublishedComponent } from './article/published/published.component';
     DraftArticleComponent,
     MyArticlesComponent,
     PublishedComponent,
+    ArticleFeedbackComponent,
 
     
  
@@ -53,6 +56,7 @@ import { PublishedComponent } from './article/published/published.component';
     RouterModule,
     StorageServiceModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
     //PopupModule.forRoot()
  

@@ -6,13 +6,24 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
 import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
+import {ArticleFeedbackComponent} from './article/article-feedback/article-feedback.component';
 const ROUTES: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'home', component: HomeComponent,
   },
 
-  { path: 'viewArtcile', component: ViewAricleComponent },
+  { path: 'viewArtcile',
+   component: ViewAricleComponent ,
+   children:[
+     {
+       path:'articleFeedback',
+       component: ArticleFeedbackComponent
+     }
+   ]
+
+
+},
 
 ]
 @NgModule({
