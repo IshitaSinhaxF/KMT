@@ -53,8 +53,13 @@ color: #fcfffd;
     background-color: red !important;
 }
 .nav-tabs > li > a:hover {
-    background-color:transparent;
+	background-color:transparent;
+
 }
+
+/* .nav > li > a {
+	padding: 10px 0px;
+} */
 
 .list-inline-items {
 padding:0px; color:#fffdfe;
@@ -258,6 +263,13 @@ margin-left: -5px;
 .form-control {
 	width: 100px;
 }
+ /* .input-lg{
+	/* padding: 10px 200px 
+	
+    padding-right: 160px;
+  
+    padding-left: 160px;
+}  */
 #first-level-tabs, #second-level-tabs {
 	margin-top: 1.5em;
 }
@@ -401,3 +413,14 @@ feedback-container-fluid{
 	 font: 50px;
   }
 }
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
+

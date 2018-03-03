@@ -1,6 +1,7 @@
 <style type="text/css">
     #watermark p {
-        color: #FF0000;
+        /* color: #FF0000; */
+        color: #777;
         font-size: 65pt;
         -webkit-transform: rotate(-35deg);
         -moz-transform: rotate(-35deg);
@@ -12,6 +13,7 @@
         left: 900px;
         down: -200px;
         display: inline;
+        /* opacity: 1; */
     }
 </style>
 
@@ -45,8 +47,8 @@
             <div class="row">
                 <div class="col-sm-offset-2 col-sm-8">
                     <h2>Login</h2>
-                    <form name="loginform" ng-submit="c.authenticate()" novalidate autocomplete="off">
-                        <div class="form-group">
+                    <form name="loginform" novalidate autocomplete="off">
+                        <!-- <div class="form-group">
                             <label for="userrole">User Role:</label>
                             <select class="form-control" id="userrole" name="UserRole" [(ngModel)]="roleName" app-Required="race">
                                 <option value="">-- Choose One --</option>
@@ -54,32 +56,19 @@
 
                             </select>
 
-                        </div>
-                        <!-- <mat-form-field>
-                            <mat-select>
-                                <mat-option *ngFor="let r of data" [(ngValue)]="r.lkpRoleID">
-                                       {{ r.lkpRoleID}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field> -->
+                        </div> -->
                         <div class="form-group">
                             <!--<label for="username">User Name</label>
                           <input type="email" class="form-control input-lg" id="username">-->
 
                             <label for="username">User Name</label>
-                            <input type="text" class="form-control input-lg" name="username" required [(ngModel)]="userFirstName" />
-                            <!-- <span class="text-danger" ng-show="c.submitted && loginform.username.$error.required">Please enter a username.</span> -->
+                            <input size="160" type="text" class="form-control " name="username" required [(ngModel)]="userFirstName" />
                         </div>
-                        <!-- <div class="forgotLink"><a href="javascript:void(0)">I forgot</a></div> -->
                         <div class="form-group">
-                            <!--<label for="password">Password</label>
-                          <input type="password" class="form-control input-lg" id="password">-->
                             <label for="password">Password</label>
                             <input type="password" class="form-control input-lg" name="password" required [(ngModel)]="value.pwd" />
-                            <!-- <span class="text-danger" ng-show="c.submitted && loginform.password.$error.required">Please enter a password.</span> -->
                         </div>
-                        <!--   <div class="forgotLink"><a href="javascript:void(0)">I forgot</a></div> -->
-                        <div class="form-group" style="text-align:center">
+                        <div class="form-group" style="text-align:left">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="rememberme" /> Remember Me
@@ -89,7 +78,7 @@
                         <!-- <div class="form-group text-warning" >
                           Incorrect username or password.
                       </div> -->
-                        <div class="form-group" style="text-align:center">
+                        <div class="form-group" style="text-align:left">
                             <!-- <input type="submit" class="btn btn-primary btn-lg" value="Log In" onLoginClick()/> -->
                             <button class="btn btn-primary" (click)="onLoginClick()">
                                 Log In
@@ -111,33 +100,32 @@
                 <div class="row">
                     <div class="col-sm-offset-2 col-sm-8">
                         <h2>Sign Up </h2>
-                        <form name="registerform" ng-submit="c.register()" novalidate autocomplete="off">
+                        <form name="registerform" novalidate autocomplete="off">
                             <div class="form-group">
                                 <label for="username">First Name</label>
-                                <input type="text" class="form-control input-lg" name="firstname" ng-model="c.registerObj.firstname" required />
-                                <span class="text-danger" ng-show="c.rsubmitted && registerform.firstname.$error.required">Please enter a firstname.</span>
+                                <input type="text" class="form-control input-lg" name="firstname" required />
+                                <!-- <span class="text-danger" ng-show="c.rsubmitted && registerform.firstname.$error.required">Please enter a firstname.</span> -->
                             </div>
                             <div class="form-group">
                                 <label for="password">Last Name</label>
 
-                                <input type="text" class="form-control input-lg" name="lastname" ng-model="c.registerObj.lastname" required />
-                                <span class="text-danger" ng-show="c.rsubmitted && registerform.lastname.$error.required">Please enter a lastname.</span>
+                                <input type="text" class="form-control input-lg" name="lastname" required />
+                                <!-- <span class="text-danger" ng-show="c.rsubmitted && registerform.lastname.$error.required">Please enter a lastname.</span> -->
 
                             </div>
 
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-
-
-                                <input type="email" class="form-control input-lg" name="pemail" ng-model="c.registerObj.email" ng-blur="c.checkEmail()" required
-                                    ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+                                <input type="email" class="form-control input-lg" name="pemail" required />
+                                <!-- 
+                                
                                 <span class="text-danger" ng-show="c.rsubmitted && registerform.$invalid && c.emailRequired">Please enter a valid email.</span>
-                                <span class="text-danger" ng-show="c.emailTaken">Email address already registered.</span>
+                                <span class="text-danger" ng-show="c.emailTaken">Email address already registered.</span> -->
 
                             </div>
                             <div class="form-group" style="text-align:center">
-                                <input type="submit" class="btn btn-primary btn-lg" ng-disabled="!c.codeVerified || c.emailTaken" value="Sign Up" />
+                                <input type="submit" class="btn btn-primary btn-lg" value="Sign Up" />
                             </div>
                         </form>
                     </div>

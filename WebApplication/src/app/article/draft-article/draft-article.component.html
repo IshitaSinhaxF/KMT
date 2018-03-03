@@ -1,8 +1,4 @@
-<div id="tabContent2" class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2">
-
-
-    <table class="table table-condensed" id="tbl-published">
+<table class="table table-condensed" id="tbl-published">
       <thead>
         <tr>
           <th>Title</th>
@@ -16,7 +12,7 @@
         <!-- <div *ngIf="data.StateName == 'PUBLISHED'"> -->
         <tr *ngFor="let d of data">
 
-          <td>{{d.articleDesc}}</td>
+          <td>{{d.articleTitle}}</td>
           <td>{{d.dateCreated}}</td>
           <td></td>
           <!-- <pre>{{d.rating}}</pre> -->

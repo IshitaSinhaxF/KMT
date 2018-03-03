@@ -1,1 +1,275 @@
+<script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="inverseNavbar1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">My Profile</a>
+            </li>
+            <li>
+              <a href="#">Change Password</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">Log Out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /.container-fluid -->
 
+<!-- <section class="row" id="top-banner">
+    <div class="col-sm-2 col-md-2 col-lg-offset-1 col-xs-offset-2 col-xs-8 col-sm-offset-0" id="logo-container"><img src="./assets/images/dot.jpeg" alt="DOT logo" class="img-responsive" id="agency-logo"><span class="hidden-md hidden-sm" id="agency-name">CA Department of Technology</span></div>
+  <div class=" col-lg-8 col-md-10 col-sm-10" id="countyBanner"><img src="./assets/images/sac-banner.jpg" class="img-responsive hidden-xs" alt="Sacramento"></div>
+</section> -->
+<div class="page-title1" style="text-align:center">
+  <h2 class="btn btn-primary btn-lg" style="font-size:23px">Create New Article </h2>
+</div>
+<section class="container-fluid1" id="content-container">
+  <div class="row">
+    <div>
+      <div class="col-md-12 col-lg-22">
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+      <section class="container-fluid" id="content-container">
+        <div class="row">
+            <div class="col-md-12 col-lg-22">
+              <div class="container-fluid"></div>
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form class="form-inline" id="advance-search-g1">
+                        <div class="form-group">
+                          <label>Article Title</label>
+                          <input id="articleTitle" name="articleTitle" type="text" size="144px" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                          <label>Article Content</label>
+                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                          <textarea name="articleSummary" class="form-control" data-role="collapsible" style="width:75.4%" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label>Article Summary</label>
+                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+
+                          <!-- <div [froalaEditor]></div> -->
+                          <textarea name="articleContent" class="form-control" data-role="collapsible" style="width:75.4%" rows="8"></textarea>
+
+                        </div>
+                        <div class="form-group" style="width:60%; height:auto">
+                          <label>Category</label>
+                          <select class="form-control" style="font-size:17px">
+                            <option>Manager Pro</option>
+                            <option>Form Processor</option>
+                            <option>Form Maker</option>
+                            <option>Web Calendar</option>
+                            <option>Reference</option>
+                          </select>
+                        </div>
+                        <div class="form-group" style="width:60%; height:auto">
+                          <label>Sub-Category</label>
+                          <select class="form-control" style="font-size:17px">
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                          </select>
+                        </div>
+
+                        <div class="panel-group" id="accordion3" style="width:88.5%; height:auto">
+                          <h3>Create New Article </h3>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <!-- <form class="form-inline" id="advance-search-g1"> -->
+                              <div class="form-group">
+                                <label>Article Title</label>
+                                <input name="article" type="text" class="form-control" [(ngModel)]="article_title" />
+                              </div>
+                              <div class="form-group">
+                                <label>Article Summary</label>
+                                <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                                <textarea name="articleSummary" class="form-control" data-role="collapsible" [(ngModel)]="article_content"></textarea>
+                              </div>
+                              <div class="form-group">
+                                <label>Article Description</label>
+                                <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                                <textarea name="articleContent" class="form-control" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+
+                              </div>
+                              <div class="form-group">
+                                <label>Category</label>
+                                <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
+                                <select class="form-control" [(ngModel)]="categoryName">
+                                  <option value=""> Choose One </option>
+                                  <option *ngFor="let d of data">{{d.categoryName}}</option>
+                                </select>
+
+                                <!-- <label for="userrole">User Role:</label>
+                    <select class="form-control" id="userrole" name="UserRole" [(ngModel)]="roleName" app-Required="race">
+                        <option value="">-- Choose One --</option>
+                        <option [(ngValue)]="r.lkpRoleID" *ngFor="let r of rolesArray">{{r.roleName}}</option>
+
+                    </select> -->
+                              </div>
+                              <div class="form-group">
+                                <label>Sub-Category</label>
+                                <select class="form-control" [(ngModel)]="SubCategoryName">
+                                  <option value=""> Choose One </option>
+                                  <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
+                                </select>
+                              </div>
+
+
+                              <div class="panel-group" id="accordion3">
+                                <div class="panel panel-default">
+                                  <div class="panel-heading1">
+                                    <h4 class="panel-title" style="font-size:23px;color:black">
+                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#popularTags">
+                                        Tags
+                                      </a>
+                                    </h4>
+                                  </div>
+                                  <div class="form-group">
+                                    &nbsp;&nbsp;
+                                    <label>Article Tags</label>
+                                    <input id="articleTags" name="articleTags" type="text" class="form-control" />
+                                    <button class="button" (click)="changeThis('')">Add</button>
+                                  </div>
+                                  <div>&nbsp;&nbsp;
+                                    <a href="#" class="badge badge-secondary" id='newText1'></a>
+                                    <a href="#" class="badge badge-secondary" id='newText2'></a>
+                                    <a href="#" class="badge badge-secondary" id='newText3'></a>
+
+                                  </div>
+
+                                  <div id="popularTags" class="panel-collapse collapse in">
+                                    <div class="panel-body" style="font-size:20px">
+                                      <h5 style="font-size:20px">Choose from the most popular tags</h5>
+                                      <!-- <a class="badge badge-secondary" (click)="changeThis2()" id="myTagBtn" value="tag1">Tag 1</a>
+                          <input type="button" id="myBtn" onclick="myFunction()" value="Try it"> -->
+                                      <input type="button" id="myTagBtn2" (click)="changeThis2()" value="Tag1">
+                                      <input type="button" id="myTagBtn3" (click)="changeThis3()" value="Tag2">
+                                      <input type="button" id="myTagBtn4" (click)="changeThis4()" value="Tag3">
+                                      <input type="button" id="myTagBtn5" (click)="changeThis5()" value="Tag4">
+                                      <input type="button" id="myTagBtn6" (click)="changeThis6()" value="Tag5">
+                                      <input type="button" id="myTagBtn7" (click)="changeThis7()" value="Tag6">
+                                      <input type="button" id="myTagBtn8" (click)="changeThis8()" value="Tag7">
+                                      <input type="button" id="myTagBtn9" (click)="changeThis9()" value="Tag8">
+                                      <input type="button" id="myTagBtn10" (click)="changeThis10()" value="Tag9">
+                                      <input type="button" id="myTagBtn11" (click)="changeThis11()" value="Tag10">
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="uploadFile">Upload File</label>
+                                <div id="igUpload1"></div>
+                                <!-- <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> -->
+                                <!-- <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> -->
+                                <input id="uploadBtn0" type="file" class="upload" (Click)="test()" multiple/>
+                              </div>
+<!-- 
+                              <div class="form-group" style="text-align:center">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+                                <input type="button" class="btn btn-primary btn-lg" value="Save" />
+                              </div> -->
+
+                              <!-- <div class="form-group">
+                                <label for="uploadFile">Upload File</label>
+                                <input id="uploadBtn" type="file" class="upload" />
+                              </div> -->
+                              <div class="form-group" style="text-align:center">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Submit" (click)="insertArticleData()" />
+                                <input type="button" class="btn btn-primary btn-lg" value="Save" />
+                              </div>
+                              <!-- </form> -->
+                            </div>
+
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </section>
+      <footer class="container-fluid" id="footer">
+        <div class="row" id="footerNav">
+          <div class="col-sm-4 col-lg-3 col-lg-offset-1">
+            <h4>Request a Service</h4>
+            <ul>
+              <li>
+                <a href="#">Submit a Service Request</a>
+              </li>
+              <li>
+                <a href="#"> Report an Incident</a>
+              </li>
+              <li>
+                <a href="#">Technology Services</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-lg-4 col-lg-offset-1">
+            <h4>Information Security</h4>
+            <ul>
+              <li>
+                <a href="#">Security Awareness</a>
+              </li>
+              <li>
+                <a href="#"> Risk Management</a>
+              </li>
+              <li>
+                <a href="#"> Recovery Management</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 col-lg-3">
+            <h4>Support</h4>
+            <ul>
+              <li>
+                <a href="#">Find your Account Lead</a>
+              </li>
+              <li>
+                <a href="#">Online Contact Form</a>
+              </li>
+              <li>
+                <a href="#">Frequently Asked Questions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </footer>
+      <div class="container-fluid" id="copyrightInfo">
+        <div class="row">
+          <div class="col-sm-12">Copyright &copy; 2018 xFusionTech Systems. All rights reserved.</div>
+        </div>
+      </div>

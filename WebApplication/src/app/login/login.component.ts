@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleService } from '../article.service';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { forEach } from '@angular/router/src/utils/collection';
 
 const headers = new HttpHeaders()
   .set("Content-Type", "application/json");
@@ -32,24 +33,25 @@ export class LoginComponent implements OnInit {
     "roleName": this.data.roleName
   }];
   userFirstName: any = "";
-
-
+  roleData : any = [];
 
   onLoginClick() {
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
       if (el.userFirstName
-        == this.userFirstName)
+        == this.userFirstName){
+          this.roleData.push(el.lkpRoleID)
         return true;
-
-
+      }
     });
-    this.articleService.saveInSessionStorage("RoleID", this.roleName);
+  
+    this.articleService.saveInSessionStorage("Roles", userDetails);
     this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
     this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName + ' '+ userDetails[0].userLastName);
+   
     //this.articleService.saveInSessionStorage(this.roles.lkpRoleID, this.roles.roleName);
     //console.log("data: " + this.articleService.data.toString())
-    console.log( userDetails)
+    // console.log( userDetails)
    // console.log("data: " + this.data)
   }
   ngOnInit() {
@@ -72,8 +74,8 @@ export class LoginComponent implements OnInit {
       });
 
 
-      console.log(this.data)
-      console.log(this.rolesArray)
+      // console.log(this.data)
+      // console.log(this.rolesArray)
     });
   }
 
