@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pending-for-approval',
@@ -12,7 +13,8 @@ export class PendingForApprovalComponent implements OnInit {
   result: any ;
   userID: any = this.articleService.getFromSessionStorage("UserId"); 
   articleDetailsData: any = [];
-  constructor(private articleService : ArticleService) { }
+  id:number;
+  constructor(private articleService : ArticleService, private router : Router) { }
   
   ngOnInit() {
 
@@ -25,17 +27,12 @@ export class PendingForApprovalComponent implements OnInit {
       })
   }
 
-  getArticleDetail(articleID) {
-     
-    this.articleService.getArticleDetailsById(articleID).subscribe((res: Response) => {
-      this.result = res;
-      // console.log(this.result.entries)
+   getArticleDetail(articleID) {
+      this.id = articleID;
+      this.articleService.saveInSessionStorage("articleID", this.id);
+      this.router.navigate(['./viewArticleInReview']);
+  }
 
-      this.articleDetailsData = this.result.entries.entry;
-      console.log("article Detail")
-      console.log(this.articleDetailsData)
-    })
-
-    console.log('Article id: '+articleID);
+    
   }
 }

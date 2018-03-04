@@ -51,12 +51,14 @@ export class ArticleFeedbackComponent implements OnInit {
         }
       }
 
-    this.insertStatus = this.articleService.insertFeedbackPost(data);
-    console.log(this.insertStatus);
-    if (this.insertStatus === "succeed") {
-      console.log('calling getArticleFeedback() after insert')
-      this.getArticleFeedback();
-    }
+    //this.insertStatus = 
+    this.articleService.insertFeedbackPost(data);
+
+   // console.log(this.insertStatus);
+   // if (this.insertStatus === "succeed") {
+   //   console.log('calling getArticleFeedback() after insert')
+   //   this.getArticleFeedback();
+   // }
   }
 
 }

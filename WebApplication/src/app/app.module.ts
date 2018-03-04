@@ -25,6 +25,8 @@ import { MyArticlesComponent } from './article/my-articles/my-articles.component
 import { PublishedComponent } from './article/published/published.component';
 import { HttpModule } from '@angular/http';
 import { ArticleFeedbackComponent } from './article/article-feedback/article-feedback.component';
+import { ViewArticleInReviewComponent } from './article/view-article-in-review/view-article-in-review.component';
+import { ViewArticleDraftComponent } from './article/view-article-draft/view-article-draft.component';
 
 //Import ngb-bootstrap
 
@@ -49,6 +51,8 @@ import { ArticleFeedbackComponent } from './article/article-feedback/article-fee
     PublishedComponent,
     ArticleFeedbackComponent,
     UnpulishedArticlesComponent,
+    ViewArticleInReviewComponent,
+    ViewArticleDraftComponent,
 
    //AngularFontAwesomeModule
   ],

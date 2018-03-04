@@ -15,11 +15,9 @@ export class ArticleService {
 
   data: any = "";
   result: any;
+  Status: any;
 
-
-  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private http: HttpClient) {
-
-  }
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
   // saveInSessionStorage('r-'+this.userid,)
 
   saveInSessionStorage(key, val) {
@@ -87,43 +85,31 @@ export class ArticleService {
     return this.result = this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID="+ articleId +""  )
   }
 
-  insertFeedbackPost(articleFeedback):string {
+  insertArticle(dataObj){
+   return this.http.post("http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle", dataObj,{ headers } )
+  }
+
+  insertFeedbackPost(articleFeedback) {
      // this.insertStatus = 'Success'; 
+     console.log('in insert loop')
       const req = this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback,{headers})
       .subscribe(
-        (res:Response) => {
-          //console.log('entered the loop');
-          console.log(res);
-          this.insertStatus = 'succeed';
-
-               
+        response => {
+          //console.log('response after insert:');
+          //console.log(response);
+          //this.Status = 'succeed';              
         },
         err => {
-          this.insertStatus = 'failed';
+          //this.Status = 'failed';
         }
       );
-      return this.insertStatus;
+      //return this.Status;
       //console.log(req)
      
   }
 
-  // insertFeedbackPost(articleFeedback) {
-      
-  //     const req = this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback,{headers})
-  //     .toPromise(
-  //       ).then() ;
-  //     return this.result;
-  //     //console.log(req)
-     
-  // }
+ 
 
-
-  
-
-  /* POST APIS*/ 
-
-  insertArticle(dataObj){
-   return this.http.post("http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle", dataObj,{ headers } )
-  }
+ 
 
 }
