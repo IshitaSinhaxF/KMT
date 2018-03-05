@@ -2,14 +2,14 @@
 <button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button>
 <div role="tabpanel" id="second-level-tabs">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
+    <li role="presentation" [ngClass]="{'active': id === 1 }" id="1" (click)="addClass(id=1)">
       <a (click) = "displayPublishedDiv()">Published</a>
     </li>
-    <li role="presentation">
-      <a (click) = "displayPendingApprovDiv()">Pending for Approval</a>
+    <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
+      <a (click) = "displayPendingApprovDiv()" >Pending for Approval</a>
     </li>
-    <li role="presentation">
-      <a (click) = "displayDraftDiv()">Draft
+    <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
+      <a (click) = "displayDraftDiv()" >Draft
         <span class="badge">2</span>
       </a>
     </li>      

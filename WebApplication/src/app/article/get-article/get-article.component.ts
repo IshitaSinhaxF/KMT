@@ -14,6 +14,7 @@ export class GetArticleComponent implements OnInit {
   result: any;
   articleDetailsData: any = [];
   setDiv:any;
+  id:any;
 
   constructor(private articleService: ArticleService, private http: HttpClient,private router:Router) { }
 
@@ -23,6 +24,7 @@ export class GetArticleComponent implements OnInit {
         this.result = res;
         this.data = this.result.entries.entry;
         this.setDiv = 'Published';
+        this.id = 1;
         console.log(this.data)
       })
   }
@@ -56,6 +58,11 @@ this.setDiv = 'Draft';
 
     console.log(articleID);
   }
+
+   addClass(id: any) {
+    this.id = id;
+  }
+
   onCancelRequest(){
     this.router.navigate(['./home']);
   }
