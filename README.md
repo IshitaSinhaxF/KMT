@@ -14,7 +14,7 @@ During the course of our project, we have heavily relied on collaborative develo
 
 Our agile process followed various iterations of the stages discussed below:
 
-**Backlog Release** – The team reported the backlogs from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+**Backlog Release** – The team reported the [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
 
 **Sprint Planning** – The team then selected a sprint goal and began decomposing the product backlog items into work tasks and estimating these in hours. We then outlined the tasks that needed to be completed in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) This was reviewed by the Product Manager and the Agile Coach.
 
