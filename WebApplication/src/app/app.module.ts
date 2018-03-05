@@ -25,6 +25,7 @@ import { HttpModule } from '@angular/http';
 import { ArticleFeedbackComponent } from './article/article-feedback/article-feedback.component';
 import { ViewArticleInReviewComponent } from './article/view-article-in-review/view-article-in-review.component';
 import { ViewArticleDraftComponent } from './article/view-article-draft/view-article-draft.component';
+import { InReviewComponent } from './article/in-review/in-review.component';
 
 //Import ngb-bootstrap
 
@@ -49,6 +50,7 @@ import { ViewArticleDraftComponent } from './article/view-article-draft/view-art
     ArticleFeedbackComponent,
     ViewArticleInReviewComponent,
     ViewArticleDraftComponent,
+    InReviewComponent,
 
    //AngularFontAwesomeModule
   ],
