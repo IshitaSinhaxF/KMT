@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-create-article',
@@ -8,8 +12,7 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-  // name='Angular';
-  // value : number; result:number;
+  
   data: any = "";
   subData: any = "";
   result: any = "";
@@ -23,8 +26,9 @@ export class CreateArticleComponent implements OnInit {
   user_id: any = +this.articleService.getFromSessionStorage("UserId");
   username: any = this.articleService.getFromSessionStorage("UserName");;
   article_tag: any = "";
+  articleDetailsData: any = [];
 
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService, private router: Router) {
 
   }
 
@@ -37,9 +41,7 @@ export class CreateArticleComponent implements OnInit {
         console.log(this.data);
       })
 
-
-
-    this.articleService.getSubCategory()
+      this.articleService.getSubCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.subData = this.result.entries.entry;
@@ -47,14 +49,10 @@ export class CreateArticleComponent implements OnInit {
         console.log(this.subData)
       })
 
-  }
-  public changeThis() {
-    var unit = (<HTMLInputElement>document.getElementById("articleTags")).value;
-    document.getElementById('newText').innerHTML = unit;
-    console.log("working");
+      
 
+      
   }
-
   insertArticleData() {
     console.log(this.article_title)
     this.categoryID = this.data.categoryID
@@ -84,34 +82,47 @@ export class CreateArticleComponent implements OnInit {
       )
   }
 
-}
-      //  changeThis8(){
-      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn8")).value; 
-      //   document.getElementById('newText1').innerHTML = x;
-      //   console.log("tag is working");
+  public createArticleInputTag(TagName: string){
+    
+    var unit = (<HTMLInputElement>document.getElementById("articleInputTags")).value; 
+    
+    if(TagName != "")
+    unit = TagName;
+    
+    var input1 = document.getElementById('inputTag1').innerHTML;
+    var input2 = document.getElementById('inputTag2').innerHTML;
+    var input3 = document.getElementById('inputTag3').innerHTML;
 
-      //  }
-      //  changeThis9(){
-      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn9")).value; 
-      //   document.getElementById('newText1').innerHTML = x;
-      //   console.log("tag is working");
+    if(input1 == "")
+    {document.getElementById('inputTag1').innerHTML = unit;}
+     else
+     {
+       if(input2 == "")
+       {document.getElementById('inputTag1').innerHTML = unit;
+         document.getElementById('inputTag2').innerHTML = input1;
+        }
+        else
+        {document.getElementById('inputTag1').innerHTML = unit;
+        document.getElementById('inputTag2').innerHTML = input1;
+        document.getElementById('inputTag3').innerHTML = input2;
+        }
+      }
+      console.log("working");
+     
+       }
 
-      //  }
-      //  changeThis10(){
-      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn10")).value; 
-      //   document.getElementById('newText1').innerHTML = x;
-      //   console.log("tag is working");
+       onbackToHome() {
+        this.router.navigate(['./home']);
 
-      //  }
-      //  changeThis11(){
-      //   var x = (<HTMLInputElement>document.getElementById("myTagBtn11")).value; 
-      //   document.getElementById('newText1').innerHTML = x;
-      //   console.log("tag is working");
-
-      //  }
+      }
+    }
 
 
 
 
 
 
+
+
+
+     

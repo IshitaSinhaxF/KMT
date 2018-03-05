@@ -41,9 +41,9 @@
     <div class="col-sm-2 col-md-2 col-lg-offset-1 col-xs-offset-2 col-xs-8 col-sm-offset-0" id="logo-container"><img src="./assets/images/dot.jpeg" alt="DOT logo" class="img-responsive" id="agency-logo"><span class="hidden-md hidden-sm" id="agency-name">CA Department of Technology</span></div>
   <div class=" col-lg-8 col-md-10 col-sm-10" id="countyBanner"><img src="./assets/images/sac-banner.jpg" class="img-responsive hidden-xs" alt="Sacramento"></div>
 </section> -->
-<div class="page-title1" style="text-align:center">
+<!-- <div class="page-title1" style="text-align:center">
   <h2 class="btn btn-primary btn-lg" style="font-size:23px">Create New Article </h2>
-</div>
+</div> -->
 <section class="container-fluid1" id="content-container">
   <div class="row">
     <div>
@@ -53,7 +53,7 @@
       <!-- /.container-fluid -->
       <section class="container-fluid" id="content-container">
         <div class="row">
-            <div class="col-md-12 col-lg-22">
+            <div class="col-md-12 col-lg-12">
               <div class="container-fluid"></div>
               <div class="row">
                 <div class="col-md-12">
@@ -61,25 +61,25 @@
                   <div class="row">
                     <div class="col-md-12">
                       <form class="form-inline" id="advance-search-g1">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                           <label>Article Title</label>
-                          <input id="articleTitle" name="articleTitle" type="text" size="144px" class="form-control" />
-                        </div>
-                        <div class="form-group">
+                          <input id="articleTitle" name="articleTitle" type="text" class="form-control" />
+                        </div> -->
+                         <!-- <div class="form-group">
                           <label>Article Content</label>
-                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                          <input id="articleContent" name="articleContent" type="textarea" class="form-control" />
                           <textarea name="articleSummary" class="form-control" data-role="collapsible" style="width:75.4%" rows="4"></textarea>
-                        </div>
+                        </div>  -->
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                           <label>Article Summary</label>
-                          <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                          <input id="articleContent" name="articleContent" type="textarea" class="form-control" />
 
-                          <!-- <div [froalaEditor]></div> -->
+                        <div [froalaEditor]></div> 
                           <textarea name="articleContent" class="form-control" data-role="collapsible" style="width:75.4%" rows="8"></textarea>
 
-                        </div>
-                        <div class="form-group" style="width:60%; height:auto">
+                        </div>  -->
+                        <!-- <div class="form-group" style="width:60%; height:auto">
                           <label>Category</label>
                           <select class="form-control" style="font-size:17px">
                             <option>Manager Pro</option>
@@ -88,8 +88,8 @@
                             <option>Web Calendar</option>
                             <option>Reference</option>
                           </select>
-                        </div>
-                        <div class="form-group" style="width:60%; height:auto">
+                        </div> -->
+                        <!-- <div class="form-group" style="width:60%; height:auto">
                           <label>Sub-Category</label>
                           <select class="form-control" style="font-size:17px">
                             <option></option>
@@ -97,9 +97,9 @@
                             <option></option>
                             <option></option>
                           </select>
-                        </div>
+                        </div> -->
 
-                        <div class="panel-group" id="accordion3" style="width:88.5%; height:auto">
+                        <div class="panel-group" id="accordion3" >
                           <h3>Create New Article </h3>
                           <div class="row">
                             <div class="col-md-12">
@@ -109,17 +109,17 @@
                                 <input name="article" type="text" class="form-control" [(ngModel)]="article_title" />
                               </div>
                               <div class="form-group">
+                                <label>Article Content</label>
+                                <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                                <textarea name="articleSummary" class="form-control" rows="4" data-role="collapsible" [(ngModel)]="article_content"></textarea>
+                              </div>
+                              <div class="form-group">
                                 <label>Article Summary</label>
                                 <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                                <textarea name="articleSummary" class="form-control" data-role="collapsible" [(ngModel)]="article_content"></textarea>
-                              </div>
-                              <div class="form-group">
-                                <label>Article Description</label>
-                                <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                                <textarea name="articleContent" class="form-control" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+                                <textarea name="articleContent" class="form-control" rows="7" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
 
                               </div>
-                              <div class="form-group">
+                              <div class="form-group" id="categoryclassid">
                                 <label>Category</label>
                                 <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
                                 <select class="form-control" [(ngModel)]="categoryName">
@@ -134,7 +134,7 @@
 
                     </select> -->
                               </div>
-                              <div class="form-group">
+                              <div class="form-group" id="categoryclassid">
                                 <label>Sub-Category</label>
                                 <select class="form-control" [(ngModel)]="SubCategoryName">
                                   <option value=""> Choose One </option>
@@ -143,48 +143,61 @@
                               </div>
 
 
-                              <div class="panel-group" id="accordion3">
-                                <div class="panel panel-default">
-                                  <div class="panel-heading1">
-                                    <h4 class="panel-title" style="font-size:23px;color:black">
-                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#popularTags">
+                              <!-- <div class="panel-group" id="accordion3">
+                                <div class="panel panel-default"> -->
+                                   <!-- <div class="panel-heading1">
+                                    <h4 class="panel-title1">
+                                      <a class="accordion-toggle" data-toggle="collapse" id="articletagpanel"data-parent="#accordion3" href="#popularTags">
                                         Tags
                                       </a>
                                     </h4>
-                                  </div>
+                                  </div>  -->
                                   <div class="form-group">
+                                    <label>Article Tags</label>
+                                    <!-- <input name="article" type="text" class="form-control" [(ngModel)]="article_title" /> -->
+                                    <input id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_title" />
+                                    <button class="button" (click)="createArticleInputTag('')">Add</button>
+                                  </div>
+                                  <!-- <div class="form-group">
                                     &nbsp;&nbsp;
                                     <label>Article Tags</label>
-                                    <input id="articleTags" name="articleTags" type="text" class="form-control" />
-                                    <button class="button" (click)="changeThis('')">Add</button>
+                                    <input id="articleInputTags" name="articleTags" type="text" class="form-control" />
+                                    <button class="button" (click)="createArticleInputTag('')">Add</button>
+                                  </div> -->
+                                  <div class="form-group2">
+                                      
+                                      <div>
+                                  <div class="">
+                                     
+                                  <div>  
+                                    <a class="badge badge-secondary" id='inputTag1'></a>
+                                    <a class="badge badge-secondary" id='inputTag2'></a>
+                                    <a class="badge badge-secondary" id='inputTag3'></a>
                                   </div>
-                                  <div>&nbsp;&nbsp;
-                                    <a href="#" class="badge badge-secondary" id='newText1'></a>
-                                    <a href="#" class="badge badge-secondary" id='newText2'></a>
-                                    <a href="#" class="badge badge-secondary" id='newText3'></a>
-
-                                  </div>
-
-                                  <div id="popularTags" class="panel-collapse collapse in">
-                                    <div class="panel-body" style="font-size:20px">
-                                      <h5 style="font-size:20px">Choose from the most popular tags</h5>
-                                      <!-- <a class="badge badge-secondary" (click)="changeThis2()" id="myTagBtn" value="tag1">Tag 1</a>
-                          <input type="button" id="myBtn" onclick="myFunction()" value="Try it"> -->
-                                      <input type="button" id="myTagBtn2" (click)="changeThis2()" value="Tag1">
-                                      <input type="button" id="myTagBtn3" (click)="changeThis3()" value="Tag2">
-                                      <input type="button" id="myTagBtn4" (click)="changeThis4()" value="Tag3">
-                                      <input type="button" id="myTagBtn5" (click)="changeThis5()" value="Tag4">
-                                      <input type="button" id="myTagBtn6" (click)="changeThis6()" value="Tag5">
-                                      <input type="button" id="myTagBtn7" (click)="changeThis7()" value="Tag6">
-                                      <input type="button" id="myTagBtn8" (click)="changeThis8()" value="Tag7">
-                                      <input type="button" id="myTagBtn9" (click)="changeThis9()" value="Tag8">
-                                      <input type="button" id="myTagBtn10" (click)="changeThis10()" value="Tag9">
-                                      <input type="button" id="myTagBtn11" (click)="changeThis11()" value="Tag10">
-
-                                    </div>
+                                </div> 
                                   </div>
                                 </div>
-                              </div>
+<!-- 
+                                   <div id="popularTags" class="panel-collapse collapse in">
+                                    <div class="panel-body" style="font-size:20px">
+                                      <h5 style="font-size:20px">Choose from the most popular tags</h5>
+                                       <a class="badge badge-secondary" (click)="changeThis2()" id="myTagBtn" value="tag1">Tag 1</a>
+                          <input type="button" id="myBtn" onclick="myFunction()" value="Try it">
+                                      <input type="button" id="popularTag1" (click)="selectPopularTag1()" value="Tag1">
+                                      <input type="button" id="popularTag2" (click)="selectPopularTag2()" value="Tag2">
+                                      <input type="button" id="popularTag3" (click)="selectPopularTag3()" value="Tag3">
+                                      <input type="button" id="popularTag4" (click)="selectPopularTag4()" value="Tag4">
+                                      <input type="button" id="popularTag5" (click)="selectPopularTag5()" value="Tag5">
+                                      <input type="button" id="popularTag6" (click)="selectPopularTag6()" value="Tag6">
+                                      <input type="button" id="popularTag7" (click)="selectPopularTag7()" value="Tag7">
+                                      <input type="button" id="popularTag8" (click)="selectPopularTag8()" value="Tag8">
+                                      <input type="button" id="popularTag9" (click)="selectPopularTag9()" value="Tag9">
+                                      <input type="button" id="popularTag10" (click)="selectPopularTag10()" value="Tag10">
+
+                                    </div>
+                                  </div>  -->
+                                <!-- </div>
+                              </div> -->
                               <div class="form-group">
                                 <label for="uploadFile">Upload File</label>
                                 <div id="igUpload1"></div>
@@ -202,10 +215,11 @@
                                 <label for="uploadFile">Upload File</label>
                                 <input id="uploadBtn" type="file" class="upload" />
                               </div> -->
-                              <div class="form-group" style="text-align:center">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Submit" (click)="insertArticleData()" />
-                                <input type="button" class="btn btn-primary btn-lg" value="Save" />
-                              </div>
+                              <div class="form-group" id="buttons">
+                                <input type="button" class="btn btn-primary btn-lg" id ="backbutton" value="Back" (click)="onbackToHome()"/>
+                                <input type="submit" class="btn btn-primary btn-lg" value="Submit for Review" (click)="insertArticleData()" />
+                                <input type="button" class="btn btn-primary btn-lg" value="Save as a Draft"/>
+                               </div>
                               <!-- </form> -->
                             </div>
 
