@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import 'rxjs/add/operator/toPromise';
+
 
 const headers = new HttpHeaders()
    .set("Authorization","Bearer 37ff1be9-2d28-3aab-96a6-69ebaa9ce004");
@@ -13,11 +15,9 @@ export class ArticleService {
 
   data: any = "";
   result: any;
+  Status: any;
 
-
-  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private http: HttpClient) {
-
-  }
+  constructor(@Inject(SESSION_STORAGE) private storage: WebStorageService, private http: HttpClient) { }
   // saveInSessionStorage('r-'+this.userid,)
 
   saveInSessionStorage(key, val) {
@@ -81,10 +81,35 @@ export class ArticleService {
     return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetSubCategories",{headers})
   }
 
-  /* POST APIS*/ 
+  getArticleFeedbacks(articleId){
+    return this.result = this.http.get("http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID="+ articleId +""  )
+  }
 
   insertArticle(dataObj){
    return this.http.post("http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle", dataObj,{ headers } )
   }
+
+  insertFeedbackPost(articleFeedback) {
+     // this.insertStatus = 'Success'; 
+     console.log('in insert loop')
+      const req = this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback,{headers})
+      .subscribe(
+        response => {
+          //console.log('response after insert:');
+          //console.log(response);
+          //this.Status = 'succeed';              
+        },
+        err => {
+          //this.Status = 'failed';
+        }
+      );
+      //return this.Status;
+      //console.log(req)
+     
+  }
+
+ 
+
+ 
 
 }

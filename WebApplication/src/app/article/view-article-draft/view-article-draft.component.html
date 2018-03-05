@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div id="tabContent2" class="tab-content">
+      <div class='center'>
+        <div class="col-md-12">
+          <div class="row">
+
+            <div class="form-group">
+              <label>Service</label>&nbsp;&nbsp;{{articleinReviewDetailsData.parent_category}}
+            </div>
+            <div class="form-group">
+              <label>Category</label> &nbsp;&nbsp; {{articleinReviewDetailsData.categoryName}}
+            </div>
+            <div class="form-group">
+              <label>Author</label> &nbsp;&nbsp; {{articleinReviewDetailsData.author_name}}
+            </div>
+            <div class="form-group">
+              <label>Article State</label> &nbsp;&nbsp; {{articleinReviewDetailsData.StateName}}
+            </div>
+            <div class="form-group">
+              <label>Approver</label> &nbsp;&nbsp;{{articleinReviewDetailsData.approver_name}}
+            </div>
+            <div class="form-group">
+              <label>Article last modified date</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleLastModifiedDate}}
+            </div>
+            <div class="form-group">
+              <label>Article Tags</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleTag}}
+            </div>
+            <div class="form-group">
+              <label>Article Description</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleDesc}}
+            </div>
+            <div class="form-group">
+              <label>Article Content</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleContent}}
+            </div>
+            <div class="form-group" *ngIf="buttonCondition == 'true'">
+              <button class='btn' (click) = 'OnFeedbackPost()'> Submit for approval</button>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

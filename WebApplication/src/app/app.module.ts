@@ -9,7 +9,6 @@ import { GetArticleComponent } from './article/get-article/get-article.component
 import { CreateArticleComponent } from './article/create-article/create-article.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PopularTagsComponent } from './popular-tags/popular-tags.component';
-import { UnpulishedArticlesComponent } from './article/unpulished-articles/unpulished-articles.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
@@ -21,8 +20,11 @@ import { FormsModule } from '@angular/forms';
 import { ArticleService } from './article.service';
 import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
 import { DraftArticleComponent } from './article/draft-article/draft-article.component';
-import { MyArticlesComponent } from './article/my-articles/my-articles.component';
 import { PublishedComponent } from './article/published/published.component';
+import { HttpModule } from '@angular/http';
+import { ArticleFeedbackComponent } from './article/article-feedback/article-feedback.component';
+import { ViewArticleInReviewComponent } from './article/view-article-in-review/view-article-in-review.component';
+import { ViewArticleDraftComponent } from './article/view-article-draft/view-article-draft.component';
 
 //Import ngb-bootstrap
 
@@ -43,9 +45,10 @@ import { PublishedComponent } from './article/published/published.component';
     PendingForApprovalComponent,
     ViewAricleComponent,
     DraftArticleComponent,
-    MyArticlesComponent,
     PublishedComponent,
-    UnpulishedArticlesComponent,
+    ArticleFeedbackComponent,
+    ViewArticleInReviewComponent,
+    ViewArticleDraftComponent,
 
    //AngularFontAwesomeModule
   ],
@@ -56,6 +59,7 @@ import { PublishedComponent } from './article/published/published.component';
     RouterModule,
     StorageServiceModule,
     HttpClientModule,
+    HttpModule,
     FormsModule,
   ],
   providers: [
