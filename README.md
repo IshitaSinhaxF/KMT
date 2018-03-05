@@ -22,7 +22,9 @@ Our agile process followed various iterations of the stages discussed below:
 
 **Sprint Review** - The team assessed the project development against the sprint goal determined during the sprint planning meeting.  The team presented completed goals in the Sprint to the Product Manager for review and approval. 
 
-**Sprint Retrospective** – The team reflected on how their tools, processes and peers performed on the recently completed sprint. Each team member was asked to identify areas which met/ exceeded expectations, areas which lagged behind and one area for improvement. 
+**Sprint Retrospective** – The team reflected on how their tools, processes and peers performed on the recently completed sprint. Each team member was asked to identify areas which met/ exceeded expectations, areas which lagged behind and one area for improvement.
+
+The Sprint Retrospective [boards](https://github.com/xFusionTech/KMT/tree/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%20Retrospectives) provide a summary snapshot of each of our Sprint Retrospective meetings.
 
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
 
