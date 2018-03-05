@@ -88,7 +88,6 @@ export class CreateArticleComponent implements OnInit {
     
     if(TagName != "")
     unit = TagName;
-    
     var input1 = document.getElementById('inputTag1').innerHTML;
     var input2 = document.getElementById('inputTag2').innerHTML;
     var input3 = document.getElementById('inputTag3').innerHTML;
