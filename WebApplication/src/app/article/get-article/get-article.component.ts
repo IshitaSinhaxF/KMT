@@ -13,6 +13,7 @@ export class GetArticleComponent implements OnInit {
   data: any = "";
   result: any;
   articleDetailsData: any = [];
+  setDiv:any;
 
   constructor(private articleService: ArticleService, private http: HttpClient,private router:Router) { }
 
@@ -21,11 +22,25 @@ export class GetArticleComponent implements OnInit {
       .subscribe((res: Response) => {
         this.result = res;
         this.data = this.result.entries.entry;
+        this.setDiv = 'Published';
         console.log(this.data)
       })
   }
  
-
+displayPublishedDiv()
+{ 
+  console.log('published')
+  this.setDiv = 'Published';
+}
+displayPendingApprovDiv()
+{
+  console.log('pending')
+this.setDiv = 'PendingApproval';
+}
+displayDraftDiv()
+{
+this.setDiv = 'Draft';
+}
   getArticleDetail(articleID) {
 
     //this.onFeedback();

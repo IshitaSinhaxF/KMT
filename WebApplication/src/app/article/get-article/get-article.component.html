@@ -1,70 +1,28 @@
 <br/>
 <button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button>
-<!-- <div id="showModal" class="modal fade" role="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog " role="document ">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal
-                    " aria-hidden="true">x</button>
-            <h3>Add New Article</h3>
-            <div class="alert alert-success">
-           
-
-
-
-            </div>
-
-          </div>
-          <div id="modalDetails" class="modal-body">
-
-
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-          </div>
-        </div>
-
-      </div>
-    </div> -->
-<!--Addarticle pop ends here -->
-<!--Feedback popup starts here -->
-
-<!--Feedback Popup ends-->
 <div role="tabpanel" id="second-level-tabs">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <a [routerLink]="['publishedArticles']" href="#paneOne-2" data-toggle="tab" role="tab" aria-controls="tab1">Published
-        <!-- <span class="badge">127</span> -->
-      </a>
+      <a (click) = "displayPublishedDiv()">Published</a>
     </li>
     <li role="presentation">
-      <a [routerLink]="['Pending']" href="#paneTwo-2" data-toggle="tab" role="tab" aria-controls="tab2">Pending for Approval</a>
+      <a (click) = "displayPendingApprovDiv()">Pending for Approval</a>
     </li>
     <li role="presentation">
-      <a [routerLink]="['Draft']" href="#paneThree-2" data-toggle="tab" role="tab" aria-controls="tab3">Draft
+      <a (click) = "displayDraftDiv()">Draft
         <span class="badge">2</span>
       </a>
-    </li>
-        <!-- <li role="presentation">
-        <a  data-toggle="tab" role="tab" aria-controls="tab3">Unpublished
-          <span class="badge">4</span>
-        </a>
-      </li> -->
+    </li>      
   </ul>
-  <div id="tabContent2" class="tab-content">
-
-    <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2">
+  <div id="tabContent2" >
+    <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">      
       <app-published></app-published>
-    </div>
-  <div role="tabpanel" class="tab-pane fade" id="paneTwo-2">
+  </div>
+  <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">     
       <app-pending-for-approval></app-pending-for-approval>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="paneThree-2">
+    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">      
         <app-draft-article></app-draft-article>
     </div>
-    <!-- <div role="tabpanel" class="tab-pane fade" id="paneFour-2">
-      <p class="temp">Draft Table Goes Here!</p>
-    </div> -->
   </div>
 </div>
