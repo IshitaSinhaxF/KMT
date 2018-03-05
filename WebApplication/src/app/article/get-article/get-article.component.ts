@@ -17,6 +17,7 @@ export class GetArticleComponent implements OnInit {
   id: any;
   roles: any = this.articleService.getFromSessionStorage("Roles");
   roleId: any = "";
+  dataLength: any = "";
   constructor(private articleService: ArticleService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -35,6 +36,9 @@ export class GetArticleComponent implements OnInit {
         this.id = 1;
         console.log(this.data)
       })
+
+      this.dataLength = this.data.length;
+      console.log('data length: '+this.dataLength);
   }
 
   displayPublishedDiv() {

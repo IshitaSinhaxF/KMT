@@ -9,10 +9,10 @@
       <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval</a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
-      <a (click)="displayPendingApprovDiv()">In Review</a>
+      <a (click)=" displayInReview()">In Review</a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
-      <a (click)="displayInReview()">Draft
+      <a (click)="displayDraftDiv()">Draft
         <span class="badge">2</span>
       </a>
     </li>
