@@ -114,7 +114,7 @@ export class ArticleService {
   }
 
   insertArticle(dataObj) {
-    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle', dataObj, {headers});
+    return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
   }
 
   insertFeedbackPost(articleFeedback) {
@@ -149,9 +149,11 @@ export class ArticleService {
         console.log('There was an error uploading your file: ', err);
         return false;
       }
-
+      else
+     {
       console.log('Successfully uploaded file.', data);
       return true;
+    }
     });
   }
 }

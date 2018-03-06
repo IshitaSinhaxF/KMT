@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ArticleService} from '../../article.service';
-import {forEach} from '@angular/router/src/utils/collection';
-import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../article.service';
+import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -24,11 +24,17 @@ export class CreateArticleComponent implements OnInit {
   categoryID: any = '';
   user_id: any = +this.articleService.getFromSessionStorage('UserId');
   username: any = this.articleService.getFromSessionStorage('UserName');
-;
+
   article_tag: any = '';
   articleDetailsData: any = [];
   files: any;
-  fileName:any;
+  fileName: any;
+  uploadStatus: any;
+  fileSuccessMessage: string;
+  articleTag1: string = ' ';
+  articleTag2: string = ' ';
+  articleTag3: string = ' ';
+  articleTagResult: string;
 
   constructor(private articleService: ArticleService, private router: Router) {
 
@@ -55,32 +61,33 @@ export class CreateArticleComponent implements OnInit {
   }
 
   insertArticleData() {
-    console.log(this.article_title);
+
+    console.log(this.articleTagResult);
+    
     this.categoryID = this.data.categoryID;
-    // console.log(this.categoryID)
-    console.log(this.SubCategoryName);
-    // console.log(this.dataObj)
     let subCategoryId = +this.SubCategoryName;
     let dataObj = {
       '_postinsertarticle': {
         'article_title': this.article_title,
         'article_desc': this.article_desc,
-        'article_path': 'test path',
+        'article_path': this.fileName,
         'article_content': this.article_content,
         'user_id': this.user_id,
         'categoryid': subCategoryId,
-        'article_tag': 'test tag',
+        'article_tag': this.articleTagResult,
         'username': this.username
       }
     };
     this.articleService.insertArticle(dataObj)
       .subscribe((data) => {
-          console.log(data);
-        },
-        (err) => {
-          console.log('Error occured.');
-        }
+        alert("article inserted successfully");
+        this.router.navigate(['./home']);
+      },
+      (err) => {
+        console.log('Error occured.');
+      }
       );
+
   }
 
   public createArticleInputTag(TagName: string) {
@@ -89,40 +96,58 @@ export class CreateArticleComponent implements OnInit {
 
     if (TagName != '')
       unit = TagName;
+
     var input1 = document.getElementById('inputTag1').innerHTML;
     var input2 = document.getElementById('inputTag2').innerHTML;
     var input3 = document.getElementById('inputTag3').innerHTML;
 
+
     if (input1 == '') {
       document.getElementById('inputTag1').innerHTML = unit;
+      if (document.getElementById('inputTag1').innerHTML != null) {
+        this.articleTag1 = unit;
+        this.articleTagResult = this.articleTag1;
+      }
     } else {
       if (input2 == '') {
         document.getElementById('inputTag1').innerHTML = unit;
         document.getElementById('inputTag2').innerHTML = input1;
-      }  else {
+        if (document.getElementById('inputTag1').innerHTML != null) {
+          this.articleTag2 = (document.getElementById('inputTag1').innerHTML);
+          this.articleTagResult = this.articleTag1 + ' ' + this.articleTag2;
+          console.log(this.articleTagResult);
+        };
+      } else {
         document.getElementById('inputTag1').innerHTML = unit;
         document.getElementById('inputTag2').innerHTML = input1;
         document.getElementById('inputTag3').innerHTML = input2;
+        //this.articleTag3= document.getElementById('inputTag3').innerHTML;
+        if (document.getElementById('inputTag1').innerHTML != null) {
+          this.articleTag3 = (document.getElementById('inputTag1').innerHTML);
+          this.articleTagResult = this.articleTag1 + ' ' + this.articleTag2 + ' ' + this.articleTag3;
+          console.log(this.articleTagResult);
+        };
       }
     }
-    console.log('working');
-
   }
 
- uploadFile(event)
-      {
-       this.files = event.target.files;
-       this.fileName = this.files[0].name;
-       console.log(this.fileName);
-       this.articleService.uploadFile(this.files[0]);
-      }
+  uploadFile(event) {
+    this.files = event.target.files;
+    this.fileName = this.files[0].name;
+    console.log(this.fileName);
+    this.uploadStatus = this.articleService.uploadFile(this.files[0]);
+    if (this.uploadStatus == 'true') {
+      this.fileSuccessMessage = 'File uploaded successfully';
+    }
+    else
+      this.fileSuccessMessage = 'Error occured while upload file';
+  }
 
   onbackToHome() {
     this.router.navigate(['./home']);
   }
 
-    }
-
+}
 
 
 
