@@ -22,13 +22,13 @@
       <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "userID": "$userID",&#xd; "userFirstName": "$userFirstName",&#xd; "userLastName": "$userLastName",&#xd; "userMiddleName": "$userMiddleName",&#xd; "roleName": "$roleName",&#xd; "lkpRoleID": "$lkpRoleID"&#xd; }&#xd; ]&#xd; }&#xd;}     &#xd;   &#xd;         &#xd;      </result>
    </query>
    <query id="GetArticlesByStatusQuery" useConfig="KMDatasource">
-      <sql>SELECT art."articleID",art."articleTitle",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",&#xd;artSta."StateName", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",&#xd;artFb."rating", artFb."comment"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = art."articleCurrentStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;left join public."articleFeedback" artFb on artFb."articleID" = art."articleID"&#xd;inner join public."userRole" usrRl on usrRl."userID" = artHis."userID"&#xd;where :statuscondition</sql>
-      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "StateName": "$StateName",&#xd; "author_name": "$author_name", &#xd; "rating":"$rating",&#xd; "comment": "$comment"&#xd; }&#xd; ]&#xd; }&#xd;}     &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+      <sql>SELECT art."articleID",art."articleTitle",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",&#xd;artSta."StateName", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",&#xd;artFb."rating", artFb."comment", usrRl."lkpRoleID"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = art."articleCurrentStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;left join public."articleFeedback" artFb on artFb."articleID" = art."articleID"&#xd;inner join public."userRole" usrRl on usrRl."userID" = artHis."userID"&#xd;where :statuscondition</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "StateName": "$StateName",&#xd; "author_name": "$author_name", &#xd; "rating":"$rating",&#xd; "comment": "$comment",&#xd; "lkpRoleID": "$lkpRoleID"&#xd; }&#xd; ]&#xd; }&#xd;}     &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
       <param name="statuscondition" sqlType="QUERY_STRING"/>
    </query>
    <query id="GetArticleDetailsByIDQuery" useConfig="KMDatasource">
       <sql>SELECT art."articleID",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",artHis."ArticleStateID",artSta."StateName",&#xd;artHis."userID", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",(apprvr."userFirstName" || ' ' || apprvr."userLastName" || ' ' || COALESCE(apprvr."userMiddleName",' ')) as "approver_name",&#xd;t1."categoryName", art."categoryID",t2."categoryName" as "parent_category", COALESCE(artVw."viewCounts",0) as "views"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;inner join public."LKP_Category" t1 on t1."categoryID" = art."categoryID" &#xd;inner join public."LKP_Category" t2 on t1."parentCategoryID" = t2."categoryID"&#xd;left join public."articleViews" artVw on artVw."articleID" = art."articleID"&#xd;left join public."User" apprvr on apprvr."userID" = artHis."articleApproverID"&#xd;where art."articleID" = :articleID</sql>
-      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath", &#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "ArticleStateID": "$ArticleStateID",&#xd; "StateName": "$StateName",&#xd; "userID": "$userID",&#xd; "author_name": "$author_name",&#xd; "approver_name": "$approver_name",&#xd; "rating": "$rating",&#xd; "comment": "$comment",&#xd; "articleLastModifiedDate": "$articleLastModifiedDate",&#xd; "categoryName": "$categoryName",&#xd; "categoryID": "$categoryID",&#xd; "parent_category": "$parent_category",&#xd; "views": "$views"&#xd; }&#xd; ]&#xd; }&#xd;}&#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath", &#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "ArticleStateID": "$ArticleStateID",&#xd; "StateName": "$StateName",&#xd; "userID": "$userID",&#xd; "author_name": "$author_name",&#xd; "approver_name": "$approver_name",&#xd; "categoryName": "$categoryName",&#xd; "categoryID": "$categoryID",&#xd; "parent_category": "$parent_category",&#xd; "views": "$views"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
       <param name="articleID" sqlType="INTEGER"/>
    </query>
    <query id="getParentCategoryQuery" useConfig="KMDatasource">
@@ -46,9 +46,7 @@
    </query>
    <query id="sp_insertarticle" useConfig="KMDatasource">
       <sql>SELECT public.sp_insertarticle(?,?,?,?,?,?,?,?)</sql>
-      <result element="Entries" rowName="Entry">
-         <element column="sp_insertarticle" name="sp_insertarticle" xsdType="string"/>
-      </result>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_insertarticle"&#xd; }&#xd; ]&#xd; }&#xd;}       &#xd;      </result>
       <param name="article_title" sqlType="STRING"/>
       <param name="article_desc" sqlType="STRING"/>
       <param name="article_path" sqlType="STRING"/>
@@ -75,9 +73,7 @@
    </query>
    <query id="sp_insertarticlefeedback" useConfig="KMDatasource">
       <sql>SELECT public.sp_insertarticlefeedback(?,?,?,?,?)</sql>
-      <result element="Entries" rowName="Entry">
-         <element column="sp_insertarticlefeedback" name="sp_insertarticlefeedback" xsdType="string"/>
-      </result>
+      <result outputType="json"> {&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_insertarticlefeedback"&#xd; }&#xd; ]&#xd; }&#xd;}        </result>
       <param name="rating" sqlType="INTEGER"/>
       <param name="article_comment" sqlType="STRING"/>
       <param name="article_id" sqlType="INTEGER"/>
@@ -107,6 +103,15 @@
       <sql>SELECT artFb."rating",artFb."comment",artFb."dateModified" AS "articleLastModifiedDate",artFb."dateCreated" AS "articleDateCreated",&#xd;artFb."userID", (vwr."userFirstName" || ' ' || vwr."userLastName" || ' ' || COALESCE(vwr."userMiddleName",' ')) as "commented_by"&#xd;FROM public."articleFeedback" artFb&#xd;inner join public."User" vwr on vwr."userID" = artFb."userID" &#xd;WHERE artFb."articleID" = :articleID</sql>
       <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "rating": "$rating",&#xd; "comment": "$comment",&#xd; "articleLastModifiedDate": "$articleLastModifiedDate",&#xd; "articleDateCreated": "$articleDateCreated",&#xd; "userID": "$userID",&#xd; "commented_by": "$commented_by"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
       <param name="articleID" sqlType="INTEGER"/>
+   </query>
+   <query id="SearchArticlesQuery" useConfig="KMDatasource">
+      <sql>SELECT art."articleID",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."categoryID",art."articleTag",artHis."ArticleStateID",artSta."StateName",&#xd;artHis."userID", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;where :searchcondition</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "categoryID": "$categoryID",&#xd; "articleTag": "$articleTag",&#xd; "ArticleStateID": "$ArticleStateID",&#xd; "StateName": "$StateName",&#xd; "userID": "$userID",&#xd; "author_name": "$author_name" &#xd; }&#xd; ]&#xd; }&#xd;}&#xd;</result>
+      <param name="searchcondition" sqlType="QUERY_STRING"/>
+   </query>
+   <query id="SearchAuthorQuery" useConfig="KMDatasource">
+      <sql>select "userID", ("userFirstName" || ' ' || "userLastName" || ' ' || COALESCE("userMiddleName",' ')) as "author_name"&#xd;from public."User"</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "userID": "$userID",&#xd; "author_name": "$author_name"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
    </query>
    <operation name="ArticleOp">
       <call-query href="ArticleQuery"/>
@@ -197,6 +202,14 @@
          <with-param name="articleID" query-param="articleID"/>
       </call-query>
    </operation>
+   <operation name="SearchArticlesOp">
+      <call-query href="SearchArticlesQuery">
+         <with-param name="searchcondition" query-param="searchcondition"/>
+      </call-query>
+   </operation>
+   <operation name="SearchAuthorOp">
+      <call-query href="SearchAuthorQuery"/>
+   </operation>
    <resource method="GET" path="GetArticles">
       <call-query href="ArticleQuery"/>
    </resource>
@@ -264,6 +277,7 @@
          <with-param name="article_comment" query-param="article_comment"/>
          <with-param name="article_id" query-param="article_id"/>
          <with-param name="username" query-param="username"/>
+         <with-param name="user_id" query-param="user_id"/>
       </call-query>
    </resource>
    <resource method="POST" path="UpdateArticleState" returnRequestStatus="true">
@@ -285,5 +299,13 @@
       <call-query href="GetArticleFeedbackQuery">
          <with-param name="articleID" query-param="articleID"/>
       </call-query>
+   </resource>
+   <resource method="GET" path="SearchArticles">
+      <call-query href="SearchArticlesQuery">
+         <with-param name="searchcondition" query-param="searchcondition"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="SearchAuthor">
+      <call-query href="SearchAuthorQuery"/>
    </resource>
 </data>
