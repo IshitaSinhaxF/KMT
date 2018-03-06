@@ -114,13 +114,13 @@ export class CreateArticleComponent implements OnInit {
        this.files = event.target.files;
        this.fileName = this.files[0].name;
        console.log(this.fileName);
-       this.articleService.uploadFile(file);
+       this.articleService.uploadFile(this.files[0]);
       }
-    
+
   onbackToHome() {
     this.router.navigate(['./home']);
   }
-  
+
     }
 
 
