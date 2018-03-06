@@ -131,7 +131,8 @@ export class ArticleService {
     const params = {
       Bucket: 'kmtweb',
       Key: file.name,
-      Body: file
+      Body: file,
+      ACL: 'public-read'
     };
 
     bucket.upload(params, function (err, data) {
