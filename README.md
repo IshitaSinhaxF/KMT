@@ -44,7 +44,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 | b. Assembled a multidisciplinary and collaborative team  | We assembled a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of twelve experienced professionals from fifteen of the labor categories identified in the RFI  |
 | c. Understood what people needed | --- |
 | d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools  | --- |
-| e. Used GitHub to document code commits | --- |
+| e. Used GitHub to document code commits | [GitHub Repository - Deployment](https://github.com/xFusionTech/KMT/tree/master/DSSServices) and [GitHub Repository Web Application](https://github.com/xFusionTech/KMT/tree/master/WebApplication)  |
 | f. Used OpenAPI to document the RESTful API, and provided a link to the OpenAPI | --- |
 | g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0 | --- |
 | h. Created or used a design style guide and/or a pattern library | --- |
