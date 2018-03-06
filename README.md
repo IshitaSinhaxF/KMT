@@ -45,7 +45,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 | i. Performed usability tests with people  | ---  |
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
 | k. Created a prototype that works on multiple devices, and presents a responsive design  | ---  |
-| l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)  | ---  |
+| l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)  | [Technology Stack](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg)  |
 | m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used | ---  |
 | n. Developed automated unit tests for their code  | ---  |
 | o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | ---  |
