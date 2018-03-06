@@ -27,7 +27,7 @@ Our agile process followed various iterations of the stages discussed below:
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
 
 <p align="center">
-  <img width="540" height="430" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
+  <img width="540" height="400" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
 </p>
 
 
