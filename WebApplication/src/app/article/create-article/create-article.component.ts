@@ -27,6 +27,8 @@ export class CreateArticleComponent implements OnInit {
   username: any = this.articleService.getFromSessionStorage("UserName");;
   article_tag: any = "";
   articleDetailsData: any = [];
+  files: any;
+  fileName:any;
 
   constructor(private articleService: ArticleService, private router: Router) {
 
@@ -113,6 +115,13 @@ export class CreateArticleComponent implements OnInit {
        onbackToHome() {
         this.router.navigate(['./home']);
 
+      }
+
+      uploadFile(event)
+      {
+       this.files = event.target.files;
+       this.fileName = this.files[0].name;
+       console.log(this.fileName);
       }
     }
 
