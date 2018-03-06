@@ -26,3 +26,37 @@ Our agile process followed various iterations of the stages discussed below:
 
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
 
+
+  <p align="center">
+  <img width="540" height="380" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
+</p>
+  
+
+## Technical Approach:
+
+---------------- End of Technical Approach-------------------------
+
+## Explicit Reference Requirements:
+
+| Requirement  | Our approach |
+| :------------- | :------------- |
+| a. Assign one team leader | Sanjib Nayak was designated to lead our team as the Product Manager and was accountable and responsible for the quality of our working prototype  |
+| b. Assembled a multidisciplinary and collaborative team  | We assembled a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of twelve experienced professionals from fifteen of the labor categories identified in the RFI  |
+| c. Understood what people needed | ---  |
+| d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools   | [StoryBoards](https://github.com/xFusionTech/KMT/wiki/Story-Boards) <br> [Wireframes](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf)|
+| e. Used GitHub to document code commits  | [GitHub Deployment](https://github.com/xFusionTech/KMT/tree/master/DSSServices) and [GitHub WebApplication](https://github.com/xFusionTech/KMT/tree/master/WebApplication). The summary of the [commits](https://github.com/xFusionTech/KMT/graphs/commit-activity) made during the project phase is available too |
+| f. Used OpenAPI to document the RESTful API, and provided a link to the OpenAPI  | ---  |
+| g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | ---  |
+| h. Created or used a design style guide and/or a pattern library  | ---  |
+| i. Performed usability tests with people  | ---  |
+| j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
+| k. Created a prototype that works on multiple devices, and presents a responsive design  | ---  |
+| l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)  | [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack)  |
+| m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used | ---  |
+| n. Developed automated unit tests for their code  | ---  |
+| o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | ---  |
+| p. Setup or used configuration management  | ---  |
+| q. Setup or used continuous monitoring  | ---  |
+| r. Deployed their software in an open source container, such as Docker (i.e., utilized operating-system-level virtualization)  | ---  |
+| s. Provided sufficient documentation to install and run their prototype on another machine  | ---  |
+| t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge  | ---  |

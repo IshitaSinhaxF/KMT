@@ -3,12 +3,12 @@ import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pending-for-approval',
-  templateUrl: './pending-for-approval.component.html',
-  styleUrls: ['./pending-for-approval.component.css']
+  selector: 'app-in-review',
+  templateUrl: './in-review.component.html',
+  styleUrls: ['./in-review.component.css']
 })
-export class PendingForApprovalComponent implements OnInit {
-  @Input() pendingForApprovalData: any;
+export class InReviewComponent implements OnInit {
+@Input() inReviewArticle : any = "";
 
   articleDetailsData: any = [];
   id: number;
@@ -16,6 +16,7 @@ export class PendingForApprovalComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   getArticleDetail(articleID) {

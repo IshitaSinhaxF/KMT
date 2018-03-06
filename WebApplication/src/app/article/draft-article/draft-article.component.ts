@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ArticleService } from '../../article.service';
 
 @Component({
@@ -7,21 +7,14 @@ import { ArticleService } from '../../article.service';
   styleUrls: ['./draft-article.component.css']
 })
 export class DraftArticleComponent implements OnInit {
+  @Input() draftArticleData:any;
   data: any = "";
   result: any ;
-  userID: any = this.articleService.getFromSessionStorage("UserId"); 
   articleDetailsData: any = [];
+  
   constructor(private articleService : ArticleService) { }
   
   ngOnInit() {
-    console.log('User Id from sesssion: '+this.userID);
-    this.articleService.getDraftArticleService(this.userID)
-    //this.userID = this.articleService.getFromSessionStorage("userID")
-      .subscribe((res: Response) => {
-        this.result = res;
-        this.data = this.result.entries.entry;
-        console.log(this.data)
-      })
   }
 
   getArticleDetail(articleID) {

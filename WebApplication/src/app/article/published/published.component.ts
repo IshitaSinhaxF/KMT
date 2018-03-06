@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 @Component({
@@ -7,27 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./published.component.css']
 })
 export class PublishedComponent implements OnInit {
-  data: any = "";
-  result: any;
+@Input() publishedArticleData: any = "";
+ 
   articleDetailsData: any = [];
-  id : number;
-
-  constructor(private articleService: ArticleService,private router: Router) { }
+  id: number;
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
-    this.articleService.getPublishArticleService()
-      .subscribe((res: Response) => {
-        this.result = res;
-        this.data = this.result.entries.entry;
-        console.log("displaying published articles")
-        console.log(this.data)
-      })
+
   }
 
   getArticleDetail(articleID) {
-      this.id = articleID;
-      this.articleService.saveInSessionStorage("articleID", this.id);
-      this.router.navigate(['./viewArtcile']);
+    this.id = articleID;
+    this.articleService.saveInSessionStorage("articleID", this.id);
+    this.router.navigate(['./viewArtcile']);
   }
 
 }

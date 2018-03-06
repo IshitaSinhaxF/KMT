@@ -23,6 +23,7 @@
     "@angular/router": "^5.2.0",
     "angular-font-awesome": "^3.1.2",
     "angular-webstorage-service": "^1.0.2",
+    "aws-sdk": "^2.205.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
