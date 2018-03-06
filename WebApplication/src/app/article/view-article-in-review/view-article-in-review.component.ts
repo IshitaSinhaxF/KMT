@@ -27,7 +27,7 @@ result:any = [];
       }
       else
       this.buttonCondition = 'false';
-      console.log(this.buttonCondition);
+      
     })
   }
 

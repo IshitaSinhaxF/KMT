@@ -1,28 +1,33 @@
 <br/>
 <button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button>
-<div role="tabpanel" id="second-level-tabs">
+<li role="tabpanel" id="second-level-tabs">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" [ngClass]="{'active': id === 1 }" id="1" (click)="addClass(id=1)">
-      <a (click) = "displayPublishedDiv()">Published</a>
+      <a (click)="displayPublishedDiv()">Published</a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
-      <a (click) = "displayPendingApprovDiv()" >Pending for Approval</a>
+      <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval</a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
-      <a (click) = "displayDraftDiv()" >Draft
+      <a (click)=" displayInReview()">In Review</a>
+    </li>
+    <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+      <a (click)="displayDraftDiv()">Draft
         <span class="badge">2</span>
       </a>
-    </li>      
+    </li>
   </ul>
-  <div id="tabContent2" >
-    <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">      
+  <div id="tabContent2">
+    <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">
       <app-published></app-published>
-  </div>
-  <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">     
+    </div>
+    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">
       <app-pending-for-approval></app-pending-for-approval>
     </div>
-    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">      
-        <app-draft-article></app-draft-article>
+    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'InReview'">
+      <app-in-review></app-in-review>
+    </div>
+    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">
+      <app-draft-article></app-draft-article>
     </div>
   </div>
-</div>
