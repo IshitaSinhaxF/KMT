@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
      }else{
       this.userName = this.articleService.getFromSessionStorage("UserName"); 
       this.roles = this.articleService.getFromSessionStorage("Roles"); 
-      console.log("roles:")
-      console.log(this.roles);
+      // console.log("roles:")
+      // console.log(this.roles);
     
      }
    
