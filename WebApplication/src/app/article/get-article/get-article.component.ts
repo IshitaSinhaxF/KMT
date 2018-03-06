@@ -4,6 +4,10 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
+
+const headers = new HttpHeaders()
+  .set("Content-Type", "application/json");
+
 @Component({
   selector: 'app-get-article',
   templateUrl: './get-article.component.html',
@@ -16,9 +20,45 @@ export class GetArticleComponent implements OnInit {
   setDiv:any;
   id:any;
 
+  value: any = [
+    { roleName: "" },
+    { pwd: "" }
+  ];
+
+ 
+  rolesData: any = [];
+  rolesArray: any = [];
+  roleName: any = "";
+  roles: any = [{
+    "lkpRoleID": this.data.lkpRoleID,
+    "roleName": this.data.roleName
+  }];
+  userFirstName: any = "";
+  roleData : any = [];
+
   constructor(private articleService: ArticleService, private http: HttpClient,private router:Router) { }
 
   ngOnInit() {
+
+
+    this.articleService.getUserData().subscribe((res: Response) => {
+      this.result = res;
+      this.data = this.result.entries.entry;
+
+
+      this.rolesArray = this.data.filter(el => {
+        if (this.rolesData.indexOf(el.lkpRoleID
+        ) === -1) {
+
+          this.rolesData.push(el.lkpRoleID
+          );
+          return true;
+        } else {
+
+          return false;
+        }
+      });
+    });
     this.articleService.getPublishArticleService()
       .subscribe((res: Response) => {
         this.result = res;
@@ -68,6 +108,17 @@ this.setDiv = 'Draft';
   }
   createNewArticle() {
     this.router.navigate(['./createArticle']);
-    };
 
+    var userDetails = this.data.filter(el => {
+      if (el.userFirstName
+        == this.userFirstName){
+          this.roleData.push(el.lkpRoleID)
+        return true;
+      }
+    });
+  
+    this.articleService.saveInSessionStorage("Roles", userDetails);
+    this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
+    this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName + ' '+ userDetails[0].userLastName);
+}
 }

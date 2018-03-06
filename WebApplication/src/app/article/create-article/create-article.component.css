@@ -1,10 +1,4 @@
-.panel-heading1{
-	background-color: #F1F1F1;
-	padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-	border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
+
 .container-fluid1{
 	padding-left: 160px;
 	font-size: 20px;
@@ -15,10 +9,12 @@
 	font-weight: normal
 }
 .accordion-toggle{
-	color: black;
+	color: white;
+	font-size: 20px;
+
 }
-.panel-title1 {
-	color: black;
+.panel-title {
+	color: white;
 }
 #advance-search-g1 select{
 	width: 50;
@@ -51,10 +47,11 @@
 }
 #buttons{
   text-align: center;
+  
 }
 #buttons input{
     width: 16%;
-    font-size: 23px;
+    font-size: 18px;
 }
 #accordion3 h3{
 	text-align: center;
@@ -68,6 +65,61 @@
    /* text-align: center; */
 }
 
-#inputTag1{
+/* #inputTag1{
 	padding-left: 20px;
+} */
+
+#footer {
+	background-color: #465165;
+	color: #fff;
+	padding: 1em 1em 0 1em;
+}
+#footer h4 {
+	font-size: 1.2em;
+	font-weight: 100;
+	color: #0DBCD4
+}
+
+#footer a {
+	color: #fff;
+	font-weight: normal;
+	font-size:0.9em
+}
+
+#footer ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	margin-bottom: 1em;
+}
+#footer ul li {
+	color: #FFF;
+
+}
+#inputTagposition{
+	padding-left: 27%;
+}
+
+.panel-heading {
+	background-color: #465165 !important;
+	font-size: 17px;
+}
+.panel-title {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 17px;
+	border-block-end-width: 10px;
+	
+}
+.panel-heading {
+	background-color: #465165 !important;
+}.panel-title {
+	color: #FFFFFF;
+}
+#container-fluid{
+	padding-left: 50%;
+}
+#tagpadding{
+	padding-top: .8%;
+	padding-bottom: .8%;
 }

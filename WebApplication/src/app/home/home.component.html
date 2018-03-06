@@ -17,6 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
+          &nbsp;&nbsp; &nbsp;&nbsp;<button class="btn " (click)="logOut()">Log out</button>
           <ul class="dropdown-menu">
             <li>
               <a href="#">My Profile</a>
@@ -32,7 +33,7 @@
         </li>
       </ul>
     </div>
-    <button class="btn " (click)="logOut()">Log out</button>
+    
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->

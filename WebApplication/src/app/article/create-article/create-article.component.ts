@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 
 
 
+
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -13,6 +14,8 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 })
 export class CreateArticleComponent implements OnInit {
   
+  userName :any = "";
+  roles: any = [];
   data: any = "";
   subData: any = "";
   result: any = "";
@@ -33,7 +36,17 @@ export class CreateArticleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.getParentCategory()
+
+    if(this.articleService == null){
+      console.log("Login to append user name")
+     }else{
+      this.userName = this.articleService.getFromSessionStorage("UserName"); 
+      this.roles = this.articleService.getFromSessionStorage("Roles"); 
+      console.log("roles:");
+      console.log(this.roles);
+     }
+
+       this.articleService.getParentCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.data = this.result.entries.entry;
