@@ -13,6 +13,10 @@
     </li>
     <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
       <a (click)="displayDraftDiv()">Draft
+      <a (click)="displayPendingApprovDiv()">In Review</a>
+    </li>
+    <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+      <a (click)="displayInReview()">Draft
         <span class="badge">2</span>
       </a>
     </li>
