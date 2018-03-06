@@ -41,24 +41,7 @@ export class GetArticleComponent implements OnInit {
       console.log('data length: '+this.dataLength);
   }
 
-  displayPublishedDiv() {
-    console.log('published')
-    this.setDiv = 'Published';
-  }
-  displayPendingApprovDiv() {
-    console.log('pending')
-    this.setDiv = 'PendingApproval';
-  }
-  displayDraftDiv() {
-    this.setDiv = 'Draft';
-  }
-
-  displayInReview() {
-    console.log('In review')
-    this.setDiv = 'InReview';
-  }
-<<<<<<< HEAD
-=======
+  
 
   displayPublishedDiv() {
     console.log('published')
@@ -76,7 +59,6 @@ export class GetArticleComponent implements OnInit {
     console.log('In review')
     this.setDiv = 'InReview';
   }
->>>>>>> ca90bbe5b069c2807baa152e21bbe893a5d96459
   getArticleDetail(articleID) {
 
     //this.onFeedback();
