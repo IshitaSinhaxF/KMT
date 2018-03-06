@@ -89,13 +89,20 @@
                           </div>
                           <div class="form-group" id="categoryclassid">
                             <label>Category</label>
-                            <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
+                            <select class="form-control" [(ngModel)]="SubCategoryName">
+                              <option value=""> Choose One </option>
+                              <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
+                            </select>
+                          </div>
+                          <!-- <div class="form-group" id="categoryclassid">
+                            <label>Category</label>
+                            <select class="form-control" [(ngModel)]="categoryName">
                             <select name="CategoryName" class="form-control" [(ngModel)]="categoryName">
                               <option value=""> Choose One </option>
                               <option *ngFor="let d of data">{{d.categoryName}}</option>
                             </select>
 
-                          </div>
+                          </div> -->
                           <div id="tagpadding">
 
                             <!-- <div class="panel-group" id="accordion3">
@@ -110,9 +117,14 @@
                             <div class="form-group">
                               <label>Article Tags</label>
                               <!-- <input name="article" type="text" class="form-control" [(ngModel)]="article_title" /> -->
-                              <input name="article_title" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_title" />
+                              <input name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_tag" />
                               <button class="button" (click)="createArticleInputTag('')">Add</button>
                             </div>
+                             <!-- <div class="form-group">
+                            <label>Article Tags</label>
+                            <input name= "article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_tag" />
+                            <button class="button" (click)="createArticleInputTag('')">Add</button>
+                          </div> -->
                             <!-- <div class="form-group">
                                     &nbsp;&nbsp;
                                     <label>Article Tags</label>
@@ -167,11 +179,11 @@
                               </div> -->
 
                           </div>
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <label>Article Tags</label>
                             <input name= "article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_tag" />
                             <button class="button" (click)="createArticleInputTag('')">Add</button>
-                          </div>
+                          </div> -->
 
                           <div class="form-group2">
 
@@ -188,14 +200,14 @@
                           </div>
 
 
-
+<!-- 
                           <div class="form-group">
                             <label for="uploadFile">Upload File</label>
-                            <!-- <div id="igUpload1"></div> -->
-                            <!-- <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> -->
-                            <!-- <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> -->
+                            <div id="igUpload1"></div> 
+                            <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> 
+                            <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> 
                             <input id="uploadBtn0" type="file" class="upload" (Click)="test()" multiple/>
-                          </div>
+                          </div> -->
                         </div>
 
                         <div class="form-group" id="buttons">
