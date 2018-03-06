@@ -28,7 +28,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 
 
   <p align="center">
-  <img width="540" height="400" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
+  <img width="540" height="350" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
 </p>
   
 
