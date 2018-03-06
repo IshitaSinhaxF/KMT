@@ -26,7 +26,7 @@ Our agile process followed various iterations of the stages discussed below:
 
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
 
-##Technical Approach:
+## Technical Approach:
 
 ---------------- End of Technical Approach-------------------------
 
