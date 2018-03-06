@@ -42,9 +42,13 @@ export class ArticleService {
 
   getFromSessionStorage(key) {
     console.log('recieved= key:' + key);
-    this.data[key] = this.storage.get(key);
-    console.log(this.data);
-    return this.data[key];
+    if(this.data != ""){
+      this.data[key] = this.storage.get(key);
+      console.log(this.data);
+      return this.data[key];
+    }else{
+      return console.log("user details not stored in session")
+    }
   }
 
   removeFromSessionStorage(key) {
@@ -72,8 +76,13 @@ export class ArticleService {
   }
 
   // Get Artciles by status API for in-review articles
-  getInReviewArticleService(userID) {
-    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta."StateName" = \'IN-REVIEW\' AND artHis."userID" =' + userID + '', {headers});
+  getInReviewArticleService(userID,roleId) {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
+  }
+
+  // Get Artciles by status API for pending for  articles
+  getPendingArticleService(userID,roleId) {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
   }
 
   getUserDataOnLoad() {
