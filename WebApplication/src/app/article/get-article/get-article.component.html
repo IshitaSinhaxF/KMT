@@ -1,40 +1,44 @@
 <br/>
 <!-- <button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button> -->
 <!-- <li role="tabpanel" id="second-level-tabs"> -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" [ngClass]="{'active': id === 1 }" id="1" (click)="addClass(id=1)">
-      <a (click)="displayPublishedDiv()">Published
-        <!-- <span class="badge">{{publishedDataLength}}</span> -->
-      </a>
-    </li>
-    <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
-      <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval</a>
-    </li>
-    <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
-      <a (click)=" displayInReview()">In Review</a>
-    </li>
-    <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
-      <a (click)="displayDraftDiv()">Draft
-        <span class="badge">2</span>
-      </a>
-    </li>
-    
-       <a (click)="createNewArticle()">
-          <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article" ></span>
-       </a> 
-   
-  </ul>
-  <div id="tabContent2">
-    <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">
-      <app-published></app-published>
-    </div>
-    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">
-      <app-pending-for-approval></app-pending-for-approval>
-    </div>
-    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'InReview'">
-      <app-in-review></app-in-review>
-    </div>
-    <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">
-      <app-draft-article></app-draft-article>
-    </div>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" [ngClass]="{'active': id === 1 }" id="1" (click)="addClass(id=1)">
+    <a (click)="displayPublishedDiv()">Published
+      <span class="badge">{{publishedDataLength}}</span>
+    </a>
+  </li>
+  <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
+    <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval
+      <span class="badge">{{pendingDataLength}}</span>
+    </a>
+  </li>
+  <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
+    <a (click)=" displayInReview()">In Review
+      <span class="badge">{{inReviewDataLength}}</span>
+    </a>
+  </li>
+  <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+    <a (click)="displayDraftDiv()">Draft
+      <span class="badge">{{draftDataLength}}</span>
+    </a>
+  </li>
+
+  <a (click)="createNewArticle()">
+    <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
+  </a>
+
+</ul>
+<div id="tabContent2">
+  <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">
+    <app-published [publishedArticleData]="publishedData"></app-published>
   </div>
+  <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">
+    <app-pending-for-approval [pendingForApprovalData]="pendingData"></app-pending-for-approval>
+  </div>
+  <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'InReview'">
+    <app-in-review [inReviewArticle]="inReviewData"></app-in-review>
+  </div>
+  <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">
+    <app-draft-article [draftArticleData]="draftData"></app-draft-article>
+  </div>
+</div>
