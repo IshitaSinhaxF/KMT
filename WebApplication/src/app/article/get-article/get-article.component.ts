@@ -13,12 +13,21 @@ export class GetArticleComponent implements OnInit {
   data: any = "";
   result: any;
   articleDetailsData: any = [];
-  setDiv:any;
-  id:any;
-
-  constructor(private articleService: ArticleService, private http: HttpClient,private router:Router) { }
+  setDiv: any;
+  id: any;
+  roles: any = this.articleService.getFromSessionStorage("Roles");
+  roleId: any = "";
+  dataLength: any = "";
+  constructor(private articleService: ArticleService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    if (this.roles != "") {
+      for (var i = 0; i < this.roles.length; i++) {
+        this.roleId = this.roles[i].lkpRoleID;
+        console.log('role id: ' + this.roleId);
+      }
+    }
+
     this.articleService.getPublishArticleService()
       .subscribe((res: Response) => {
         this.result = res;
@@ -27,22 +36,27 @@ export class GetArticleComponent implements OnInit {
         this.id = 1;
         console.log(this.data)
       })
+
+      this.dataLength = this.data.length;
+      console.log('data length: '+this.dataLength);
   }
- 
-displayPublishedDiv()
-{ 
-  console.log('published')
-  this.setDiv = 'Published';
-}
-displayPendingApprovDiv()
-{
-  console.log('pending')
-this.setDiv = 'PendingApproval';
-}
-displayDraftDiv()
-{
-this.setDiv = 'Draft';
-}
+
+  displayPublishedDiv() {
+    console.log('published')
+    this.setDiv = 'Published';
+  }
+  displayPendingApprovDiv() {
+    console.log('pending')
+    this.setDiv = 'PendingApproval';
+  }
+  displayDraftDiv() {
+    this.setDiv = 'Draft';
+  }
+
+  displayInReview() {
+    console.log('In review')
+    this.setDiv = 'InReview';
+  }
   getArticleDetail(articleID) {
 
     //this.onFeedback();
@@ -59,15 +73,15 @@ this.setDiv = 'Draft';
     console.log(articleID);
   }
 
-   addClass(id: any) {
+  addClass(id: any) {
     this.id = id;
   }
 
-  onCancelRequest(){
+  onCancelRequest() {
     this.router.navigate(['./home']);
   }
   createNewArticle() {
     this.router.navigate(['./createArticle']);
-    };
+  };
 
 }
