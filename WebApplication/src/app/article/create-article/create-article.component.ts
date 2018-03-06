@@ -109,11 +109,9 @@ export class CreateArticleComponent implements OnInit {
 
   onbackToHome() {
     this.router.navigate(['./home']);
-
-
-    upload(file) {
-      this.articleService.uploadFile(file);
-    }
+  }
+  upload(file) {
+    this.articleService.uploadFile(file);
   }
 
 }
