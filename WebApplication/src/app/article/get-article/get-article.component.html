@@ -1,9 +1,11 @@
 <br/>
-<button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button>
-<li role="tabpanel" id="second-level-tabs">
+<!-- <button class="btn btn-primary btn-lg" (click)="createNewArticle()" data-toggle="modal" data-target="#showModal">Add Article</button> -->
+<!-- <li role="tabpanel" id="second-level-tabs"> -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" [ngClass]="{'active': id === 1 }" id="1" (click)="addClass(id=1)">
-      <a (click)="displayPublishedDiv()">Published</a>
+      <a (click)="displayPublishedDiv()">Published
+        <!-- <span class="badge">{{publishedDataLength}}</span> -->
+      </a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
       <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval</a>
@@ -12,14 +14,15 @@
       <a (click)=" displayInReview()">In Review</a>
     </li>
     <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
-      <a (click)="displayDraftDiv()">Draft</a>
-      <a (click)="displayPendingApprovDiv()">In Review</a>
-    </li>
-    <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
-      <a (click)="displayInReview()">Draft
+      <a (click)="displayDraftDiv()">Draft
         <span class="badge">2</span>
       </a>
     </li>
+    
+       <a (click)="createNewArticle()">
+          <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article" ></span>
+       </a> 
+   
   </ul>
   <div id="tabContent2">
     <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">

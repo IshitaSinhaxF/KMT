@@ -56,6 +56,9 @@
             <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
           </td>
+          <td *ngIf="d.rating == null">
+              
+            </td>
           <td>
             
               <span class="glyphicon glyphicon-eye-open"   (click)= "getArticleDetail(d.articleID)"aria-hidden="true"></span>
