@@ -5,6 +5,17 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import 'rxjs/add/operator/toPromise';
 
+import * as AWS from 'aws-sdk/global';
+import * as S3 from 'aws-sdk/clients/s3'
+
+const bucket = new S3 (
+  {
+    accessKeyId: 'AKIAIG5TP2ZIWEZJG6JQ',
+    secretAccessKey: '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',
+    region: 'us-west-1'
+  }
+);
+
 
 const headers = new HttpHeaders()
    .set("Authorization","Bearer 37ff1be9-2d28-3aab-96a6-69ebaa9ce004");
@@ -70,7 +81,7 @@ export class ArticleService {
     return this.result = this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticleDetailsByID?articleID=" + articleId + "",{headers})
   }
 
-  //get parent category 
+  //get parent category
   getParentCategory() {
     return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/getParentCategory",{headers})
   }
@@ -90,14 +101,14 @@ export class ArticleService {
   }
 
   insertFeedbackPost(articleFeedback) {
-     // this.insertStatus = 'Success'; 
+     // this.insertStatus = 'Success';
      console.log('in insert loop')
       const req = this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback,{headers})
       .subscribe(
         response => {
           //console.log('response after insert:');
           //console.log(response);
-          //this.Status = 'succeed';              
+          //this.Status = 'succeed';
         },
         err => {
           //this.Status = 'failed';
@@ -105,11 +116,18 @@ export class ArticleService {
       );
       //return this.Status;
       //console.log(req)
-     
+
   }
 
- 
+  uploadFile(file) {
+    const params = {
+      Bucket: 'kmtweb',
+      Key: file.name,
+      Body: file
+    };
 
- 
+  }
+
+
 
 }
