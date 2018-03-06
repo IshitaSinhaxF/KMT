@@ -37,7 +37,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 | a. Assign one team leader | Sanjib Nayak was designated to lead our team as the Product Manager and was accountable and responsible for the quality of our working prototype  |
 | b. Assembled a multidisciplinary and collaborative team  | We assembled a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of twelve experienced professionals from fifteen of the labor categories identified in the RFI  |
 | c. Understood what people needed | ---  |
-| d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools   | [Wireframes](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf)|
+| d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools   | <br> [Wireframes](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf)|
 | e. Used GitHub to document code commits  | [GitHub Deployment](https://github.com/xFusionTech/KMT/tree/master/DSSServices) and [GitHub WebApplication](https://github.com/xFusionTech/KMT/tree/master/WebApplication). The summary of the [commits](https://github.com/xFusionTech/KMT/graphs/commit-activity) made during the project phase is available too |
 | f. Used OpenAPI to document the RESTful API, and provided a link to the OpenAPI  | ---  |
 | g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | ---  |
