@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ArticleService} from '../../article.service';
-import {forEach} from '@angular/router/src/utils/collection';
-import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../article.service';
+import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -12,19 +12,6 @@ import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-<<<<<<< HEAD
-  
-  userName :any = "";
-  roles: any = [];
-  data: any = "";
-  subData: any = "";
-  result: any = "";
-  article_title: any = "";
-  article_desc: any = "";
-  article_path: any = "";
-  article_content: any = "";
-  categoryName: any = "";
-=======
 
   data: any = '';
   subData: any = '';
@@ -34,16 +21,17 @@ export class CreateArticleComponent implements OnInit {
   article_path: any = '';
   article_content: any = '';
   categoryName: any = '';
->>>>>>> 974670da0aef81dbf96bf1a0c42cf5f733652e38
-  SubCategoryName: any;
+  SubCategoryName: any = '';
   categoryID: any = '';
+  userName: any = "";
+  roles: any = "";
   user_id: any = +this.articleService.getFromSessionStorage('UserId');
   username: any = this.articleService.getFromSessionStorage('UserName');
-;
+  ;
   article_tag: any = '';
   articleDetailsData: any = [];
   files: any;
-  fileName:any;
+  fileName: any;
 
   constructor(private articleService: ArticleService, private router: Router) {
 
@@ -51,16 +39,16 @@ export class CreateArticleComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.articleService == null){
+    if (this.articleService == null) {
       console.log("Login to append user name")
-     }else{
-      this.userName = this.articleService.getFromSessionStorage("UserName"); 
-      this.roles = this.articleService.getFromSessionStorage("Roles"); 
+    } else {
+      this.userName = this.articleService.getFromSessionStorage("UserName");
+      this.roles = this.articleService.getFromSessionStorage("Roles");
       console.log("roles:");
       console.log(this.roles);
-     }
+    }
 
-       this.articleService.getParentCategory()
+    this.articleService.getParentCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.data = this.result.entries.entry;
@@ -81,7 +69,7 @@ export class CreateArticleComponent implements OnInit {
 
   insertArticleData() {
     console.log(this.article_title);
-    this.categoryID = this.data.categoryID;
+   // this.categoryID = this.data.categoryID;
     // console.log(this.categoryID)
     console.log(this.SubCategoryName);
     // console.log(this.dataObj)
@@ -100,8 +88,8 @@ export class CreateArticleComponent implements OnInit {
     };
     this.articleService.insertArticle(dataObj)
       .subscribe((data) => {
-          console.log(data);
-        },
+        console.log(data);
+      },
         (err) => {
           console.log('Error occured.');
         }
@@ -124,7 +112,7 @@ export class CreateArticleComponent implements OnInit {
       if (input2 == '') {
         document.getElementById('inputTag1').innerHTML = unit;
         document.getElementById('inputTag2').innerHTML = input1;
-      }  else {
+      } else {
         document.getElementById('inputTag1').innerHTML = unit;
         document.getElementById('inputTag2').innerHTML = input1;
         document.getElementById('inputTag3').innerHTML = input2;
@@ -134,19 +122,18 @@ export class CreateArticleComponent implements OnInit {
 
   }
 
- uploadFile(event)
-      {
-       this.files = event.target.files;
-       this.fileName = this.files[0].name;
-       console.log(this.fileName);
-       this.articleService.uploadFile(this.files[0]);
-      }
+  uploadFile(event) {
+    this.files = event.target.files;
+    this.fileName = this.files[0].name;
+    console.log(this.fileName);
+    this.articleService.uploadFile(this.files[0]);
+  }
 
   onbackToHome() {
     this.router.navigate(['./home']);
   }
 
-    }
+}
 
 
 
