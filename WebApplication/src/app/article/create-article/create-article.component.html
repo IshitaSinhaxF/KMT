@@ -83,16 +83,16 @@
                           <div class="form-group" id="categoryclassid">
                               <label>Category</label>
                               <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
-                              <select class="form-control" [(ngModel)]="categoryName">
+                             <select class="form-control" [(ngModel)]="categoryName">
                                   <option value=""> Choose One </option>
                                   <option *ngFor="let d of data">{{d.categoryName}}</option>
                                 </select>
                             </div>
                             <div id="tagpadding"></div>
                             <div class="form-group" id="categoryclassid">
-                              <label>Sub-Category</label>
-                              <select class="form-control" [(ngModel)]="SubCategoryName">
-                                    <option value=""> Choose One </option>
+                              <label>Sub-Category</label>                              
+                                <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
+                                  <option value=""> Choose One </option>
                                   <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
                                 </select>
                             </div>
