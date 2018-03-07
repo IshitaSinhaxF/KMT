@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-article-draft',
@@ -13,18 +14,32 @@ export class ViewArticleDraftComponent implements OnInit {
   userName: string = this.articleService.getFromSessionStorage("UserName");
   result: any;
   articleDetailsinDraftData: any;
+  subCatData: any;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService,private router: Router) { }
 
   ngOnInit() {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsinDraftData = this.result.entries.entry[0];
+      console.log(this.articleDetailsinDraftData);
     })
 
-  }
+       this.articleService.getSubCategory()
+      .subscribe((res: Response) => {
+        this.result = res;
+        this.subCatData = this.result.entries.entry;
+        console.log('displaying sub category');
+        console.log(this.subCatData);
+      });
 
-  Submit() {  }
+  }
+  onbackToHome() {
+    this.router.navigate(['./home']);
+  }
+  SubmitForApproval() { 
+    
+   }
 
   saveChanges() { }
 }

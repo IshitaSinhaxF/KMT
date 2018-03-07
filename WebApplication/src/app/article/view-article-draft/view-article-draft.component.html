@@ -1,57 +1,119 @@
-<div class="container-fluid">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="inverseNavbar1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy
+            <span class="caret"></span>
+          </a> -->
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">My Profile</a>
+            </li>
+            <li>
+              <a href="#">Change Password</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">Log Out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="container-fluid1" id="content-container">
   <div class="row">
-    <div id="tabContent2" class="tab-content">
-      <div class='center'>
-        <div class="col-md-12">
-          <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-11">
 
-            <!--<div class="form-group">
-              <label>Service</label>&nbsp;&nbsp;{{articleDetailsinDraftData.parent_category}}
-            </div>
-            <div class="form-group">
-              <label>Category</label> &nbsp;&nbsp; {{articleDetailsinDraftData.categoryName}}
-            </div>
-            <div class="form-group">
-              <label>Author</label> &nbsp;&nbsp; {{articleDetailsinDraftData.author_name}}
-            </div>
-            <div class="form-group">
-              <label>Article State</label> &nbsp;&nbsp; {{articleDetailsinDraftData.StateName}}
-            </div>
-            <div class="form-group">
-              <label>Approver</label> &nbsp;&nbsp;{{articleDetailsinDraftData.approver_name}}
-            </div>
-            <div class="form-group">
-              <label>Article last modified date</label> &nbsp;&nbsp;{{articleDetailsinDraftData.articleLastModifiedDate}}
-            </div>
-            <div class="form-group">
-              <label>Article Tags</label> &nbsp;&nbsp;{{articleDetailsinDraftData.articleTag}}
-            </div>
-            <div class="form-group">
-              <label>Article Description</label> &nbsp;&nbsp;{{articleDetailsinDraftData.articleDesc}}
-            </div>-->
-            <div class="form-group">               
-              <label>Article Content</label> &nbsp;&nbsp;
-              <textarea name="articleSummary" class="form-control" rows="4" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>             
-            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <form class="form-inline" id="advance-search-g1">
+                  <div class="panel-group" id="accordion3">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">
+                            Article is in draft state
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="tagpadding">
 
-             <div id="tagpadding"></div>
-                           <div class="form-group">
-                            <label>Article Summary</label>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Category</label>&nbsp;&nbsp; {{articleDetailsinDraftData.parent_category}}
+                          </div>
+                          <div class="form-group">
+                            <label>Sub-Category</label>&nbsp;&nbsp; {{articleDetailsinDraftData.categoryName}}
+                          </div>
+                          <div class="form-group">
+                            <label>Approver</label>&nbsp;&nbsp; {{articleDetailsinDraftData.approver_name}}
+                          </div>
+                          <div class="form-group">
+                            <label>Created on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.dateCreated}}
+                          </div>
+                          <div class="form-group">
+                            <label>Article Title</label>
+                            <input name="article" type="text" class="form-control" [(ngModel)]="articleDetailsinDraftData.articleTitle" />
+                          </div>
+                          <div id="tagpadding"></div>
+                          <div class="form-group">
+                            <label>Article Description</label>
                             <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                            <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+                            <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
                           </div>
                           <div id="tagpadding"> </div>
-
+                          <div class="form-group" *ngIf="articleDetailsinDraftData.articlePath != 'null'">
+                            <label>Article Path:</label>&nbsp;&nbsp; <a href="articleDetailsinDraftData.articlePath"> {{articleDetailsinDraftData.articlePath}} </a>
+                          </div>                          
+                          <div id="tagpadding"> </div>
+                          <div class="form-group">
+                            <label>Article Content</label>
+                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                            <textarea name="articleSummary" class="form-control" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
+                          </div>
+                          <div id="tagpadding"></div>                        
                           
-            <div class="form-group">
-              <button class='btn' (click) = 'saveChanges()'> Save changes </button>
+                          
+
+                          <div class="form-group">
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" id="buttons">
+                        <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />
+                        <input type="submit" class="btn btn-primary btn-lg" (click)='saveChanges()' value="Save changes" />
+                        <input type="submit" class="btn btn-primary btn-lg" value="Submit for approval" (click)='SubmitForApproval()' />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>          
+          </div>
         </div>
-        <div class="form-group">
-              <button class='btn' (click) = 'Submit()'> Submit for approval</button>
-            </div>
       </div>
     </div>
   </div>
-</div>
+</section>
