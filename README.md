@@ -32,7 +32,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 </p>
   
 
-# Technical Approach:
+# Technical Approach
 
 Our development team chose modern tools that supported our need to bring features together quickly and deliver them continually with a high degree of quality. The team’s high level of experience and expertise delivering mission-critical applications—resulted in code that is easy to adapt to meet evolving business needs for the State of California. 
 
@@ -40,7 +40,12 @@ Check Word Doc for Service Architecture
 
 ## KMT Solution Architecture and Technology
 
-## DevOps Automation:
+<p align="center">
+  <img width="640" height="720" src="https://github.com/xFusionTech/KMT/wiki/Technology-Stack">
+</p>
+
+
+## DevOps Automation
 a)	Infrastructure automation
 b)	Source code repository
 c)	SDLC environments
