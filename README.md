@@ -41,7 +41,7 @@ Check Word Doc for Service Architecture
 ## KMT Solution Architecture and Technology:
 
 <p align="center">
-  <img width="560" height="640" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
+  <img width="450" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
 </p>
 
 
