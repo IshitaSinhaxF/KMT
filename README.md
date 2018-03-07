@@ -32,7 +32,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 </p>
   
 
-## Technical Approach:
+# Technical Approach:
 
 ---------------- End of Technical Approach-------------------------
 
