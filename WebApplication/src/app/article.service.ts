@@ -42,12 +42,12 @@ export class ArticleService {
 
   getFromSessionStorage(key) {
     // console.log('recieved= key:' + key);
-    if(this.data != ""){
+    if (this.data != "") {
       this.data[key] = this.storage.get(key);
       // console.log(this.data);
       return this.data[key];
-    }else{
-      return console.log("user details not stored in session")
+    } else {
+      return 'no data'
     }
   }
 
@@ -63,6 +63,10 @@ export class ArticleService {
     //http://8.39.51.27:8281/KMTool/v1.0.0/
     return this.result = this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetUserDetails', {headers});
     // return this.result = this.http.get("http://8.39.51.27:9763/services/KMTool/GetUserDetails", { headers })
+  }
+
+  getAuthorData() {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchAuthor', { headers })
   }
 
   // Get Artciles by status API for published articles
@@ -111,6 +115,20 @@ export class ArticleService {
 
   getArticleFeedbacks(articleId) {
     return this.result = this.http.get('http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID=' + articleId + '');
+  }
+
+  getCategorySearchResults(categoryID) {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"categoryID\" = " + categoryID, { headers })
+  }
+
+  getAuthorSearchResults(author) {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"userID\" = " + author, { headers })
+  }
+  getCategoryAndAuthorSearchResults(categoryID,userID) {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"userID\" = " + userID +" AND art.\"categoryID\" = "+ categoryID, { headers })
+  }
+  getPublishedSearchResults() {
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) ", { headers })
   }
 
   insertArticle(dataObj) {

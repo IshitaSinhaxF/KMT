@@ -15,15 +15,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="inverseNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li >
-          <a >Hello: {{userName}} </a>
+        <li>
+          <a>Hello: {{userName}} </a>
         </li>
         <li>
-         <button class="btn " (click)="logOut()">Log out</button>
+          <button class="btn " (click)="logOut()">Log out</button>
         </li>
       </ul>
     </div>
-    
+
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
@@ -69,10 +69,11 @@
     </div>
     <div class="col-md-8">
       <div role="tabpanel" id="first-level-tabs">
-        <app-search-article></app-search-article>
-       
-      <hr>  
-        <app-get-article></app-get-article>
+        <!-- <app-search-article></app-search-article> -->
+        <app-search-article (searchClicked)="hideArticle($event)"></app-search-article>
+        <hr *ngIf="hide">
+        <app-get-article *ngIf="hide"></app-get-article>
+        <!-- <p *ngIf="hideArticles">serach works</p> -->
       </div>
     </div>
   </div>
