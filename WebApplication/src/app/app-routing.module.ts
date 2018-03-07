@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PendingForApprovalComponent } from './article/pending-for-approval/pending-for-approval.component';
 import { ViewAricleComponent } from './article/view-aricle/view-aricle.component';
 import { ViewArticleInReviewComponent } from './article/view-article-in-review/view-article-in-review.component';
+import { ViewArticleDraftComponent } from './article/view-article-draft/view-article-draft.component';
 import { ArticleFeedbackComponent } from './article/article-feedback/article-feedback.component';
 import { CreateArticleComponent } from './article/create-article/create-article.component';
 import { PublishedComponent } from './article/published/published.component';
@@ -35,6 +36,7 @@ const ROUTES: Routes = [
   },
   { path: 'createArticle', component: CreateArticleComponent },
   { path: 'viewArticleInReview', component: ViewArticleInReviewComponent },
+  { path: 'viewArticleInDraft', component:ViewArticleDraftComponent}
 
 ]
 @NgModule({

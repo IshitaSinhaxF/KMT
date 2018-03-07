@@ -33,6 +33,16 @@
               <label>Article Content</label> &nbsp;&nbsp;
               <textarea name="articleSummary" class="form-control" rows="4" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>             
             </div>
+
+             <div id="tagpadding"></div>
+                           <div class="form-group">
+                            <label>Article Summary</label>
+                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                            <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+                          </div>
+                          <div id="tagpadding"> </div>
+
+                          
             <div class="form-group">
               <button class='btn' (click) = 'saveChanges()'> Save changes </button>
             </div>

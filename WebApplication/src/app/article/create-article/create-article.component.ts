@@ -4,7 +4,6 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
@@ -20,11 +19,12 @@ export class CreateArticleComponent implements OnInit {
   article_path: any = '';
   article_content: any = '';
   categoryName: any = '';
-  SubCategoryName: any;
+  SubCategoryName: any = '';
   categoryID: any = '';
+  userName: any = "";
+  roles: any = "";
   user_id: any = +this.articleService.getFromSessionStorage('UserId');
   username: any = this.articleService.getFromSessionStorage('UserName');
-
   article_tag: any = '';
   articleDetailsData: any = [];
   files: any;
@@ -41,6 +41,16 @@ export class CreateArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (this.articleService == null) {
+      console.log("Login to append user name")
+    } else {
+      this.userName = this.articleService.getFromSessionStorage("UserName");
+      this.roles = this.articleService.getFromSessionStorage("Roles");
+      console.log("roles:");
+      console.log(this.roles);
+    }
+
     this.articleService.getParentCategory()
       .subscribe((res: Response) => {
         this.result = res;
@@ -63,7 +73,7 @@ export class CreateArticleComponent implements OnInit {
   insertArticleData() {
 
     console.log(this.articleTagResult);
-    
+
     this.categoryID = this.data.categoryID;
     let subCategoryId = +this.SubCategoryName;
     let dataObj = {
@@ -83,8 +93,8 @@ export class CreateArticleComponent implements OnInit {
         alert("article inserted successfully");
         this.router.navigate(['./home']);
       },
-      (err) => {
-        console.log('Error occured.');
+      (err) => {        
+        alert(err);
       }
       );
 
@@ -148,11 +158,3 @@ export class CreateArticleComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
-
-

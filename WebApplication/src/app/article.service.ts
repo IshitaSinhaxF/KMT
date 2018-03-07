@@ -35,16 +35,16 @@ export class ArticleService {
   // saveInSessionStorage('r-'+this.userid,)
 
   saveInSessionStorage(key, val) {
-    console.log('recieved= key:' + key + ' ; value:' + val);
+    // console.log('recieved= key:' + key + ' ; value:' + val);
     this.storage.set(key, val);
     this.data[key] = this.storage.get(key);
   }
 
   getFromSessionStorage(key) {
-    console.log('recieved= key:' + key);
+    // console.log('recieved= key:' + key);
     if(this.data != ""){
       this.data[key] = this.storage.get(key);
-      console.log(this.data);
+      // console.log(this.data);
       return this.data[key];
     }else{
       return console.log("user details not stored in session")
