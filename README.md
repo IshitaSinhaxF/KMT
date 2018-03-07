@@ -52,8 +52,8 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
 | k. Created a prototype that works on multiple devices, and presents a responsive design  | ---  |
 | l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)  | [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack)  |
-| m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used | ---  |
-| n. Developed automated unit tests for their code  | ---  |
+| m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used | We have deployed our Working Prototype on Amazon Web Services – an Infrastructure as a Service provider  |
+| n. Developed automated unit tests for their code  | We automated unit testing through GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, and updates/deploys of the Docker Hub Images to DockerHub  |
 | o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | ---  |
 | p. Setup or used configuration management  | ---  |
 | q. Setup or used continuous monitoring  | ---  |
