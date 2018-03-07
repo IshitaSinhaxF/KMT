@@ -38,31 +38,31 @@ Our development team chose modern tools that supported our need to bring feature
 
 Check Word Doc for Service Architecture 
 
-## KMT Solution Architecture and Technology
+## KMT Solution Architecture and Technology:
 
 <p align="center">
-  <img width="640" height="720" src="https://github.com/xFusionTech/KMT/wiki/Technology-Stack">
+  <img width="640" height="720" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
 </p>
 
 
-## DevOps Automation
+## DevOps Automation:
 a)	Infrastructure automation
 b)	Source code repository
 c)	SDLC environments
 d)  Container Model
 
-## Continuous Integration and Continuous Deployment (CI/CD)
+## Continuous Integration and Continuous Deployment (CI/CD):
 
 Our team followed Continuous integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
 
 
 
-## Code Flow
+## Code Flow:
 
 
 ---------------- End of Technical Approach-------------------------
 
-## Explicit Reference Requirements:
+# Explicit Reference Requirements:
 
 | Requirement  | Our approach |
 | :------------- | :------------- |
