@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-article-in-review',
@@ -14,7 +15,7 @@ result:any = [];
  articleinReviewDetailsData: any = [];
  buttonCondition:string;
 
-  constructor(private articleService : ArticleService ) { }
+  constructor(private articleService : ArticleService, private router: Router ) { }
 
   ngOnInit() {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
@@ -30,5 +31,33 @@ result:any = [];
       
     })
   }
+
+  onbackToHome() {
+    this.router.navigate(['./home']);
+  }
+  Approve() { 
+    let data =
+      {
+        "_postupdatearticlestate":
+        {
+          "article_id": +this.articleID,
+          "user_id": +this.userID,
+          "article_state": 'PUBLISHED',
+          "username": this.userName
+        }
+      } 
+      console.log(data);
+
+      this.articleService.updateArticleStatus(data)
+       .subscribe((res) => {
+         console.log(res);
+        alert("You approved the article");
+        this.router.navigate(['./home']);
+      },
+      (err) => {        
+        alert("Error occured approving an article");
+      }
+      );
+   }
 
 }

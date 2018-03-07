@@ -38,7 +38,28 @@ export class ViewArticleDraftComponent implements OnInit {
     this.router.navigate(['./home']);
   }
   SubmitForApproval() { 
-    
+    let data =
+      {
+        "_postupdatearticlestate":
+        {
+          "article_id": +this.articleID,
+          "user_id": +this.userID,
+          "article_state": 'IN-REVIEW',
+          "username": this.userName
+        }
+      } 
+      console.log(data);
+
+      this.articleService.updateArticleStatus(data)
+       .subscribe((res) => {
+         console.log(res);
+        alert("article submited for review");
+        this.router.navigate(['./home']);
+      },
+      (err) => {        
+        alert(err);
+      }
+      );
    }
 
   saveChanges() { }

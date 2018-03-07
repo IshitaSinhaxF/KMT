@@ -136,6 +136,12 @@ export class ArticleService {
 
   }
 
+  updateArticleStatus(articleStatus)
+  {
+    console.log(articleStatus);
+    return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticleState', articleStatus);
+  }
+
   uploadFile(file) {
     const params = {
       Bucket: 'kmtweb',

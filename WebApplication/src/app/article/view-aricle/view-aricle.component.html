@@ -38,6 +38,9 @@
         <!-- <span class="caption-subject text-uppercase"> {{s.articleTitle}}</span> -->
         <span class="caption-subject text-uppercase"> {{articleDetailsData.articleTitle}}</span>
       </div>
+      <div class="form-group" id="buttons">
+         <input type="button" class="btn btn-primary" id="backbutton" value="Back" (click)="onbackToHome()" />
+      </div>
     </div>
     <div class="portlet-body bodySize">
       <div class="col-md-12 author">
@@ -75,7 +78,8 @@
       <div class="col-md-10 author">
         <p>
           <b>Article Content:</b> {{articleDetailsData.articleContent}}</p>
-      </div>
+      </div> 
+      
       <div  [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">                       
         <app-article-feedback></app-article-feedback>
  </div>

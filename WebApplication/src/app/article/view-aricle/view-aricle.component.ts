@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../article.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class ViewAricleComponent implements OnInit {
  insertStatus: any;
  
  
-constructor(private articleService : ArticleService) { 
+constructor(private articleService : ArticleService, private router: Router) { 
   
 }
 ngOnInit() {
@@ -31,6 +31,10 @@ ngOnInit() {
       this.articleDetailsData = this.result.entries.entry[0];  
     
     })    
+  }
+
+    onbackToHome() {
+    this.router.navigate(['./home']);
   }
 
   // OnFeedbackPost()
