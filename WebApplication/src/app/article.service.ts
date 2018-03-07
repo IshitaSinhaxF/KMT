@@ -123,10 +123,10 @@ export class ArticleService {
   }
 
   getAuthorSearchResults(author) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"userID\" = " + author, { headers })
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND artHis.\"userID\" = " + author, { headers })
   }
   getCategoryAndAuthorSearchResults(categoryID,userID) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"userID\" = " + userID +" AND art.\"categoryID\" = "+ categoryID, { headers })
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND artHis.\"userID\" = " + userID +" AND art.\"categoryID\" = "+ categoryID, { headers })
   }
   getPublishedSearchResults() {
     return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) ", { headers })
