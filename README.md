@@ -41,14 +41,17 @@ Check Word Doc for Service Architecture
 ## KMT Solution Architecture and Technology:
 
 <p align="center">
-  <img width="640" height="720" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
+  <img width="560" height="640" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
 </p>
 
 
 ## DevOps Automation:
 a)	Infrastructure automation
+
 b)	Source code repository
+
 c)	SDLC environments
+
 d)  Container Model
 
 ## Continuous Integration and Continuous Deployment (CI/CD):
