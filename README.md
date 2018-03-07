@@ -5,7 +5,7 @@ Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, we 
 
 Since we had a smaller time-frame to carry out the project, we decided to go ahead with five sprints to complete the project. The team adopted a Scrum-based approach to development and created the roadmap required to meet the Minimal Value Plan (MVP) for the Working Prototype. Sprint planning included translating the MVP into five sprints, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the roadmap. We went ahead with modern tools and techniques with which we were already familiar with, thus reducing the ramp up time. This Planning effort was completed within three days of receipt of the RFI and development began immediately. 
 
-Our execution process was extremely disciplined, complete with formal demos and retrospectives with each sprint, and a complete story board designed with the help of Trello Board overlaying our GitHub Issues and Stories. We conducted daily, in person, scrum meetings to discuss the progress that was made since the previous scrum meeting , goals to accomplish before the next scrum meeting , and any impediments that were preventing team members from performing their work.
+Our execution process was extremely disciplined, complete with formal demos and retrospectives with each sprint, and a complete story board designed with the help of [Trello Boards](https://trello.com/xfusiontech) overlaying our GitHub Issues and Stories. We conducted daily, in person, scrum meetings to discuss the progress that was made since the previous scrum meeting , goals to accomplish before the next scrum meeting , and any impediments that were preventing team members from performing their work.
 
 During the course of our project, we have heavily relied on collaborative development and communication tools such as [GitHub](https://github.com/xFusionTech/KMT/) and JIRA. The result of our efforts is a collaboratively designed and built Working Prototype that meets the MVP of the RFI requirements using modern, open source technologies within a smaller time frame.
 
@@ -22,13 +22,13 @@ Our agile process followed various iterations of the stages discussed below:
 
 **Sprint Review** - In the [Sprint Review meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Sprint%20Review%20Meeting.jpg), the team assessed the project development against the sprint goal determined during the planning meeting.  The team presented completed goals in the Sprint to the Product Manager for review and approval. Accomplishments were recognized and issues were documented to be completed during the next sprint. 
 
-**Sprint Retrospective** – The team reflected on how their tools, processes and peers performed on the recently completed sprint. Each team member was asked to identify areas which met/ exceeded expectations, areas which lagged behind and one area for improvement. We created [Sprint Retrospective boards](https://github.com/xFusionTech/KMT/tree/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%20Retrospectives) using Trello project management board which provides a summary snapshot of each of our Sprint Retrospective meetings.
+**Sprint Retrospective** – The team reflected on how their tools, processes and peers performed on the recently completed sprint. Each team member was asked to identify areas which met/ exceeded expectations, areas which lagged behind and one area for improvement. We created [Sprint Retrospective boards](https://github.com/xFusionTech/KMT/tree/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%20Retrospectives) using [Trello](https://trello.com/xfusiontech) project management board which provides a summary snapshot of each of our Sprint Retrospective meetings.
 
 With each iteration, the prototype became increasingly aligned to the vision of the Product Manager, as well as the needs of our users. Our high-level roadmap included several user stories that ultimately were not included in the Working Prototype. 
 
 
   <p align="center">
-  <img width="540" height="380" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
+  <img width="540" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
 </p>
   
 
