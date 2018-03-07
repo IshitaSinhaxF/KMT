@@ -86,7 +86,8 @@ export class ArticleService {
 
   // Get Artciles by status API for pending for  articles
   getPendingArticleService(userID,roleId) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
+    // return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND artHis.\"articleApproverID\" =" + userID + "", { headers })
   }
 
   getUserDataOnLoad() {
