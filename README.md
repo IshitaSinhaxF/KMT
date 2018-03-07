@@ -56,7 +56,7 @@ d)  Container Model
 
 ## Continuous Integration and Continuous Deployment (CI/CD):
 
-Our team followed Continuous integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
+Our team followed Continuous Integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
 
 
 
