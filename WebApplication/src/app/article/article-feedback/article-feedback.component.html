@@ -1,11 +1,13 @@
-     <div class="form-group" id="accordion3" >
+    
+     <div class="portlet-body bodySize" id="accordion3" >
           <label>Comments-Questions</label>
-          <textarea  class="form-control" rows="4" data-role="collapsible" name="txtFormQues" [(ngModel)]="txtFeedbck"></textarea> 
-          <button class="btn btn-primary btn-lg" (click) = 'OnFeedbackPost()' id="buttons"> Post</button>                           
-      </div>
-      <div id="tagpadding">
-
+          <textarea  class="form-control" rows="4" data-role="collapsible" name="txtFormQues" [(ngModel)]="txtFeedbck"></textarea>
      </div>
+     <div id="tagpadding">
+          <button class="btn btn-primary btn-lg" (click) = 'OnFeedbackPost()' id="buttons"> Post</button>                       
+      </div>
+     
+    
     
      <div *ngFor="let d of articleDetailsFeedbacks">
     <table id="bottomMargin">
