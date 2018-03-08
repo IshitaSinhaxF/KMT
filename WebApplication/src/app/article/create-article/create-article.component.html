@@ -37,256 +37,90 @@
   </div>
 </nav>
 
-<section class="container-fluid1" id="content-container">
-  <div class="row">
-    <div class="col-md-12 col-lg-12">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-11">
+<div class="col-md-12" >
+  <div class="portlet">
+    <div class="portlet-title">
+        <div class="caption">
+      <h4 class="caption-subject text-uppercase">
+       Create New Article
+       </h4>
+    </div>
+    </div>
+   
+    <div class="row">
+  <div class="col-md-12">
+    <!-- <div class="portlet-body bodySize" > -->
+      <div class="form-group" id="accordion3">  
+          <label>Article Title:</label>
+          <span >&nbsp;</span>
+           <input name="article" type="text" class="form-control" [(ngModel)]="article_title" />
+      </div>
+      <div class="form-group">
+          <label>Article Summary:</label>
+          <span></span>
+          <textarea name="articleContent" id="texteditor1" class="form-control" rows="4" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+      </div>
+      <div class="form-group">
+          <label>Article Content:</label>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <app-ngx-editor  [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" id="texteditor"></app-ngx-editor>
+      </div>
+      <div class="form-group">
+          <label>Category:</label>
+                           
+          <select class="form-control" [(ngModel)]="categoryName">
+               <option value=""> Choose One </option>
+               <option *ngFor="let d of data">{{d.categoryName}}</option>
+             </select>
+      </div>
+      <div id="tagpadding"> 
 
-            <div class="row">
-              <div class="col-md-12">
-                <form class="form-inline" id="advance-search-g1">
-                  <div class="panel-group" id="accordion3">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">
-                            Create New Article
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="tagpadding">
+      </div>
+     
+      <div class="form-group">
+        <p>
+          <label>Sub-Category:</label>                              
+          <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
+            <option value=""> Choose One </option>
+            <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
+          </select>
+          </p>
+      </div>
+         <div class="form-group">
+          <label>Article Tags:</label>                             
+          <input name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" />
+          <button class="button" (click)="createArticleInputTag('')">Add</button>
+      </div>
+        <!-- <div class="col-md-10 author">
+        <p>
+          <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
+      </div> -->
+      <div class="form-group">
 
-                      </div>
+          <div>
+            <div class="">
 
-                      <div class="row">
-                        <div class="col-md-12">
-                          <!-- <form class="form-inline" id="advance-search-g1"> -->
-                          <div class="form-group">
-                            <label>Article Title</label>
-                            <input name="article" type="text" class="form-control" [(ngModel)]="article_title" />
-                          </div>
-                          <div id="tagpadding"></div>
-                           <div class="form-group">
-                            <label>Article Summary</label>
-                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                            <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
-                          </div>
-                          <div id="tagpadding"> </div>
-                          <div class="form-group">
-                            <label>Article Content</label>
-                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                            <textarea name="articleSummary" class="form-control" rows="7" data-role="collapsible" [(ngModel)]="article_content"></textarea>
-                          </div>
-                          <div id="tagpadding"></div>
-                          <div class="form-group" id="categoryclassid">
-                              <label>Category</label>
-                              <!-- <select class="form-control" [(ngModel)]="categoryName"> -->
-                             <select class="form-control" [(ngModel)]="categoryName">
-                                  <option value=""> Choose One </option>
-                                  <option *ngFor="let d of data">{{d.categoryName}}</option>
-                                </select>
-                            </div>
-                            <div id="tagpadding"></div>
-                            <div class="form-group" id="categoryclassid">
-                              <label>Sub-Category</label>                              
-                                <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
-                                  <option value=""> Choose One </option>
-                                  <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
-                                </select>
-                            </div>
-                          <!-- <div class="form-group" id="categoryclassid">
-                            <label>Category</label>
-                            <select class="form-control" [(ngModel)]="categoryName">
-                            <select name="CategoryName" class="form-control" [(ngModel)]="categoryName">
-                              <option value=""> Choose One </option>
-                              <option *ngFor="let d of data">{{d.categoryName}}</option>
-                            </select>
-
-                          </div> -->
-                          <div id="tagpadding">
-
-                            <!-- <div class="panel-group" id="accordion3">
-                                <div class="panel panel-default"> -->
-                            <!-- <div class="panel-heading1">
-                                    <h4 class="panel-title1">
-                                      <a class="accordion-toggle" data-toggle="collapse" id="articletagpanel"data-parent="#accordion3" href="#popularTags">
-                                        Tags
-                                      </a>
-                                    </h4>
-                                  </div>  -->
-                            <div class="form-group">
-                              <label>Article Tags</label>                             
-                              <input name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" />
-                              <button class="button" (click)="createArticleInputTag('')">Add</button>
-                            </div>
-                             <!-- <div class="form-group">
-                            <label>Article Tags</label>
-                            <input name= "article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_tag" />
-                            <button class="button" (click)="createArticleInputTag('')">Add</button>
-                          </div> -->
-                            <!-- <div class="form-group">
-                                    &nbsp;&nbsp;
-                                    <label>Article Tags</label>
-                                    <input id="articleInputTags" name="articleTags" type="text" class="form-control" />
-                                    <button class="button" (click)="createArticleInputTag('')">Add</button>
-                                  </div> -->
-                            <div class="form-group2">
-
-                              <div>
-                                <div class="">
-
-                                  <div>
-                                    <a class="badge badge-secondary" id='inputTag1'></a>
-                                    <a class="badge badge-secondary" id='inputTag2'></a>
-                                    <a class="badge badge-secondary" id='inputTag3'></a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <!--
-                                   <div id="popularTags" class="panel-collapse collapse in">
-                                    <div class="panel-body" style="font-size:20px">
-                                      <h5 style="font-size:20px">Choose from the most popular tags</h5>
-                                       <a class="badge badge-secondary" (click)="changeThis2()" id="myTagBtn" value="tag1">Tag 1</a>
-                          <input type="button" id="myBtn" onclick="myFunction()" value="Try it">
-                                      <input type="button" id="popularTag1" (click)="selectPopularTag1()" value="Tag1">
-                                      <input type="button" id="popularTag2" (click)="selectPopularTag2()" value="Tag2">
-                                      <input type="button" id="popularTag3" (click)="selectPopularTag3()" value="Tag3">
-                                      <input type="button" id="popularTag4" (click)="selectPopularTag4()" value="Tag4">
-                                      <input type="button" id="popularTag5" (click)="selectPopularTag5()" value="Tag5">
-                                      <input type="button" id="popularTag6" (click)="selectPopularTag6()" value="Tag6">
-                                      <input type="button" id="popularTag7" (click)="selectPopularTag7()" value="Tag7">
-                                      <input type="button" id="popularTag8" (click)="selectPopularTag8()" value="Tag8">
-                                      <input type="button" id="popularTag9" (click)="selectPopularTag9()" value="Tag9">
-                                      <input type="button" id="popularTag10" (click)="selectPopularTag10()" value="Tag10">
-
-                                    </div>
-                                  </div>  -->
-                            <!-- </div>
-                              </div> -->
-                            <div class="form-group">
-                              <label for="uploadFile">Upload File</label>
-                              <div id="igUpload1"></div>
-                              <!-- <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> -->
-                              <!-- <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> -->
-                              <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
-                              <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
-                              <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
-                            </div>
-                            <!--
-                              <div class="form-group" style="text-align:center">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
-                                <input type="button" class="btn btn-primary btn-lg" value="Save" />
-                              </div> -->
-
-                          </div>
-                          <!-- <div class="form-group">
-                            <label>Article Tags</label>
-                            <input name= "article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" [(ngModel)]="article_tag" />
-                            <button class="button" (click)="createArticleInputTag('')">Add</button>
-                          </div> -->
-
-                          <div class="form-group2">
-
-                            <div>
-                              <div class="">
-
-                                <div id="inputTagposition">
-                                  <a class="badge badge-secondary" id='inputTag1'></a>
-                                  <a class="badge badge-secondary" id='inputTag2'></a>
-                                  <a class="badge badge-secondary" id='inputTag3'></a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-<!-- 
-                          <div class="form-group">
-                            <label for="uploadFile">Upload File</label>
-                            <div id="igUpload1"></div> 
-                            <div id="error-message" style="color: #FF0000; font-weight: bold;"></div> 
-                            <input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg"> 
-                            <input id="uploadBtn0" type="file" class="upload" (Click)="test()" multiple/>
-                          </div> -->
-                        </div>
-
-                        <div class="form-group" id="buttons">
-                          <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />                          
-                          <input type="submit" class="btn btn-primary btn-lg" value="Save" (click)="insertArticleData()" />
-                        </div>
-
-                      </div>
-
-                    </div>
-                  </div>
-
-                </form>
+              <div>
+                <a class="badge badge-secondary" id='inputTag1'></a>
+                <a class="badge badge-secondary" id='inputTag2'></a>
+                <a class="badge badge-secondary" id='inputTag3'></a>
               </div>
             </div>
-
           </div>
         </div>
+        <div class="form-group">
+          <label for="uploadFile">Upload File:</label>
+          <div id="igUpload1"></div>
+          <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
+          <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
+          <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
       </div>
-    </div>
-  </div>
-</section>
-
-<footer class="container-fluid" id="footer">
-  <div class="row" id="footerNav">
-    <div class="col-sm-4 col-lg-3 col-lg-offset-1">
-      <h4>Request a Service</h4>
-      <ul>
-        <li>
-          <a href="#">Submit a Service Request</a>
-        </li>
-        <li>
-          <a href="#"> Report an Incident</a>
-        </li>
-        <li>
-          <a href="#">Technology Services</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-4 col-lg-4 col-lg-offset-1">
-      <h4>Information Security</h4>
-      <ul>
-        <li>
-          <a href="#">Security Awareness</a>
-        </li>
-        <li>
-          <a href="#"> Risk Management</a>
-        </li>
-        <li>
-          <a href="#"> Recovery Management</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-4 col-lg-3">
-      <h4>Support</h4>
-      <ul>
-        <li>
-          <a href="#">Find your Account Lead</a>
-        </li>
-        <li>
-          <a href="#">Online Contact Form</a>
-        </li>
-        <li>
-          <a href="#">Frequently Asked Questions</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- </div>
-  </div> -->
-
-  <!-- </section> -->
-
-</footer>
-<div class="container-fluid" id="copyrightInfo">
-  <div class="row">
-    <div class="col-sm-12">Copyright &copy; 2018 xFusionTech Systems. All rights reserved.</div>
+      <div class="form-group" id="buttons">
+          <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />                          
+          <input type="submit" class="btn btn-primary btn-lg" value="Save" (click)="insertArticleData()" />
+      </div> 
+    <!-- </div> -->
   </div>
 </div>
+
+

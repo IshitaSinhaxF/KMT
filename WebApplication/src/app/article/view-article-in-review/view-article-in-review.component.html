@@ -1,54 +1,97 @@
-<div class="container-fluid">
-  <div class="row">
-    <div id="tabContent2" class="tab-content">
-      <div class='center'>
-        <div class="col-md-12">
-          <div class="row">
-            <div class="form-group">
-              <label>Category</label>&nbsp;&nbsp;{{articleinReviewDetailsData.parent_category}}
-            </div>
-            <div class="form-group">
-              <label>Sub-category</label> &nbsp;&nbsp; {{articleinReviewDetailsData.categoryName}}
-            </div>            
-            <div class="form-group">
-              <label>Created By</label> &nbsp;&nbsp; {{articleinReviewDetailsData.author_name}}
-            </div>
-            <div class="form-group">
-              <label>Approver</label> &nbsp;&nbsp;{{articleinReviewDetailsData.approver_name}}
-            </div>
-            <div class="form-group">
-              <label>Created on </label>&nbsp;&nbsp; {{articleinReviewDetailsData.dateCreated}}
-            </div>
-            <div class="form-group">
-              <label>Modified on</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleLastModifiedDate}}
-            </div>
-            <div class="form-group">
-              <label>Article State</label> &nbsp;&nbsp; {{articleinReviewDetailsData.StateName}}
-            </div>
-            <div class="form-group">
-              <label>Article Title</label> &nbsp;&nbsp; {{articleinReviewDetailsData.articleTitle}}
-            </div>
-            <div class="form-group">
-              <label>Article Tags</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleTag}}
-            </div>
-            <div class="form-group">
-              <label>Article Description</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleDesc}}
-            </div>
-            <div class="form-group">
-              <label>Article Path</label>&nbsp;&nbsp; <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
-            </div>
-            <div class="form-group">
-              <label>Article Content</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleContent}}
-            </div>
-            <div class="form-group" id="buttons">
-              <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />
-            </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="inverseNavbar1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">My Profile</a>
+            </li>
+            <li>
+              <a href="#">Change Password</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">Log Out</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-12" >
+  <div class="portlet">
+    <div class="portlet-title">
+      <div class="caption">
+        <!-- <span class="caption-subject text-uppercase"> {{s.articleTitle}}</span> -->
+        <span class="caption-subject text-uppercase"> {{articleinReviewDetailsData.articleTitle}}</span>
+      </div>
+       </div>
+    <div class="portlet-body bodySize">
+      <div class="col-md-4 author">
+        <p>
+          <b>Service:</b> {{articleinReviewDetailsData.parent_category}}</p>
+      </div>
+      <div class="col-md-4 author">
+        <p>
+          <b>Category:</b> {{articleinReviewDetailsData.categoryName}}</p>
+      </div>
+     
+      <div class="col-md-4 author">
+        <p>
+          <b>Article State:</b> {{articleinReviewDetailsData.StateName}}</p>
+      </div>
+      <div class="col-md-4 author">
+        <p>
+          <b>Created By:</b> {{articleinReviewDetailsData.author_name}}</p>
+      </div>
+      <div class="col-md-4 author">
+        <p>
+          <b>Approved By:</b> {{articleinReviewDetailsData.approver_name}}</p>
+      </div>
+      <div class="col-md-4 author">
+        <p>
+          <b>Article last modified date:</b> {{articleinReviewDetailsData.articleLastModifiedDate}}</p>
+      </div>
+      <div class="col-md-10 author">
+        <p>
+          <b>Article Tags:</b> {{articleinReviewDetailsData.articleTag}}</p>
+      </div>
+      <div class="col-md-10 author">
+        <p>
+          <b>Article Description:</b> {{articleinReviewDetailsData.articleDesc}}</p>
+      </div>
+      <div class="col-md-10 author">
+        <p>
+          <b>Article Content:</b> {{articleinReviewDetailsData.articleContent}}</p>
+      </div> 
+      
+      <!-- <div class="form-group" id="buttons">
+              <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />                                               
+             </div> -->
             <div class="form-group" *ngIf="buttonCondition == 'true'">
               <button class="btn btn-primary btn-lg" (click)='Approve()'> Approve </button>
             </div>
+<<<<<<< HEAD
           </div>
         </div>
       </div>
     </div>
+=======
+
+   </div>
+>>>>>>> 20c882393163cb8278f52c9e693e73c3f9ad1bcc
   </div>
 </div>

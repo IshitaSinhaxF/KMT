@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+      <!-- <a class="navbar-brand" href="#">xFusionTech Logo</a> -->
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="inverseNavbar1">
@@ -37,7 +37,7 @@
     <img src="./assets/images/sac-banner.jpg" class="img-responsive hidden-xs" alt="Sacramento">
   </div>
 </section>
-<section class="container-fluid" id="user-info">
+<!-- <section class="container-fluid" id="user-info">
   <div class="row">
     <div class="col-md-3 info col-lg-offset-1 col-sm-3">
       <span class="title">Agency:</span>
@@ -56,7 +56,7 @@
       <span class="value">Administrator</span>
     </div>
   </div>
-</section>
+</section> -->
 <section class="container-fluid" id="content-container">
   <div class="row">
     <div class="col-md-12 col-lg-offset-1 col-lg-2" id="left-bar">
@@ -71,7 +71,6 @@
       <div role="tabpanel" id="first-level-tabs">
         <!-- <app-search-article></app-search-article> -->
         <app-search-article (searchClicked)="hideArticle($event)"></app-search-article>
-        <hr *ngIf="hide">
         <app-get-article *ngIf="hide"></app-get-article>
         <!-- <p *ngIf="hideArticles">serach works</p> -->
       </div>

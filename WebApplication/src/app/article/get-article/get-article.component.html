@@ -7,12 +7,7 @@
       <span class="badge">{{publishedDataLength}}</span>
     </a>
   </li>
-  <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
-    <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval
-      <span class="badge">{{pendingDataLength}}</span>
-    </a>
-  </li>
-  <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
+   <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
     <a (click)=" displayInReview()">In Review
       <span class="badge">{{inReviewDataLength}}</span>
     </a>
@@ -20,6 +15,11 @@
   <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
     <a (click)="displayDraftDiv()">Draft
       <span class="badge">{{draftDataLength}}</span>
+    </a>
+  </li>
+  <li role="presentation" [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
+    <a (click)="displayPendingApprovDiv()" *ngIf="roleId == 2">Pending for Approval
+      <span class="badge">{{pendingDataLength}}</span>
     </a>
   </li>
 

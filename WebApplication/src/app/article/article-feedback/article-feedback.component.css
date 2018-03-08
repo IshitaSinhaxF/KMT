@@ -21,7 +21,7 @@
 	width: 50;
 }
 #advance-search-g1 form{
-	width: 50%;
+	width: 10%;
 	display: inline-flex;
 }
 #advance-search-g1.input{
@@ -29,14 +29,13 @@
 }
 
 #accordion3 textarea{
-	width: 80%;
+	width: 85%;
 
 
 }
-#accordion3 label{
-	width: 20.5%;
+#accordion3 input{
+	/* width: 20.5%; */
 	font-weight: bold;
-	
 
 }
 #categoryclassid select{
@@ -57,12 +56,7 @@
     width: 16%;
     font-size: 18px;
 }
-#accordion3 h3{
-	text-align: center;
-	font-size: 23px;
-	color: darkblue;
-	font-weight: bold;
-}
+
 #advance-search-g1 .form-group2, #advance-search-g2 .form-group2 {
 	width: 50%;
     margin: 1em 0;
