@@ -26,6 +26,7 @@ import { ArticleFeedbackComponent } from './article/article-feedback/article-fee
 import { ViewArticleInReviewComponent } from './article/view-article-in-review/view-article-in-review.component';
 import { ViewArticleDraftComponent } from './article/view-article-draft/view-article-draft.component';
 import { InReviewComponent } from './article/in-review/in-review.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //Import ngb-bootstrap
 
@@ -63,6 +64,7 @@ import { InReviewComponent } from './article/in-review/in-review.component';
     HttpClientModule,
     HttpModule,
     FormsModule,
+    NgbModule.forRoot(),
   ],
   providers: [
     ArticleService ,

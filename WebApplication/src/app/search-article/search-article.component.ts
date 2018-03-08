@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ArticleService } from '../article.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-article',
@@ -46,6 +47,8 @@ export class SearchArticleComponent implements OnInit {
   SearchData(): void {
     this.searchClicked.emit(false);
     console.log(this.searchForm);
+    this.searchData = null;
+    console.log(this.searchData)
     if (this.searchForm.Category != undefined) {
       // this.searchData = "";
       this.articleService.getCategorySearchResults(this.searchForm.Category).subscribe((res: Response) => {
@@ -54,6 +57,7 @@ export class SearchArticleComponent implements OnInit {
           this.searchData = this.searchResults.entries.entry;
           this.showSearchForm = true;
           console.log(this.searchData);
+          this.searchForm.Category = null;
         }else{
           this.showSearchForm = true;
           this.showErrorMessage = true;
@@ -66,6 +70,7 @@ export class SearchArticleComponent implements OnInit {
         this.searchData = this.searchResults.entries.entry;
         this.showSearchForm = true;
         console.log(this.searchData);
+        this.searchForm.Author = null;
       })
     } else if (this.searchForm.Category != undefined && this.searchForm.Author != undefined) {
       this.articleService.getCategoryAndAuthorSearchResults(this.searchForm.Category, this.searchForm.Author).subscribe((res: Response) => {
@@ -73,6 +78,8 @@ export class SearchArticleComponent implements OnInit {
         this.searchData = this.searchResults.entries.entry;
         this.showSearchForm = true;
         console.log(this.searchData);
+        this.searchForm.Category = null;
+        this.searchForm.Author = null;
       })
     }
     else {
