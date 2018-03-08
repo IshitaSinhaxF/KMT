@@ -4,24 +4,29 @@
       <div class='center'>
         <div class="col-md-12">
           <div class="row">
-
             <div class="form-group">
-              <label>Service</label>&nbsp;&nbsp;{{articleinReviewDetailsData.parent_category}}
+              <label>Category</label>&nbsp;&nbsp;{{articleinReviewDetailsData.parent_category}}
             </div>
             <div class="form-group">
-              <label>Category</label> &nbsp;&nbsp; {{articleinReviewDetailsData.categoryName}}
-            </div>
+              <label>Sub-category</label> &nbsp;&nbsp; {{articleinReviewDetailsData.categoryName}}
+            </div>            
             <div class="form-group">
-              <label>Author</label> &nbsp;&nbsp; {{articleinReviewDetailsData.author_name}}
-            </div>
-            <div class="form-group">
-              <label>Article State</label> &nbsp;&nbsp; {{articleinReviewDetailsData.StateName}}
+              <label>Created By</label> &nbsp;&nbsp; {{articleinReviewDetailsData.author_name}}
             </div>
             <div class="form-group">
               <label>Approver</label> &nbsp;&nbsp;{{articleinReviewDetailsData.approver_name}}
             </div>
             <div class="form-group">
-              <label>Article last modified date</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleLastModifiedDate}}
+              <label>Created on </label>&nbsp;&nbsp; {{articleinReviewDetailsData.dateCreated}}
+            </div>
+            <div class="form-group">
+              <label>Modified on</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleLastModifiedDate}}
+            </div>
+            <div class="form-group">
+              <label>Article State</label> &nbsp;&nbsp; {{articleinReviewDetailsData.StateName}}
+            </div>
+            <div class="form-group">
+              <label>Article Title</label> &nbsp;&nbsp; {{articleinReviewDetailsData.articleTitle}}
             </div>
             <div class="form-group">
               <label>Article Tags</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleTag}}
@@ -30,15 +35,18 @@
               <label>Article Description</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleDesc}}
             </div>
             <div class="form-group">
-              <label>Article Content</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleContent}}
-            </div> 
-            <div class="form-group" id="buttons">
-              <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />                                               
-             </div>
-            <div class="form-group" *ngIf="buttonCondition == 'true'">
-              <button class="btn btn-primary btn-lg" (click) = 'Approve()'> Approve </button>
+              <label>Article Path</label>&nbsp;&nbsp; <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
             </div>
-          </div>          
+            <div class="form-group">
+              <label>Article Content</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleContent}}
+            </div>
+            <div class="form-group" id="buttons">
+              <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />
+            </div>
+            <div class="form-group" *ngIf="buttonCondition == 'true'">
+              <button class="btn btn-primary btn-lg" (click)='Approve()'> Approve </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -67,43 +67,48 @@
                             <label>Sub-Category</label>&nbsp;&nbsp; {{articleDetailsinDraftData.categoryName}}
                           </div>
                           <div class="form-group">
-                            <label>Approver</label>&nbsp;&nbsp; {{articleDetailsinDraftData.approver_name}}
+                            <label>Created on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.dateCreated}}
                           </div>
                           <div class="form-group">
-                            <label>Created on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.dateCreated}}
+                            <label>Modified on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.articleLastModifiedDate}}
+                          </div>
+                          <div class="form-group">
+                            <label>Approver</label>&nbsp;&nbsp; {{articleDetailsinDraftData.approver_name}}
+                          </div>                          
+                          <div class="col-md-12 author">
+                            <p>
+                              <b>Article State</b> {{articleDetailsinDraftData.StateName}}</p>
                           </div>
                           <div class="form-group">
                             <label>Article Title</label>
                             <input name="article" type="text" class="form-control" [(ngModel)]="articleDetailsinDraftData.articleTitle" />
                           </div>
+                          <div class="form-group">
+                            <label>Article Tags</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleTag}}
+                          </div>
                           <div id="tagpadding"></div>
                           <div class="form-group">
-                            <label>Article Description</label>
-                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
+                            <label>Article Description</label>                          
                             <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
                           </div>
                           <div id="tagpadding"> </div>
-                          <div class="form-group" *ngIf="articleDetailsinDraftData.articlePath != 'null'">
-                            <label>Article Path:</label>&nbsp;&nbsp; <a href="articleDetailsinDraftData.articlePath"> {{articleDetailsinDraftData.articlePath}} </a>
-                          </div>                          
+                          <div class="form-group">
+                            <label>Article Path:</label>&nbsp;&nbsp; <a target="_blank" href={{articleDetailsinDraftData.articlePath}}> {{articleDetailsinDraftData.articlePath}} </a>
+                          </div>
                           <div id="tagpadding"> </div>
                           <div class="form-group">
                             <label>Article Content</label>
                             <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
                             <textarea name="articleSummary" class="form-control" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
                           </div>
-                          <div id="tagpadding"></div>                        
-                          
-                          
-
+                          <div id="tagpadding"></div>
                           <div class="form-group">
-
                           </div>
                         </div>
                       </div>
                       <div class="form-group" id="buttons">
                         <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />
-                        <input type="submit" class="btn btn-primary btn-lg" (click)='saveChanges()' value="Save changes" />
+                        <input type="submit" class="btn btn-primary btn-lg" (click)='SaveArticleChanges()' value="Save changes" />
                         <input type="submit" class="btn btn-primary btn-lg" value="Submit for approval" (click)='SubmitForApproval()' />
                       </div>
                     </div>

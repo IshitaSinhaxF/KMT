@@ -155,6 +155,11 @@ export class ArticleService {
 
   }
 
+  updateArticle(article)
+  {
+    return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
+  }
+
   updateArticleStatus(articleStatus)
   {
     console.log(articleStatus);

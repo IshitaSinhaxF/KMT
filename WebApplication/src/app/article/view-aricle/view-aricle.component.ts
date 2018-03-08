@@ -21,15 +21,13 @@ export class ViewAricleComponent implements OnInit {
  insertStatus: any;
  
  
-constructor(private articleService : ArticleService, private router: Router) { 
-  
-}
+constructor(private articleService : ArticleService, private router: Router) { }
 ngOnInit() {
 
       this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsData = this.result.entries.entry[0];  
-    
+      console.log(this.articleDetailsData);
     })    
   }
 
@@ -37,31 +35,4 @@ ngOnInit() {
     this.router.navigate(['./home']);
   }
 
-  // OnFeedbackPost()
-  // {
-  //    this.articleFeedbackText = this.txtFeedbck;
-  //    this.artID = +this.articleDetailsData.articleID;
-  //    let data = 
-  //    {       
-  //      "_postinsertarticlefeedback":
-  //      {
-  //        "rating": 3,
-  //        "article_comment": this.articleFeedbackText,
-  //        "article_id": this.artID,
-  //        "username" : this.userName,
-  //        "user_id": this.userID
-  //       }                     
-  //    }
-  //    this.insertStatus = this.articleService.insertFeedbackPost(data);  
-  //    if(this.insertStatus === "Success")
-  //    {
-  //      this.articleService.getArticleFeedbacks(this.articleID).subscribe((res: Response) => 
-  //     {
-  //     this.result = res;
-  //     this.articleDetailsFeedbacks = this.result.entries.entry;
-  //     //console.log(this.result)
-  //     })
-  //    }
-  //   //console.log(this.insertStatus);        
-  // }
-}
+

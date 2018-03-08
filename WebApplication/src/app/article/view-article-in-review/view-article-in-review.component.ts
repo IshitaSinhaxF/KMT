@@ -8,34 +8,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-article-in-review.component.css']
 })
 export class ViewArticleInReviewComponent implements OnInit {
-result:any = [];
- articleID: any = this.articleService.getFromSessionStorage("articleID");
- userID: number = +this.articleService.getFromSessionStorage("UserId"); 
- userName: string = this.articleService.getFromSessionStorage("UserName");
- articleinReviewDetailsData: any = [];
- buttonCondition:string;
+  result: any = [];
+  articleID: any = this.articleService.getFromSessionStorage("articleID");
+  userID: number = +this.articleService.getFromSessionStorage("UserId");
+  userName: string = this.articleService.getFromSessionStorage("UserName");
+  articleinReviewDetailsData: any = [];
+  buttonCondition: string;
+  categoryID: number;
 
-  constructor(private articleService : ArticleService, private router: Router ) { }
+
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleinReviewDetailsData = this.result.entries.entry[0];
-
-      if(this.articleinReviewDetailsData.approver_name === this.userName)
-      {
-        this.buttonCondition = 'true';        
+      console.log(this.articleinReviewDetailsData.articleApproverID);
+      console.log(this.userID);
+      if (+this.articleinReviewDetailsData.articleApproverID === +this.userID) {
+        this.buttonCondition = 'true';
       }
-      else
-      this.buttonCondition = 'false';
-      
+      else {
+        this.buttonCondition = 'false';
+      }
     })
   }
 
   onbackToHome() {
     this.router.navigate(['./home']);
   }
-  Approve() { 
+
+  Approve() {
     let data =
       {
         "_postupdatearticlestate":
@@ -45,19 +48,20 @@ result:any = [];
           "article_state": 'PUBLISHED',
           "username": this.userName
         }
-      } 
-      console.log(data);
+      }
 
-      this.articleService.updateArticleStatus(data)
-       .subscribe((res) => {
-         console.log(res);
+    this.articleService.updateArticleStatus(data)
+      .subscribe((res) => {
+        console.log(res);
         alert("You approved the article");
         this.router.navigate(['./home']);
       },
-      (err) => {        
+      (err) => {
         alert("Error occured approving an article");
       }
       );
-   }
+  }
+
+  
 
 }

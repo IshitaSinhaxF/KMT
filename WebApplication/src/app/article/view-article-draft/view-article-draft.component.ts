@@ -15,8 +15,9 @@ export class ViewArticleDraftComponent implements OnInit {
   result: any;
   articleDetailsinDraftData: any;
   subCatData: any;
+  categoryID: number;
 
-  constructor(private articleService: ArticleService,private router: Router) { }
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
@@ -25,7 +26,7 @@ export class ViewArticleDraftComponent implements OnInit {
       console.log(this.articleDetailsinDraftData);
     })
 
-       this.articleService.getSubCategory()
+    this.articleService.getSubCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.subCatData = this.result.entries.entry;
@@ -37,7 +38,7 @@ export class ViewArticleDraftComponent implements OnInit {
   onbackToHome() {
     this.router.navigate(['./home']);
   }
-  SubmitForApproval() { 
+  SubmitForApproval() {
     let data =
       {
         "_postupdatearticlestate":
@@ -47,20 +48,49 @@ export class ViewArticleDraftComponent implements OnInit {
           "article_state": 'IN-REVIEW',
           "username": this.userName
         }
-      } 
-      console.log(data);
+      }
+    console.log(data);
 
-      this.articleService.updateArticleStatus(data)
-       .subscribe((res) => {
-         console.log(res);
+    this.articleService.updateArticleStatus(data)
+      .subscribe((res) => {
+        console.log(res);
         alert("article submited for review");
         this.router.navigate(['./home']);
       },
-      (err) => {        
+      (err) => {
         alert(err);
       }
       );
-   }
+  }
 
-  saveChanges() { }
+  SaveArticleChanges() {
+
+    this.categoryID = this.articleDetailsinDraftData.categoryID;
+
+    let modifiedArticle = {
+      '_postupdatearticle': {
+        'article_id': +this.articleDetailsinDraftData.articleID,
+        'article_title': this.articleDetailsinDraftData.articleTitle,
+        'article_desc': this.articleDetailsinDraftData.articleDesc,
+        'article_path': this.articleDetailsinDraftData.articlePath,
+        'article_content': this.articleDetailsinDraftData.articleContent,
+        'user_id': +this.userID,
+        'categoryid': +this.categoryID,
+        'article_tag': this.articleDetailsinDraftData.articleTag,
+        'username': this.userName
+      }
+    };
+
+    this.articleService.updateArticle(modifiedArticle)
+      .subscribe((res) => {
+        alert("article inserted successfully");
+        this.router.navigate(['./home']);
+      },
+      (err) => {
+        alert(err);
+      }
+      );
+
+  }
 }
+
