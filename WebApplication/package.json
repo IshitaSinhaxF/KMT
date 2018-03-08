@@ -26,10 +26,13 @@
     "angular-webstorage-service": "^1.0.2",
     "aws-sdk": "^2.205.0",
     "bootstrap": "^3.3.7",
+    "codemirror": "^5.35.0",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "ng2-opd-popup": "^1.1.21",
+    "ngx-bootstrap": "^2.0.2",
+    "ngx-editor": "^3.3.0-rc.11",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.19"
   },
