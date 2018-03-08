@@ -43,41 +43,43 @@
       </div>
     </div>
     <div class="portlet-body bodySize">
-      <div class="col-md-12 author">
+      <div class="col-md-4 author">
         <p>
           <b>Category:</b> {{articleDetailsData.parent_category}}</p>
       </div>
-      <div class="col-md-12 author">
+      <div class="col-md-4 author">
         <p>
           <b>Sub-Category:</b> {{articleDetailsData.categoryName}}</p>
       </div>
-      <div class="col-md-12 author">
+      <div class="col-md-4 author">
+          <p>
+            <b>Article State:</b> {{articleDetailsData.StateName}}</p>
+        </div>
+      <div class="col-md-4 author">
         <p>
-          <b>Author:</b> {{articleDetailsData.author_name}}</p>
+          <b>Created By:</b> {{articleDetailsData.author_name}}</p>
       </div>
-      <div class="col-md-12 author">
-        <p>
-          <b>Article State:</b> {{articleDetailsData.StateName}}</p>
-      </div>
-      <div class="col-md-12 author">
+     
+      <div class="col-md-4 author">
         <p>
           <b>Approved By:</b> {{articleDetailsData.approver_name}}</p>
       </div>
-      <div class="col-md-12 author">
+      <div class="col-md-4 author">
         <p>
           <b>Article last modified date:</b> {{articleDetailsData.articleLastModifiedDate}}</p>
       </div>
-      <div class="col-md-12 author">
+      <div class="col-md-11 author">
         <p>
           <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
       </div>
-      <div class="col-md-12 author">
+      <div class="col-md-11 author">
         <p>
           <b>Article Description:</b> {{articleDetailsData.articleDesc}}</p>
       </div>
-      <div class="col-md-10 author">
+      <div class="col-md-11 author">
         <p>
           <b>Article Content:</b> {{articleDetailsData.articleContent}}</p>
+        
       </div> 
       
       <div  [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">                       
