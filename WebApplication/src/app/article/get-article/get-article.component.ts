@@ -45,7 +45,7 @@ export class GetArticleComponent implements OnInit {
         this.publishedData = this.publishedResult.entries.entry;
         this.setDiv = 'Published';
         this.id = 1;
-        // console.log(this.data);
+         console.log(this.publishedData);
         this.publishedDataLength = this.publishedData.length;
       })
 

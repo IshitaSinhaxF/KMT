@@ -61,6 +61,13 @@ export class ViewArticleInReviewComponent implements OnInit {
       );
   }
 
+   logOut(){
+    this.articleService.removeFromSessionStorage("Roles") ;
+    this.articleService.removeFromSessionStorage("UserId") ;
+    this.articleService.removeFromSessionStorage("UserName") ;
+    this.router.navigate(['']);
+  }
+
   
 
 }

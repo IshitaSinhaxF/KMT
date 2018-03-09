@@ -1,4 +1,3 @@
-
 .container-fluid1{
 	padding-left: 160px;
 	font-size: 20px;
@@ -122,4 +121,85 @@
 #tagpadding{
 	padding-top: .8%;
 	padding-bottom: .8%;
+}
+#labelfont label{
+	font-weight: bold;
+} 
+
+/* Portlet */
+.portlet {
+    margin-top: 20px;
+	background: #fff;
+	padding: 5px;
+}
+
+.portlet.portlet-gray {
+	background: #f7f7f7;
+}
+
+.portlet.portlet-bordered {
+	border: 0px solid #eee;
+}
+
+/* Portlet Title */
+.portlet-title {
+	padding: 0;
+  	min-height: 25px;
+  	border-bottom: 4px solid #eee;
+  	margin-bottom: 10px;
+}
+.subportlet-title {	
+  	min-height: 10px;
+  	border-bottom: 1px solid #eee;
+  	margin-bottom: 10px;
+}
+
+.caption {
+	
+	/*display: inline-block;*/
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.caption-subject {
+	color: #337ab7;
+	font-size: 16px;
+	font-weight: 600;
+	float: left;
+}
+.caption-subject-right {
+	color: #337ab7;
+	font-size: 16px;
+	font-weight: 600;
+	float: right;
+	padding-right:40px;
+}
+
+.subCaption-subject{
+	color: grey;
+	font-size: 14px;
+	padding-left:10px;	
+}
+.subCaption-subject-right{
+	color: grey;
+	font-size: 14px;
+	padding-right:40px;
+	float:right	
+}
+
+.author{
+    padding-left: 2px
+}
+
+.bodySize{
+    font-size:16px;
+	padding-left:10px;
+	color:darkslategrey;
+	font-family:"Times New Roman";
+}
+.btn{
+    margin-top: 10px;
+}
+.fa-save{
+ color:#286090;
 }

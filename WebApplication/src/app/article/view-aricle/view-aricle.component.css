@@ -129,9 +129,9 @@
 
 /* Portlet */
 .portlet {
-    margin-top: 50px;
+    margin-top: 20px;
 	background: #fff;
-	padding: 20px;
+	padding: 5px;
 }
 
 .portlet.portlet-gray {
@@ -145,13 +145,18 @@
 /* Portlet Title */
 .portlet-title {
 	padding: 0;
-  	min-height: 40px;
+  	min-height: 25px;
+  	border-bottom: 4px solid #eee;
+  	margin-bottom: 10px;
+}
+.subportlet-title {	
+  	min-height: 10px;
   	border-bottom: 1px solid #eee;
-  	margin-bottom: 18px;
+  	margin-bottom: 10px;
 }
 
 .caption {
-	float: left;
+	
 	/*display: inline-block;*/
 	font-size: 18px;
 	line-height: 18px;
@@ -161,6 +166,26 @@
 	color: #337ab7;
 	font-size: 16px;
 	font-weight: 600;
+	float: left;
+}
+.caption-subject-right {
+	color: #337ab7;
+	font-size: 16px;
+	font-weight: 600;
+	float: right;
+	padding-right:40px;
+}
+
+.subCaption-subject{
+	color: grey;
+	font-size: 14px;
+	padding-left:10px;	
+}
+.subCaption-subject-right{
+	color: grey;
+	font-size: 14px;
+	padding-right:40px;
+	float:right	
 }
 
 .author{
@@ -169,4 +194,10 @@
 
 .bodySize{
     font-size:16px;
+	padding-left:10px;
+	color:darkslategrey;
+	font-family:"Times New Roman";
+}
+.btn{
+    margin-top: 10px;
 }

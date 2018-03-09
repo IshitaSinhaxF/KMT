@@ -2,10 +2,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Date Created</th>
-      <th>Viewed</th>
-      <th>Rated</th>
-      <th>Actions</th>
+      <th>Date Created</th>            
     </tr>
   </thead>
   <tbody>
@@ -54,21 +51,16 @@
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-      </td>
-      <td *ngIf="d.average_rating == null">
-
-      </td>
+      </td> 
+      <td *ngIf="!d.average_rating">
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      </td>       
       <td>
-        <a><span class="glyphicon glyphicon-eye-open" (click)="getArticleDetail(d.articleID)" aria-hidden="true"></span></a>
-        <!-- <span class="glyphicon glyphicon-eye-open"   (click)= "onEyeOpenClick()" aria-hidden="true"></span> -->
-        &nbsp;&nbsp;
-        <a href="#">
-          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </a>&nbsp;&nbsp;
-        <a tabindex="0" type="button" role="button" class="deleteRecord" data-container="body" data-toggle="popover" data-trigger="focus"
-          data-placement="top">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        </a>
+        <a><span class="glyphicon glyphicon-eye-open" (click)="getArticleDetail(d.articleID)" aria-hidden="true"></span></a>        
       </td>
     </tr>
 

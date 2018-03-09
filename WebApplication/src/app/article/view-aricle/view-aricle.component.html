@@ -1,47 +1,42 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="true">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+       <a class="navbar-brand" href="#">Knowledge Management Tool</a> 
     </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="inverseNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">My Profile</a>
-            </li>
-            <li>
-              <a href="#">Change Password</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">Log Out</a>
-            </li>
-          </ul>
+        <li>
+          <a>Hello: {{userName}} </a>
+        </li>
+        <li>
+          <button class="btn " (click)="logOut()">Log out</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
 <div class="col-md-12">
   <div class="portlet">
     <div class="portlet-title">
-      <div class="caption">
-        <!-- <span class="caption-subject text-uppercase"> {{s.articleTitle}}</span> -->
+      <div class="caption">       
         <span class="caption-subject text-uppercase"> {{articleDetailsData.articleTitle}}</span>
-      </div>
-      <div class="form-group" id="buttons">
-        <a class="fa fa-home fa-2x myIcon" (click)="onbackToHome()"></a>
+        <span class="caption-subject-right text-uppercase"> [{{articleDetailsData.StateName}}]</span>
       </div>
     </div>
+    <div class="subportlet-title">
+      <span class="subCaption-subject"> <b>posted on </b> &nbsp;{{articleDetailsData.dateCreated}} &nbsp;&nbsp; <b>by </b> &nbsp;{{articleDetailsData.author_name}}</span>
+      <span class="subCaption-subject-right"><b> approved by </b> &nbsp;{{articleDetailsData.approver_name}}</span>
+    </div>
+
     <div class="portlet-body bodySize">
       <div class="col-md-4 author">
         <p>
@@ -51,52 +46,24 @@
         <p>
           <b>Sub-Category</b> {{articleDetailsData.categoryName}}</p>
       </div>
-      <div class="col-md-4 author">
-          <p>
-            <b>Article State:</b> {{articleDetailsData.StateName}}</p>
-        </div>
-      <div class="col-md-4 author">
+      <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articleTag">
         <p>
-          <b>Created by</b> {{articleDetailsData.author_name}}</p>
-      </div>
-      <div class="col-md-12 author">
-        <p>
-          <b>Approved By</b> {{articleDetailsData.approver_name}}</p>
-      </div>
-      <div class="col-md-12 author">
-        <p>
-          <b>Created on</b> {{articleDetailsData.dateCreated}}</p>
-      </div>
-      <div class="col-md-4 author">
-        <p>
-          <b>Modified on</b> {{articleDetailsData.articleLastModifiedDate}}</p>
+          <b>Article Tags</b>&nbsp;{{articleDetailsData.articleTag}}</p>
       </div>
       <div class="col-md-11 author">
         <p>
-          <b>Article State</b> {{articleDetailsData.StateName}}</p>
+          <b>Description</b>&nbsp;{{articleDetailsData.articleDesc}}</p>
       </div>
-      <div class="col-md-12 author">
-        <b>Article Title</b> {{articleDetailsData.articleTitle}}
+      <div class="col-md-12 author" *ngIf="articleDetailsData?.articlePath">
+        <b>Attachments</b>&nbsp; <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
       </div>
-      <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articleTag" >
-        <p>
-          <b>Article Tags</b> {{articleDetailsData.articleTag}}</p>
-      </div>
-      <div class="col-md-11 author">
-        <p>
-          <b>Article Description:</b> {{articleDetailsData.articleDesc}}</p>
-      </div>
-      <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articlePath">
-        <label>Article Path</label>&nbsp;&nbsp; <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
-      </div>
-      <div class="col-md-10 author" *ngIf="articleinReviewDetailsData?.articleContent">
-        <p>
-          <b>Article Content</b> {{articleDetailsData.articleContent}}</p>
+      <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
+        {{articleDetailsData.articleContent}}
       </div>
 
-      <div [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">
+      <!--<div [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">
         <app-article-feedback></app-article-feedback>
-      </div>      
+      </div>      -->
     </div>
   </div>
 </div>

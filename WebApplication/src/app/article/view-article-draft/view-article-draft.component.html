@@ -2,123 +2,71 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="true">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">xFusionTech Logo</a>
+      <a class="navbar-brand" href="#">Knowledge Management Tool</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="inverseNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy
-            <span class="caret"></span>
-          </a> -->
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">My Profile</a>
-            </li>
-            <li>
-              <a href="#">Change Password</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">Log Out</a>
-            </li>
-          </ul>
+        <li>
+          <a>Hello: {{userName}} </a>
+        </li>
+        <li>
+          <button class="btn " (click)="logOut()">Log out</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<section class="container-fluid1" id="content-container">
-  <div class="row">
-    <div class="col-md-12 col-lg-12">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-11">
+<div class="col-md-12">
+  <div class="portlet">
+    <div class="portlet-title">
+      <div class="caption">
+        <span class="caption-subject text-uppercase"> {{articleDetailsinDraftData.articleTitle}}</span>
+        <span class="caption-subject-right text-uppercase"> [{{articleDetailsinDraftData.StateName}}]</span>
+      </div>
+    </div>
+    <div class="subportlet-title">
+      <span class="subCaption-subject"> <b>posted on </b> &nbsp;{{articleDetailsinDraftData.dateCreated}} &nbsp;&nbsp; <b>by </b> &nbsp;{{articleDetailsinDraftData.author_name}}</span>
+      <span class="subCaption-subject-right"><b> Approver </b> &nbsp;{{articleDetailsinDraftData.approver_name}}</span>
+    </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <form class="form-inline" id="advance-search-g1">
-                  <div class="panel-group" id="accordion3">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2">
-                            Article is in draft state
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="tagpadding">
-
-                      </div>
-
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label>Category</label>&nbsp;&nbsp; {{articleDetailsinDraftData.parent_category}}
-                          </div>
-                          <div class="form-group">
-                            <label>Sub-Category</label>&nbsp;&nbsp; {{articleDetailsinDraftData.categoryName}}
-                          </div>
-                          <div class="form-group">
-                            <label>Created on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.dateCreated}}
-                          </div>
-                          <div class="form-group">
-                            <label>Modified on</label>&nbsp;&nbsp; {{articleDetailsinDraftData.dateModified}}
-                          </div>
-                          <div class="form-group">
-                            <label>Approver</label>&nbsp;&nbsp; {{articleDetailsinDraftData.approver_name}}
-                          </div>                          
-                          <div class="col-md-12 author">
-                            <p>
-                              <b>Article State</b> {{articleDetailsinDraftData.StateName}}</p>
-                          </div>
-                          <div class="form-group">
-                            <label>Article Title</label>
-                            <input name="article" type="text" class="form-control" [(ngModel)]="articleDetailsinDraftData.articleTitle" />
-                          </div>
-                          <div class="form-group">
-                            <label>Article Tags</label> &nbsp;&nbsp;{{articleinReviewDetailsData.articleTag}}
-                          </div>
-                          <div id="tagpadding"></div>
-                          <div class="form-group">
-                            <label>Article Description</label>                          
-                            <textarea name="articleContent" class="form-control" rows="2" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
-                          </div>
-                          <div id="tagpadding"> </div>
-                          <div class="form-group">
-                            <label>Article Path:</label>&nbsp;&nbsp; <a target="_blank" href={{articleDetailsinDraftData.articlePath}}> {{articleDetailsinDraftData.articlePath}} </a>
-                          </div>
-                          <div id="tagpadding"> </div>
-                          <div class="form-group">
-                            <label>Article Content</label>
-                            <!--<input id="articleContent" name="articleContent" type="textarea" class="form-control" />-->
-                            <textarea name="articleSummary" class="form-control" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
-                          </div>
-                          <div id="tagpadding"></div>
-                          <div class="form-group">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group" id="buttons">
-                        <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />
-                        <input type="submit" class="btn btn-primary btn-lg" (click)='SaveArticleChanges()' value="Save changes" />
-                        <input type="submit" class="btn btn-primary btn-lg" value="Submit for approval" (click)='SubmitForApproval()' />
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="portlet-body bodySize">
+      <div class="col-md-4 author">
+        <p>
+          <b>Category</b> {{articleDetailsinDraftData.parent_category}}</p>
+      </div>
+      <div class="col-md-4 author">
+        <p>
+          <b>Sub-Category</b> {{articleDetailsinDraftData.categoryName}}</p>
+      </div>
+      <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articleTag">
+        <p>
+          <b>Article Tags</b>&nbsp;{{articleDetailsinDraftData.articleTag}}</p>
+      </div>
+      <div class="col-md-11 author">
+          <b>Description</b>&nbsp;
+          <textarea name="articleDesc" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="2" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>        
+      </div>
+      <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articlePath">
+        <b>Attachments</b>&nbsp; <a target="_blank" href={{articleDetailsinDraftData.articlePath}}> {{articleDetailsinDraftData.articlePath}} </a>
+      </div>
+      <div class="col-md-11 author" *ngIf="articleDetailsinDraftData?.articleContent">
+        <b>Content</b>&nbsp;
+        <textarea name="articleContent" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
+      </div>
+      <div class="col-md-9 author" id="buttons">
+        <!--<input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />-->
+        <input type="submit" class="btn" (click)='SaveArticleChanges()' value="Save" />
+        <!--<span class="fa fa-save fa-2x myIcon" (click)='SaveArticleChanges()'></span>-->
+        <input type="submit" class="btn" value="Submit" (click)='Submit' />
       </div>
     </div>
   </div>
-</section>
+
+</div>
