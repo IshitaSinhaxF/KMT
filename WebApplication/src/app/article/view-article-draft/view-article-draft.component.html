@@ -1,72 +1,49 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="true">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Knowledge Management Tool</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="inverseNavbar1">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a>Hello: {{userName}} </a>
-        </li>
-        <li>
-          <button class="btn " (click)="logOut()">Log out</button>
-        </li>
-      </ul>
+<div class="portlet">
+  <div class="portlet-title">
+    <div class="caption">
+      <span class="caption-subject text-uppercase"> {{articleDetailsinDraftData.articleTitle}}</span>
+      <span class="caption-subject-right text-uppercase"> [{{articleDetailsinDraftData.StateName}}]</span>
     </div>
   </div>
-</nav>
-<div class="col-md-12">
-  <div class="portlet">
-    <div class="portlet-title">
-      <div class="caption">
-        <span class="caption-subject text-uppercase"> {{articleDetailsinDraftData.articleTitle}}</span>
-        <span class="caption-subject-right text-uppercase"> [{{articleDetailsinDraftData.StateName}}]</span>
-      </div>
-    </div>
-    <div class="subportlet-title">
-      <span class="subCaption-subject"> <b>posted on </b> &nbsp;{{articleDetailsinDraftData.dateCreated}} &nbsp;&nbsp; <b>by </b> &nbsp;{{articleDetailsinDraftData.author_name}}</span>
-      <span class="subCaption-subject-right"><b> Approver </b> &nbsp;{{articleDetailsinDraftData.approver_name}}</span>
-    </div>
-
-    <div class="portlet-body bodySize">
-      <div class="col-md-4 author">
-        <p>
-          <b>Category</b> {{articleDetailsinDraftData.parent_category}}</p>
-      </div>
-      <div class="col-md-4 author">
-        <p>
-          <b>Sub-Category</b> {{articleDetailsinDraftData.categoryName}}</p>
-      </div>
-      <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articleTag">
-        <p>
-          <b>Article Tags</b>&nbsp;{{articleDetailsinDraftData.articleTag}}</p>
-      </div>
-      <div class="col-md-11 author">
-          <b>Description</b>&nbsp;
-          <textarea name="articleDesc" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="2" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>        
-      </div>
-      <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articlePath">
-        <b>Attachments</b>&nbsp; <a target="_blank" href={{articleDetailsinDraftData.articlePath}}> {{articleDetailsinDraftData.articlePath}} </a>
-      </div>
-      <div class="col-md-11 author" *ngIf="articleDetailsinDraftData?.articleContent">
-        <b>Content</b>&nbsp;
-        <textarea name="articleContent" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
-      </div>
-      <div class="col-md-9 author" id="buttons">
-        <!--<input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />-->
-        <input type="submit" class="btn" (click)='SaveArticleChanges()' value="Save" />
-        <!--<span class="fa fa-save fa-2x myIcon" (click)='SaveArticleChanges()'></span>-->
-        <input type="submit" class="btn" value="Submit" (click)='Submit' />
-      </div>
-    </div>
+  <div class="subportlet-title">
+    <span class="subCaption-subject">
+      <b>posted on </b> &nbsp;{{articleDetailsinDraftData.dateCreated}} &nbsp;&nbsp;
+      <b>by </b> &nbsp;{{articleDetailsinDraftData.author_name}}</span>
+    <span class="subCaption-subject-right">
+      <b> Approver </b> &nbsp;{{articleDetailsinDraftData.approver_name}}</span>
   </div>
 
+  <div class="portlet-body bodySize">
+    <div class="col-md-4 author">
+      <p>
+        <b>Category</b> {{articleDetailsinDraftData.parent_category}}</p>
+    </div>
+    <div class="col-md-4 author">
+      <p>
+        <b>Sub-Category</b> {{articleDetailsinDraftData.categoryName}}</p>
+    </div>
+    <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articleTag">
+      <p>
+        <b>Article Tags</b>&nbsp;{{articleDetailsinDraftData.articleTag}}</p>
+    </div>
+    <div class="col-md-11 author">
+      <b>Description</b>&nbsp;
+      <textarea name="articleDesc" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="2" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
+    </div>
+    <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articlePath">
+      <b>Attachments</b>&nbsp;
+      <a target="_blank" href={{articleDetailsinDraftData.articlePath}}> {{articleDetailsinDraftData.articlePath}} </a>
+    </div>
+    <div class="col-md-11 author" *ngIf="articleDetailsinDraftData?.articleContent">
+      <b>Content</b>&nbsp;
+      <textarea name="articleContent" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="7" data-role="collapsible"
+        [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
+    </div>
+    <div class="col-md-9 author" id="buttons">
+      <!--<input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />-->
+      <input type="submit" class="btn" (click)='SaveArticleChanges()' value="Save" />
+      <!--<span class="fa fa-save fa-2x myIcon" (click)='SaveArticleChanges()'></span>-->
+      <input type="submit" class="btn" value="Submit" (click)='Submit' />
+    </div>
+  </div>
 </div>

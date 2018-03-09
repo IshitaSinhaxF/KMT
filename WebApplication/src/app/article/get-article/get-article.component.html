@@ -23,22 +23,22 @@
     </a>
   </li>
 
-  <a (click)="createNewArticle()">
+  <!-- <a (click)="createNewArticle()">
     <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
-  </a>
+  </a> -->
 
 </ul>
 <div id="tabContent2">
   <div role="tabpanel" class="tab-pane fade in active" id="paneOne-2" *ngIf="setDiv == 'Published'">
-    <app-published [publishedArticleData]="publishedData"></app-published>
+    <app-published [publishedArticleData]="publishedData" (eyeClicked)="showFeedback($event)"></app-published>
   </div>
   <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'PendingApproval'">
-    <app-pending-for-approval [pendingForApprovalData]="pendingData"></app-pending-for-approval>
+    <app-pending-for-approval [pendingForApprovalData]="pendingData" (eyeClicked)="showPendingFeedback($event)"></app-pending-for-approval>
   </div>
   <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'InReview'">
-    <app-in-review [inReviewArticle]="inReviewData"></app-in-review>
+    <app-in-review [inReviewArticle]="inReviewData" (eyeClicked)="showInReviewFeedback($event)"></app-in-review>
   </div>
   <div role="tabpanel" class="tab-pane fade in active" *ngIf="setDiv == 'Draft'">
-    <app-draft-article [draftArticleData]="draftData"></app-draft-article>
+    <app-draft-article [draftArticleData]="draftData" (eyeClicked)="showDraftFeedback($event)"></app-draft-article>
   </div>
 </div>

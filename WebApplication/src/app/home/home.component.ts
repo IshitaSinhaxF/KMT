@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { ArticleService } from '../article.service';
 import {Router, Routes} from '@angular/router';
 import { SearchArticleComponent } from '../search-article/search-article.component';
@@ -10,11 +10,19 @@ import { SearchArticleComponent } from '../search-article/search-article.compone
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //@ViewChild(SearchArticleComponent) private searchArticle : SearchArticleComponent;
+
   userName :any = "";
   roles: any = [];
-  hide: boolean=true;
+  hideCreateArticle: boolean=false;
+  showAddButton:boolean = true;
+  showHomeButton: boolean = false;
   searchedInfo : boolean =true;
+  hideViewArticle:boolean = false;
+  hideReviewArticle:boolean = false;
+  hidePendingArticle: boolean = false;
+  hideDraftArticle:boolean = false;
+  hideArticleMenu:boolean =true;
+
   constructor(private articleService: ArticleService,private router: Router) { }
 
   ngOnInit() {
@@ -35,11 +43,78 @@ export class HomeComponent implements OnInit {
    
   }
   hideArticle(event) {
-    this.hide = event;
+    this.hideArticleMenu = event;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = false;
+    this.showAddButton=event;
+    this.showHomeButton = false;
   }
-  SearchData(){
-   
-    //this.hideArticles = true
+
+  createNewArticle(){
+    this.hideArticleMenu = false;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = true;
+    this.showAddButton=false;
+    this.showHomeButton = true;
+  }
+  onbackToHome(){
+    this.hideArticleMenu = true;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = false;
+    this.showAddButton=true;
+    this.showHomeButton = false;
+  }
+  showFeedback(event){
+    this.hideArticleMenu = false;
+    this.hideViewArticle = true;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = false;
+    this.showAddButton=false;
+    this.showHomeButton = true;
+  }
+
+  showReviewFeedback(event){
+    this.hideArticleMenu = false;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = true;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = false;
+    this.showAddButton=false;
+    this.showHomeButton = true;
+  }
+
+  showDraftFeedback(){
+    this.hideArticleMenu = false;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = false;
+    this.hideDraftArticle = true;
+    this.hideCreateArticle = false;
+    this.showAddButton=false;
+    this.showHomeButton = true;
+  }
+
+  showPendingArticleFeedback(){
+    this.hideArticleMenu = false;
+    this.hideViewArticle = false;
+    this.hideReviewArticle = false;
+    this.hidePendingArticle = true;;
+    this.hideDraftArticle = false;
+    this.hideCreateArticle = false;
+    this.showAddButton=false;
+    this.showHomeButton = true;
   }
   logOut(){
     this.articleService.removeFromSessionStorage("Roles") ;

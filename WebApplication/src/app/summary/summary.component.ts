@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-summary',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-
-  constructor() { }
+  data: any = "";
+  results: any = "";
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+    this.articleService.getSummaryDetails().subscribe((res: Response) => {
+      this.results = res;
+      this.data = this.results.entries.entry[0];
+    })
   }
 
 }
