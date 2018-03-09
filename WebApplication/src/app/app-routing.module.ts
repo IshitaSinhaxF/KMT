@@ -34,9 +34,9 @@ const ROUTES: Routes = [
       }
     ]
   },
-  { path: 'createArticle', component: CreateArticleComponent },
-  { path: 'viewArticleInReview', component: ViewArticleInReviewComponent },
-  { path: 'viewArticleInDraft', component:ViewArticleDraftComponent}
+  // { path: 'createArticle', component: CreateArticleComponent },
+  // { path: 'viewArticleInReview', component: ViewArticleInReviewComponent },
+  // { path: 'viewArticleInDraft', component:ViewArticleDraftComponent}
 
 ]
 @NgModule({

@@ -36,11 +36,4 @@ export class ViewAricleComponent implements OnInit {
   onbackToHome() {
     this.router.navigate(['./home']);
   }
-
-  logOut() {
-    this.articleService.removeFromSessionStorage("Roles");
-    this.articleService.removeFromSessionStorage("UserId");
-    this.articleService.removeFromSessionStorage("UserName");
-    this.router.navigate(['']);
-  }
 }

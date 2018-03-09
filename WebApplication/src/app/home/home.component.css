@@ -2,6 +2,16 @@ a{
     cursor: default;
 }
 
-.btn{
+/* .btn{
     margin-top: 10px;
+} */
+
+.myIcon{
+    float: right;
+}
+
+.icon{
+    float: right;
+    margin-top: 5px; 
+    margin-right: 5px;
 }

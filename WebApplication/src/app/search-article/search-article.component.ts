@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ArticleService } from '../article.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-article',
@@ -20,7 +20,7 @@ export class SearchArticleComponent implements OnInit {
   searchData: any = "";
   searchResults: any = "";
   showSearchForm: boolean = false;
-  hideSearchForm: boolean = true;
+  hideSearchForm: boolean = false;
   showErrorMessage: boolean = false;
   dateCreated: any;
   articleDetailsData: any = [];
@@ -56,38 +56,62 @@ export class SearchArticleComponent implements OnInit {
         if (this.searchResults.entries.entry != undefined) {
           this.searchData = this.searchResults.entries.entry;
           this.showSearchForm = true;
+          this.showErrorMessage = false;
+          this.hideSearchForm = true;
           console.log(this.searchData);
           this.searchForm.Category = null;
-        }else{
-          this.showSearchForm = true;
+        } else {
+          this.showSearchForm = false;
           this.showErrorMessage = true;
-
+          this.hideSearchForm = true;
+          this.searchForm.Category = null;
         }
       })
     } else if (this.searchForm.Author != undefined) {
       this.articleService.getAuthorSearchResults(this.searchForm.Author).subscribe((res: Response) => {
         this.searchResults = res;
-        this.searchData = this.searchResults.entries.entry;
-        this.showSearchForm = true;
-        console.log(this.searchData);
-        this.searchForm.Author = null;
+        if (this.searchResults.entries.entry != undefined) {
+          this.searchData = this.searchResults.entries.entry;
+          this.showSearchForm = true;
+          this.hideSearchForm = true;
+          this.showErrorMessage = false;
+          console.log(this.searchData);
+          this.searchForm.Author = null;
+        } else {
+          this.showSearchForm = false;
+          this.showErrorMessage = true;
+          this.hideSearchForm = true;
+          this.searchForm.Author = null;
+        }
+
       })
     } else if (this.searchForm.Category != undefined && this.searchForm.Author != undefined) {
       this.articleService.getCategoryAndAuthorSearchResults(this.searchForm.Category, this.searchForm.Author).subscribe((res: Response) => {
         this.searchResults = res;
-        this.searchData = this.searchResults.entries.entry;
-        this.showSearchForm = true;
-        console.log(this.searchData);
-        this.searchForm.Category = null;
-        this.searchForm.Author = null;
+        if (this.searchResults.entries.entry != undefined) {
+          this.searchData = this.searchResults.entries.entry;
+          this.showSearchForm = true;
+          this.hideSearchForm = true;
+          this.showErrorMessage = false;
+          console.log(this.searchData);
+          this.searchForm.Category = null;
+          this.searchForm.Author = null;
+        }else {
+          this.showSearchForm = false;
+          this.showErrorMessage = true;
+          this.hideSearchForm = true;
+          this.searchForm.Category = null;
+          this.searchForm.Author = null;
+        }
+
       })
     }
     else {
       this.articleService.getPublishedSearchResults().subscribe((res: Response) => {
         this.searchResults = res;
         this.searchData = this.searchResults.entries.entry;
-        // this.dateCreated = this.SearchData.dateCreated;
         this.showSearchForm = true;
+        this.hideSearchForm = true;
         console.log(this.searchData);
       })
     }
@@ -97,6 +121,7 @@ export class SearchArticleComponent implements OnInit {
   showArticles() {
     this.searchClicked.emit(true);
     this.hideSearchForm = false;
+    this.showErrorMessage = false;
   }
   getArticleDetail(articleID) {
     this.id = articleID;

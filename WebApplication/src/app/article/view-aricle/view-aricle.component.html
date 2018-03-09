@@ -1,69 +1,45 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="true">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-       <a class="navbar-brand" href="#">Knowledge Management Tool</a> 
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="inverseNavbar1">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a>Hello: {{userName}} </a>
-        </li>
-        <li>
-          <button class="btn " (click)="logOut()">Log out</button>
-        </li>
-      </ul>
+<div class="portlet">
+  <div class="portlet-title">
+    <div class="caption">
+      <span class="caption-subject text-uppercase"> {{articleDetailsData.articleTitle}}</span>
+      <span class="caption-subject-right text-uppercase"> [{{articleDetailsData.StateName}}]</span>
     </div>
   </div>
-</nav>
+  <div class="subportlet-title">
+    <span class="subCaption-subject">
+      <b>posted on </b> &nbsp;{{articleDetailsData.dateCreated}} &nbsp;&nbsp;
+      <b>by </b> &nbsp;{{articleDetailsData.author_name}}</span>
+    <span class="subCaption-subject-right">
+      <b> approved by </b> &nbsp;{{articleDetailsData.approver_name}}</span>
+  </div>
 
-<div class="col-md-12">
-  <div class="portlet">
-    <div class="portlet-title">
-      <div class="caption">       
-        <span class="caption-subject text-uppercase"> {{articleDetailsData.articleTitle}}</span>
-        <span class="caption-subject-right text-uppercase"> [{{articleDetailsData.StateName}}]</span>
-      </div>
+  <div class="portlet-body bodySize">
+    <div class="col-md-4 author">
+      <p>
+        <b>Category</b> {{articleDetailsData.parent_category}}</p>
     </div>
-    <div class="subportlet-title">
-      <span class="subCaption-subject"> <b>posted on </b> &nbsp;{{articleDetailsData.dateCreated}} &nbsp;&nbsp; <b>by </b> &nbsp;{{articleDetailsData.author_name}}</span>
-      <span class="subCaption-subject-right"><b> approved by </b> &nbsp;{{articleDetailsData.approver_name}}</span>
+    <div class="col-md-4 author">
+      <p>
+        <b>Sub-Category</b> {{articleDetailsData.categoryName}}</p>
+    </div>
+    <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articleTag">
+      <p>
+        <b>Article Tags</b>&nbsp;{{articleDetailsData.articleTag}}</p>
+    </div>
+    <div class="col-md-11 author">
+      <p>
+        <b>Description</b>&nbsp;{{articleDetailsData.articleDesc}}</p>
+    </div>
+    <div class="col-md-12 author" *ngIf="articleDetailsData?.articlePath">
+      <b>Attachments</b>&nbsp;
+      <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
+    </div>
+    <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
+      {{articleDetailsData.articleContent}}
     </div>
 
-    <div class="portlet-body bodySize">
-      <div class="col-md-4 author">
-        <p>
-          <b>Category</b> {{articleDetailsData.parent_category}}</p>
-      </div>
-      <div class="col-md-4 author">
-        <p>
-          <b>Sub-Category</b> {{articleDetailsData.categoryName}}</p>
-      </div>
-      <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articleTag">
-        <p>
-          <b>Article Tags</b>&nbsp;{{articleDetailsData.articleTag}}</p>
-      </div>
-      <div class="col-md-11 author">
-        <p>
-          <b>Description</b>&nbsp;{{articleDetailsData.articleDesc}}</p>
-      </div>
-      <div class="col-md-12 author" *ngIf="articleDetailsData?.articlePath">
-        <b>Attachments</b>&nbsp; <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
-      </div>
-      <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
-        {{articleDetailsData.articleContent}}
-      </div>
-
-      <!--<div [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">
+    <!--<div [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">
         <app-article-feedback></app-article-feedback>
       </div>      -->
-    </div>
   </div>
 </div>

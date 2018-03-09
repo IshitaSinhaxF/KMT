@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output ,EventEmitter} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
@@ -12,6 +12,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-article.component.css']
 })
 export class GetArticleComponent implements OnInit {
+  @Output() eyeClickedArticle = new EventEmitter();
+  @Output() eyeClickedReviewArticle = new EventEmitter();
+  @Output() eyeClickedDraftArticle = new EventEmitter(); 
+  @Output() eyeClickedPendingArticle = new EventEmitter(); 
+  
   data: any = "";
   result: any;
   publishedData: any = "";
@@ -129,6 +134,20 @@ export class GetArticleComponent implements OnInit {
   createNewArticle() {
     this.router.navigate(['./createArticle']);
   };
+  showFeedback(event){
+    this.eyeClickedArticle.emit(false);
+    
+  }
 
+  showInReviewFeedback(event){
+    this.eyeClickedReviewArticle.emit(false)
+  }
 
+  showDraftFeedback(){
+    this.eyeClickedDraftArticle.emit(false);
+  }
+  
+  showPendingFeedback(){
+    this.eyeClickedPendingArticle.emit(false);
+  }
 }

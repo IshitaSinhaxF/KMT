@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- <a class="navbar-brand" href="#">xFusionTech Logo</a> -->
+      <a class="navbar-brand" href="#">Knowledge Management Tool</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="inverseNavbar1">
@@ -71,7 +71,20 @@
       <div role="tabpanel" id="first-level-tabs">
         <!-- <app-search-article></app-search-article> -->
         <app-search-article (searchClicked)="hideArticle($event)"></app-search-article>
-        <app-get-article *ngIf="hide"></app-get-article>
+        <a *ngIf="showAddButton" (click)="createNewArticle()">           
+            <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
+            <span class="icon" >Add Article</span>
+          </a>
+          <a *ngIf="showHomeButton" (click)="onbackToHome()">
+              <span  class="fa fa-home fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
+              <span class="icon" >Back To home</span>
+          </a>
+        <app-get-article (eyeClickedArticle)="showFeedback($event)" (eyeClickedReviewArticle)="showReviewFeedback($event)" (eyeClickedDraftArticle)="showDraftFeedback()" (eyeClickedPendingArticle)="showPendingArticleFeedback()" *ngIf="hideArticleMenu"></app-get-article>
+        <app-create-article *ngIf="hideCreateArticle"></app-create-article>
+        <app-view-aricle *ngIf="hideViewArticle"></app-view-aricle>
+        <app-view-article-in-review *ngIf="hideReviewArticle"></app-view-article-in-review>
+        <app-view-article-in-review *ngIf="hidePendingArticle"></app-view-article-in-review>
+        <app-view-article-draft *ngIf="hideDraftArticle"></app-view-article-draft>
         <!-- <p *ngIf="hideArticles">serach works</p> -->
       </div>
     </div>

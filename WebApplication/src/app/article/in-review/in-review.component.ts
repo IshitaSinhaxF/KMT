@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class InReviewComponent implements OnInit {
 @Input() inReviewArticle : any = "";
+@Output() eyeClicked = new EventEmitter();
 
   articleDetailsData: any = [];
   id: number;
@@ -20,9 +21,9 @@ export class InReviewComponent implements OnInit {
   }
 
   getArticleDetail(articleID) {
+    this.eyeClicked.emit(false);
     this.id = articleID;
     this.articleService.saveInSessionStorage('articleID', this.id);
-    this.router.navigate(['./viewArticleInReview']);
   }
 
 
