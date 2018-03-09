@@ -41,4 +41,5 @@ ngOnInit() {
     this.articleService.removeFromSessionStorage("UserName") ;
     this.router.navigate(['']);
   }
+}
 
