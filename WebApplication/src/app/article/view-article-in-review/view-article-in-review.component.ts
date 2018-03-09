@@ -23,8 +23,7 @@ export class ViewArticleInReviewComponent implements OnInit {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleinReviewDetailsData = this.result.entries.entry[0];
-      console.log(this.articleinReviewDetailsData.articleApproverID);
-      console.log(this.userID);
+      console.log(this.articleinReviewDetailsData);   
       if (+this.articleinReviewDetailsData.articleApproverID === +this.userID) {
         this.buttonCondition = 'true';
       }

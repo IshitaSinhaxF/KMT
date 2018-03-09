@@ -17,45 +17,45 @@
       <td>{{d.dateCreated}}</td>
       <td></td>
       <!-- <pre>{{d.rating}}</pre> -->
-      <td *ngIf="d.rating === '5'">
+      <td *ngIf="d.average_rating === '5'">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
       </td>
-      <td *ngIf="d.rating === '4'">
+      <td *ngIf="d.average_rating === '4'">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-      </td>
-
-      <td *ngIf="d.rating === '3'">
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
       </td>
 
-      <td *ngIf="d.rating === '2'">
+      <td *ngIf="d.average_rating === '3'">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
       </td>
 
-      <td *ngIf="d.rating === '1'">
+      <td *ngIf="d.average_rating === '2'">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      </td>
+
+      <td *ngIf="d.average_rating === '1'">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
       </td>
-      <td *ngIf="d.rating == null">
+      <td *ngIf="d.average_rating == null">
 
       </td>
       <td>

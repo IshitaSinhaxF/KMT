@@ -37,16 +37,19 @@
       <div class="caption">
         <!-- <span class="caption-subject text-uppercase"> {{s.articleTitle}}</span> -->
         <span class="caption-subject text-uppercase"> {{articleinReviewDetailsData.articleTitle}}</span>
+      </div> 
+      <div class="form-group" id="buttons">
+        <a class="fa fa-home fa-2x myIcon" (click)="onbackToHome()"></a>
       </div>
        </div>
     <div class="portlet-body bodySize">
       <div class="col-md-4 author">
         <p>
-          <b>Service:</b> {{articleinReviewDetailsData.parent_category}}</p>
+          <b>Category:</b> {{articleinReviewDetailsData.parent_category}}</p>
       </div>
       <div class="col-md-4 author">
         <p>
-          <b>Category:</b> {{articleinReviewDetailsData.categoryName}}</p>
+          <b>Sub-category:</b> {{articleinReviewDetailsData.categoryName}}</p>
       </div>
      
       <div class="col-md-4 author">
@@ -63,7 +66,7 @@
       </div>
       <div class="col-md-4 author">
         <p>
-          <b>Article last modified date:</b> {{articleinReviewDetailsData.articleLastModifiedDate}}</p>
+          <b>Modified on:</b> {{articleinReviewDetailsData.dateModified}}</p>
       </div>
       <div class="col-md-10 author">
         <p>
@@ -84,14 +87,7 @@
             <div class="form-group" *ngIf="buttonCondition == 'true'">
               <button class="btn btn-primary btn-lg" (click)='Approve()'> Approve </button>
             </div>
-<<<<<<< HEAD
-          </div>
-        </div>
-      </div>
-    </div>
-=======
 
    </div>
->>>>>>> 20c882393163cb8278f52c9e693e73c3f9ad1bcc
   </div>
 </div>
