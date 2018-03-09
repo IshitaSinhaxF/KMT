@@ -136,6 +136,9 @@ export class ArticleService {
     return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetPopularTags",{ headers })
   }
 
+  getSummaryDetails(){
+    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetSummary",{headers});
+  }
   insertArticle(dataObj) {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
   }

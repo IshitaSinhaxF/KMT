@@ -1,60 +1,63 @@
-
-          <div class="row">
-            <div class="col-md-4 col-lg-12 container">
-              <div class="panel-group" id="accordion1">
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-12 container">
-              <div class="panel-group" id="accordion2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#summary">
-                        Summary
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="summary" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                      <h3>Article</h3>
-                      <p>
-                        <span class="label">Total</span>
-                        <span class="value">1,212</span>
-                      </p>
-                      <p>
-                        <span class="label">Views</span>
-                        <span class="value">28,094</span>
-                      </p>
-                      <p>
-                        <span class="label">Published</span>
-                        <span class="value">1,120</span>
-                      </p>
-                      <p>
-                        <span class="label">Unpublished</span>
-                        <span class="value">58</span>
-                      </p>
-                      <p>
-                        <span class="label">Drafted</span>
-                        <span class="value">34</span>
-                      </p>
-                      <p>
-                        <span class="label">Rated</span>
-                        <span class="value">83</span>
-                      </p>
-                      <h3>Category</h3>
-                      <p>
-                        <span class="label">Total</span>
-                        <span class="value">35</span>
-                      </p>
-                      <h3>Subscriber</h3>
-                      <p>
-                        <span class="label">Total</span>
-                        <span class="value">247</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div class="row">
+  <div class="col-md-4 col-lg-12 container">
+    <div class="panel-group" id="accordion1">
+    </div>
+  </div>
+  <div class="col-md-4 col-lg-12 container">
+    <div class="panel-group" id="accordion2">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#summary">
+              Summary
+            </a>
+          </h4>
+        </div>
+        <div id="summary" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <h3>Article</h3>
+            <p>
+              <span class="label">Total</span>
+              <span class="value">{{data.totalArtilces}}</span>
+            </p>
+            <!-- <p>
+              <span class="label">Views</span>
+              <span class="value">28,094</span>
+            </p> -->
+            <p>
+              <span class="label">Published</span>
+              <span class="value">{{data.totalPublishedArtilces}}</span>
+            </p>
+            <p>
+              <span class="label">Unpublished</span>
+              <span class="value">{{data.totalUnpublished}}</span>
+            </p>
+            <p>
+              <span class="label">Drafted</span>
+              <span class="value">{{data.totalDraftArticles}}</span>
+            </p>
+            <p>
+              <span class="label">Rated</span>
+              <span class="value">{{data.totalRatedArticle}}</span>
+            </p>
+            <h3>Category</h3>
+            <p>
+              <span class="label">Total</span>
+              <span class="value">{{data.totalCategories}}</span>
+            </p>
+            <h3>Sub Categories</h3>
+            <p>
+              <span class="label">Total</span>
+              <span class="value">{{data.totalSubCategories}}</span>
+            </p>
+            <!-- <h3>Subscriber</h3>
+            <p>
+              <span class="label">Total</span>
+              <span class="value">247</span>
+            </p> -->
           </div>
-      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
