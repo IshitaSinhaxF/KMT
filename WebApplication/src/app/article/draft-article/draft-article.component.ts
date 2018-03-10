@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-draft-article',
@@ -15,7 +16,7 @@ export class DraftArticleComponent implements OnInit {
   articleDetailsData: any = [];
   id: number;
 
-  constructor(private articleService: ArticleService,private router: Router) { }
+  constructor(private articleService: ArticleService,private router: Router, private home: HomeComponent) { }
 
   ngOnInit() {
   }
@@ -39,7 +40,8 @@ export class DraftArticleComponent implements OnInit {
     this.articleService.DeleteArticle(articleToBeDeleted)
       .subscribe((res) => {
         alert("article deleted successfully");
-        this.getArticleDetail(id);
+        this.home.onbackToHome()
+        //this.getArticleDetail(this.id);
         //this.router.navigate(['./home']);
       },
       (err) => {

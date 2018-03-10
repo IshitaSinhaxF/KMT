@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
     this.showHomeButton = true;
   }
   onbackToHome(){
+    console.log('called home');
     this.hideArticleMenu = true;
     this.hideViewArticle = false;
     this.hideReviewArticle = false;
