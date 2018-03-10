@@ -203,7 +203,7 @@ export class ArticleService {
     });
   }
 
-  sendEmail(subject, body) {
+  /*sendEmail(subject, body) {
     const params = {
       Destination: {
         ToAddresses: 'kmtadmin@xfusiontech.com'
@@ -230,5 +230,5 @@ export class ArticleService {
       }
     });
 
-  }
+  }*/
 }
