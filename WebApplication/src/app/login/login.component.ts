@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
    
     //this.articleService.saveInSessionStorage(this.roles.lkpRoleID, this.roles.roleName);
     //console.log("data: " + this.articleService.data.toString())
-    // console.log( userDetails)
+     console.log( userDetails)
    // console.log("data: " + this.data)
   }
   ngOnInit() {
