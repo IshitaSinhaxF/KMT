@@ -1,6 +1,6 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ArticleService } from '../article.service';
-import {Router, Routes} from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { SearchArticleComponent } from '../search-article/search-article.component';
 
 
@@ -11,36 +11,36 @@ import { SearchArticleComponent } from '../search-article/search-article.compone
 })
 export class HomeComponent implements OnInit {
 
-  userName :any = "";
+  userName: any = "";
   roles: any = [];
-  hideCreateArticle: boolean=false;
-  showAddButton:boolean = true;
+  hideCreateArticle: boolean = false;
+  showAddButton: boolean = true;
   showHomeButton: boolean = false;
-  searchedInfo : boolean =true;
-  hideViewArticle:boolean = false;
-  hideReviewArticle:boolean = false;
+  searchedInfo: boolean = true;
+  hideViewArticle: boolean = false;
+  hideReviewArticle: boolean = false;
   hidePendingArticle: boolean = false;
-  hideDraftArticle:boolean = false;
-  hideArticleMenu:boolean =true;
+  hideDraftArticle: boolean = false;
+  hideArticleMenu: boolean = true;
 
-  constructor(private articleService: ArticleService,private router: Router) { }
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
- 
-    if(this.articleService.getFromSessionStorage("UserName") =='no data')
+
+    if (this.articleService.getFromSessionStorage("UserName") == 'no data')
       this.router.navigate(['']);
-      
-    else{
-        if(this.articleService == null){
-          console.log("Login to append user name")
-        }else{
-          this.userName = this.articleService.getFromSessionStorage("UserName"); 
-          this.roles = this.articleService.getFromSessionStorage("Roles"); 
-          // console.log("roles:")
-          // console.log(this.roles);
-     }
-     }
-   
+
+    else {
+      if (this.articleService == null) {
+        console.log("Login to append user name")
+      } else {
+        this.userName = this.articleService.getFromSessionStorage("UserName");
+        this.roles = this.articleService.getFromSessionStorage("Roles");
+        // console.log("roles:")
+        // console.log(this.roles);
+      }
+    }
+
   }
   hideArticle(event) {
     this.hideArticleMenu = event;
@@ -49,21 +49,21 @@ export class HomeComponent implements OnInit {
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
-    this.showAddButton=event;
+    this.showAddButton = event;
     this.showHomeButton = false;
   }
 
-  createNewArticle(){
+  createNewArticle() {
     this.hideArticleMenu = false;
     this.hideViewArticle = false;
     this.hideReviewArticle = false;
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = true;
-    this.showAddButton=false;
+    this.showAddButton = false;
     this.showHomeButton = true;
   }
-  onbackToHome(){
+  onbackToHome() {
     console.log('called home');
     this.hideArticleMenu = true;
     this.hideViewArticle = false;
@@ -71,56 +71,60 @@ export class HomeComponent implements OnInit {
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
-    this.showAddButton=true;
+    this.showAddButton = true;
     this.showHomeButton = false;
   }
-  showFeedback(event){
+  showFeedback(event) {
     this.hideArticleMenu = false;
     this.hideViewArticle = true;
     this.hideReviewArticle = false;
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
-    this.showAddButton=false;
+    this.showAddButton = false;
     this.showHomeButton = true;
   }
 
-  showReviewFeedback(event){
+  showReviewFeedback(event) {
     this.hideArticleMenu = false;
     this.hideViewArticle = false;
     this.hideReviewArticle = true;
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
-    this.showAddButton=false;
+    this.showAddButton = false;
     this.showHomeButton = true;
   }
 
-  showDraftFeedback(){
+  showDraftFeedback() {
     this.hideArticleMenu = false;
     this.hideViewArticle = false;
     this.hideReviewArticle = false;
     this.hidePendingArticle = false;
     this.hideDraftArticle = true;
     this.hideCreateArticle = false;
-    this.showAddButton=false;
+    this.showAddButton = false;
     this.showHomeButton = true;
   }
 
-  showPendingArticleFeedback(){
+  showPendingArticleFeedback() {
     this.hideArticleMenu = false;
     this.hideViewArticle = false;
     this.hideReviewArticle = false;
     this.hidePendingArticle = true;;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
-    this.showAddButton=false;
+    this.showAddButton = false;
     this.showHomeButton = true;
   }
-  logOut(){
-    this.articleService.removeFromSessionStorage("Roles") ;
-    this.articleService.removeFromSessionStorage("UserId") ;
-    this.articleService.removeFromSessionStorage("UserName") ;
+
+  showHomeAfterSave(event) {
+    this.onbackToHome();
+  }
+  logOut() {
+    this.articleService.removeFromSessionStorage("Roles");
+    this.articleService.removeFromSessionStorage("UserId");
+    this.articleService.removeFromSessionStorage("UserName");
     this.router.navigate(['']);
   }
 }

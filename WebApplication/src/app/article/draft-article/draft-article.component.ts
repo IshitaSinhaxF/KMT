@@ -16,6 +16,8 @@ export class DraftArticleComponent implements OnInit {
   articleDetailsData: any = [];
   id: number;
 
+  draftResult: any ;
+  userID: any = this.articleService.getFromSessionStorage('UserId');
   constructor(private articleService: ArticleService,private router: Router, private home: HomeComponent) { }
 
   ngOnInit() {
@@ -40,7 +42,13 @@ export class DraftArticleComponent implements OnInit {
     this.articleService.DeleteArticle(articleToBeDeleted)
       .subscribe((res) => {
         alert("article deleted successfully");
-        this.home.onbackToHome()
+        this.articleService.getDraftArticleService(this.userID).subscribe((response: Response)=>{
+          this.draftResult = response;
+          console.log(this.draftResult.entries.entry);
+          this.draftArticleData = this.draftResult.entries.entry;
+          
+        })
+       // this.home.onbackToHome()
         //this.getArticleDetail(this.id);
         //this.router.navigate(['./home']);
       },

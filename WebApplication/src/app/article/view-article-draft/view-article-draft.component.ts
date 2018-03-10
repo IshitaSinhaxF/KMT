@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-article-draft.component.css']
 })
 export class ViewArticleDraftComponent implements OnInit {
-
+@Output() backToHome = new EventEmitter
   articleID: any = this.articleService.getFromSessionStorage("articleID");
   userID: number = +this.articleService.getFromSessionStorage("UserId");
   userName: string = this.articleService.getFromSessionStorage("UserName");
@@ -55,7 +55,7 @@ export class ViewArticleDraftComponent implements OnInit {
       .subscribe((res) => {
         console.log(res);
         alert("article submited for review");
-        this.router.navigate(['./home']);
+        this.backToHome.emit(false);
       },
       (err) => {
         alert(err);
@@ -84,7 +84,7 @@ export class ViewArticleDraftComponent implements OnInit {
     this.articleService.updateArticle(modifiedArticle)
       .subscribe((res) => {
         alert("article inserted successfully");
-        this.router.navigate(['./home']);
+        this.backToHome.emit(false);
       },
       (err) => {
         alert(err);

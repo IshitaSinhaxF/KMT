@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-
+@Output() backToHome = new EventEmitter;
   data: any = '';
   subData: any = '';
   result: any = '';
@@ -91,7 +91,8 @@ export class CreateArticleComponent implements OnInit {
     this.articleService.insertArticle(dataObj)
       .subscribe((data) => {
         alert("article inserted successfully");
-        this.router.navigate(['./home']);
+        //this.router.navigate(['./home']);
+        this.backToHome.emit(false);
       },
       (err) => {        
         alert(err);

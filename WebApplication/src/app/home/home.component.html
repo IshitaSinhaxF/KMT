@@ -80,11 +80,11 @@
               
           </a>
         <app-get-article (eyeClickedArticle)="showFeedback($event)" (eyeClickedReviewArticle)="showReviewFeedback($event)" (eyeClickedDraftArticle)="showDraftFeedback()" (eyeClickedPendingArticle)="showPendingArticleFeedback()" *ngIf="hideArticleMenu"></app-get-article>
-        <app-create-article *ngIf="hideCreateArticle"></app-create-article>
+        <app-create-article *ngIf="hideCreateArticle" (backToHome)="showHomeAfterSave($event)" ></app-create-article>
         <app-view-aricle *ngIf="hideViewArticle"></app-view-aricle>
         <app-view-article-in-review *ngIf="hideReviewArticle"></app-view-article-in-review>
         <app-view-article-in-review *ngIf="hidePendingArticle"></app-view-article-in-review>
-        <app-view-article-draft *ngIf="hideDraftArticle"></app-view-article-draft>
+        <app-view-article-draft *ngIf="hideDraftArticle" (backToHome)="showHomeAfterSave($event)"></app-view-article-draft>
         <!-- <p *ngIf="hideArticles">serach works</p> -->
       </div>
     </div>
