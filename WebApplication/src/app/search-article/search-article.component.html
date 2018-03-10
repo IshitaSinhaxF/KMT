@@ -8,7 +8,7 @@
               <div class="form-group">
                 <label>Category</label>
                 <select name="Category" class="form-control" [(ngModel)]="searchForm.Category">
-                  <option [(ngValue)]="0" >Choose one</option>
+                  <option>Choose one</option>
                   <option [(ngValue)]="d.categoryID" *ngFor="let d of data">{{d.categoryName}}</option>
                 </select>
               </div>
@@ -17,7 +17,7 @@
               <div class="form-group">
                 <label>Author</label>
                 <select name="Author" class="form-control" [(ngModel)]="searchForm.Author">
-                  <option [(ngValue)]="0" >Choose one</option>
+                  <option>Choose one</option>
                   <option [(ngValue)]="a.userID" *ngFor="let a of authorData">{{a.author_name}}</option>
                 </select>
               </div>
