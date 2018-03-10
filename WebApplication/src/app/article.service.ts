@@ -173,6 +173,12 @@ export class ArticleService {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticleState', articleStatus);
   }
 
+  DeleteArticle(articleTobeDeleted)
+  {
+    console.log(articleTobeDeleted);
+    return this.http.post('http://8.39.51.27:9763/services/KMTool/DeleteArticle', articleTobeDeleted,{headers});
+  }
+
   uploadFile(file) {
     const params = {
       Bucket: 'kmtweb',

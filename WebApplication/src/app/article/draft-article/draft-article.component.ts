@@ -25,6 +25,28 @@ export class DraftArticleComponent implements OnInit {
     this.id = articleID;
     this.articleService.saveInSessionStorage('articleID', this.id);
   }
+  
+  deleteArticle(articleId)
+  {
+    console.log('in delete');
+    this.id = articleId;
+    let articleToBeDeleted = {
+      '_postdeletearticle': {
+        'articleid': +articleId      
+      }
+    };
+
+    this.articleService.DeleteArticle(articleToBeDeleted)
+      .subscribe((res) => {
+        alert("article deleted successfully");
+        this.getArticleDetail(id);
+        //this.router.navigate(['./home']);
+      },
+      (err) => {
+        alert(err);
+      }
+      ); 
+  }
 }
 
 

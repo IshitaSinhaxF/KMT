@@ -89,8 +89,8 @@ export class ViewArticleDraftComponent implements OnInit {
       (err) => {
         alert(err);
       }
-      );
-
+      );      
   }
+
 }
 
