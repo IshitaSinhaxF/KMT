@@ -2,94 +2,72 @@
   <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h2>Search Article</h2>
-        <!-- <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Search..." aria-describedby="search-article">
-          <span class="input-group-addon" id="search-article">
-            <span class="glyphicon glyphicon-search"></span>
-          </span>
-        </div> -->
         <div class="row">
-          <div class="col-md-5">
-            <form class="form-inline" id="advance-search-g1">
+          <form class="form-inline" id="advance-search-g1">
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Category</label>
                 <select name="Category" class="form-control" [(ngModel)]="searchForm.Category">
-                  <option>Choose one</option>
+                  <option [(ngValue)]="0" >Choose one</option>
                   <option [(ngValue)]="d.categoryID" *ngFor="let d of data">{{d.categoryName}}</option>
-                  
                 </select>
               </div>
+            </div>
+            <div class="col-md-4">
               <div class="form-group">
                 <label>Author</label>
                 <select name="Author" class="form-control" [(ngModel)]="searchForm.Author">
-                  <option>Choose one</option>
+                  <option [(ngValue)]="0" >Choose one</option>
                   <option [(ngValue)]="a.userID" *ngFor="let a of authorData">{{a.author_name}}</option>
                 </select>
               </div>
-            </form>
-          </div>
-          <div class="col-md-7">
-            <form class="form-inline" id="advance-search-g2">
-              <!-- <div class="form-group">
-                <label for="startDate">Date Range</label>
-                <input id="startDate" name="startDate" type="text" class="form-control" [(ngModel)]="searchForm.StartDate" /> &nbsp;
-                <input id="endDate" name="endDate" type="text" class="form-control" [(ngModel)]="searchForm.EndDate" />
-              </div> -->
-
+            </div>
+            <div class="col-sm-3">
               <div class="form-group">
                 <div class="input-group">
-                  <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
                   <div class="input-group-append">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="searchForm.startDate" ngbDatepicker #d="ngbDatepicker">
                     <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-                      <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" /> -->
                       <span class="fa fa-calendar" style="vertical-align: middle"></span>
                     </button>
                   </div>
                 </div>
               </div>
-              <!-- <div class="form-group">
-            <label>Status</label>
-            <div class="checkbox">
-              <input name="Status" type="checkbox" value="" [(ngModel)]="searchForm.Status">Published
             </div>
-          </div> -->
-             <div class="form-group">
-                <button class="btn btn-primary " (click)="SearchData()">Search</button>
-                <a (click)="showArticles()">
-                  <span *ngIf="hideSearchForm"  class="fa fa-home fa-2x myIcon" aria-hidden="true" title="Home"></span>
-                </a>
+            <div class="col-sm-1">
+              <div class="form-group">
+                <button class="btn btn-primary " (click)="SearchData()"><span class="fa fa-search"></span></button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-<br/>
-<br/>
 <div *ngIf="showSearchForm">
   <br/>
   <table *ngIf="hideSearchForm" class="table table-condensed serachResults">
     <thead>
-      <tr>
-        <th>Title</th>
-        <th>Date Created</th>
-        <th>Actions</th>
-      </tr>
+    <tr>
+      <th>Title</th>
+      <th>Date Created</th>
+      <!-- <th>Viewed</th>
+        <th>Rated</th> -->
+      <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let s of searchData">
+    <tr *ngFor="let s of searchData">
 
-        <td>{{s.articleTitle}}</td>
-        <td>{{s.dateCreated}}</td>
-        <td>
-          <a>
-            <span class="glyphicon glyphicon-eye-open" (click)="getArticleDetail(s.articleID)" aria-hidden="true"></span>
-          </a>
-        </td>
-      </tr>
+      <td>{{s.articleTitle}}</td>
+      <td>{{s.dateCreated}}</td>
+      <td>
+        <a>
+          <span class="glyphicon glyphicon-eye-open" (click)="getArticleDetail(s.articleID)" aria-hidden="true"></span>
+        </a>
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>
