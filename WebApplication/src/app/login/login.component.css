@@ -1,3 +1,42 @@
-/* #form-group4 input{
-    width: 200%;
+/* .alert-danger{
+    color: black;
+    background-color:none;
 } */
+#loginNAV {
+	width: 800%;
+
+}
+
+/* #img-responsive.cdt-logo {
+	width: 200%;
+	vertical-align: bottom;
+	float: left;
+} */
+#buttonpadding{
+	padding-right:5%;
+}
+#top-banner{
+padding-top: .5%;
+padding-bottom: .5%;
+}
+
+#registerid{
+	/* font-weight: bold; */
+	font-size: 18px;
+}  
+.sfobanner{
+	width: 1900px;
+    height: 380px;
+}
+.sfobanner1{
+	width: 1900px;
+    height: 300px;
+}
+.sfobanner2{
+	width: 3000px;
+    height: 400px;
+}
+
+.login{
+	float: right;
+}
