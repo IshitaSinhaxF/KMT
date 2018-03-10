@@ -1,102 +1,68 @@
 <script src="https://cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#inverseNavbar1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">xFusionTech Logo</a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="inverseNavbar1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: Jack McCromy
-            <span class="caret"></span>
-          </a> -->
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello: {{userName}} </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#">My Profile</a>
-            </li>
-            <li>
-              <a href="#">Change Password</a>
-            </li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">Log Out</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+<div class="portlet">
+  <div class="portlet-title">
+    <div class="caption">
+      <h4 class="caption-subject text-uppercase">
+        Create New Article
+      </h4>
     </div>
   </div>
-</nav>
-
-<div class="col-md-12" >
-  <div class="portlet">
-    <div class="portlet-title">
-        <div class="caption">
-      <h4 class="caption-subject text-uppercase">
-       Create New Article
-       </h4>
-    </div>
-    </div>
-   
+  <div class="portlet-body bodySize">
     <div class="row">
-  <div class="col-md-12">
-    <!-- <div class="portlet-body bodySize" > -->
-      <div class="form-group" id="accordion3">  
-          <label>Article Title:</label>
-          <span >&nbsp;</span>
-           <input name="article" type="text" class="form-control" [(ngModel)]="article_title" />
+      <div class="col-md-5 author">
+        <form class="form-inline">
+          <select name="category" placeholder="Select a Category" class="form-control" [(ngModel)]="categoryName">
+            <option selected="selected">Select a Category</option>
+            <option *ngFor="let d of data">{{d.categoryName}}</option>
+          </select>
+        </form>
       </div>
-      <div class="form-group">
-          <label>Article Summary:</label>
-          <span></span>
-          <textarea name="articleContent" id="texteditor1" class="form-control" rows="4" data-role="collapsible" [(ngModel)]="article_desc"></textarea>
+      <div class="col-md-5 author">
+        <form class="form-inline">
+          <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
+            <option value="">Select a SubCategory</option>
+            <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
+          </select>
+        </form>
       </div>
-      <div class="form-group">
-          <label>Article Content:</label>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <app-ngx-editor  [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" id="texteditor"></app-ngx-editor>
+      <br/>
+      <div class="col-md-11 author">
+        <!-- <label>Article Title:</label> -->
+        <input placeholder="Article Title" name="article" type="text" class="form-control authorTitle" [(ngModel)]="article_title"
+        />
       </div>
-      <div class="form-group">
-          <label>Category:</label>
-                           
-          <select class="form-control" [(ngModel)]="categoryName">
-               <option value=""> Choose One </option>
-               <option *ngFor="let d of data">{{d.categoryName}}</option>
-             </select>
+      <div class="col-md-11 author">
+        <span></span>
+        <textarea placeholder="Summary" name="articleContent" id="texteditor1" class="form-control authorTitle" rows="4" data-role="collapsible"
+          [(ngModel)]="article_desc"></textarea>
       </div>
-      <div id="tagpadding"> 
-
+      <div class="col-md-5 form-group editor">
+        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
       </div>
-     
-      <div class="form-group">
+      <!-- <div class="form-group">
         <p>
-          <label>Sub-Category:</label>                              
+          <label>Sub-Category:</label>
           <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
             <option value=""> Choose One </option>
             <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
           </select>
-          </p>
-      </div>
-         <div class="form-group">
-          <label>Article Tags:</label>                             
-          <input name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control" />
-          <button class="button" (click)="createArticleInputTag('')">Add</button>
-      </div>
-        <!-- <div class="col-md-10 author">
-        <p>
-          <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
+        </p>
       </div> -->
-      <div class="form-group">
-
+      <div class="col-md-5 author ">
+        <div  class="input-group">
+            <input placeholder="Tags" name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" (click)="createArticleInputTag('')">
+                  <i class="glyphicon glyphicon-plus"></i>
+                </button>
+              </div>
+        </div>
+       
+        <!-- <button class="button" (click)="createArticleInputTag('')">Add</button> -->
+        <!-- <a (click)="createArticleInputTag('')">
+          <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
+        </a> -->
+        <div class="form-group">
           <div>
             <div class="">
 
@@ -108,19 +74,25 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+      </div>
+      <!-- <div class="col-md-10 author">
+        <p>
+          <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
+      </div> -->
+
+      <div class="col-md-5 author form-inline">
+        <div class="form-group tag ">
           <label for="uploadFile">Upload File:</label>
           <div id="igUpload1"></div>
           <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
           <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
           <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
+        </div>
+
       </div>
       <div class="form-group" id="buttons">
-          <input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />                          
-          <input type="submit" class="btn btn-primary btn-lg" value="Save" (click)="insertArticleData()" />
-      </div> 
-    <!-- </div> -->
+        <input type="submit" class="btn btn-primary btn-lg" value="Save" (click)="insertArticleData()" />
+      </div>
+    </div>
   </div>
 </div>
-
-

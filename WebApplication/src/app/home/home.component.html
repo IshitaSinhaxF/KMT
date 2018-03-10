@@ -76,8 +76,8 @@
             <span class="icon" >Add Article</span>
           </a>
           <a *ngIf="showHomeButton" (click)="onbackToHome()">
-              <span  class="fa fa-home fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
-              <span class="icon" >Back To home</span>
+              <span  class="fa fa-home fa-2x myIcon" aria-hidden="true" title="Home"></span>
+              
           </a>
         <app-get-article (eyeClickedArticle)="showFeedback($event)" (eyeClickedReviewArticle)="showReviewFeedback($event)" (eyeClickedDraftArticle)="showDraftFeedback()" (eyeClickedPendingArticle)="showPendingArticleFeedback()" *ngIf="hideArticleMenu"></app-get-article>
         <app-create-article *ngIf="hideCreateArticle"></app-create-article>

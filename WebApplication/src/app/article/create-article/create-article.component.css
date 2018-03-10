@@ -125,9 +125,9 @@
 }
 /* Portlet */
 .portlet {
-    margin-top: 50px;
+    /* margin-top: 50px; */
 	background: #fff;
-	padding: 20px;
+	/* padding: 20px; */
 }
 
 .portlet.portlet-gray {
@@ -160,9 +160,25 @@
 }
 
 .author{
-    padding-left: 2px
+    padding-left: 2px;
 }
 
+.authorTitle{
+	padding-left: 2px;
+	margin-top: 15px;
+	width: 600px;
+}
+
+.tag{
+	padding-left: 2px;
+	margin-top: 15px;
+	width: 300px;
+}
+
+.editor{
+	padding-left: 2px;
+	margin-top: 20px;
+}
 .bodySize{
     font-size:16px;
 }
@@ -183,5 +199,15 @@ span {
     width: 120%;
 } */
 #texteditor1{
-	width: 80%;
+	width: 70%;
 }
+
+.flex {
+	display: flex;
+	flex-direction: row;
+
+ }
+
+ .myIcon{
+	 margin-top:5px;
+ }
