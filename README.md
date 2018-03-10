@@ -28,7 +28,7 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 
 
   <p align="center">
-  <img width="540" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Sprint%20Iteration.jpg">
+  <img width="540" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Scrum%20Sprint%20Iteration.jpg">
 </p>
   
 
@@ -41,7 +41,7 @@ Check Word Doc for Service Architecture
 ## KMT Solution Architecture and Technology:
 
 <p align="center">
-  <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Process/Technology%20Stack.jpg">
+  <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
 
 
