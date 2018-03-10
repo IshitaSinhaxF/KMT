@@ -26,18 +26,18 @@
         </form>
       </div>
       <br/>
-      <div class="col-md-11 author">
+      <div class="col-md-8 author">
         <!-- <label>Article Title:</label> -->
         <input placeholder="Article Title" name="article" type="text" class="form-control authorTitle" [(ngModel)]="article_title"
         />
       </div>
       <div class="col-md-11 author">
         <span></span>
-        <textarea placeholder="Summary" name="articleContent" id="texteditor1" class="form-control authorTitle" rows="4" data-role="collapsible"
+        <textarea placeholder="Summary" name="articleContent" id="texteditor1" class="form-control summary" rows="4" data-role="collapsible"
           [(ngModel)]="article_desc"></textarea>
       </div>
       <div class="col-md-5 form-group editor">
-        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
+        <app-ngx-editor height="100px" width="620px" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
       </div>
       <!-- <div class="form-group">
         <p>
@@ -50,7 +50,7 @@
       </div> -->
       <div class="col-md-5 author ">
         <div  class="input-group">
-            <input placeholder="Tags" name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control">
+            <input placeholder="Add Tags" name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control">
             <div class="input-group-btn">
                 <button class="btn btn-default" type="submit" (click)="createArticleInputTag('')">
                   <i class="glyphicon glyphicon-plus"></i>
@@ -81,17 +81,20 @@
       </div> -->
 
       <div class="col-md-5 author form-inline">
-        <div class="form-group tag ">
+        <div class="form-group">
           <label for="uploadFile">Upload File:</label>
           <div id="igUpload1"></div>
-          <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
+           <a  (change)="uploadFile($event)">
+              <span  class="fa fa-upload fa-2x" aria-hidden="true" title="Upload File"></span>
+          </a>
+          <!-- <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" /> -->
           <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
           <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
         </div>
 
       </div>
       <div class="form-group" id="buttons">
-        <input type="submit" class="btn btn-primary btn-lg" value="Save" (click)="insertArticleData()" />
+        <input type="submit" class="btn btn-primary" value="Save" (click)="insertArticleData()" />
       </div>
     </div>
   </div>
