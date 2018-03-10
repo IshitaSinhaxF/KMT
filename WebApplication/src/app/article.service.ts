@@ -7,12 +7,22 @@ import 'rxjs/add/operator/toPromise';
 
 import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
+import * as SES from 'aws-sdk/clients/ses';
+import {SendEmailRequest} from 'aws-sdk/clients/ses';
 
 const bucket = new S3(
   {
     accessKeyId: 'AKIAIG5TP2ZIWEZJG6JQ',
     secretAccessKey: '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',
     region: 'us-west-1'
+  }
+);
+
+const ses = new SES(
+  {
+    accessKeyId: 'AKIAI7J3HSGCPNCLZ4GA',
+    secretAccessKey: 'ArdYqBdapLlNHjYc4PQ0cjndVudDQGP7iv6rPMi8ucRM',
+    region: 'us-west-2'
   }
 );
 
@@ -42,12 +52,12 @@ export class ArticleService {
 
   getFromSessionStorage(key) {
     // console.log('recieved= key:' + key);
-    if (this.data != "") {
+    if (this.data != '') {
       this.data[key] = this.storage.get(key);
       // console.log(this.data);
       return this.data[key];
     } else {
-      return 'no data'
+      return 'no data';
     }
   }
 
@@ -66,7 +76,7 @@ export class ArticleService {
   }
 
   getAuthorData() {
-    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchAuthor', { headers })
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchAuthor', {headers});
   }
 
   // Get Artciles by status API for published articles
@@ -80,14 +90,14 @@ export class ArticleService {
   }
 
   // Get Artciles by status API for in-review articles
-  getInReviewArticleService(userID,roleId) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
+  getInReviewArticleService(userID, roleId) {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta."StateName" = \'IN-REVIEW\' AND usrRl."lkpRoleID" =' + roleId + 'AND artHis."userID" =' + userID + '', {headers});
   }
 
   // Get Artciles by status API for pending for  articles
-  getPendingArticleService(userID,roleId) {
+  getPendingArticleService(userID, roleId) {
     // return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND usrRl.\"lkpRoleID\" ="+ roleId +"AND artHis.\"userID\" =" + userID + "", { headers })
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta.\"StateName\" = 'IN-REVIEW' AND artHis.\"articleApproverID\" =" + userID + "", { headers })
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta."StateName" = \'IN-REVIEW\' AND artHis."articleApproverID" =' + userID + '', {headers});
   }
 
   getUserDataOnLoad() {
@@ -119,26 +129,29 @@ export class ArticleService {
   }
 
   getCategorySearchResults(categoryID) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND art.\"categoryID\" = " + categoryID, { headers })
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis."ArticleStateID" = ANY(\'{3}\'::int[]) AND art."categoryID" = ' + categoryID, {headers});
   }
 
   getAuthorSearchResults(author) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND artHis.\"userID\" = " + author, { headers })
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis."ArticleStateID" = ANY(\'{3}\'::int[]) AND artHis."userID" = ' + author, {headers});
   }
-  getCategoryAndAuthorSearchResults(categoryID,userID) {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) AND artHis.\"userID\" = " + userID +" AND art.\"categoryID\" = "+ categoryID, { headers })
+
+  getCategoryAndAuthorSearchResults(categoryID, userID) {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis."ArticleStateID" = ANY(\'{3}\'::int[]) AND artHis."userID" = ' + userID + ' AND art."categoryID" = ' + categoryID, {headers});
   }
+
   getPublishedSearchResults() {
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis.\"ArticleStateID\" = ANY('{3}'::int[]) ", { headers })
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis."ArticleStateID" = ANY(\'{3}\'::int[]) ', {headers});
   }
 
-  getPopularTags(){
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetPopularTags",{ headers })
+  getPopularTags() {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetPopularTags', {headers});
   }
 
-  getSummaryDetails(){
-    return this.http.get("http://8.39.51.27:8281/KMTool/v1.0.0/GetSummary",{headers});
+  getSummaryDetails() {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetSummary', {headers});
   }
+
   insertArticle(dataObj) {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
   }
@@ -162,13 +175,11 @@ export class ArticleService {
 
   }
 
-  updateArticle(article)
-  {
+  updateArticle(article) {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
   }
 
-  updateArticleStatus(articleStatus)
-  {
+  updateArticleStatus(articleStatus) {
     console.log(articleStatus);
     return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticleState', articleStatus);
   }
@@ -191,12 +202,39 @@ export class ArticleService {
       if (err) {
         console.log('There was an error uploading your file: ', err);
         return false;
+      } else {
+        console.log('Successfully uploaded file.', data);
+        return true;
       }
-      else
-     {
-      console.log('Successfully uploaded file.', data);
-      return true;
-    }
     });
+  }
+
+  sendEmail(subject, body) {
+    const params = {
+      Destination: {
+        ToAddresses: 'kmtadmin@xfusiontech.com'
+      },
+      Message: {
+        Body: {
+          Text: {
+            Charset: 'UTF-8',
+            Data: body
+          }
+        },
+        Subject: {
+          Charset: 'UTF-8',
+          Data: subject
+        }
+      },
+      Source: 'kmtadmin@xfusiontech.com'
+    };
+    ses.sendEmail(params, function (err, data) {
+      if (err) {
+        console.log(err, err.stack);
+      } else {
+        console.log(data);
+      }
+    });
+
   }
 }
