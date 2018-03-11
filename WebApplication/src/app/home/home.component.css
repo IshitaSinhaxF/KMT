@@ -15,3 +15,12 @@ a{
     margin-top: 5px; 
     margin-right: 5px;
 }
+ .countyBanner
+ {
+     padding-right:80px;
+     padding-left:80px;
+     align-content: center;
+ }
+ .container-fluid {
+     height: 2%;
+}

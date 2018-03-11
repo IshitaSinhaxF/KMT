@@ -3,6 +3,7 @@ import { ArticleService } from '../article.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CalendarModule} from 'primeng/calendar';
 
 @Component({
   selector: 'app-search-article',
@@ -24,6 +25,7 @@ export class SearchArticleComponent implements OnInit {
   showErrorMessage: boolean = false;
   dateCreated: any;
   articleDetailsData: any = [];
+  searchQuery: any ;
   id: number;
   constructor(private articleService: ArticleService, private router: Router) { }
 
@@ -33,6 +35,7 @@ export class SearchArticleComponent implements OnInit {
         this.results = res;
         this.data = this.results.entries.entry;
       }
+      this.isCollapsed = true;
     )
 
     this.articleService.getAuthorData().subscribe(
@@ -48,74 +51,119 @@ export class SearchArticleComponent implements OnInit {
     this.searchClicked.emit(false);
     console.log(this.searchForm);
     this.searchData = null;
-    console.log(this.searchData)
-    if (this.searchForm.Category != undefined) {
-      // this.searchData = "";
-      this.articleService.getCategorySearchResults(this.searchForm.Category).subscribe((res: Response) => {
+    console.log(this.searchData) 
+    let searchQuery = '1=1 '
+    console.log(this.fromDate)
+    console.log(this.toDate)
+    if ( this.fromDate != undefined && this.toDate != undefined )
+     {
+       let searchDateQuery = ' art."dateCreated" :: date between \'' + this.fromDate.year + '-' + this.fromDate.month + '-' + this.fromDate.day + '\' and \'' + this.toDate.year + '-' + this.toDate.month + '-' + this.toDate.day + '\'';
+            
+      if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchDateQuery;
+          console.log('in text:'+searchQuery);
+       }
+       else
+       {
+         searchQuery = searchDateQuery;
+       }       
+     }
+     if ( this.fromDate != undefined && (this.toDate == undefined  || this.toDate == null))
+     {
+       let searchFrmQuery = ' art."dateCreated" :: date between \'' + this.fromDate.year + '-' + this.fromDate.month + '-' + this.fromDate.day + '\' and current_timestamp ;'      
+        if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchFrmQuery;          
+       }
+       else
+       {
+         searchQuery = searchFrmQuery;
+       }     
+     }
+     if ( (this.fromDate == undefined || this.fromDate == null) && this.toDate != undefined )
+     {
+       let searchToQuery = ' art."dateCreated" :: date between current_timestamp and \'' + this.toDate.year + '-' + this.toDate.month + '-' + this.toDate.day + '\''; 
+        if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchToQuery;          
+       }
+       else
+       {
+         searchQuery = searchToQuery;
+       }     
+     }     
+    if ( this.searchForm.Approver != undefined && this.searchForm.Approver != 0 )
+     {
+       let searchAprQuery = ' apr."userID" = ' + this.searchForm.Approver ; 
+      if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchAprQuery;
+          console.log('in text:'+searchQuery);
+       }
+       else
+       {
+         searchQuery = searchAprQuery;
+       }
+     }
+     if ( this.searchForm.Author != undefined && this.searchForm.Author != 0 )
+     {
+       let searchAutQuery = 'usr."userID" = ' + +this.searchForm.Author 
+       if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchAutQuery;
+          console.log('in text:'+searchQuery);
+       }
+       else
+       {
+         searchQuery = searchAutQuery;
+       }
+      console.log(searchQuery);
+     }
+      if ( this.searchForm.Category != undefined && this.searchForm.Category != '0' )
+     {
+       let searchCatQuery = 'art."categoryID" = '+ +this.searchForm.Category ;
+       if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchCatQuery;
+          console.log('in text:'+searchQuery);
+       }
+       else
+       {
+         searchQuery = searchCatQuery;
+       }
+      console.log(searchQuery);
+     }
+     if (this.searchForm.articleContent != undefined)
+     {
+       let searchTextQuery = '(art."articleContent"like \'%25'+ this.searchForm.articleContent +'%25\' OR art."articleTitle" like \'%25'+this.searchForm.articleContent+'%25\')' 
+       if(searchQuery)
+       {
+         searchQuery = searchQuery + ' and ' + searchTextQuery;
+          console.log('in text:'+searchQuery);
+       }
+       else
+       {
+         searchQuery = searchTextQuery;
+       }
+       console.log(searchTextQuery);
+     }
+
+     this.articleService.getSearchResults(searchQuery).subscribe((res: Response) => {
         this.searchResults = res;
         if (this.searchResults.entries.entry != undefined) {
           this.searchData = this.searchResults.entries.entry;
           this.showSearchForm = true;
           this.showErrorMessage = false;
-          this.hideSearchForm = true;
-          console.log(this.searchData);
-          this.searchForm.Category = null;
+          this.hideSearchForm = true;          
+          //this.searchForm.Category = null;
         } else {
           this.showSearchForm = false;
           this.showErrorMessage = true;
           this.hideSearchForm = true;
-          this.searchForm.Category = null;
+          //this.searchForm.Category = null;
         }
-      })
-    } else if (this.searchForm.Author != undefined) {
-      this.articleService.getAuthorSearchResults(this.searchForm.Author).subscribe((res: Response) => {
-        this.searchResults = res;
-        if (this.searchResults.entries.entry != undefined) {
-          this.searchData = this.searchResults.entries.entry;
-          this.showSearchForm = true;
-          this.hideSearchForm = true;
-          this.showErrorMessage = false;
-          console.log(this.searchData);
-          this.searchForm.Author = null;
-        } else {
-          this.showSearchForm = false;
-          this.showErrorMessage = true;
-          this.hideSearchForm = true;
-          this.searchForm.Author = null;
-        }
-
-      })
-    } else if (this.searchForm.Category != undefined && this.searchForm.Author != undefined) {
-      this.articleService.getCategoryAndAuthorSearchResults(this.searchForm.Category, this.searchForm.Author).subscribe((res: Response) => {
-        this.searchResults = res;
-        if (this.searchResults.entries.entry != undefined) {
-          this.searchData = this.searchResults.entries.entry;
-          this.showSearchForm = true;
-          this.hideSearchForm = true;
-          this.showErrorMessage = false;
-          console.log(this.searchData);
-          this.searchForm.Category = null;
-          this.searchForm.Author = null;
-        }else {
-          this.showSearchForm = false;
-          this.showErrorMessage = true;
-          this.hideSearchForm = true;
-          this.searchForm.Category = null;
-          this.searchForm.Author = null;
-        }
-
-      })
-    }
-    else {
-      this.articleService.getPublishedSearchResults().subscribe((res: Response) => {
-        this.searchResults = res;
-        this.searchData = this.searchResults.entries.entry;
-        this.showSearchForm = true;
-        this.hideSearchForm = true;
-        console.log(this.searchData);
-      })
-    }
-
+     })
   }
 
   showArticles() {

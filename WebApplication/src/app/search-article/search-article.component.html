@@ -1,46 +1,86 @@
 <div class="col-md-14">
   <div class="panel-group">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="row">
-          <form class="form-inline" id="advance-search-g1">
+    <div class="panel-body">
+      <div class="row">
+        <form class="form-inline" id="advance-search-g1">
+          <div class="row">
+            <div class="col-md-6">
+              <input type='text' placeholder="search articles by text" class="form-control" name="artDes" rows="1" style="width:100%" [(ngModel)]="searchForm.articleContent"
+              />
+            </div>
+            <div class="col-md-2">
+              <div>
+                <button class="btn btn-primary " (click)="SearchData()"><span class="fa fa-search"></span></button>
+              </div>
+            </div>
+            <div class="col-md-4">
+
+              <button type="button" class="btn btn-outline-primary" style="float:right" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapseSearch"> Advanced Search </button>
+
+            </div>
+          </div>
+          <div class="row">
+            <br/>
+          </div>
+          <div class="row" id="collapseSearch" [ngbCollapse]="isCollapsed">
             <div class="col-md-4">
               <div class="form-group">
                 <label>Category</label>
-                <select name="Category" class="form-control" [(ngModel)]="searchForm.Category">
-                  <option>Choose one</option>
+                <select name="Category" placeholder="select category" class="form-control" [(ngModel)]="searchForm.Category">
+                  <option value="0" selected>select category</option>
                   <option [(ngValue)]="d.categoryID" *ngFor="let d of data">{{d.categoryName}}</option>
                 </select>
               </div>
             </div>
+
             <div class="col-md-4">
               <div class="form-group">
                 <label>Author</label>
-                <select name="Author" class="form-control" [(ngModel)]="searchForm.Author">
-                  <option>Choose one</option>
+                <select name="Author" placeholder="select Author" class="form-control" [(ngModel)]="searchForm.Author">
+                  <option value="0">select Author</option>
                   <option [(ngValue)]="a.userID" *ngFor="let a of authorData">{{a.author_name}}</option>
                 </select>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-md-4">
               <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-append">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="searchForm.startDate" ngbDatepicker #d="ngbDatepicker">
-                    <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-                      <span class="fa fa-calendar" style="vertical-align: middle"></span>
-                    </button>
-                  </div>
-                </div>
+                <label>Approved by</label>
+                <select name="Author" placeholder="select Author" class="form-control" [(ngModel)]="searchForm.Approver">
+                  <option value="0">select Author</option>
+                  <option [(ngValue)]="a.userID" *ngFor="let a of authorData">{{a.author_name}}</option>
+                </select>
               </div>
             </div>
-            <div class="col-sm-1">
+
+            <div class="col-md-4">
               <div class="form-group">
-                <button class="btn btn-primary " (click)="SearchData()"><span class="fa fa-search"></span></button>
+                <label>From</label>
+
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="fromDate" ngbDatepicker #d="ngbDatepicker" #c1="ngModel">
+
+                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+          <span class="fa fa-calendar" style="vertical-align: middle"></span>
+        </button>
+              </div>
+
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>To</label>
+
+                <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker" #c2="ngModel">
+
+                <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
+          <span class="fa fa-calendar" style="vertical-align: middle"></span>
+        </button>
+
+
               </div>
             </div>
-          </form>
-        </div>
+
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -49,25 +89,25 @@
   <br/>
   <table *ngIf="hideSearchForm" class="table table-condensed serachResults">
     <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date Created</th>
-      <!-- <th>Viewed</th>
+      <tr>
+        <th>Title</th>
+        <th>Date Created</th>
+        <!-- <th>Viewed</th>
         <th>Rated</th> -->
-      <th>Actions</th>
-    </tr>
+        <th>Actions</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let s of searchData">
+      <tr *ngFor="let s of searchData">
 
-      <td>{{s.articleTitle}}</td>
-      <td>{{s.dateCreated}}</td>
-      <td>
-        <a>
+        <td>{{s.articleTitle}}</td>
+        <td>{{s.dateCreated}}</td>
+        <td>
+          <a>
           <span class="glyphicon glyphicon-eye-open" (click)="getArticleDetail(s.articleID)" aria-hidden="true"></span>
         </a>
-      </td>
-    </tr>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

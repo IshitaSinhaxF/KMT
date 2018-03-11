@@ -128,6 +128,10 @@ export class ArticleService {
     return this.result = this.http.get('http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID=' + articleId + '');
   }
 
+   getSearchResults(searchQuery) {
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=' + searchQuery, {headers});
+  }
+
   getCategorySearchResults(categoryID) {
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchArticles?searchcondition=  artHis."ArticleStateID" = ANY(\'{3}\'::int[]) AND art."categoryID" = ' + categoryID, {headers});
   }
