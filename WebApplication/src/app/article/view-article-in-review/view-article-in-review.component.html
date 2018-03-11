@@ -37,5 +37,8 @@
     <div class="col-md-10 author" *ngIf="articleinReviewDetailsData?.articleContent">
       {{articleinReviewDetailsData.articleContent}}
     </div>
+    <div class="col-md-10 author" *ngIf="buttonCondition == 'true'">
+       <button class="btn" (click)='Approve()'> Approve </button> 
+     </div>
   </div>
 </div>

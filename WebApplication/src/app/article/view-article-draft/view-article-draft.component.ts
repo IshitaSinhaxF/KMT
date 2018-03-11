@@ -83,7 +83,7 @@ export class ViewArticleDraftComponent implements OnInit {
 
     this.articleService.updateArticle(modifiedArticle)
       .subscribe((res) => {
-        alert("article inserted successfully");
+        alert("article updated successfully");
         this.backToHome.emit(false);
       },
       (err) => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class ViewArticleInReviewComponent implements OnInit {
   articleinReviewDetailsData: any = [];
   buttonCondition: string;
   categoryID: number;
+  @Output() backToHome = new EventEmitter;
 
 
   constructor(private articleService: ArticleService, private router: Router) { }
@@ -53,7 +54,8 @@ export class ViewArticleInReviewComponent implements OnInit {
       .subscribe((res) => {
         console.log(res);
         alert("You approved the article");
-        this.router.navigate(['./home']);
+        this.backToHome.emit(false);
+        //this.router.navigate(['./home']);
       },
       (err) => {
         alert("Error occured approving an article");
