@@ -22,7 +22,7 @@
       <p>
         <b>Sub-Category</b> {{articleDetailsData.categoryName}}</p>
     </div>
-    <div class="col-md-12 author" *ngIf="articleinReviewDetailsData?.articleTag">
+    <div class="col-md-12 author" *ngIf="articleDetailsData?.articleTag">
       <p>
         <b>Article Tags</b>&nbsp;{{articleDetailsData.articleTag}}</p>
     </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-12 author" *ngIf="articleDetailsData?.articlePath">
       <b>Attachments</b>&nbsp;
-      <a target="_blank" href={{articleinReviewDetailsData.articlePath}}> {{articleinReviewDetailsData.articlePath}} </a>
+      <a target="_blank" href={{articleDetailsData.articlePath}}> {{articleDetailsData.articlePath}} </a>
     </div>
     <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
       {{articleDetailsData.articleContent}}

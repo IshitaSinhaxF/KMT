@@ -1,59 +1,54 @@
-<body>
-    <nav>
-        <div >
-            <img src="./assets/images/loginCDT.png" class="img-responsive" id="loginNAV">
+<div class="container-fluid">
+<nav class="navbar">   
+        <div class="col-md-12">
+        <img src="./assets/images/loginCDT.png" class="img-responsive" id="loginNAV">
         </div>
-    </nav>
-    <section class="row" id="top-banner">
-        <div class="col-md-2" id="logo-container">
-            <img src="./assets/images/CDTlogo.png" class="img-responsive" id="cdt-logo">
-       </div>
-       <div class="col-md-10">
-           <div class="col-md-4" >
-            <!-- <label for="username">User Name</label> -->
-            <!-- <input size="160" type="text" class="form-control " name="username" required [(ngModel)]="userFirstName" /> -->
-            <input placeholder="User Name" type="text" class="form-control login" name="username" required [(ngModel)]="userFirstName" #name="ngModel"/>
-            <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                class="alert alert-danger">
-                <div *ngIf="name.errors.required">
-                    * Name is required.
-                </div>                               
-            </div>
-            </div>
-       
-        <div class="col-md-4">
-                     <input placeholder="PassWord" type="password" class="form-control login" name="password" required [(ngModel)]="value.pwd" #pwd="ngModel" />
-                     <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                    class="alert alert-danger">
-                     <div id="requiredfield" *ngIf="name.errors.required">
-                        * Password is required.
-                    </div>                               
-                </div> 
-        </div>
-       <div class="form-group" id="buttonpadding">
-            <button class="btn btn-primary" (click)="onLoginClick()">Log In</button>
-            <a class="login" herf="">Register</a>
-        </div>
-    </div>
-    </section>
-    <section class="sfobanner">
-            <div>
-            <img class="sfobanner" src="./assets/images/sfo-banner.jpg">
-            </div>
-    </section>
-    <section>
-            <div>
-                    <img class="sfobanner2" src="./assets/images/Middle Pane.png">
-            </div>
-    </section>
-    <section class="sfobanner1">
-              <div>
-                    <img class="sfobanner1" src="./assets/images/bottompane1.png">
-            </div>
-    </section>
+</nav>
+</div>
 
-      <div class="container-fluid" id="copyrightInfo">
-        <div class="row">
-            <div class="col-sm-12">Copyright &copy; 2018 State of California. All rights reserved.</div>
-        </div>
+<section class="row" id="top-banner">
+    <div class="col-md-2" id="logo-container">
+        <img src="./assets/images/CDTlogo.png" class="img-responsive" id="cdt-logo">
     </div>
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-4">
+        <form method="post" name="login" action="http://www.dating-asian-singles.com/index.php?m=account_login">
+            <label for="loginbox_username">Username 
+                <input id="loginbox_username" maxlength="64" size="10" type="text" name="username" value="" class="text username" [(ngModel)] = "userFirstName" #name="ngModel" />
+            </label> &nbsp;&nbsp;
+            <label for="loginbox_password">Password
+                <input id="loginbox_password" maxlength="32" size="10" type="password" name="password" value="" class="text password" [(ngModel)] = "value.pwd" #pwd="ngModel" />
+            </label> &nbsp;&nbsp;
+                <input type="submit" name="login" value="Login" class="btn btn-primary" (click)="onLoginClick()" />           
+            <input type="hidden" name="islogin" value="1" />            
+        </form>
+    </div>    
+</section>
+<section class="row">
+    <div class="row">
+    <div class="col-md-12">
+        <img class="img-responsive" src="./assets/images/sac-banner.jpg">
+    </div>
+    </div>
+</section>
+<section class="row">
+    <div class="row">
+    <div class="col-md-12">
+        <img class="img-responsive" src="./assets/images/Middle Pane1.png">
+    </div>
+    </div>
+</section>
+<section class="row">
+    <div class="row">
+    <div class="col-md-12">
+        <img class="img-responsive" src="./assets/images/bottompane1.png">
+    </div>
+    </div>
+</section>
+
+<div class="container-fluid" id="copyrightInfo">
+    <div class="row">
+        <div class="col-md-12">Copyright &copy; 2018 State of California. All rights reserved.</div>
+    </div>
+</div>
