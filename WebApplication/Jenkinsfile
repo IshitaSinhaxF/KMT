@@ -1,11 +1,13 @@
 node {
     def app
 
+    environment {
+      BUILD_HOME = '$WORKSPACE/WebApplication'
+    }
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        sh 'cd WebApplication'
-        app = docker.build("xfusiontech/kmtrepo", "-f WebApplication/Dockerfile .")
+        app = docker.build("xfusiontech/kmtrepo")
     }
 
     stage('Test image') {
