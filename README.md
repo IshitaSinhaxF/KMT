@@ -86,7 +86,7 @@ d)  Container Model
 ### Infrastructure automation
 
 <p align="center">
-  <img width="640" height="320" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Automation%20Architecture.png">
+  <img width="680" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Automation%20Architecture.png">
 </p>
 
 
