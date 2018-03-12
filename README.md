@@ -75,6 +75,8 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
   <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
 
+The [Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Service-Oriented-Architecture) in the above diagram has been explained further in more detail.
+
 ## Complete Infrastructure Architecture:
 
 
