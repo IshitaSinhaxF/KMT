@@ -86,7 +86,7 @@ The Data Layer provides persistence storage for the KMP data.
 The following Open Source and Open Standards based tools and technologies are used for the implementation of the KMP Data Layer.
 
 <p align="center">
-  <img width="240" height="240" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Data%20Layer%20Tools.png">
+  <img width="240" height="160" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Data%20Layer%20Tools.png">
 </p>
 
 
