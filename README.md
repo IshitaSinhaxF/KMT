@@ -126,7 +126,7 @@ Our team followed Continuous Integration approach and focused on integrating wor
 
 
 
-_**------------------------------------------------------ End of Technical Approach------------------------------------------------------------**_
+_**--------------------------------------------------- End of Technical Approach--------------------------------------------------------**_
 
 # Explicit Reference Requirements:
 
