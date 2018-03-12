@@ -78,14 +78,11 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
 
 ## DevOps Automation:
 a)	Infrastructure automation
-
 b)	Source code repository
-
 c)	SDLC environments
-
 d)  Container Model
 
-## Continuous Integration and Continuous Deployment (CI/CD):
+### Continuous Integration and Continuous Deployment (CI/CD):
 
 Our team followed Continuous Integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
 
