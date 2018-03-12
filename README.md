@@ -56,7 +56,7 @@ The Knowledge Management Portal solution architecture is implemented using the f
 8.	**Open Standards Based** – The Application is implemented using various open standards that ensures interoperability of services and data as described in the following sections.
 
 
-## KMT Solution Architecture and Technology:
+## KMP Solution Architecture and Technology:
 
 The logical architecture for the Knowledge Management Portal (KMP) is based on Service Oriented, Microservice API based architecture as shown below.
 
