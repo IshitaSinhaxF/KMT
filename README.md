@@ -36,10 +36,38 @@ With each iteration, the prototype became increasingly aligned to the vision of 
 
 Our development team chose modern tools that supported our need to bring features together quickly and deliver them continually with a high degree of quality. The team’s high level of experience and expertise delivering mission-critical applications—resulted in code that is easy to adapt to meet evolving business needs for the State of California. 
 
-Check Word Doc for Service Architecture 
+The Knowledge Management Portal solution architecture is implemented using the following architectural features/best practices:
+1.	**N-Tier Distributed Architecture** – supports horizontal and vertical scalability
+2.	**Service Oriented Architecture (SOA)** – uses SOA approach for business-driven technology architecture for business and system agility and flexibility
+3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular JS, Bootstrap, CSS, jQuery etc.) agnostic.  
+4.	**Responsive UX/UI Design** – The web-based User Interface (UI) uses Responsive Design techniques/tools. 
+a.	The Application is accessible through any web browser such as Google Chrome, Mozilla Firefox, MS Internet Explorer, Safari and Opera etc. 
+b.	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
+5.	**Section 508 Compliance** – The user interface is compliant to the Section 508 requirements.
+6.	**Microservice Based Architecture** 
+a.	The Business and Technical capabilities requirements are derived from the user stories
+b.	The Business and Technical Services are implemented using Microservices API architecture as RESTful web services. 
+c.	Autonomous Services: Each Microservice is designed to have complete authority to perform CRUD (Create, Read, Update, Delete) operations on the specific set of domain data. No other services can perform CRUD operation on this domain data set. This makes the Microservices Autonomous API.
+d.	The Microservices can be designed, implemented, built and deployed independently
+7.	**API Gateway Pattern** – The API Gateway pattern is used to:
+a.	Avoid any point-to-point integration of the APIs with the Applications that imposes direct and complex dependencies between the service consumers and the providers and creates a very inflexible and unmaintainable architecture. The API Gateway creates a layer of abstraction between the service consumers and the service providers. This eliminated direct dependencies between the service consumers and the service providers that makes the architecture flexible and maintainable.
+b.	Route the service calls to the appropriate service providers
+c.	Single Entry Point for all Service invocation – provides a pivotal point for all Security and compliance enforcements, service performance and SLA management and monitoring etc.
+8.	**Open Standards Based** – The Application is implemented using various open standards that ensures interoperability of services and data as described in the following sections.
+
 
 ## KMT Solution Architecture and Technology:
 
+The logical architecture for the Knowledge Management Portal (KMP) is based on Service Oriented, Microservice API based architecture as shown below.
+<insert diagram here>
+  
+-	The KMP Data and Business Functions are exposed to the various KMP users as API in the API Layer.
+-	KMP Application access these APIs from the API Layer to deliver KMP business functions to the KMP Human Users through Web and Mobile Channels.
+-	In future, various System users such as external IVR Application and the system partners can access the KMP functions by accessing the KMP APIs through the API Layer. 
+
+The N-Tier Distributed Service Oriented Architecture for the KMP solution is presented in the following diagram.
+  
+  
 <p align="center">
   <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
