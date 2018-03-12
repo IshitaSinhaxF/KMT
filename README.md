@@ -138,7 +138,7 @@ _**-------------------------------------------------- End of Technical Approach-
 | d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools   | We have followed a [User-Centric Design](https://github.com/xFusionTech/KMT/wiki/User-Centric-Design) methodology for creating the Prototype. <br> [StoryBoards](https://github.com/xFusionTech/KMT/wiki/StoryBoards) <br> [Wireframes](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf)|
 | e. Used GitHub to document code commits  | [GitHub Deployment](https://github.com/xFusionTech/KMT/tree/master/DSSServices) and [GitHub WebApplication](https://github.com/xFusionTech/KMT/tree/master/WebApplication). The summary of the [commits](https://github.com/xFusionTech/KMT/graphs/commit-activity) made during the project phase is available too |
 | f. Used OpenAPI to document the RESTful API, and provided a link to the OpenAPI  | ---  |
-| g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | ---  |
+| g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | We have complied with the [Section 508](https://github.com/xFusionTech/KMT/wiki/Section-508-Compliance) of the ADA and WCAG 2.0  |
 | h. Created or used a design style guide and/or a pattern library  | ---  |
 | i. Performed usability tests with people  | ---  |
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
