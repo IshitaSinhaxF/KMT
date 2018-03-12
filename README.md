@@ -75,39 +75,6 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
   <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
 
-### KMP Data Layer:
-The Data Layer provides persistence storage for the KMP data.
--	KMP Relational Database
-  -	Stores KMP transaction data in a relational database such as Knowledge Article Content, Metadata, State, Review, Approval and Feedback history
-  -	Stores user authentication credentials and Role Based Access Control (RBAC) data 
--	KMP File Repository
-  -	Stores Knowledge Articles that are uploaded as a file. AWS S3 is used for the File Repository
-
-The following Open Source and Open Standards based tools and technologies are used for the implementation of the KMP Data Layer.
-
-<p align="center">
-  <img width="240" height="160" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Data%20Layer%20Tools.png">
-</p>
-
-### KMP Service Layer:
-
-The Service layer of the KMP solution is based on N-Tier distributed architecture that delivers various business and technical services to the Business Application Layer through a central API Gateway. The business and technical services are implemented using Microservices architecture that are delivered as RESTful APIs. The KMP Service Layer implements Data Services as RESTful APIs (DaaS) that performs various CRUD (Create, Read, Update and Delete) operations on the data stored in the database as an autonomous service. 
-
-The Knowledge Management Portal Application invokes the services through the API Gateway and send HttpRequstMessage with the request data elements as JSON objects. The API Gateway, then route the service call to the appropriate business or technical service. After the service is executed, the API Gateway returns the HttpResponseMessage with the response data as JSON object to the Application.
-
-The following Open Source and Open Standards based tools and technologies are used for the implementation of the KMP Service Layer.
-
-<p align="center">
-  <img width="240" height="160" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Service%20Layer%20Tools.png">
-</p>
-
-
-The high-level architecture for the Micro services is shown in the following diagram. In the Microservice Architecture shown in the diagram below, the Service Component implements the Entity Layer for the Service Domain Data Access and necessary Business Logic. The Entity Layer integrates the service domain objects to the corresponding database entities for CRUD operations.
-
-<p align="center">
-  <img width="200" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Microservice%20Architecture.png">
-</p>
-
 
 ## DevOps Automation:
 a)	Infrastructure automation
