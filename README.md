@@ -75,34 +75,35 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
   <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
 
-
-## DevOps Automation:
-a)	Infrastructure automation
-b)	Source code repository
-c)	SDLC environments
-d)  Container Model
+## Complete Infrastructure Architecture:
 
 
 <p align="center">
   <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Architecture.png">
 </p>
 
-DEVELOPMENT ENVIRONMENT
+### Development Environment
 
-TEST ENVIRONMENT
-PRODUCTION ENVIRONMENT
+### Test Environment
 
-SOURCE CODE REPOSITORY
-DOCKER IMAGE REPOSITORY
-	CONTAINER MODEL
+### Production Environment
+
+### Source Code Repository
+
+### Docker Image Repository
+
+	
+### Container Model
 
 
 <p align="center">
   <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
 </p>
 
-INFRASTRUCTURE DEPLOYMENT AND CI/CD FRAMEWORK
+### Infrastructure Deployment and CI/CD Framework 
 
+
+## DevOps Automation:
 
 
 ### Infrastructure automation:
