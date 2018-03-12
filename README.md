@@ -41,9 +41,8 @@ The Knowledge Management Portal solution architecture is implemented using the f
 2.	**Service Oriented Architecture (SOA)** – uses SOA approach for business-driven technology architecture for business and system agility and flexibility
 3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular JS, Bootstrap, CSS, jQuery etc.) agnostic.  
 4.	**Responsive UX/UI Design** – The web-based User Interface (UI) uses Responsive Design techniques/tools. 
-- a)	The Application is accessible through any web browser such as Google Chrome, Mozilla Firefox, MS Internet Explorer, Safari and Opera etc. 
-
-b)	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
+    a)	The Application is accessible through any web browser such as Google Chrome, Mozilla Firefox, MS Internet Explorer, Safari and Opera etc. 
+    b)	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
 5.	**Section 508 Compliance** – The user interface is compliant to the Section 508 requirements.
 6.	**Microservice Based Architecture** 
 a)	The Business and Technical capabilities requirements are derived from the user stories
