@@ -59,7 +59,10 @@ The Knowledge Management Portal solution architecture is implemented using the f
 ## KMT Solution Architecture and Technology:
 
 The logical architecture for the Knowledge Management Portal (KMP) is based on Service Oriented, Microservice API based architecture as shown below.
-<insert diagram here>
+
+<p align="center">
+  <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Logical%20Architecture.jpg">
+</p>
   
 -	The KMP Data and Business Functions are exposed to the various KMP users as API in the API Layer.
 -	KMP Application access these APIs from the API Layer to deliver KMP business functions to the KMP Human Users through Web and Mobile Channels.
