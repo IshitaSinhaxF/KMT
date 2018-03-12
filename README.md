@@ -83,6 +83,28 @@ c)	SDLC environments
 d)  Container Model
 
 
+<p align="center">
+  <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Architecture.png">
+</p>
+
+DEVELOPMENT ENVIRONMENT
+
+TEST ENVIRONMENT
+PRODUCTION ENVIRONMENT
+
+SOURCE CODE REPOSITORY
+DOCKER IMAGE REPOSITORY
+	CONTAINER MODEL
+
+
+<p align="center">
+  <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
+</p>
+
+INFRASTRUCTURE DEPLOYMENT AND CI/CD FRAMEWORK
+
+
+
 ### Infrastructure automation:
 
 <p align="center">
@@ -101,7 +123,7 @@ Our team followed Continuous Integration approach and focused on integrating wor
 
 
 
-_**------------------------------------------------ End of Technical Approach---------------------------------------------------**_
+_**-------------------------------------------------- End of Technical Approach---------------------------------------------------**_
 
 # Explicit Reference Requirements:
 
