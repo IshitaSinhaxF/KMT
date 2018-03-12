@@ -1,4 +1,4 @@
-node ('Jenkins') {
+node ('master') {
     def app
 
     stage('Build image') {
