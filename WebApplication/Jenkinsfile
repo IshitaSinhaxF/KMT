@@ -6,6 +6,7 @@ node ('master') {
          * docker build on the command line */
         def workspace = pwd()
         echo "workspace : $workspace"
+        sh "cd $workspace/WebApplication"
         app = docker.build("xfusiontech/kmtrepo")
     }
 
