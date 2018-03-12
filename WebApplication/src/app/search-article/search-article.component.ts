@@ -3,7 +3,7 @@ import { ArticleService } from '../article.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {CalendarModule} from 'primeng/calendar';
+//import {CalendarModule} from 'primeng/calendar';
 
 @Component({
   selector: 'app-search-article',
@@ -12,6 +12,7 @@ import {CalendarModule} from 'primeng/calendar';
 })
 export class SearchArticleComponent implements OnInit {
   @Output() searchClicked = new EventEmitter();
+  @Output() showViewArticle = new EventEmitter();
   hideArticles: any = true;
   searchForm: any = {};
   results: any = "";
@@ -22,11 +23,17 @@ export class SearchArticleComponent implements OnInit {
   searchResults: any = "";
   showSearchForm: boolean = false;
   hideSearchForm: boolean = false;
+  hideAdvancedSerachForm: boolean = true;
   showErrorMessage: boolean = false;
+  hideHomeButton: boolean= false;
+  isCollapsed:boolean = true;
   dateCreated: any;
   articleDetailsData: any = [];
   searchQuery: any ;
   id: number;
+  //isCollapsed : boolean = false;
+  fromDate: any;
+  toDate: any ;
   constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
@@ -34,8 +41,9 @@ export class SearchArticleComponent implements OnInit {
       (res: Response) => {
         this.results = res;
         this.data = this.results.entries.entry;
+        this.isCollapsed = true;
       }
-      this.isCollapsed = true;
+     
     )
 
     this.articleService.getAuthorData().subscribe(
@@ -49,6 +57,8 @@ export class SearchArticleComponent implements OnInit {
 
   SearchData(): void {
     this.searchClicked.emit(false);
+    this.hideHomeButton=true;
+    this.hideAdvancedSerachForm = true;
     console.log(this.searchForm);
     this.searchData = null;
     console.log(this.searchData) 
@@ -170,10 +180,15 @@ export class SearchArticleComponent implements OnInit {
     this.searchClicked.emit(true);
     this.hideSearchForm = false;
     this.showErrorMessage = false;
+   // this.hideAdvancedSerachForm = false;
+    this.hideHomeButton=false;
   }
   getArticleDetail(articleID) {
+
     this.id = articleID;
     this.articleService.saveInSessionStorage("articleID", this.id);
-    this.router.navigate(['./viewArtcile']);
+    this.showViewArticle.emit(true);
+    this.hideSearchForm = false;
+    //this.router.navigate(['./viewArtcile']);
   }
 }

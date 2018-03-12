@@ -53,6 +53,10 @@ export class HomeComponent implements OnInit {
     this.showHomeButton = false;
   }
 
+  showFeedbackView(event){
+    this.hideViewArticle = true;
+  }
+
   createNewArticle() {
     this.hideArticleMenu = false;
     this.hideViewArticle = false;
