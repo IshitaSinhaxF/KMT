@@ -231,7 +231,7 @@
       <call-query href="SummaryTags"/>
    </operation>
    <operation name="DeleteArticleOp" returnRequestStatus="true">
-      <description>Delete article operation                                    &#xd;                                    </description>
+      <description>Delete article operation                                    &#xd;</description>
       <call-query href="DeleteArticle">
          <with-param name="articleID" query-param="articleID"/>
       </call-query>

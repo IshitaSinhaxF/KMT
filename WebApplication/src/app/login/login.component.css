@@ -3,10 +3,26 @@
     background-color:none;
 } */
 #loginNAV {
-	width: 800%;
+	width: 200%;
+	}
+	.centered {
+		position: absolute;
+		top: 20%;
+		left: 45%;
+		transform: translate(-50%, -50%);
+		font-family: "Lucida Handwriting";
+		font-size: 32px;
+		}
 
-}
-
+	.container {
+		
+		position: absolute;
+		transform: translate(-50%, -50%);
+		font-family: "Century Gothic";
+		font-size: 30px;
+		top: 30%;
+		left: 65%;
+	}
 /* #img-responsive.cdt-logo {
 	width: 200%;
 	vertical-align: bottom;
@@ -15,9 +31,9 @@
 #buttonpadding{
 	padding-right:5%;
 }
-#top-banner{
-padding-top: .5%;
-padding-bottom: .5%;
+.top-banner{
+padding-top: .1%;
+padding-bottom: .1%;
 }
 
 #registerid{

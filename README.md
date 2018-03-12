@@ -56,12 +56,12 @@ The Knowledge Management Portal solution architecture is implemented using the f
 8.	**Open Standards Based** – The Application is implemented using various open standards that ensures interoperability of services and data as described in the following sections.
 
 
-## KMT Solution Architecture and Technology:
+## KMP Solution Architecture and Technology:
 
 The logical architecture for the Knowledge Management Portal (KMP) is based on Service Oriented, Microservice API based architecture as shown below.
 
 <p align="center">
-  <img width="320" height="320" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Logical%20Architecture.jpg">
+  <img width="320" height="300" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Logical%20Architecture.jpg">
 </p>
   
 -	The KMP Data and Business Functions are exposed to the various KMP users as API in the API Layer.
@@ -75,59 +75,33 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
   <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Technology%20Stack.jpg">
 </p>
 
-### KMP Data Layer:
-The Data Layer provides persistence storage for the KMP data.
--	KMP Relational Database
-  -	Stores KMP transaction data in a relational database such as Knowledge Article Content, Metadata, State, Review, Approval and Feedback history
-  -	Stores user authentication credentials and Role Based Access Control (RBAC) data 
--	KMP File Repository
-  -	Stores Knowledge Articles that are uploaded as a file. AWS S3 is used for the File Repository
-
-The following Open Source and Open Standards based tools and technologies are used for the implementation of the KMP Data Layer.
-
-<p align="center">
-  <img width="240" height="160" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Data%20Layer%20Tools.png">
-</p>
-
-### KMP Service Layer:
-
-The Service layer of the KMP solution is based on N-Tier distributed architecture that delivers various business and technical services to the Business Application Layer through a central API Gateway. The business and technical services are implemented using Microservices architecture that are delivered as RESTful APIs. The KMP Service Layer implements Data Services as RESTful APIs (DaaS) that performs various CRUD (Create, Read, Update and Delete) operations on the data stored in the database as an autonomous service. 
-
-The Knowledge Management Portal Application invokes the services through the API Gateway and send HttpRequstMessage with the request data elements as JSON objects. The API Gateway, then route the service call to the appropriate business or technical service. After the service is executed, the API Gateway returns the HttpResponseMessage with the response data as JSON object to the Application.
-
-The following Open Source and Open Standards based tools and technologies are used for the implementation of the KMP Service Layer.
-
-<p align="center">
-  <img width="240" height="160" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/KMP%20Service%20Layer%20Tools.png">
-</p>
-
-
-The high-level architecture for the Micro services is shown in the following diagram. In the Microservice Architecture shown in the diagram below, the Service Component implements the Entity Layer for the Service Domain Data Access and necessary Business Logic. The Entity Layer integrates the service domain objects to the corresponding database entities for CRUD operations.
-
-<p align="center">
-  <img width="200" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Microservice%20Architecture.png">
-</p>
-
 
 ## DevOps Automation:
 a)	Infrastructure automation
-
 b)	Source code repository
-
 c)	SDLC environments
-
 d)  Container Model
 
-## Continuous Integration and Continuous Deployment (CI/CD):
+
+### Infrastructure automation:
+
+<p align="center">
+  <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Automation%20Architecture.png">
+</p>
+
+
+### Continuous Integration and Continuous Deployment (CI/CD):
 
 Our team followed Continuous Integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
 
+<p align="center">
+  <img width="680" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/CICD%20Framework%20Architecture.png">
+</p>
 
 
-## Code Flow:
 
 
----------------- End of Technical Approach-------------------------
+_**------------------------------------------------ End of Technical Approach---------------------------------------------------**_
 
 # Explicit Reference Requirements:
 
@@ -143,7 +117,7 @@ Our team followed Continuous Integration approach and focused on integrating wor
 | h. Created or used a design style guide and/or a pattern library  | ---  |
 | i. Performed usability tests with people  | ---  |
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
-| k. Created a prototype that works on multiple devices, and presents a responsive design  | ---  |
+| k. Created a prototype that works on multiple devices, and presents a responsive design  | KMP Business functions are accessed and delivered to its business and system users through various access channels as delineated in [Responsive UI Design](https://github.com/xFusionTech/KMT/wiki/Responsive-UI-Design)  |
 | l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)  | All the technologies that we have used are both modern and open-source [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack)  |
 | m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used | We have deployed our Working Prototype on Amazon Web Services – an Infrastructure as a Service provider  |
 | n. Developed automated unit tests for their code  | We automated unit testing through GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, and updates/deploys of the Docker Hub Images to DockerHub  |
