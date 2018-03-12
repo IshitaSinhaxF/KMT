@@ -75,7 +75,7 @@ margin-left: -5px;
     border: none;
     background: transparent;
 }
-.watermarked::before {
+/* .watermarked::before {
     position: fixed;
     top: -75%;
     left: -75%;
@@ -93,7 +93,7 @@ margin-left: -5px;
     letter-spacing: 2px;
     color: #ff0523;
     z-index:-1;
-}
+} */
 
 /*Login page ended */
 
@@ -404,7 +404,7 @@ td {
 }
 
 #copyrightInfo {
-	background-color: #303133;
+	background-color: #23476C;
 	text-align: center;
 	color: #fff;
 	font-size: 0.8em;
@@ -419,12 +419,12 @@ td {
 .feedback{
  font:10;
 }
-feedback-container-fluid{
+/* feedback-container-fluid{
 
       width: 250px;
 	  height: 500px;
 	  padding : 20px;
-}
+} */
 .feedback-popup{
 	height: 250;
 }
