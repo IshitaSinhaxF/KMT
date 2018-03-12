@@ -82,6 +82,14 @@ b)	Source code repository
 c)	SDLC environments
 d)  Container Model
 
+
+### Infrastructure automation
+
+<p align="center">
+  <img width="480" height="540" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Automation%20Architecture.png">
+</p>
+
+
 ### Continuous Integration and Continuous Deployment (CI/CD):
 
 Our team followed Continuous Integration approach and focused on integrating work from individual developers into the GitHub repository multiple times a day to catch integration bugs early and accelerate collaborative development. Our solution used GitHub to document code and unit test commits in our public GitHub repository.
