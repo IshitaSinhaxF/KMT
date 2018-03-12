@@ -97,7 +97,7 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
 
 
 <p align="center">
-  <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
+  <img width="640" height="3200" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
 </p>
 
 ### Infrastructure Deployment and CI/CD Framework 
