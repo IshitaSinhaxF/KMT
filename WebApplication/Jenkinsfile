@@ -1,12 +1,11 @@
-node {
+node ('Jenkins') {
     def app
 
-    environment {
-      BUILD_HOME = '$WORKSPACE/WebApplication'
-    }
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
+        def workspace = pwd()
+        echo "workspace : $workspace"
         app = docker.build("xfusiontech/kmtrepo")
     }
 
