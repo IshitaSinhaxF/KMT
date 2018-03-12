@@ -1,12 +1,15 @@
 node ('master') {
     def app
 
+    stage('Checkout') {
+      git credentialsId: 'KMT', url: 'https://github.com/xFusionTech/KMT'
+      checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'KMT', url: 'https://github.com/xFusionTech/KMT']]]
+    }
+
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        def workspace = pwd()
-        echo "workspace : $workspace"
-        sh "cd $workspace/WebApplication"
+        dir('WebApplication')
         app = docker.build("xfusiontech/kmtrepo")
     }
 
