@@ -45,14 +45,14 @@ The Knowledge Management Portal solution architecture is implemented using the f
       -	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
 5.	**Section 508 Compliance** – The user interface is compliant to the Section 508 requirements.
 6.	**Microservice Based Architecture** 
-a)	The Business and Technical capabilities requirements are derived from the user stories
-b.	The Business and Technical Services are implemented using Microservices API architecture as RESTful web services. 
-c.	Autonomous Services: Each Microservice is designed to have complete authority to perform CRUD (Create, Read, Update, Delete) operations on the specific set of domain data. No other services can perform CRUD operation on this domain data set. This makes the Microservices Autonomous API.
-d.	The Microservices can be designed, implemented, built and deployed independently
+      -	The Business and Technical capabilities requirements are derived from the user stories
+      - The Business and Technical Services are implemented using Microservices API architecture as RESTful web services. 
+      -	Autonomous Services: Each Microservice is designed to have complete authority to perform CRUD (Create, Read, Update, Delete) operations on the specific set of domain data. No other services can perform CRUD operation on this domain data set. This makes the Microservices Autonomous API.
+      -	The Microservices can be designed, implemented, built and deployed independently
 7.	**API Gateway Pattern** – The API Gateway pattern is used to:
-a.	Avoid any point-to-point integration of the APIs with the Applications that imposes direct and complex dependencies between the service consumers and the providers and creates a very inflexible and unmaintainable architecture. The API Gateway creates a layer of abstraction between the service consumers and the service providers. This eliminated direct dependencies between the service consumers and the service providers that makes the architecture flexible and maintainable.
-b.	Route the service calls to the appropriate service providers
-c.	Single Entry Point for all Service invocation – provides a pivotal point for all Security and compliance enforcements, service performance and SLA management and monitoring etc.
+      -	Avoid any point-to-point integration of the APIs with the Applications that imposes direct and complex dependencies between the service consumers and the providers and creates a very inflexible and unmaintainable architecture. The API Gateway creates a layer of abstraction between the service consumers and the service providers. This eliminated direct dependencies between the service consumers and the service providers that makes the architecture flexible and maintainable.
+      -	Route the service calls to the appropriate service providers
+      -	Single Entry Point for all Service invocation – provides a pivotal point for all Security and compliance enforcements, service performance and SLA management and monitoring etc.
 8.	**Open Standards Based** – The Application is implemented using various open standards that ensures interoperability of services and data as described in the following sections.
 
 
