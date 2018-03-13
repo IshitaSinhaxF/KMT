@@ -101,6 +101,6 @@ export class ViewAricleComponent implements OnInit {
       },
       (err) => {
         alert(err);
-      };
+      });
   }
 }
