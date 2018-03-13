@@ -37,9 +37,85 @@
     <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
       {{articleDetailsData.articleContent}}
     </div>
+    
+    <div class="row">
+      <div class="col-md-12 author" style="padding-bottom:20px">        
+        <div class="row author" style="padding-bottom:20px">
+        </div>
+        
+        <div class="col-md-8 author">
+          <ngb-rating [(rate)]="currentRate" max=5></ngb-rating>
+          <textarea placeholder='Rate and leave a comment/question...' rows="2" name="txtFormQues" style="width:100%" [(ngModel)]="txtFeedbck"></textarea>
+        </div>
+        <div class="col-md-2 author" style="padding-top:20px">
+          <button class="btn btn-primary" (click)='OnFeedbackPost()' id="buttons"> Rate and Comment</button>
+        </div>
+      </div>
+    </div>
 
+    <div class="row author">
+      <div class="col-md-12 author">
+        <div *ngFor="let d of articleDetailsFeedbacks" class="commentportlet-title">
+          <table id="bottomMargin">
+            <tbody>
+              <tr>
+                <td *ngIf="d.rating === '5'">
+                  <span class="glyphicon glyphicon-star"  aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                </td>
+                <td *ngIf="d.rating === '4'">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                </td>
+
+                <td *ngIf="d.rating === '3'">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                </td>
+
+                <td *ngIf="d.rating === '2'">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                </td>
+
+                <td *ngIf="d.rating === '1'">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Commented by &nbsp; {{d.commented_by}}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{d.comment}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
     <!--<div [routerLink]="['articleFeedback']" *ngIf="articleDetailsData.StateName === 'PUBLISHED'">
         <app-article-feedback></app-article-feedback>
       </div>      -->
+
   </div>
-</div>

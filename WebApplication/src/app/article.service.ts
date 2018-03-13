@@ -160,25 +160,10 @@ export class ArticleService {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
   }
 
-  insertFeedbackPost(articleFeedback) {
-    // this.insertStatus = 'Success';
-    console.log('in insert loop');
-    const req = this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers})
-      .subscribe(
-        response => {
-          //console.log('response after insert:');
-          //console.log(response);
-          //this.Status = 'succeed';
-        },
-        err => {
-          //this.Status = 'failed';
-        }
-      );
-    //return this.Status;
-    //console.log(req)
-
+  insertFeedbackPost(articleFeedback, articleId) {
+   return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers});     
   }
-
+   
   updateArticle(article) {
     return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
   }
@@ -212,7 +197,6 @@ export class ArticleService {
       }
     });
   }
-
   
   /*sendEmail(subject, body) {
     const params = {

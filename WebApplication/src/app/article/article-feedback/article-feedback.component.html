@@ -1,14 +1,8 @@
     
-     <div class="portlet-body bodySize" id="accordion3" >
-          <label>Comments-Questions</label>
-          <textarea  class="form-control" rows="4" data-role="collapsible" name="txtFormQues" [(ngModel)]="txtFeedbck"></textarea>
-     </div>
-     <div id="tagpadding">
-          <button class="btn btn-primary btn-lg" (click) = 'OnFeedbackPost()' id="buttons"> Post</button>                       
-      </div>
      
-    
-    
+
+    <div class="row author">    
+       <div class="col-md-12 author">     
      <div *ngFor="let d of articleDetailsFeedbacks">
     <table id="bottomMargin">
       <tbody>
@@ -65,6 +59,11 @@
       </tbody>
     </table>
     </div>
+    </div>
+
+    </div>
+   
+   
   
  
     

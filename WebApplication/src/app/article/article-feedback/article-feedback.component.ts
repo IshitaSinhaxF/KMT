@@ -30,35 +30,36 @@ export class ArticleFeedbackComponent implements OnInit {
     console.log('calling getArticleFeedback()')
     this.articleService.getArticleFeedbacks(this.articleID).subscribe((res: Response) => {
       this.result = res;
-      this.articleDetailsFeedbacks = this.result.entries.entry;      
+      this.articleDetailsFeedbacks = this.result.entries.entry;   
+        
     })
   }
 
-  OnFeedbackPost() {
+  // OnFeedbackPost() {
     
-    this.articleFeedbackText = this.txtFeedbck;
-    this.artID = +this.articleID;
+  //   this.articleFeedbackText = this.txtFeedbck;
+  //   this.artID = +this.articleID;
     
-    let data =
-      {
-        "_postinsertarticlefeedback":
-        {
-          "rating": 3,
-          "article_comment": this.articleFeedbackText,
-          "article_id": this.artID,
-          "username": this.userName,
-          "user_id": this.userID
-        }
-      }
+  //   let data =
+  //     {
+  //       "_postinsertarticlefeedback":
+  //       {
+  //         "rating": 3,
+  //         "article_comment": this.articleFeedbackText,
+  //         "article_id": this.artID,
+  //         "username": this.userName,
+  //         "user_id": this.userID
+  //       }
+  //     }
 
-    //this.insertStatus = 
-    this.articleService.insertFeedbackPost(data);
+  //   //this.insertStatus = 
+  //   this.articleService.insertFeedbackPost(data);
 
-   // console.log(this.insertStatus);
-   // if (this.insertStatus === "succeed") {
-   //   console.log('calling getArticleFeedback() after insert')
-   //   this.getArticleFeedback();
-   // }
-  }
+  //  // console.log(this.insertStatus);
+  //  // if (this.insertStatus === "succeed") {
+  //  //   console.log('calling getArticleFeedback() after insert')
+  //  //   this.getArticleFeedback();
+  //  // }
+  // }
 
 }
