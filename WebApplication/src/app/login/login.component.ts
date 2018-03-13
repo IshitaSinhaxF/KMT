@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
   onLoginClick() {
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
-      if (el.userFirstName
-        == this.userFirstName){
+      if (el.userID
+        == this.userID){
           this.roleData.push(el.lkpRoleID)
         return true;
       }
@@ -59,24 +59,29 @@ export class LoginComponent implements OnInit {
       this.result = res;
       this.data = this.result.entries.entry;
 
+      let users = [new Set(this.data.map(item => item.userFirstName,item.userID)];  
+      console.log(users);
+      // this.rolesArray = this.data.filter(el => {
+      //   if (this.rolesData.indexOf(el.lkpRoleID
+      //   ) === -1) {
 
-      this.rolesArray = this.data.filter(el => {
-        if (this.rolesData.indexOf(el.lkpRoleID
-        ) === -1) {
+      //     this.rolesData.push(el.lkpRoleID
+      //     );
+      //     return true;
+      //   } else {
 
-          this.rolesData.push(el.lkpRoleID
-          );
-          return true;
-        } else {
-
-          return false;
-        }
-      });
+      //     return false;
+      //   }
+      // });
 
 
       // console.log(this.data)
       // console.log(this.rolesArray)
     });
+//let unique = [...new Set(data.map(item => item.Group))];
+    
+
+
   }
 
 }

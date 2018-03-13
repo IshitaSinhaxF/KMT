@@ -17,7 +17,8 @@ export class ViewAricleComponent implements OnInit {
   articleDetailsFeedbacks: any = [];
   articleFeedbackText: string;
   rating: number;
-//  txtFeedbck : any = "";
+  txtFeedbck : any ;
+  currentRate: number;
   artID: number;
   insertStatus: any;
 
