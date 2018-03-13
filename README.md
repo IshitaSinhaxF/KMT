@@ -68,7 +68,7 @@ The logical architecture for the Knowledge Management Portal (KMP) is based on S
 -	KMP Application access these APIs from the API Layer to deliver KMP business functions to the KMP Human Users through Web and Mobile Channels.
 -	In future, various System users such as external IVR Application and the system partners can access the KMP functions by accessing the KMP APIs through the API Layer. 
 
-The N-Tier Distributed Service Oriented Architecture for the KMP solution is presented in the following diagram.
+The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Service-Oriented-Architecture) for the KMP solution is presented in the following diagram.
   
   
 <p align="center">
@@ -76,11 +76,36 @@ The N-Tier Distributed Service Oriented Architecture for the KMP solution is pre
 </p>
 
 
+
+## Complete Infrastructure Architecture:
+
+
+<p align="center">
+  <img width="720" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Infrastructure%20Architecture.png">
+</p>
+
+### Development Environment
+
+### Test Environment
+
+### Production Environment
+
+### Source Code Repository
+
+### Docker Image Repository
+
+	
+### Container Model
+
+
+<p align="center">
+  <img width="680" height="320" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
+</p>
+
+### Infrastructure Deployment and CI/CD Framework 
+
+
 ## DevOps Automation:
-a)	Infrastructure automation
-b)	Source code repository
-c)	SDLC environments
-d)  Container Model
 
 
 ### Infrastructure automation:
@@ -101,7 +126,7 @@ Our team followed Continuous Integration approach and focused on integrating wor
 
 
 
-_**------------------------------------------------ End of Technical Approach---------------------------------------------------**_
+_**--------------------------------------------------- End of Technical Approach--------------------------------------------------------**_
 
 # Explicit Reference Requirements:
 
@@ -113,7 +138,7 @@ _**------------------------------------------------ End of Technical Approach---
 | d. Used at least a minimum of three (3) “user-centric design” techniques and/or tools   | We have followed a [User-Centric Design](https://github.com/xFusionTech/KMT/wiki/User-Centric-Design) methodology for creating the Prototype. <br> [StoryBoards](https://github.com/xFusionTech/KMT/wiki/StoryBoards) <br> [Wireframes](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf)|
 | e. Used GitHub to document code commits  | [GitHub Deployment](https://github.com/xFusionTech/KMT/tree/master/DSSServices) and [GitHub WebApplication](https://github.com/xFusionTech/KMT/tree/master/WebApplication). The summary of the [commits](https://github.com/xFusionTech/KMT/graphs/commit-activity) made during the project phase is available too |
 | f. Used OpenAPI to document the RESTful API, and provided a link to the OpenAPI  | ---  |
-| g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | ---  |
+| g. Complied with Section 508 of the Americans with Disabilities Act and WCAG 2.0  | We have complied with the [Section 508](https://github.com/xFusionTech/KMT/wiki/Section-508-Compliance) of the ADA and WCAG 2.0  |
 | h. Created or used a design style guide and/or a pattern library  | ---  |
 | i. Performed usability tests with people  | ---  |
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype  | ---  |
