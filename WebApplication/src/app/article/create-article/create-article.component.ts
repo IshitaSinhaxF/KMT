@@ -80,7 +80,7 @@ export class CreateArticleComponent implements OnInit {
       '_postinsertarticle': {
         'article_title': this.article_title,
         'article_desc': this.article_desc,
-        'article_path': "https://kmtweb.s3.us-west-1.amazonaws.com/" + this.fileName,
+        'article_path': this.fileName,
         'article_content': this.article_content,
         'user_id': this.user_id,
         'categoryid': subCategoryId,
