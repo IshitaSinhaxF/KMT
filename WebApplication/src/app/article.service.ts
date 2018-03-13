@@ -75,6 +75,11 @@ export class ArticleService {
     // return this.result = this.http.get("http://8.39.51.27:9763/services/KMTool/GetUserDetails", { headers })
   }
 
+getUsers() {
+    return this.http.get('http://8.39.51.27:9763/services/KMTool/GetUsersAndIDs', {headers});
+  }
+  
+
   getAuthorData() {
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchAuthor', {headers});
   }

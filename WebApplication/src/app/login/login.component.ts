@@ -23,65 +23,54 @@ export class LoginComponent implements OnInit {
     { pwd: "" }
   ];
 
-  data: any = "";
-  result: any;
+  data: any = [] ;
+  result: any = [];
+  UserResults: any = [];
   rolesData: any = [];
   rolesArray: any = [];
   roleName: any = "";
-  roles: any = [{
-    "lkpRoleID": this.data.lkpRoleID,
-    "roleName": this.data.roleName
-  }];
+  usersDropdown: any = [];
+  selectedUser:any;
   userFirstName: any = "";
   roleData : any = [];
 
   onLoginClick() {
+
+    console.log(this.selectedUser);
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
       if (el.userID
-        == this.userID){
+        == this.selectedUser){
           this.roleData.push(el.lkpRoleID)
         return true;
       }
     });
-  
+      
     this.articleService.saveInSessionStorage("Roles", userDetails);
     this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
     this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName + ' '+ userDetails[0].userLastName);
    
-    //this.articleService.saveInSessionStorage(this.roles.lkpRoleID, this.roles.roleName);
-    //console.log("data: " + this.articleService.data.toString())
-     console.log( userDetails)
-   // console.log("data: " + this.data)
   }
-  ngOnInit() {
-    this.articleService.getUserData().subscribe((res: Response) => {
-      this.result = res;
-      this.data = this.result.entries.entry;
-
-      let users = [new Set(this.data.map(item => item.userFirstName,item.userID)];  
-      console.log(users);
-      // this.rolesArray = this.data.filter(el => {
-      //   if (this.rolesData.indexOf(el.lkpRoleID
-      //   ) === -1) {
-
-      //     this.rolesData.push(el.lkpRoleID
-      //     );
-      //     return true;
-      //   } else {
-
-      //     return false;
-      //   }
-      // });
-
-
-      // console.log(this.data)
-      // console.log(this.rolesArray)
-    });
-//let unique = [...new Set(data.map(item => item.Group))];
-    
-
-
+  ngOnInit() {      
+    this.getUserRoles();
+    this.getUsers();
   }
 
+   getUsers() 
+   { 
+     console.log('entering users loop')  ; 
+    this.articleService.getUsers().subscribe((res: Response) => {
+    this.result = res;
+    this.usersDropdown = this.result.entries.entry;  
+     })    
+   }
+
+    getUserRoles()
+    {
+      console.log('entering getuserRoles')  ; 
+      this.articleService.getUserData().subscribe((res: Response) => {
+        this.UserResults = res;
+        this.data = this.UserResults.entries.entry;
+      })
+    }
 }
