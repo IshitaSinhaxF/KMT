@@ -1,6 +1,4 @@
-pipeline {
-    stages {
-
+node {
       stage('Build and Push image') {
         build 'KMTBuildAndPush'
       }
@@ -12,5 +10,4 @@ pipeline {
       stage('Test deployed KMT App') {
         build 'KMTTest'
       }
-   }
 }
