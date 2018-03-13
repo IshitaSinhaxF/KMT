@@ -84,10 +84,10 @@
         <div class="form-group">
           <label for="uploadFile">Upload File:</label>
           <div id="igUpload1"></div>
-           <a  (change)="uploadFile($event)">
+           <!-- <a  (change)="uploadFile($event)">
               <span  class="fa fa-upload fa-2x" aria-hidden="true" title="Upload File"></span>
-          </a>
-          <!-- <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" /> -->
+          </a> -->
+          <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)"/>
           <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
           <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
         </div>
