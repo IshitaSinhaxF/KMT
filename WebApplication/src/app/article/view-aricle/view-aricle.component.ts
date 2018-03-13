@@ -39,7 +39,7 @@ export class ViewAricleComponent implements OnInit {
     console.log('calling getArticleFeedback()')
     this.articleService.getArticleFeedbacks(this.articleID).subscribe((res: Response) => {
       this.result = res;
-      this.articleDetailsFeedbacks = this.result.entries.entry;      
+      this.articleDetailsFeedbacks = this.result.entries.entry;
     })
   }
 
@@ -55,10 +55,10 @@ export class ViewAricleComponent implements OnInit {
   }
 
   //   OnFeedbackPost() {
-    
+
   //   this.articleFeedbackText = this.txtFeedbck;
   //   this.artID = +this.articleID;
-    
+
   //   let data =
   //     {
   //       "_postinsertarticlefeedback":
@@ -72,18 +72,18 @@ export class ViewAricleComponent implements OnInit {
   //     }
   //     this.articleDetailsFeedbacks = this.articleService.insertFeedbackPost(data, this.artID);
   //     console.log(this.articleDetailsFeedbacks);
-  //   //this.insertStatus = 
-    
+  //   //this.insertStatus =
+
 
   // }
 
   OnFeedbackPost() {
-    
+
     this.articleFeedbackText = this.txtFeedbck;
     this.artID = +this.articleID;
     this.rating = this.currentRate;
     console.log(this.rating);
-    
+
     let data =
       {
         "_postinsertarticlefeedback":
@@ -95,19 +95,13 @@ export class ViewAricleComponent implements OnInit {
           "user_id": this.userID
         }
       }
-      this.articleService.insertFeedbackPost(data).subscribe((data)=>
+      this.articleService.insertFeedbackPost(data, this.artID).subscribe((data)=>
       {
         console.log(data);
-        this.getArticleFeedback()this.artID);
+        this.getArticleFeedback();
       },
-      (err) => {        
+      (err) => {
         alert(err);
-      }
+      });
   }
-    
-
-  }
-
-
-
-
+}
