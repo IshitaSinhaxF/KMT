@@ -146,7 +146,7 @@ export class SearchArticleComponent implements OnInit {
      }
      if (this.searchForm.articleContent != undefined)
      {
-       let searchTextQuery = '(art."articleContent"like \'%25'+ this.searchForm.articleContent +'%25\' OR art."articleTitle" like \'%25'+this.searchForm.articleContent+'%25\')' 
+       let searchTextQuery = '(UPPER(art."articleContent") like UPPER(\'%25'+ this.searchForm.articleContent +'%25\') OR UPPER(art."articleTitle") like UPPER(\'%25'+this.searchForm.articleContent+'%25\') OR UPPER(art."articleTag") like UPPER(\'%25' + this.searchForm.articleContent+'%25\'))' 
        if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchTextQuery;
