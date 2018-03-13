@@ -76,7 +76,8 @@ export class ArticleService {
   }
 
 getUsers() {
-    return this.http.get('http://8.39.51.27:9763/services/KMTool/GetUsersAndIDs', {headers});
+    //return this.http.get('http://8.39.51.27:9763/services/KMTool/GetUsersAndIDs', {headers});
+    return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetUsersAndIDs', {headers});
   }
   
 
@@ -130,7 +131,9 @@ getUsers() {
   }
 
   getArticleFeedbacks(articleId) {
-    return this.result = this.http.get('http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID=' + articleId + '');
+    //return this.result = this.http.get('http://8.39.51.27:9763/services/KMTool/GetArticleFeedbacks?articleID=' + articleId + '');
+    return this.result = this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
+    
   }
 
    getSearchResults(searchQuery) {
@@ -162,31 +165,38 @@ getUsers() {
   }
 
   insertArticle(dataObj) {
-    return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
+    //return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticle', dataObj, {headers});
+    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle', dataObj, {headers});
+    
   }
 
   insertFeedbackPost(articleFeedback, articleId) {
-   return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers});     
+   //return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers}); 
+   return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticleFeedback', articleFeedback, {headers});    
   }
    
   updateArticle(article) {
-    return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
+    //return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
+    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/UpdateArticle', article, {headers});
   }
 
   updateArticleStatus(articleStatus) {
     console.log(articleStatus);
-    return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticleState', articleStatus);
+    //return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticleState', articleStatus);
+    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/UpdateArticleState', articleStatus,{headers});
   }
 
   updateArticleStatusToPublished(articleStatus) {
     console.log(articleStatus);
-    return this.http.post('http://8.39.51.27:9763/services/KMTool/updateArticlePublishedState', articleStatus);
+    //return this.http.post('http://8.39.51.27:9763/services/KMTool/updateArticlePublishedState', articleStatus);
+    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/updateArticlePublishedState', articleStatus,{headers});
   }
   
   DeleteArticle(articleTobeDeleted)
   {
     console.log(articleTobeDeleted);
-    return this.http.post('http://8.39.51.27:9763/services/KMTool/DeleteArticle', articleTobeDeleted,{headers});
+    //return this.http.post('http://8.39.51.27:9763/services/KMTool/DeleteArticle', articleTobeDeleted,{headers});
+    return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/DeleteArticle', articleTobeDeleted,{headers});
   }
 
   uploadFile(file) {
