@@ -99,7 +99,7 @@ The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusio
 
 
 <p align="center">
-  <img width="680" height="320" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
+  <img width="680" height="280" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
 </p>
 
 ### Infrastructure Deployment and CI/CD Framework 
