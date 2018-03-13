@@ -41,7 +41,7 @@ export class ViewArticleInReviewComponent implements OnInit {
   Approve() {
     let data =
       {
-        "_postupdatearticlestate":
+        "_postupdatearticlepublishedstate":
         {
           "article_id": +this.articleID,
           "user_id": +this.userID,
@@ -50,7 +50,7 @@ export class ViewArticleInReviewComponent implements OnInit {
         }
       }
 
-    this.articleService.updateArticleStatus(data)
+    this.articleService.updateArticleStatusToPublished(data)
       .subscribe((res) => {
         console.log(res);
         alert("You approved the article");
