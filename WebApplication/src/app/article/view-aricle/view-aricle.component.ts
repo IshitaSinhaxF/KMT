@@ -94,16 +94,13 @@ export class ViewAricleComponent implements OnInit {
           "user_id": this.userID
         }
       }
-      this.articleService.insertFeedbackPost(data).subscribe((data)=>
+      this.articleService.insertFeedbackPost(data, this.artID).subscribe((data)=>
       {
         console.log(data);
-        this.getArticleFeedback()this.artID);
+        this.getArticleFeedback();
       },
       (err) => {
         alert(err);
-      }
+      };
   }
-
-
-
-
+}
