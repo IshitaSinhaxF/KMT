@@ -9,8 +9,7 @@ Below are the key URLs for the working Prototype:
 
 | Application  | URL | Login Credentials
 | :------------- | :------------- | :--------------------
-| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer *Permissions: Search and view articles* User ID:
-Password: 
+| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer <br> *Permissions: Search and view articles* User ID: <br> Password: 
 | fff  | fff  |fff
 | c. Understood what people needed | ---  | --
 
