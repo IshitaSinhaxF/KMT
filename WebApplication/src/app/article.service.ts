@@ -8,7 +8,6 @@ import 'rxjs/add/operator/toPromise';
 import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
 import * as SES from 'aws-sdk/clients/ses';
-import {SendEmailRequest} from 'aws-sdk/clients/ses';
 
 const bucket = new S3(
   {
@@ -83,7 +82,7 @@ getUsers() {
     //dev
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetUsersAndIDs', {headers});
   }
-  
+
 
   getAuthorData() {
     //prod
@@ -114,7 +113,7 @@ getUsers() {
     //return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta."StateName" = \'IN-REVIEW\' AND usrRl."lkpRoleID" =' + roleId + 'AND artHis."userID" =' + userID + '', {headers});
     //dev
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticlesByStatus?statuscondition=1=1AND artSta."StateName" = \'IN-REVIEW\' AND usrRl."lkpRoleID" =' + roleId + 'AND artHis."userID" =' + userID + '', {headers});
-    
+
   }
 
   // Get Artciles by status API for pending for  articles
@@ -139,7 +138,7 @@ getUsers() {
     //return this.result = this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetArticleDetailsByID?articleID=' + articleId + '', {headers});
     //dev
     return this.result = this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticleDetailsByID?articleID=' + articleId + '', {headers});
-    
+
   }
 
   //get parent category
@@ -164,7 +163,7 @@ getUsers() {
     //return this.result = this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
     //dev
     return this.result = this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
-    
+
   }
 
    getSearchResults(searchQuery) {
@@ -222,17 +221,17 @@ getUsers() {
     //return this.http.post('http://13.57.242.90:8281/KMTool/v1.0.0/InsertArticle', dataObj, {headers});
     //dev
     return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticle', dataObj, {headers});
-    
+
   }
 
   insertFeedbackPost(articleFeedback, articleId) {
-   //return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers}); 
+   //return this.http.post('http://8.39.51.27:9763/services/KMTool/InsertArticleFeedback', articleFeedback, {headers});
    //prod
    //return this.http.post('http://13.57.242.90:8281/KMTool/v1.0.0/InsertArticleFeedback', articleFeedback, {headers});
    //dev
-   return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticleFeedback', articleFeedback, {headers});    
+   return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/InsertArticleFeedback', articleFeedback, {headers});
   }
-   
+
   updateArticle(article) {
     //return this.http.post('http://8.39.51.27:9763/services/KMTool/UpdateArticle', article, {headers});
     //prod
@@ -258,7 +257,7 @@ getUsers() {
     //dev
     return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/updateArticlePublishedState', articleStatus,{headers});
   }
-  
+
   DeleteArticle(articleTobeDeleted)
   {
     console.log(articleTobeDeleted);
@@ -287,33 +286,17 @@ getUsers() {
       }
     });
   }
-  
-  /*sendEmail(subject, body) {
-    const params = {
-      Destination: {
-        ToAddresses: 'kmtadmin@xfusiontech.com'
-      },
-      Message: {
-        Body: {
-          Text: {
-            Charset: 'UTF-8',
-            Data: body
-          }
-        },
-        Subject: {
-          Charset: 'UTF-8',
-          Data: subject
-        }
-      },
-      Source: 'kmtadmin@xfusiontech.com'
-    };
-    ses.sendEmail(params, function (err, data) {
-      if (err) {
-        console.log(err, err.stack);
-      } else {
-        console.log(data);
-      }
-    });
 
-  }*/
+  sendEmail(subject, body) {
+    const data = {'image': 'test'};
+    this.http.post(`https://w2ix5v3x1b.execute-api.us-west-2.amazonaws.com/dev/`, data, {headers})
+      .subscribe(
+        res => {
+          console.log('Successfully sent');
+        },
+        err => {
+          console.log('Error sending email', err);
+        }
+      );
+  }
 }
