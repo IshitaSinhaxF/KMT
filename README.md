@@ -1,6 +1,9 @@
 # KMP - Knowledge Management Portal
 
 
+xFusion’s approach to the Pre-Qualified Vendor Pool for Agile Development – Digital Services (PQVP DS-AD) effort uses Agile Scrum methodology, User-Centric design techniques, Microservices API based Service Oriented Architecture (SOA), API Gateway, DevOps automation using Container technologies and Continuous Integration and Continuous Delivery (CI/CD) tools, modern Open-Source technologies, and Open Standards to plan, design, develop, test, build and deploy the Working Prototype – Knowledge Management Portal (KMP).The KMP allows State Agencies/Departments to capture, archive, and manage organizational knowledge from its employees and programs.
+
+
 The Readme file provides a brief account of our approach to the project and the processes that we have followed to build the Working Prototype that meets the RFI requirements using modern, open source technologies.
 
 In addition, we have documented our approach, process, tools and technologies in detail in our [Wiki pages](https://github.com/xFusionTech/KMT/wiki) in the GitHub repository.
@@ -16,7 +19,7 @@ Below are the key URLs for the working Prototype:
 
 
 
-## Planning Effort:
+## Sprint Zero - Planning Effort:
 Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, we took time to understand the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) in detail and then formed a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked with one another in previous projects and this allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated a Product Manager who was made responsible for leading the team and being accountable for the quality of prototype being submitted.
 
 Since we had a smaller time-frame to carry out the project, we decided to go ahead with five sprints to complete the project. The team adopted a Scrum-based approach to development and created the roadmap required to meet the Minimal Value Plan (MVP) for the Working Prototype. Sprint planning included translating the MVP into five sprints, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the roadmap. During this planning phase, we started [whiteboarding and drafting](https://github.com/xFusionTech/KMT/wiki/Whiteboard-and-Drafts) the roles, logical flow and architecture models. We went ahead with modern tools and techniques with which we were already familiar with, thus reducing the ramp up time. This Planning effort was completed within three days of receipt of the RFI and development began immediately. 
