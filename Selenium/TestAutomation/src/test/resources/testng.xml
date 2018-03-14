@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestAutomationSuite" parallel="false">
+  <test name="VerifyURLs">
+    <classes>
+      <!--  <class name="com.cagov.automation.TestAutomation.TestRunExample"/>-->
+      <class name="com.cagov.automation.TestAutomation.caGovAutomationTests"/>
+      <class name="com.cagov.automation.TestAutomation.dataServerUrlTest"/>
+      <class name="com.cagov.automation.TestAutomation.apiManagerUrlTest"/>
+      <!--  <class name="com.javacodegeeks.testng.maven.TestNgMavenSecondClass"/>-->
+    </classes>
+  </test>
+</suite>
