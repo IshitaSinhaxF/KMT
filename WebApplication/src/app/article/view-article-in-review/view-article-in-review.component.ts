@@ -24,7 +24,7 @@ export class ViewArticleInReviewComponent implements OnInit {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleinReviewDetailsData = this.result.entries.entry[0];
-      console.log(this.articleinReviewDetailsData);   
+      //console.log(this.articleinReviewDetailsData);   
       if (+this.articleinReviewDetailsData.articleApproverID === +this.userID) {
         this.buttonCondition = 'true';
       }
@@ -52,7 +52,7 @@ export class ViewArticleInReviewComponent implements OnInit {
 
     this.articleService.updateArticleStatusToPublished(data)
       .subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         alert("You approved the article");
         this.backToHome.emit(false);
         //this.router.navigate(['./home']);

@@ -16,7 +16,7 @@ results: any = "";
       this.articleService.getPopularTags().subscribe((res:Response)=>{
         this.results = res;
         this.data=this.results.entries.entry;
-        console.log(this.data);
+        //console.log(this.data);
       })
 
 

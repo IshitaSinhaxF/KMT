@@ -27,7 +27,7 @@ export class ArticleFeedbackComponent implements OnInit {
   }
 
   getArticleFeedback() {
-    console.log('calling getArticleFeedback()')
+    //console.log('calling getArticleFeedback()')
     this.articleService.getArticleFeedbacks(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsFeedbacks = this.result.entries.entry;   
