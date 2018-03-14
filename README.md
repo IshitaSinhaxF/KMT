@@ -8,8 +8,8 @@ In addition, we have documented our approach, process, tools and technologies in
 Below are the key URLs for the working Prototype:
 
 | Application  | URL | Login Credentials
-| :------------- | :------------- |
-| Working Prototype -  – Knowledge Management Portal |   | Role - Article Viewer 
+| :------------- | :------------- | :--------------------
+| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer 
 *Permissions: Search and view articles*
 
 User ID:
