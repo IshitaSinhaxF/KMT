@@ -9,14 +9,10 @@ Below are the key URLs for the working Prototype:
 
 | Application  | URL | Login Credentials
 | :------------- | :------------- | :--------------------
-| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer 
-*Permissions: Search and view articles*
-
-User ID:
+| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer *Permissions: Search and view articles* User ID:
 Password: 
-
-| b. Assembled a multidisciplinary and collaborative team  | We assembled a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of twelve experienced professionals from fifteen of the labor categories identified in the RFI  |
-| c. Understood what people needed | ---  |
+| fff  | fff  |fff
+| c. Understood what people needed | ---  | --
 
 
 
