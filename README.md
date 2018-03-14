@@ -1,5 +1,12 @@
 # KMP - Knowledge Management Portal
 
+
+The Readme file provides a brief account of our approach to the project and the processes that we have followed to build the Working Prototype that meets the RFI requirements using modern, open source technologies.
+
+However, we have documented the agile process in elaborate detail in our [Wiki pages](https://github.com/xFusionTech/KMT/wiki) in the GitHub repository.
+
+
+
 ## Planning Effort:
 Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, we took time to understand the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) in detail and then formed a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked with one another in previous projects and this allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated a Product Manager who was made responsible for leading the team and being accountable for the quality of prototype being submitted.
 
