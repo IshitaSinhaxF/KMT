@@ -1,0 +1,405 @@
+---
+swagger: "2.0"
+info:
+  version: "v1.0.0"
+  title: "KMTool"
+host: "virtserver.swaggerhub.com"
+basePath: "/xFusionTech/KMTool/v1.0.0"
+schemes:
+- "https"
+paths:
+  /GetUserDetails:
+    get:
+      summary: "Provide list of all the users"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "search results of Users"
+  /GetUsersAndIDs:
+    get:
+      summary: "Produces list of Users and their associated unique identifiers"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "search results of Users"
+  /SearchAuthor:
+    get:
+      summary: "Searches based on Author and produces articles associated to that\
+        \ Author"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "author results"
+  /GetArticlesByStatus:
+    get:
+      summary: "Based on Article Status status, this will provide the list of articles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "author results"
+  /GetArticleDetailsByID:
+    get:
+      summary: "Based on Article Unique Identifier this produces the Article details"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "Article results"
+  /getParentCategory:
+    get:
+      summary: "Provides all the Categories of Articles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "Category results"
+  /GetSubCategories:
+    get:
+      summary: "Provides all the SubCategories of Articles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "subCategory results"
+  /GetArticleFeedbacks:
+    get:
+      summary: "Provides all Articles Feedback based on articleID"
+      description: "Sends articleID  and it will produce all the article feedbacks\
+        \ based on articleID"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "articleId"
+        in: "query"
+        description: "ArticleID as input"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Article feedback results"
+  /SearchArticles:
+    get:
+      summary: "Searches based on search conditions like categoryID,author and userID\
+        \ combination  and produces the list of Articles"
+      description: "search conditions like categoryID,author and userID combination\
+        \  and produces the list of Articles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "author"
+        in: "query"
+        description: "author"
+        required: false
+        type: "string"
+      - name: "categoryID"
+        in: "query"
+        description: "categoryID"
+        required: false
+        type: "string"
+      - name: "userID"
+        in: "query"
+        description: "userID"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "search results matching criteria"
+  /GetPopularTags:
+    get:
+      summary: "Produces list of all popular Tags"
+      description: "Produces list of all popular Tags"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "Popular Tags results"
+  /GetSummary:
+    get:
+      summary: "Provides Summary details of the articles"
+      description: "Provides Summary details of the articles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        200:
+          description: "Summary results"
+  /InsertArticle:
+    post:
+      summary: "InsertArticle into back end system"
+      description: "InsertArticle data into back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "Payload"
+        description: "insertarticle"
+        required: true
+        schema:
+          $ref: "#/definitions/insertarticle"
+      responses:
+        201:
+          description: "article created"
+        400:
+          description: "invalid input, object invalid"
+        500:
+          description: "internal server error"
+  /InsertArticleFeedback:
+    post:
+      summary: "InsertArticle feedback into back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "Payload"
+        description: "Insert Article Feedback"
+        required: true
+        schema:
+          $ref: "#/definitions/insertarticlefeedback"
+      responses:
+        201:
+          description: "article feedback created"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing article feedback already exists"
+  /UpdateArticle:
+    put:
+      summary: "update Article into back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "Payload"
+        description: "update Article"
+        required: false
+        schema:
+          $ref: "#/definitions/updatearticle"
+      responses:
+        201:
+          description: "article updated"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing article already exists"
+  /UpdateArticleState:
+    put:
+      summary: "updateArticleState into back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "Payload"
+        description: "update article state"
+        required: true
+        schema:
+          $ref: "#/definitions/updatearticlestate"
+      responses:
+        201:
+          description: "articlestate updated"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing articlestate already exists"
+  /updateArticlePublishedState:
+    put:
+      summary: "updateArticlePublished state into back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "Payload"
+        description: "update article published state"
+        required: true
+        schema:
+          $ref: "#/definitions/updatearticlepublishedstate"
+      responses:
+        201:
+          description: "articlepublishedstate updated"
+        400:
+          description: "invalid input, object invalid"
+        409:
+          description: "an existing article pulished state already exists"
+  /DeleteArticle:
+    delete:
+      summary: "Delete article from back end system"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "articleId"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Article deleted"
+definitions:
+  insertarticle:
+    type: "object"
+    properties:
+      article_title:
+        type: "string"
+      article_desc:
+        type: "string"
+      article_path:
+        type: "string"
+      article_content:
+        type: "string"
+      user_id:
+        type: "integer"
+        format: "int32"
+      categoryid:
+        type: "integer"
+        format: "int32"
+      article_tag:
+        type: "string"
+      username:
+        type: "string"
+    xml:
+      name: "insertarticle"
+  insertarticlefeedback:
+    type: "object"
+    properties:
+      rating:
+        type: "string"
+      article_comment:
+        type: "string"
+      article_id:
+        type: "string"
+      username:
+        type: "string"
+      user_id:
+        type: "integer"
+        format: "int32"
+    xml:
+      name: "insertarticlefeedback"
+  updatearticle:
+    type: "object"
+    properties:
+      article_title:
+        type: "string"
+      article_desc:
+        type: "string"
+      article_path:
+        type: "string"
+      article_content:
+        type: "string"
+      user_id:
+        type: "integer"
+        format: "int32"
+      categoryid:
+        type: "integer"
+        format: "int32"
+      article_tag:
+        type: "string"
+      username:
+        type: "string"
+    xml:
+      name: "updatearticle"
+  updatearticlestate:
+    type: "object"
+    properties:
+      article_id:
+        type: "integer"
+        format: "int32"
+      user_id:
+        type: "integer"
+        format: "int32"
+      article_state:
+        type: "string"
+      username:
+        type: "string"
+    xml:
+      name: "updatearticlestate"
+  updatearticlepublishedstate:
+    type: "object"
+    properties:
+      article_id:
+        type: "integer"
+        format: "int32"
+      user_id:
+        type: "integer"
+        format: "int32"
+      article_state:
+        type: "string"
+      username:
+        type: "string"
+    xml:
+      name: "updatearticlepublishedstate"
