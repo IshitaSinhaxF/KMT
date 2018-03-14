@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Testability} from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
@@ -94,11 +94,11 @@ export class CreateArticleComponent implements OnInit {
         //this.router.navigate(['./home']);
         this.backToHome.emit(false);
       },
-      (err) => {        
+      (err) => {
         alert(err);
       }
       );
-
+    this.articleService.sendEmail('Test email', 'Test body');
   }
 
   public createArticleInputTag(TagName: string) {
