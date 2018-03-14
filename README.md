@@ -9,13 +9,12 @@ Below are the key URLs for the working Prototype:
 
 | **Application  | URL | Login Credentials**
 | :------------- | :------------- | :--------------------
-| Working Prototype – Knowledge Management Portal | ddd  | **Role - Article Viewer** <br> *Permissions: Search and view articles* <br> User ID: <br> Password: 
-|   Working Prototype – Knowledge Management Portal | fff  |**Role - Article Author** <br> *Permissions: Article Viewer permissions + 
-Create new article, update draft articles* <br> User ID: <br> Password: 
-| Working Prototype – Knowledge Management Portal | ---  | **Role - Article Approver/Publisher** <br> *Permissions: Article Author permissions + Approve/Publish Articles* <br> User ID:  <br> Password: 
+| Working Prototype – Knowledge Management Portal | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | **Role - Article Viewer** <br> *Permissions: Search and view articles* <br><br> User ID: <br> Password: 
+|   Working Prototype – Knowledge Management Portal | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  |**Role - Article Author** <br> *Permissions: Article Viewer permissions + Create new article, update draft articles* <br><br> User ID: <br> Password: 
+| Working Prototype – Knowledge Management Portal | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | **Role - Article Approver/Publisher** <br> *Permissions: Article Author permissions + Approve/Publish Articles* <br><br> User ID:  <br> Password: 
 | GitHub – Source Code Repository | fff | fff
 | DockerHub – Docker Image Repository | fff| fff
-| Jenkins – CI/CD Server | fff | fff
+| Jenkins – CI/CD Server | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | fff
 
 
 
