@@ -39,9 +39,11 @@ The result of our efforts is a collaboratively designed and built Working Protot
 
 Our agile process followed various iterations of the stages discussed below:
 
-**Backlog Release** – The team reported the [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+**Release Planning** - Our team created the backlogs(user stories and tasks) in our JIRA environment and a high-level prioritisation of the backlogs was performed during the planning phase. As part of the release planning, our team worked collaboratively to establish the release plan that includes high-level scoping for each of remaining four sprints.
 
-**Sprint Planning** – The team then selected a sprint goal and began decomposing the product backlog items into work tasks and estimating these in hours. We then outlined the tasks that needed to be completed in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) This was reviewed by the Product Manager and the Agile Coach.
+**Backlog Grooming** – The backlogs were elaborated before the beginning of each sprint by the team. The team reported the [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+
+**Sprint Planning** – The team then refined the sprint goal, decomposed the product backlog items into work tasks and assigned the tasks among the team members for completion in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) This was reviewed by the Product Manager and the Agile Coach.
 
 **Stand-Up** - At the beginning of each day, the team came together for a quick, typically 15-20 minute, meeting to review prior accomplishments, the plan for the day, and highlight any roadblocks any member of the team is facing. Development team members reported work completed since the last session; planned work before the next session and any blockers. Blockers identified were cleared by the Agile Coach and Delivery Manager. Stand-Up provided a great forum for coordination across the team.
 
@@ -64,7 +66,7 @@ Our development team chose modern tools that supported our need to bring feature
 The Knowledge Management Portal solution architecture is implemented using the following architectural features/best practices:
 1.	**N-Tier Distributed Architecture** – supports horizontal and vertical scalability
 2.	**Service Oriented Architecture (SOA)** – uses SOA approach for business-driven technology architecture for business and system agility and flexibility
-3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular JS, Bootstrap, CSS, jQuery etc.) agnostic.  
+3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular, Bootstrap, CSS, jQuery etc.) agnostic.  
 4.	**Responsive UX/UI Design** – The web-based User Interface (UI) uses Responsive Design techniques/tools. 
       -	The Application is accessible through any web browser such as Google Chrome, Mozilla Firefox, MS Internet Explorer, Safari and Opera etc. 
       -	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
