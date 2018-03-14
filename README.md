@@ -7,11 +7,15 @@ In addition, we have documented our approach, process, tools and technologies in
 
 Below are the key URLs for the working Prototype:
 
-| Application  | URL | Login Credentials
+| **Application  | URL | Login Credentials**
 | :------------- | :------------- | :--------------------
-| Working Prototype -  – Knowledge Management Portal | ddd  | Role - Article Viewer <br> *Permissions: Search and view articles* User ID: <br> Password: 
-| fff  | fff  |fff
-| c. Understood what people needed | ---  | --
+| Working Prototype – Knowledge Management Portal | ddd  | **Role - Article Viewer** <br> *Permissions: Search and view articles* <br> User ID: <br> Password: 
+|   Working Prototype – Knowledge Management Portal | fff  |**Role - Article Author** <br> *Permissions: Article Viewer permissions + 
+Create new article, update draft articles* <br> User ID: <br> Password: 
+| Working Prototype – Knowledge Management Portal | ---  | **Role - Article Approver/Publisher** <br> *Permissions: Article Author permissions + Approve/Publish Articles* <br> User ID:  <br> Password: 
+| GitHub – Source Code Repository | fff | fff
+| DockerHub – Docker Image Repository | fff| fff
+| Jenkins – CI/CD Server | fff | fff
 
 
 
