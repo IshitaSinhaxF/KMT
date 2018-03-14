@@ -12,7 +12,7 @@ Below are the key URLs for the working Prototype:
 
 | **Application**  | **URL** | **Login Credentials**
 | :------------- | :------------- | :--------------------
-| **Working Prototype – Knowledge Management Portal** | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | <font color="blue"> **Role - Article Viewer** <br> **Permissions:** *Search and view articles*</font> <br><br> User ID: <br> Password: <br><br> **Role - Article Author** <br> *Permissions: Article Viewer permissions + Create new article, update draft articles* <br><br> User ID: <br> Password: <br><br> **Role - Article Approver/Publisher** <br> *Permissions: Article Author permissions + Approve/Publish Articles* <br><br> User ID:  <br> Password: 
+| **Working Prototype – Knowledge Management Portal** | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | <font color="#1589F0"> **Role - Article Viewer** <br> **Permissions:** *Search and view articles*</font> <br><br> User ID: <br> Password: <br><br> **Role - Article Author** <br> *Permissions: Article Viewer permissions + Create new article, update draft articles* <br><br> User ID: <br> Password: <br><br> **Role - Article Approver/Publisher** <br> *Permissions: Article Author permissions + Approve/Publish Articles* <br><br> User ID:  <br> Password: 
 | **GitHub – Source Code Repository** | fff | User ID: <br> Password:
 | **DockerHub – Docker Image Repository** | fff| User ID: <br> Password:
 | **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
