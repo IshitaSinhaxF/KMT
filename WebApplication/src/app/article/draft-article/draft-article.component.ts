@@ -31,7 +31,7 @@ export class DraftArticleComponent implements OnInit {
   
   deleteArticle(articleId)
   {
-    console.log('in delete');
+    //console.log('in delete');
     this.id = articleId;
     let articleToBeDeleted = {
       '_postdeletearticle': {
@@ -44,7 +44,7 @@ export class DraftArticleComponent implements OnInit {
         alert("article deleted successfully");
         this.articleService.getDraftArticleService(this.userID).subscribe((response: Response)=>{
           this.draftResult = response;
-          console.log(this.draftResult.entries.entry);
+          //console.log(this.draftResult.entries.entry);
           this.draftArticleData = this.draftResult.entries.entry;
           
         })

@@ -50,7 +50,7 @@ export class GetArticleComponent implements OnInit {
         this.publishedData = this.publishedResult.entries.entry;
         this.setDiv = 'Published';
         this.id = 1;
-         console.log(this.publishedData);
+         //console.log(this.publishedData);
         this.publishedDataLength = this.publishedData.length;
       })
 
@@ -93,11 +93,11 @@ export class GetArticleComponent implements OnInit {
 
 
   displayPublishedDiv() {
-    console.log('published')
+    //console.log('published')
     this.setDiv = 'Published';
   }
   displayPendingApprovDiv() {
-    console.log('pending')
+    //console.log('pending')
     this.setDiv = 'PendingApproval';
   }
   displayDraftDiv() {
@@ -105,23 +105,23 @@ export class GetArticleComponent implements OnInit {
   }
 
   displayInReview() {
-    console.log('In review')
+    //console.log('In review')
     this.setDiv = 'InReview';
   }
   getArticleDetail(articleID) {
 
     //this.onFeedback();
-    console.log("calling feedback");
+    //console.log("calling feedback");
     //service goess 
     this.articleService.getArticleDetailsById(articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsData = this.result.entries.entry;
-      console.log("article Detail")
+      //console.log("article Detail")
 
-      console.log(this.articleDetailsData)
+      //console.log(this.articleDetailsData)
     })
 
-    console.log(articleID);
+    //console.log(articleID);
   }
 
   addClass(id: any) {
