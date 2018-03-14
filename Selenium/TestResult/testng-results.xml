@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestAutomationSuite" duration-ms="21250" started-at="2018-03-14T21:20:13Z" finished-at="2018-03-14T21:20:34Z">
+    <groups>
+    </groups>
+    <test name="VerifyURLs" duration-ms="21250" started-at="2018-03-14T21:20:13Z" finished-at="2018-03-14T21:20:34Z">
+      <class name="com.cagov.automation.TestAutomation.caGovAutomationTests">
+        <test-method status="PASS" signature="testCAGovURLs()[pri:0, instance:com.cagov.automation.TestAutomation.caGovAutomationTests@49e4cb85]" name="testCAGovURLs" duration-ms="8713" started-at="2018-03-14T14:20:13Z" finished-at="2018-03-14T14:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCAGovURLs -->
+      </class> <!-- com.cagov.automation.TestAutomation.caGovAutomationTests -->
+      <class name="com.cagov.automation.TestAutomation.apiManagerUrlTest">
+        <test-method status="PASS" signature="testAPIManagerUrl()[pri:0, instance:com.cagov.automation.TestAutomation.apiManagerUrlTest@7c30a502]" name="testAPIManagerUrl" duration-ms="5917" started-at="2018-03-14T14:20:28Z" finished-at="2018-03-14T14:20:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAPIManagerUrl -->
+      </class> <!-- com.cagov.automation.TestAutomation.apiManagerUrlTest -->
+      <class name="com.cagov.automation.TestAutomation.dataServerUrlTest">
+        <test-method status="PASS" signature="testDataServerUrl()[pri:0, instance:com.cagov.automation.TestAutomation.dataServerUrlTest@3cb5cdba]" name="testDataServerUrl" duration-ms="6609" started-at="2018-03-14T14:20:21Z" finished-at="2018-03-14T14:20:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataServerUrl -->
+      </class> <!-- com.cagov.automation.TestAutomation.dataServerUrlTest -->
+    </test> <!-- VerifyURLs -->
+  </suite> <!-- TestAutomationSuite -->
+</testng-results>

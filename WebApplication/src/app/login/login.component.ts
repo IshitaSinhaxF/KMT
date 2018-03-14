@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   onLoginClick() {
 
-    console.log(this.selectedUser);
+    //console.log(this.selectedUser);
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
       if (el.userID
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
 
    getUsers() 
    { 
-     console.log('entering users loop')  ; 
+     //console.log('entering users loop')  ; 
     this.articleService.getUsers().subscribe((res: Response) => {
     this.result = res;
     this.usersDropdown = this.result.entries.entry;  
@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
 
     getUserRoles()
     {
-      console.log('entering getuserRoles')  ; 
+      //console.log('entering getuserRoles')  ; 
       this.articleService.getUserData().subscribe((res: Response) => {
         this.UserResults = res;
         this.data = this.UserResults.entries.entry;

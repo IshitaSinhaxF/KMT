@@ -1,22 +1,49 @@
 # KMP - Knowledge Management Portal
 
-## Planning Effort:
-Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, we took time to understand the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) in detail and then formed a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked with one another in previous projects and this allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated a Product Manager who was made responsible for leading the team and being accountable for the quality of prototype being submitted.
 
-Since we had a smaller time-frame to carry out the project, we decided to go ahead with five sprints to complete the project. The team adopted a Scrum-based approach to development and created the roadmap required to meet the Minimal Value Plan (MVP) for the Working Prototype. Sprint planning included translating the MVP into five sprints, creating high level user stories and determining how the Prototype architecture and infrastructure would be built to support the roadmap. During this planning phase, we started [whiteboarding and drafting](https://github.com/xFusionTech/KMT/wiki/Whiteboard-and-Drafts) the roles, logical flow and architecture models. We went ahead with modern tools and techniques with which we were already familiar with, thus reducing the ramp up time. This Planning effort was completed within three days of receipt of the RFI and development began immediately. 
+xFusion’s approach to the Pre-Qualified Vendor Pool for Agile Development – Digital Services (PQVP DS-AD) effort uses Agile Scrum methodology, User-Centric design techniques, Microservices API based Service Oriented Architecture (SOA), API Gateway, DevOps automation using Container technologies and Continuous Integration and Continuous Delivery (CI/CD) tools, modern Open-Source technologies, and Open Standards to plan, design, develop, test, build and deploy the Working Prototype – Knowledge Management Portal (KMP).The KMP allows State Agencies/Departments to capture, archive, and manage organizational knowledge from its employees and programs.
 
-Our execution process was extremely disciplined, complete with formal demos and retrospectives with each sprint, and a complete story board designed with the help of [Trello Boards](https://trello.com/xfusiontech) overlaying our GitHub Issues and Stories. We conducted daily, in person, scrum meetings to discuss the progress that was made since the previous scrum meeting , goals to accomplish before the next scrum meeting , and any impediments that were preventing team members from performing their work.
 
-During the course of our project, we have heavily relied on collaborative development and communication tools such as [GitHub](https://github.com/xFusionTech/KMT/) and [JIRA](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/JIRA%20Snapshots.pdf). The result of our efforts is a collaboratively designed and built Working Prototype that meets the MVP of the RFI requirements using modern, open source technologies within a smaller time frame.
+The Readme file provides a brief account of our approach to the project and the processes that we have followed to build the Working Prototype that meets the RFI requirements using modern, open source technologies.
+
+In addition, we have documented our approach, process, tools and technologies in detail in our [Wiki pages](https://github.com/xFusionTech/KMT/wiki) in the GitHub repository.
+
+Below are the key URLs for the working Prototype:
+
+| **Application**  | **URL** | **Login Credentials**
+| :------------- | :------------- | :--------------------
+| **Working Prototype – Knowledge Management Portal** | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | <font color="#1589F0"> **Role - Article Viewer** <br> **Permissions:** *Search and view articles*</font> <br><br> User ID: <br> Password: <br><br> **Role - Article Author** <br> **Permissions:** *Article Viewer permissions + Create new article, update draft articles* <br><br> User ID: <br> Password: <br><br> **Role - Article Approver/Publisher** <br> **Permissions:** *Article Author permissions + Approve/Publish Articles* <br><br> User ID:  <br> Password: 
+| **GitHub – Source Code Repository** | https://github.com/xFusionTech/KMT | No credential required
+| **Working Prototype Wiki** | https://github.com/xFusionTech/KMT/wiki | No credential required
+| **DockerHub – Docker Image Repository** | https://hub.docker.com/| User ID: xfusiontech <br> Password: kmtadmin2018# 
+| **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
+
+
+# Our Approach
+
+## Sprint Zero - Planning Effort:
+Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, our CEO, Sanjib Nayak quickly reviewed the requirements and the scope for the Pre-Qualified Vendor Pool for Agile Development – Digital Services (PQVP DS-AD) RFI. He took the initiative to assemble a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked in previous projects together; that allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated our CEO, Sanjib Nayak as the Product Manager who was responsible for leading the team and being accountable for the quality of prototype being submitted.
+
+As a next step in our planning process, the team reviewed the guidelines for the Working Prototype and identified the [User Roles and User Stories](https://github.com/xFusionTech/KMT/wiki/User-Roles-and-User-Stories). Keeping the short project completion time frame in mind, the team identified the critical user stories for the Working Prototype that can be enhanced in subsequent iterations. The team created the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) for the Working Prototype.
+
+Since we had a smaller time-frame to carry out the project, we decided to go ahead with five sprints to complete the project. The team adopted a Scrum-based development approach and established the [roadmap](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Product%20Roadmap.pdf) required to create the Minimal Viable Product (MVP) for the Working Prototype. The team conducted a release planning session where they prioritised the backlogs and created a high-level scope for the five sprints. We established our Agile Project Management and team collaboration environments using a SaaS tool, [JIRA](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/JIRA%20Snapshots.pdf). the team also established the source code repository on [GitHub](https://github.com/xFusionTech/KMT/) . 
+
+During this planning phase, we started [whiteboarding and drafting](https://github.com/xFusionTech/KMT/wiki/Whiteboard-and-Drafts) the roles, process flows and solution architecture models. The team defined the solution architecture for the Working Prototype and identified Open- Source and Open-Standards based technology stack. This Planning effort was completed within three days of receipt of the RFI(Sprint Zero) and development effort began immediately. 
+
+Our execution process was extremely disciplined, complete with formal demos and retrospectives with each sprint, and a complete story board designed with the help of [Trello Boards](https://trello.com/xfusiontech) overlaying our JIRA Issues and Stories. We conducted daily, in person, scrum meetings to discuss the progress that was made since the previous scrum meeting , goals to accomplish before the next scrum meeting , and any impediments that were preventing team members from performing their work.
+
+The result of our efforts is a collaboratively designed and built Working Prototype that meets the RFI requirements using modern, open source technologies within a smaller time frame.
 
 
 ## Agile Process:
 
 Our agile process followed various iterations of the stages discussed below:
 
-**Backlog Release** – The team reported the [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+**Release Planning** - Our team created the backlogs(user stories and tasks) in our JIRA environment and a high-level prioritisation of the backlogs was performed during the planning phase. As part of the release planning, our team worked collaboratively to establish the release plan that includes high-level scoping for each of remaining four sprints.
 
-**Sprint Planning** – The team then selected a sprint goal and began decomposing the product backlog items into work tasks and estimating these in hours. We then outlined the tasks that needed to be completed in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) This was reviewed by the Product Manager and the Agile Coach.
+**Backlog Grooming** – The backlogs were elaborated before the beginning of each sprint by the team. The team reported the [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) from the previous sprint and the Product Manager prioritized those backlog items to be completed in order in the upcoming sprints
+
+**Sprint Planning** – The team then refined the sprint goal, decomposed the product backlog items into work tasks and assigned the tasks among the team members for completion in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) This was reviewed by the Product Manager and the Agile Coach.
 
 **Stand-Up** - At the beginning of each day, the team came together for a quick, typically 15-20 minute, meeting to review prior accomplishments, the plan for the day, and highlight any roadblocks any member of the team is facing. Development team members reported work completed since the last session; planned work before the next session and any blockers. Blockers identified were cleared by the Agile Coach and Delivery Manager. Stand-Up provided a great forum for coordination across the team.
 
@@ -39,7 +66,7 @@ Our development team chose modern tools that supported our need to bring feature
 The Knowledge Management Portal solution architecture is implemented using the following architectural features/best practices:
 1.	**N-Tier Distributed Architecture** – supports horizontal and vertical scalability
 2.	**Service Oriented Architecture (SOA)** – uses SOA approach for business-driven technology architecture for business and system agility and flexibility
-3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular JS, Bootstrap, CSS, jQuery etc.) agnostic.  
+3.	**Technology Agnostic Application Layer** – The application is implemented using open source tools/technologies that are completely technology platform (such as Angular, Bootstrap, CSS, jQuery etc.) agnostic.  
 4.	**Responsive UX/UI Design** – The web-based User Interface (UI) uses Responsive Design techniques/tools. 
       -	The Application is accessible through any web browser such as Google Chrome, Mozilla Firefox, MS Internet Explorer, Safari and Opera etc. 
       -	Accessible through wide range of Mobile devices (tablets/cell phones) running on iOS, Android, and Microsoft operating systems.
@@ -68,7 +95,7 @@ The logical architecture for the Knowledge Management Portal (KMP) is based on S
 -	KMP Application access these APIs from the API Layer to deliver KMP business functions to the KMP Human Users through Web and Mobile Channels.
 -	In future, various System users such as external IVR Application and the system partners can access the KMP functions by accessing the KMP APIs through the API Layer. 
 
-The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Service-Oriented-Architecture) for the KMP solution is presented in the following diagram.
+The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Service-Oriented-Architecture) for the KMP solution is presented in the following diagram and the Technology Stack is provided [here](https://github.com/xFusionTech/KMT/wiki/Technology-Stack).
   
   
 <p align="center">

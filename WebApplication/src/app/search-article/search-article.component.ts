@@ -59,12 +59,12 @@ export class SearchArticleComponent implements OnInit {
     this.searchClicked.emit(false);
     this.hideHomeButton=true;
     this.hideAdvancedSerachForm = true;
-    console.log(this.searchForm);
+    //console.log(this.searchForm);
     this.searchData = null;
-    console.log(this.searchData) 
+    //console.log(this.searchData) 
     let searchQuery = '1=1 '
-    console.log(this.fromDate)
-    console.log(this.toDate)
+    //console.log(this.fromDate)
+    //console.log(this.toDate)
     if ( this.fromDate != undefined && this.toDate != undefined )
      {
        let searchDateQuery = ' art."dateCreated" :: date between \'' + this.fromDate.year + '-' + this.fromDate.month + '-' + this.fromDate.day + '\' and \'' + this.toDate.year + '-' + this.toDate.month + '-' + this.toDate.day + '\'';
@@ -72,7 +72,7 @@ export class SearchArticleComponent implements OnInit {
       if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchDateQuery;
-          console.log('in text:'+searchQuery);
+          //console.log('in text:'+searchQuery);
        }
        else
        {
@@ -109,7 +109,7 @@ export class SearchArticleComponent implements OnInit {
       if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchAprQuery;
-          console.log('in text:'+searchQuery);
+          //console.log('in text:'+searchQuery);
        }
        else
        {
@@ -122,13 +122,13 @@ export class SearchArticleComponent implements OnInit {
        if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchAutQuery;
-          console.log('in text:'+searchQuery);
+          //console.log('in text:'+searchQuery);
        }
        else
        {
          searchQuery = searchAutQuery;
        }
-      console.log(searchQuery);
+      //console.log(searchQuery);
      }
       if ( this.searchForm.Category != undefined && this.searchForm.Category != '0' )
      {
@@ -136,13 +136,13 @@ export class SearchArticleComponent implements OnInit {
        if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchCatQuery;
-          console.log('in text:'+searchQuery);
+          //console.log('in text:'+searchQuery);
        }
        else
        {
          searchQuery = searchCatQuery;
        }
-      console.log(searchQuery);
+      //console.log(searchQuery);
      }
      if (this.searchForm.articleContent != undefined)
      {
@@ -150,13 +150,13 @@ export class SearchArticleComponent implements OnInit {
        if(searchQuery)
        {
          searchQuery = searchQuery + ' and ' + searchTextQuery;
-          console.log('in text:'+searchQuery);
+          //console.log('in text:'+searchQuery);
        }
        else
        {
          searchQuery = searchTextQuery;
        }
-       console.log(searchTextQuery);
+      // console.log(searchTextQuery);
      }
 
      this.articleService.getSearchResults(searchQuery).subscribe((res: Response) => {
