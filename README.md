@@ -19,6 +19,7 @@ Below are the key URLs for the working Prototype:
 | **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
 
 
+# Our Approach
 
 ## Sprint Zero - Planning Effort:
 Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, we took time to understand the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) in detail and then formed a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked with one another in previous projects and this allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated a Product Manager who was made responsible for leading the team and being accountable for the quality of prototype being submitted.
