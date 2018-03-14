@@ -7,7 +7,7 @@ In addition, we have documented our approach, process, tools and technologies in
 
 Below are the key URLs for the working Prototype:
 
-| **Application  | URL | Login Credentials**
+| **Application**  | **URL | **Login Credentials**
 | :------------- | :------------- | :--------------------
 | Working Prototype – Knowledge Management Portal | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  | **Role - Article Viewer** <br> *Permissions: Search and view articles* <br><br> User ID: <br> Password: 
 |   Working Prototype – Knowledge Management Portal | http://ec2-18-144-75-92.us-west-1.compute.amazonaws.com:8088  |**Role - Article Author** <br> *Permissions: Article Viewer permissions + Create new article, update draft articles* <br><br> User ID: <br> Password: 
