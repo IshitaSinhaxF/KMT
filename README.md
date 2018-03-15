@@ -161,6 +161,13 @@ Our team followed Continuous Integration approach and focused on integrating wor
 
 _**--------------------------------------------------- End of Technical Approach--------------------------------------------------------**_
 
+
+# US Digital Services Playbook:
+
+Our team followed the US Digital Services Playbook, covering each of the 13 plays.  We have provided [evidence of how each play was followed]().
+
+
+
 # Explicit Reference Requirements:
 
 | Requirement                                        | Our approach |
@@ -187,6 +194,4 @@ _**--------------------------------------------------- End of Technical Approach
 | t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | ---  |
 
 
-# US Digital Services Playbook:
 
-Our team followed the US Digital Services Playbook, covering each of the 13 plays.  We have provided [evidence of how each play was followed]().
