@@ -23,15 +23,15 @@ export class ViewArticleDraftComponent implements OnInit {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsinDraftData = this.result.entries.entry[0];
-      console.log(this.articleDetailsinDraftData);
+      //console.log(this.articleDetailsinDraftData);
     })
 
     this.articleService.getSubCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.subCatData = this.result.entries.entry;
-        console.log('displaying sub category');
-        console.log(this.subCatData);
+        //console.log('displaying sub category');
+        //console.log(this.subCatData);
       });
 
   }
@@ -49,11 +49,11 @@ export class ViewArticleDraftComponent implements OnInit {
           "username": this.userName
         }
       }
-    console.log(data);
+    //console.log(data);
 
     this.articleService.updateArticleStatus(data)
       .subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         alert("article submited for review");
         this.backToHome.emit(false);
       },

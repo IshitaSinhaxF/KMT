@@ -1,0 +1,5 @@
+com\cagov\automation\TestAutomation\caGovAutomationTests.class
+com\cagov\automation\TestAutomation\dataServerUrlTest.class
+com\cagov\automation\TestAutomation\apiManagerUrlTest.class
+com\cagov\automation\TestAutomation\RunTests.class
+com\cagov\automation\TestAutomation\TestRunExample.class

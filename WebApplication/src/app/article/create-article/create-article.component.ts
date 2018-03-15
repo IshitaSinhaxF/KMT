@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Testability} from '@angular/core';
 import { ArticleService } from '../../article.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Router } from '@angular/router';
@@ -43,28 +43,28 @@ export class CreateArticleComponent implements OnInit {
   ngOnInit() {
 
     if (this.articleService == null) {
-      console.log("Login to append user name")
+      //console.log("Login to append user name")
     } else {
       this.userName = this.articleService.getFromSessionStorage("UserName");
       this.roles = this.articleService.getFromSessionStorage("Roles");
-      console.log("roles:");
-      console.log(this.roles);
+      //console.log("roles:");
+     // console.log(this.roles);
     }
 
     this.articleService.getParentCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.data = this.result.entries.entry;
-        console.log('displaying parent category');
-        console.log(this.data);
+       // console.log('displaying parent category');
+       // console.log(this.data);
       });
 
     this.articleService.getSubCategory()
       .subscribe((res: Response) => {
         this.result = res;
         this.subData = this.result.entries.entry;
-        console.log('displaying sub category');
-        console.log(this.subData);
+       // console.log('displaying sub category');
+       // console.log(this.subData);
       });
 
 
@@ -72,7 +72,7 @@ export class CreateArticleComponent implements OnInit {
 
   insertArticleData() {
 
-    console.log(this.articleTagResult);
+    //console.log(this.articleTagResult);
 
     this.categoryID = this.data.categoryID;
     let subCategoryId = +this.SubCategoryName;
@@ -94,11 +94,11 @@ export class CreateArticleComponent implements OnInit {
         //this.router.navigate(['./home']);
         this.backToHome.emit(false);
       },
-      (err) => {        
+      (err) => {
         alert(err);
       }
       );
-
+    this.articleService.sendEmail('Test email', 'Test body');
   }
 
   public createArticleInputTag(TagName: string) {
@@ -126,7 +126,7 @@ export class CreateArticleComponent implements OnInit {
         if (document.getElementById('inputTag1').innerHTML != null) {
           this.articleTag2 = (document.getElementById('inputTag1').innerHTML);
           this.articleTagResult = this.articleTag1 + ' ' + this.articleTag2;
-          console.log(this.articleTagResult);
+          //console.log(this.articleTagResult);
         };
       } else {
         document.getElementById('inputTag1').innerHTML = unit;
@@ -136,7 +136,7 @@ export class CreateArticleComponent implements OnInit {
         if (document.getElementById('inputTag1').innerHTML != null) {
           this.articleTag3 = (document.getElementById('inputTag1').innerHTML);
           this.articleTagResult = this.articleTag1 + ' ' + this.articleTag2 + ' ' + this.articleTag3;
-          console.log(this.articleTagResult);
+          //console.log(this.articleTagResult);
         };
       }
     }
@@ -145,7 +145,7 @@ export class CreateArticleComponent implements OnInit {
   uploadFile(event) {
     this.files = event.target.files;
     this.fileName = this.files[0].name;
-    console.log(this.fileName);
+    //console.log(this.fileName);
     this.uploadStatus = this.articleService.uploadFile(this.files[0]);
     if (this.uploadStatus == 'true') {
       this.fileSuccessMessage = 'File uploaded successfully';

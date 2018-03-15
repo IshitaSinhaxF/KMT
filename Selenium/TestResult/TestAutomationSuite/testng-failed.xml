@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestAutomationSuite]">
+  <test name="VerifyURLs(failed)">
+    <classes>
+      <class name="com.cagov.automation.TestAutomation.caGovAutomationTests">
+        <methods>
+          <include name="testCAGovURLs"/>
+        </methods>
+      </class> <!-- com.cagov.automation.TestAutomation.caGovAutomationTests -->
+    </classes>
+  </test> <!-- VerifyURLs(failed) -->
+</suite> <!-- Failed suite [TestAutomationSuite] -->

@@ -31,12 +31,12 @@ export class ViewAricleComponent implements OnInit {
     this.articleService.getArticleDetailsById(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsData = this.result.entries.entry[0];
-      console.log(this.articleDetailsData);
+      //console.log(this.articleDetailsData);
       this.getArticleFeedback();
     })
   }
    getArticleFeedback() {
-    console.log('calling getArticleFeedback()')
+    //console.log('calling getArticleFeedback()')
     this.articleService.getArticleFeedbacks(this.articleID).subscribe((res: Response) => {
       this.result = res;
       this.articleDetailsFeedbacks = this.result.entries.entry;
@@ -86,7 +86,7 @@ submit(f)
     this.articleFeedbackText = this.txtFeedbck;
     this.artID = +this.articleID;
     this.rating = this.currentRate;
-    console.log(this.rating);
+    //console.log(this.rating);
 
     let data =
       {
@@ -101,7 +101,7 @@ submit(f)
       }
       this.articleService.insertFeedbackPost(data, this.artID).subscribe((data)=>
       {
-        console.log(data);
+        //console.log(data);
         this.getArticleFeedback();
       },
       (err) => {

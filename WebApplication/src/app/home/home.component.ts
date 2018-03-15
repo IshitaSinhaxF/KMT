@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
     else {
       if (this.articleService == null) {
-        console.log("Login to append user name")
+        //console.log("Login to append user name")
       } else {
         this.userName = this.articleService.getFromSessionStorage("UserName");
         this.roles = this.articleService.getFromSessionStorage("Roles");
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
     this.showHomeButton = true;
   }
   onbackToHome() {
-    console.log('called home');
+    //console.log('called home');
     this.hideArticleMenu = true;
     this.hideViewArticle = false;
     this.hideReviewArticle = false;
