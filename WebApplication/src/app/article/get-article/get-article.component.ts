@@ -60,7 +60,7 @@ export class GetArticleComponent implements OnInit {
         this.draftResult = res;
         this.draftData = this.draftResult.entries.entry;
         // console.log(this.data);
-        this.draftDataLength = this.draftData.length;
+        //this.draftDataLength = this.draftData.length;
         // console.log('length: ' + this.draftDataLength)
       })
 
@@ -81,7 +81,7 @@ export class GetArticleComponent implements OnInit {
             .subscribe((res: Response) => {
               this.inReviewResult = res;
               this.inReviewData = this.inReviewResult.entries.entry;
-              this.inReviewDataLength = this.inReviewData.length
+              //this.inReviewDataLength = this.inReviewData.length
             });
         }
       }
