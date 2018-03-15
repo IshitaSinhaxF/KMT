@@ -119,15 +119,24 @@ The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusio
 
 ### Development Environment
 
+Agile Development effort employed user-centric design techniques, a sprint based development work-flow and open-source technologies to design and build our Knowledge Management Portal, our implementation of Working Prototype. Developers will connect to GitHub source code repository and work on the individual stories in their local environment. Before checking in, developers issued a pull request and review the code and merged into a source repository.
+
 ### Test Environment
+
+Jenkins retrieved the code from GitHub, built the application, and executed unit tests.  If all unit tests passed, Docker created a distribution image and uploaded it into a docker hub. We employed a moderated CD approach to the test environment nightly to avoid interfering with ongoing functional testing.
 
 ### Production Environment
 
+Once Jenkins job successfully created a distribution image then it will automatically deployed it into production.  
+
 ### Source Code Repository
+
+We used GitHub as a source code repository where developers connect and performs check-in's and check-out's. 
 
 ### Docker Image Repository
 
-	
+We used Docker Hub to place all our docker images where Jenkins job connects and performs check-in's and check-out's. 
+
 ### Container Model
 
 
