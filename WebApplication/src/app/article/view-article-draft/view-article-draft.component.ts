@@ -56,6 +56,7 @@ export class ViewArticleDraftComponent implements OnInit {
         //console.log(res);
         alert("article submited for review");
         this.backToHome.emit(false);
+        this.articleService.sendEmail('Knowledge Article submitted for review', 'Dear user, The Knowedge article has been submitted for review. You can view the submitted article under In-Reveiw.');
       },
       (err) => {
         alert(err);

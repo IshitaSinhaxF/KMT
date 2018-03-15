@@ -35,10 +35,10 @@ export class CreateArticleComponent implements OnInit {
   articleTag2: string = ' ';
   articleTag3: string = ' ';
   articleTagResult: string;
+  artFileParam: any;
+  artTagParam: any;
 
-  constructor(private articleService: ArticleService, private router: Router) {
-
-  }
+  constructor(private articleService: ArticleService, private router: Router) {   }
 
   ngOnInit() {
 
@@ -85,15 +85,33 @@ export class CreateArticleComponent implements OnInit {
 
     this.categoryID = this.data.categoryID;
     let subCategoryId = +this.SubCategoryName;
+    
+    if(this.fileName != undefined)
+    this.artFileParam = this.fileName;
+    else
+    this.artFileParam = null;
+    
+
+     if(this.articleTagResult != undefined)
+    this.artTagParam = this.articleTagResult;
+    else
+    this.artTagParam = null;
+
+
+     console.log(this.fileName);
+     console.log(this.articleTagResult);
+
     let dataObj = {
       '_postinsertarticle': {
         'article_title': this.article_title,
         'article_desc': this.article_desc,
-        'article_path': this.fileName,
+        //'article_path': this.fileName,
+        'article_path':this.artFileParam,
         'article_content': this.article_content,
         'user_id': this.user_id,
         'categoryid': subCategoryId,
-        'article_tag': this.articleTagResult,
+        'article_tag': this.artTagParam,
+        // 'article_tag': this.articleTagResult,
         'username': this.username
       }
     };
@@ -107,7 +125,7 @@ export class CreateArticleComponent implements OnInit {
         alert(err);
       }
       );
-    this.articleService.sendEmail('Test email', 'Test body');
+    this.articleService.sendEmail('Knowledge Article Inserted', 'Dear user, The Knowedge article has been inserted successfully. You can review your article in Draft for any changes and submit for approval.');
   }
 
   public createArticleInputTag(TagName: string) {

@@ -55,6 +55,7 @@ export class ViewArticleInReviewComponent implements OnInit {
         //console.log(res);
         alert("You approved the article");
         this.backToHome.emit(false);
+        this.articleService.sendEmail('Knowledge Article approved', 'Dear user, The Knowedge article, submitted for review , has been approved by your supervisor. You can view the approved article under Published.');
         //this.router.navigate(['./home']);
       },
       (err) => {

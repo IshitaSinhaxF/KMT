@@ -7,6 +7,8 @@
       </h4>
     </div>
   </div>
+  <form #p="ngForm">
+  <div class="form-group">
   <div class="row">
     <div class="portlet-body bodySize">
       <div class="row">
@@ -32,9 +34,13 @@
       </div>
       <div class="row">
         <div class="col-md-12 author">
+          
           <!-- <label>Article Title:</label> -->
-          <input placeholder="Article Title" name="article" type="text" class="form-control" style="width:100%" [(ngModel)]="article_title"
-          />
+          <input required ngModel placeholder="Article Title" name="article" type="text" class="form-control" style="width:100%" [(ngModel)]="article_title"
+             #artTitleText="ngModel" id="artTitleText"/>
+           <div *ngIf="artTitleText.touched && !artTitleText.valid">
+             <h6 class="validationError"> Article Title required </h6>
+           </div>
         </div>
       </div>
       <div class="row">
@@ -43,8 +49,11 @@
       <div class="row">
         <div class="col-md-12 author">
           <span></span>
-          <textarea placeholder="Summary" name="articleContent" type="text" id="texteditor1" class="form-control" style="width:100%"
-            rows="2" [(ngModel)]="article_desc"></textarea>
+          <textarea required ngModel placeholder="Summary" name="articleContent" type="text" class="form-control" style="width:100%"
+            rows="2" [(ngModel)]="article_desc" #artTitleSummary="ngModel" id="artTitleSummary"></textarea>
+             <div *ngIf="artTitleSummary.touched && !artTitleSummary.valid">
+             <h6 class="validationError"> Article Summary required </h6>
+           </div>
         </div>
       </div>
       <div class="row">
@@ -52,7 +61,8 @@
       </div>
       <div class="row">
         <div class="col-md-12 author">
-          <app-ngx-editor minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
+          <app-ngx-editor required ngModel minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" 
+          ></app-ngx-editor>
         </div>
       </div>
       <div class="row">
@@ -93,10 +103,10 @@
       <div class="row">
         <br/>
       </div>
-       <div class="col-md-10 author">
+       <!--<div class="col-md-10 author">
         <p>
           <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
-      </div> 
+      </div> -->
 <div class="row">
       <div class="col-md-6 author form-inline">
         <div class="form-group">
@@ -113,10 +123,12 @@
 
 <div class="col-md-4" style="float:right">
       <div class="form-group" id="buttons">
-         <button class="btn btn-lg" (click)='insertArticleData()'> Save </button>
+         <button class="btn btn-lg" (click)='insertArticleData()' [disabled]="!p.valid" > Save </button>
         <!--<input type="submit" class="btn" value="Save" (click)="insertArticleData()" />-->
       </div>
   </div> 
   </div>  
   </div>
 </div>
+</div>
+</form>

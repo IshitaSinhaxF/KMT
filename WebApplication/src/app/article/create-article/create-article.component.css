@@ -218,3 +218,9 @@ span {
  .myIcon{
 	 margin-top:5px;
  }
+
+ .validationError
+{
+	font-weight:bold;
+	color:red;
+}
