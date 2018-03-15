@@ -8,6 +8,12 @@ The Readme file provides a brief account of our approach to the project and the 
 
 In addition, we have documented our approach, process, tools and technologies in detail in our [Wiki pages](https://github.com/xFusionTech/KMT/wiki) in the GitHub repository.
 
+The diagram below represents the User Roles, Permissions, Business Process Workflow and the key User Stories implemented in the Working Prototype.
+
+<p align="center">
+  <img width="540" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Business%20Process%20Workflow.png">
+</p>
+
 Below are the key URLs for the working Prototype:
 
 | **Application**  | **URL** | **Login Credentials**
@@ -24,7 +30,7 @@ Below are the key URLs for the working Prototype:
 ## Sprint Zero - Planning Effort:
 Upon the release of the RFI Pre-Qualified Vendor Pool for Agile Development, our CEO, Sanjib Nayak quickly reviewed the requirements and the scope for the Pre-Qualified Vendor Pool for Agile Development – Digital Services (PQVP DS-AD) RFI. He took the initiative to assemble a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of highly experienced Information Technology (IT) professionals, with relevant experience of working in agile software development projects, to collaborate and work on creating the prototype. Our team members have worked in previous projects together; that allowed us to conform quickly as a team and assign work based on each team member’s strengths. The team then designated our CEO, Sanjib Nayak as the Product Manager who was responsible for leading the team and being accountable for the quality of prototype being submitted.
 
-As a next step in our planning process, the team reviewed the guidelines for the Working Prototype and identified the [User Roles and User Stories](https://github.com/xFusionTech/KMT/wiki/User-Roles-and-User-Stories). Keeping the short project completion time frame in mind, the team identified the critical user stories for the Working Prototype that can be enhanced in subsequent iterations. The team created the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) for the Working Prototype.
+As a next step in our planning process, the team reviewed the guidelines for the Working Prototype, designed the [Business Process Workflow](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Business%20Process%20Workflow.png) and identified the [User Roles and User Stories](https://github.com/xFusionTech/KMT/wiki/User-Roles-and-User-Stories). Keeping the short project completion time frame in mind, the team identified the critical user stories for the Working Prototype that can be enhanced in subsequent iterations. The team created the [Statement of Work](https://github.com/xFusionTech/KMT/wiki/Statement-of-Work) for the Working Prototype.
 
 Since we had a smaller time-frame to carry out the project, we decided to go ahead with five sprints to complete the project. The team adopted a Scrum-based development approach and established the [roadmap](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Product%20Roadmap.pdf) required to create the Minimal Viable Product (MVP) for the Working Prototype. The team conducted a release planning session where they prioritised the backlogs and created a high-level scope for the five sprints. We established our Agile Project Management and team collaboration environments using a SaaS tool, [JIRA](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/JIRA%20Snapshots.pdf). the team also established the source code repository on [GitHub](https://github.com/xFusionTech/KMT/) . 
 
