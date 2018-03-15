@@ -34,10 +34,7 @@
       <b>Attachments</b>&nbsp;
       <a target="_blank" href={{articleDetailsData.articlePath}}> {{articleDetailsData.articlePath}} </a>
     </div>
-    <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">
-    <div ng-bind-html={{articleDetailsData.articleContent}}> </div>
-    </div>
-    
+    <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">{{articleDetailsData.articleContent}}</div>    
     <form #f="ngForm" >
       <div class="form-group">
     <div class="row">

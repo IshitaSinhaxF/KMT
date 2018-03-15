@@ -98,8 +98,9 @@ export class CreateArticleComponent implements OnInit {
     this.artTagParam = null;
 
 
-     console.log(this.fileName);
-     console.log(this.articleTagResult);
+     //console.log(this.fileName);
+     //console.log(this.articleTagResult);
+     //console.log(this.article_content);
 
     let dataObj = {
       '_postinsertarticle': {

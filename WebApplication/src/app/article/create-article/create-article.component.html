@@ -7,9 +7,11 @@
       </h4>
     </div>
   </div>
-  <form #p="ngForm">
-  <div class="form-group">
   <div class="row">
+    <span class="validationError">All fields are mandatory</span>
+    <div class="row">
+        <br/>
+      </div>
     <div class="portlet-body bodySize">
       <div class="row">
         <div class="col-md-5 author">
@@ -34,13 +36,9 @@
       </div>
       <div class="row">
         <div class="col-md-12 author">
-          
           <!-- <label>Article Title:</label> -->
-          <input required ngModel placeholder="Article Title" name="article" type="text" class="form-control" style="width:100%" [(ngModel)]="article_title"
-             #artTitleText="ngModel" id="artTitleText"/>
-           <div *ngIf="artTitleText.touched && !artTitleText.valid">
-             <h6 class="validationError"> Article Title required </h6>
-           </div>
+          <input placeholder="Article Title" name="article" type="text" class="form-control" style="width:100%" [(ngModel)]="article_title"
+          />
         </div>
       </div>
       <div class="row">
@@ -49,11 +47,8 @@
       <div class="row">
         <div class="col-md-12 author">
           <span></span>
-          <textarea required ngModel placeholder="Summary" name="articleContent" type="text" class="form-control" style="width:100%"
-            rows="2" [(ngModel)]="article_desc" #artTitleSummary="ngModel" id="artTitleSummary"></textarea>
-             <div *ngIf="artTitleSummary.touched && !artTitleSummary.valid">
-             <h6 class="validationError"> Article Summary required </h6>
-           </div>
+          <textarea placeholder="Summary" name="articleContent" type="text" id="texteditor1" class="form-control" style="width:100%"
+            rows="2" [(ngModel)]="article_desc"></textarea>
         </div>
       </div>
       <div class="row">
@@ -61,8 +56,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 author">
-          <app-ngx-editor required ngModel minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" 
-          ></app-ngx-editor>
+          <app-ngx-editor minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
         </div>
       </div>
       <div class="row">
@@ -122,13 +116,11 @@
       </div>
 
 <div class="col-md-4" style="float:right">
-      <div class="form-group" id="buttons">
-         <button class="btn btn-lg" style="float:right" (click)='insertArticleData()' [disabled]="!p.valid" > Save </button>
+      <div class="form-group"  id="buttons">
+         <button class="btn btn-lg" style="float:right" (click)='insertArticleData()'> Save </button>
         <!--<input type="submit" class="btn" value="Save" (click)="insertArticleData()" />-->
       </div>
   </div> 
   </div>  
   </div>
 </div>
-</div>
-</form>
