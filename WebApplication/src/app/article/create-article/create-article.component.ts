@@ -46,6 +46,15 @@ export class CreateArticleComponent implements OnInit {
       //console.log("Login to append user name")
     } else {
       this.userName = this.articleService.getFromSessionStorage("UserName");
+     //below changes are only intended for Production-- added by Mahaboob Mulla
+      if(this.userName == "author Kim"){
+        this.userName = "Kim";
+      } else if (this.userName == "approver Ben"){
+        this.userName = "Ben";
+      } else {
+        this.userName
+      }
+      
       this.roles = this.articleService.getFromSessionStorage("Roles");
       //console.log("roles:");
      // console.log(this.roles);
@@ -72,7 +81,7 @@ export class CreateArticleComponent implements OnInit {
 
   insertArticleData() {
 
-    //console.log(this.articleTagResult);
+    //console.log(this.username);
 
     this.categoryID = this.data.categoryID;
     let subCategoryId = +this.SubCategoryName;
