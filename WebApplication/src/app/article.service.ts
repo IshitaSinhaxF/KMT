@@ -288,7 +288,7 @@ getUsers() {
   }
 
   sendEmail(subject, body) {
-    const data = {'image': 'test'};
+    const data = {'subject': subject, 'body': body};
     this.http.post(`https://w2ix5v3x1b.execute-api.us-west-2.amazonaws.com/dev/sendemail`, data, {headers})
       .subscribe(
         res => {
