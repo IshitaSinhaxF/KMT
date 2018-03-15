@@ -1,0 +1,398 @@
+<data name="KMTool" transports="http https local">
+   <config enableOData="false" id="KMDatasource">
+      <property name="driverClassName">org.postgresql.Driver</property>
+      <property name="url">jdbc:postgresql://postgresql-prod.csqhdobemp9k.us-west-1.rds.amazonaws.com:5432/KMTDB</property>
+      <property name="username">xfadmin</property>
+      <property name="password">xfadmin2018</property>
+   </config>
+   <query id="ArticleQuery" useConfig="KMDatasource">
+      <sql>SELECT "articleID", "articleTitle", "articleDesc", "articlePath", "articleContent", "categoryID" FROM public."Article"</sql>
+      <result outputType="json"> {&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "categoryID": "$categoryID"&#xd; }&#xd; ]&#xd; }&#xd;}        &#xd;         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+   </query>
+   <query id="insertArticle" useConfig="KMDatasource">
+      <sql>INSERT INTO public."Article"("articleTitle", "articleDesc", "articlePath", "articleContent", "categoryID") VALUES(:articleTitle,:articleDesc,:articlePath,:articleContent,:categoryID)</sql>
+      <param name="articleTitle" sqlType="STRING"/>
+      <param name="articleDesc" sqlType="STRING"/>
+      <param name="articlePath" sqlType="STRING"/>
+      <param name="articleContent" sqlType="STRING"/>
+      <param name="categoryID" sqlType="INTEGER"/>
+   </query>
+   <query id="GetUsers" useConfig="KMDatasource">
+      <sql>SELECT usr."userID", usr."userFirstName", usr."userLastName", usr."userMiddleName", r."roleName", r."lkpRoleID"&#xd;FROM public."User" usr &#xd;inner join public."userRole" ur on usr."userID" = ur."userID"&#xd;inner join public."LKP_Role" r on r."lkpRoleID" = ur."lkpRoleID"</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "userID": "$userID",&#xd; "userFirstName": "$userFirstName",&#xd; "userLastName": "$userLastName",&#xd; "userMiddleName": "$userMiddleName",&#xd; "roleName": "$roleName",&#xd; "lkpRoleID": "$lkpRoleID"&#xd; }&#xd; ]&#xd; }&#xd;}     &#xd;   &#xd;         &#xd;      </result>
+   </query>
+   <query id="GetArticlesByStatusQuery" useConfig="KMDatasource">
+      <sql>SELECT DISTINCT art."articleID",art."articleTitle",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",&#xd;artSta."StateName", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",artHis."articleApproverID",&#xd;((sum(artFb."rating") over (partition by artFb."articleID"))/ (count(artFb."articleFeedbackID") over (partition by artFb."articleID"))) as "average_rating" &#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = art."articleCurrentStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;left join public."articleFeedback" artFb on artFb."articleID" = art."articleID"&#xd;inner join public."userRole" usrRl on usrRl."userID" = artHis."userID"&#xd;where :statuscondition</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "StateName": "$StateName",&#xd; "author_name": "$author_name", &#xd; "articleApproverID": "$articleApproverID",&#xd; "average_rating": "$average_rating"&#xd; }&#xd; ]&#xd; }&#xd;} </result>
+      <param name="statuscondition" sqlType="QUERY_STRING"/>
+   </query>
+   <query id="GetArticleDetailsByIDQuery" useConfig="KMDatasource">
+      <sql>SELECT art."articleID",art."articleTitle",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."articleTag",&#xd;artHis."ArticleStateID",artSta."StateName",artHis."userID", usr."userLastName" as "author_name",apprvr."userLastName" as "approver_name",&#xd;t1."categoryName", art."categoryID",t2."categoryName" as "parent_category", artHis."articleApproverID", COALESCE(artVw."viewCounts",0) as "views"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID"&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;inner join public."LKP_Category" t1 on t1."categoryID" = art."categoryID" &#xd;inner join public."LKP_Category" t2 on t1."parentCategoryID" = t2."categoryID"&#xd;left join public."articleViews" artVw on artVw."articleID" = art."articleID"&#xd;left join public."User" apprvr on apprvr."userID" = artHis."articleApproverID"&#xd;where art."articleID" = :articleID</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath", &#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "articleTag": "$articleTag",&#xd; "ArticleStateID": "$ArticleStateID",&#xd; "StateName": "$StateName",&#xd; "userID": "$userID",&#xd; "author_name": "$author_name",&#xd; "approver_name": "$approver_name",&#xd; "categoryName": "$categoryName",&#xd; "categoryID": "$categoryID",&#xd; "parent_category": "$parent_category",&#xd; "articleApproverID": "$articleApproverID",&#xd; "views": "$views"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+      <param name="articleID" sqlType="INTEGER"/>
+   </query>
+   <query id="getParentCategoryQuery" useConfig="KMDatasource">
+      <sql>SELECT "categoryID","categoryDesc","categoryName", "parentCategoryID" FROM public."LKP_Category" where "parentCategoryID" is null;</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "categoryID": "$categoryID",&#xd; "categoryDesc": "$categoryDesc",&#xd; "categoryName": "$categoryName", &#xd; "parentCategoryID": "$parentCategoryID"&#xd; }&#xd; ]&#xd; }&#xd;}         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+   </query>
+   <query id="GetSubCategories" useConfig="KMDatasource">
+      <sql>SELECT t1."categoryID", t1."categoryDesc", t1."categoryName", t2."categoryID" as "main_category_id", t2."categoryName" as "main_category_name"&#xd;FROM public."LKP_Category" t1 inner join public."LKP_Category" t2 on t1."parentCategoryID" = t2."categoryID"&#xd;where t1."parentCategoryID" is not null</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "categoryID": "$categoryID",&#xd; "categoryDesc": "$categoryDesc",&#xd; "categoryName": "$categoryName", &#xd; "main_category_id": "$main_category_id",&#xd; "main_category_name": "$main_category_name"&#xd; }&#xd; ]&#xd; }&#xd;}         &#xd;         &#xd;         &#xd;         &#xd;         &#xd;      </result>
+   </query>
+   <query id="GetApproverQuery" useConfig="KMDatasource">
+      <sql>SELECT apprvr."userLastName" as "Approver_Name"&#xd;FROM public."User" usr &#xd;inner join public."userRole" ur on usr."userID" = ur."userID"&#xd;left outer join public."User" apprvr on ur."approverID" = apprvr."userID"&#xd;inner join public."LKP_Role" rl on rl."lkpRoleID" = ur."lkpRoleID"&#xd;where usr."userID" = :userID</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "Approver_Name": "$Approver_Name"&#xd; }&#xd; ]&#xd; }&#xd;}        &#xd;      </result>
+      <param name="userID" sqlType="INTEGER"/>
+   </query>
+   <query id="sp_insertarticle" useConfig="KMDatasource">
+      <sql>SELECT public.sp_insertarticle(?,?,?,?,?,?,?,?)</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_insertarticle"&#xd; }&#xd; ]&#xd; }&#xd;}       &#xd;      </result>
+      <param name="article_title" sqlType="STRING"/>
+      <param name="article_desc" sqlType="STRING"/>
+      <param name="article_path" sqlType="STRING"/>
+      <param name="article_content" sqlType="STRING"/>
+      <param name="user_id" sqlType="INTEGER"/>
+      <param name="categoryid" sqlType="INTEGER"/>
+      <param name="article_tag" sqlType="STRING"/>
+      <param name="username" sqlType="STRING"/>
+   </query>
+   <query id="sp_updatearticle" useConfig="KMDatasource">
+      <sql>SELECT public.sp_updatearticle(?,?,?,?,?,?,?,?,?)</sql>
+      <result element="Entries" rowName="Entry">
+         <element column="sp_updatearticle" name="sp_updatearticle" xsdType="string"/>
+      </result>
+      <param name="article_id" sqlType="INTEGER"/>
+      <param name="article_title" sqlType="STRING"/>
+      <param name="article_desc" sqlType="STRING"/>
+      <param name="article_path" sqlType="STRING"/>
+      <param name="article_content" sqlType="STRING"/>
+      <param name="user_id" sqlType="INTEGER"/>
+      <param name="categoryid" sqlType="INTEGER"/>
+      <param name="article_tag" sqlType="STRING"/>
+      <param name="username" sqlType="STRING"/>
+   </query>
+   <query id="sp_insertarticlefeedback" useConfig="KMDatasource">
+      <sql>SELECT public.sp_insertarticlefeedback(?,?,?,?,?)</sql>
+      <result outputType="json"> {&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_insertarticlefeedback"&#xd; }&#xd; ]&#xd; }&#xd;}        </result>
+      <param name="rating" sqlType="INTEGER"/>
+      <param name="article_comment" sqlType="STRING"/>
+      <param name="article_id" sqlType="INTEGER"/>
+      <param name="username" sqlType="STRING"/>
+      <param name="user_id" sqlType="INTEGER"/>
+   </query>
+   <query id="sp_updatearticlestate" useConfig="KMDatasource">
+      <sql>SELECT public.sp_updatearticlestate(?,?,?,?)</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_updatearticlestate"&#xd; }&#xd; ]&#xd; }&#xd;}    </result>
+      <param name="article_id" sqlType="INTEGER"/>
+      <param name="user_id" sqlType="INTEGER"/>
+      <param name="article_state" sqlType="STRING"/>
+      <param name="username" sqlType="STRING"/>
+   </query>
+   <query id="sp_insertviewcounts" useConfig="KMDatasource">
+      <sql>SELECT public.sp_insertviewcounts(?,?,?)</sql>
+      <result element="Entries" rowName="Entry">
+         <element column="sp_insertviewcounts" name="sp_insertviewcounts" xsdType="string"/>
+      </result>
+      <param name="article_views_id" sqlType="INTEGER"/>
+      <param name="article_id" sqlType="INTEGER"/>
+      <param name="view_counts" sqlType="INTEGER"/>
+   </query>
+   <query id="GetArticleFeedbackQuery" useConfig="KMDatasource">
+      <sql>SELECT artFb."rating",artFb."comment",artFb."dateModified" AS "articleLastModifiedDate",artFb."dateCreated" AS "articleDateCreated",&#xd;artFb."userID", vwr."userLastName" as "commented_by"&#xd;FROM public."articleFeedback" artFb&#xd;inner join public."User" vwr on vwr."userID" = artFb."userID" &#xd;WHERE artFb."articleID" = :articleID&#xd;order by artFb."dateModified" DESC</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "rating": "$rating",&#xd; "comment": "$comment",&#xd; "articleLastModifiedDate": "$articleLastModifiedDate",&#xd; "articleDateCreated": "$articleDateCreated",&#xd; "userID": "$userID",&#xd; "commented_by": "$commented_by"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+      <param name="articleID" sqlType="INTEGER"/>
+   </query>
+   <query id="SearchArticlesQuery" useConfig="KMDatasource">
+      <sql>SELECT art."articleID",art."articleTitle",art."articleDesc",art."articlePath",art."articleContent",art."dateCreated",art."dateModified",art."categoryID",art."articleTag",artHis."ArticleStateID",artSta."StateName",&#xd;artHis."userID", (usr."userFirstName" || ' ' || usr."userLastName" || ' ' || COALESCE(usr."userMiddleName",' ')) as "author_name",(apr."userFirstName" || ' ' || apr."userLastName" || ' ' || COALESCE(apr."userMiddleName",' ')) as "approver_name"&#xd;FROM public."Article" art &#xd;inner join public."articleActionHistory" artHis on art."articleID" = artHis."articleID" and art."articleCurrentStateID" = artHis."ArticleStateID" and art."articleCurrentStateID" = 3&#xd;inner join public."LKP_ArticleState" artSta on artSta."lkpArticleStateID" = artHis."ArticleStateID"&#xd;inner join public."User" usr on usr."userID" = artHis."userID"&#xd;left join public."User" apr on artHis."articleApproverID" = apr."userID"&#xd;where :searchcondition</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleID": "$articleID",&#xd; "articleTitle": "$articleTitle",&#xd; "articleDesc": "$articleDesc",&#xd; "articlePath": "$articlePath",&#xd; "articleContent": "$articleContent",&#xd; "dateCreated": "$dateCreated",&#xd; "dateModified": "$dateModified",&#xd; "categoryID": "$categoryID",&#xd; "articleTag": "$articleTag",&#xd; "ArticleStateID": "$ArticleStateID",&#xd; "StateName": "$StateName",&#xd; "userID": "$userID",&#xd; "author_name": "$author_name" &#xd; }&#xd; ]&#xd; }&#xd;}&#xd;</result>
+      <param name="searchcondition" sqlType="QUERY_STRING"/>
+   </query>
+   <query id="SearchAuthorQuery" useConfig="KMDatasource">
+      <sql>select "userID", "userLastName" as "author_name"&#xd;from public."User" where "userID" != 3</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "userID": "$userID",&#xd; "author_name": "$author_name"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+   </query>
+   <query id="PopularTags" useConfig="KMDatasource">
+      <sql>SELECT distinct "articleTag" FROM "Article"</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "articleTag": "$articleTag"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+   </query>
+   <query id="SummaryTags" useConfig="KMDatasource">
+      <sql>SELECT sum(x."totalArtilces") as "totalArtilces", sum(x."totalCategories") as "totalCategories", sum(x."totalSubCategories") as "totalSubCategories",sum(x."totalPublishedArtilces") as "totalPublishedArtilces",sum(x."totalRatedArticle") as "totalRatedArticle",sum(x."totalUnpublished") as "totalUnpublished",sum(x."totalDraftArticles") as "totalDraftArticles"&#xd;FROM (&#xd;SELECT count(DISTINCT "articleID") as "totalArtilces", 0 as "totalCategories", 0 as "totalSubCategories", 0 as "totalPublishedArtilces", 0 as "totalRatedArticle" , 0 as "totalUnpublished",0 as "totalDraftArticles" FROM "Article"&#xd;union&#xd;SELECT 0 as "totalArtilces", count(DISTINCT "categoryID") as "totalCategories", 0 as "totalSubCategories", 0 as "totalPublishedArtilces", 0 as "totalRatedArticle", 0 as "totalUnpublished", 0 as "totalDraftArticles"  FROM "LKP_Category" where "parentCategoryID" is null&#xd;union&#xd;SELECT 0 as "totalArtilces", 0 as "totalCategories" , count(DISTINCT "categoryID") as "totalSubCategories", 0 as "totalPublishedArtilces", 0 as "totalRatedArticle", 0 as "totalUnpublished", 0 as "totalDraftArticles"  FROM "LKP_Category" where "parentCategoryID" is not null&#xd;union&#xd;SELECT 0 as "totalArtilces", 0 as "totalCategories", 0 as "totalSubCategories", count(DISTINCT "articleID") as "totalPublishedArtilces", 0 as "totalRatedArticle", 0 as "totalUnpublished", 0 as "totalDraftArticles"  FROM "Article" where "articleCurrentStateID" = 3&#xd;union&#xd;SELECT 0 as "totalArtilces", 0 as "totalCategories", 0 as "totalSubCategories",0 as "totalPublishedArtilces", count(DISTINCT "articleID") as "totalRatedArticle", 0 as "totalUnpublished", 0 as "totalDraftArticles" FROM "articleFeedback" where "rating" is not null&#xd;union&#xd;SELECT 0 as "totalArtilces", 0 as "totalCategories", 0 as "totalSubCategories",0 as "totalPublishedArtilces", 0 as "totalRatedArticle", count(DISTINCT "articleID") as "totalUnpublished", 0 as "totalDraftArticles" FROM "Article" where "articleCurrentStateID" = 2&#xd;union &#xd;SELECT 0 as "totalArtilces", 0 as "totalCategories", 0 as "totalSubCategories",0 as "totalPublishedArtilces", 0 as "totalRatedArticle", 0 as "totalUnpublished", count(DISTINCT "articleID") as "totalDraftArticles" FROM "Article" where "articleCurrentStateID" = 3&#xd;) x</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "totalArtilces": "$totalArtilces",&#xd; "totalCategories": "$totalCategories",&#xd; "totalSubCategories": "$totalSubCategories",&#xd; "totalPublishedArtilces": "$totalPublishedArtilces",&#xd; "totalRatedArticle": "$totalRatedArticle",&#xd; "totalUnpublished": "$totalUnpublished",&#xd; "totalDraftArticles": "$totalDraftArticles"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+   </query>
+   <query id="DeleteArticle" useConfig="KMDatasource">
+      <sql>DELETE FROM "Article" where "articleID" = :articleID</sql>
+      <param name="articleID" sqlType="INTEGER"/>
+   </query>
+   <query id="GetUserAndRole" useConfig="KMDatasource">
+      <sql>select Distinct (usr."userFirstName" || ' ' || usr."userLastName") as "user_name",  usr."userID", ur."lkpRoleID"&#xd;FROM "User" usr inner join "userRole" ur on usr."userID" = ur."userID" &#xd;order by usr."userID"</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "user_name": "$user_name",&#xd; "userID": "$userID",&#xd; "lkpRoleID": "$lkpRoleID"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+   </query>
+   <query id="sp_deletearticle" useConfig="KMDatasource">
+      <sql>SELECT public.sp_deletearticle(?)</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS":"$sp_deletearticle"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+      <param name="articleid" sqlType="INTEGER"/>
+   </query>
+   <query id="sp_publisharticlestateQuery" useConfig="KMDatasource">
+      <sql>SELECT public.sp_updatearticlestatetopublished(?,?,?,?)</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "SUCCESS": "$sp_updatearticlestatetopublished"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+      <param name="article_id" sqlType="INTEGER"/>
+      <param name="user_id" sqlType="INTEGER"/>
+      <param name="article_state" sqlType="STRING"/>
+      <param name="username" sqlType="STRING"/>
+   </query>
+   <query id="GetUsersQuery" useConfig="KMDatasource">
+      <sql>SELECT "userID", concat("userFirstName",' ',"userLastName")  as "UserName" FROM "User"</sql>
+      <result outputType="json">{&#xd; "entries": {&#xd; "entry": [&#xd; {&#xd; "userID": "$userID",&#xd; "UserName": "$UserName"&#xd; }&#xd; ]&#xd; }&#xd;}</result>
+   </query>
+   <operation name="ArticleOp">
+      <call-query href="ArticleQuery"/>
+   </operation>
+   <operation name="insertArticleOp" returnRequestStatus="true">
+      <call-query href="insertArticle">
+         <with-param name="articleTitle" query-param="articleTitle"/>
+         <with-param name="articleDesc" query-param="articleDesc"/>
+         <with-param name="articlePath" query-param="articlePath"/>
+         <with-param name="articleContent" query-param="articleContent"/>
+         <with-param name="categoryID" query-param="categoryID"/>
+      </call-query>
+   </operation>
+   <operation name="GetUsersOp">
+      <call-query href="GetUsers"/>
+   </operation>
+   <operation name="GetArticlesByStatusOp">
+      <call-query href="GetArticlesByStatusQuery">
+         <with-param name="statuscondition" query-param="statuscondition"/>
+      </call-query>
+   </operation>
+   <operation name="GetArticleDetailsByIDOp">
+      <call-query href="GetArticleDetailsByIDQuery">
+         <with-param name="articleID" query-param="articleID"/>
+      </call-query>
+   </operation>
+   <operation name="getParentCategoryOp">
+      <call-query href="getParentCategoryQuery"/>
+   </operation>
+   <operation name="GetSubCategories">
+      <call-query href="GetSubCategories"/>
+   </operation>
+   <operation name="GetApproverOp">
+      <call-query href="GetApproverQuery">
+         <with-param name="userID" query-param="userID"/>
+      </call-query>
+   </operation>
+   <operation name="spupdatearticlestateOp">
+      <call-query href="sp_updatearticlestate">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="article_state" query-param="article_state"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </operation>
+   <operation name="spInsertarticleFeedbackOp">
+      <call-query href="sp_insertarticlefeedback">
+         <with-param name="rating" query-param="rating"/>
+         <with-param name="article_comment" query-param="article_comment"/>
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </operation>
+   <operation name="spInsertarticleOp">
+      <call-query href="sp_insertarticle">
+         <with-param name="article_title" query-param="article_title"/>
+         <with-param name="article_desc" query-param="article_desc"/>
+         <with-param name="article_path" query-param="article_path"/>
+         <with-param name="article_content" query-param="article_content"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="categoryid" query-param="categoryid"/>
+         <with-param name="article_tag" query-param="article_tag"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </operation>
+   <operation name="spUpdatearticleOp">
+      <call-query href="sp_updatearticle">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="article_title" query-param="article_title"/>
+         <with-param name="article_desc" query-param="article_desc"/>
+         <with-param name="article_path" query-param="article_path"/>
+         <with-param name="article_content" query-param="article_content"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="categoryid" query-param="categoryid"/>
+         <with-param name="article_tag" query-param="article_tag"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </operation>
+   <operation name="spInsertviewcountsOp">
+      <call-query href="sp_insertviewcounts">
+         <with-param name="article_views_id" query-param="article_views_id"/>
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="view_counts" query-param="view_counts"/>
+      </call-query>
+   </operation>
+   <operation name="GetArticleFeedbackOp">
+      <call-query href="GetArticleFeedbackQuery">
+         <with-param name="articleID" query-param="articleID"/>
+      </call-query>
+   </operation>
+   <operation name="SearchArticlesOp">
+      <call-query href="SearchArticlesQuery">
+         <with-param name="searchcondition" query-param="searchcondition"/>
+      </call-query>
+   </operation>
+   <operation name="SearchAuthorOp">
+      <call-query href="SearchAuthorQuery"/>
+   </operation>
+   <operation name="PopularTagOp">
+      <call-query href="PopularTags"/>
+   </operation>
+   <operation name="SummaryOp">
+      <call-query href="SummaryTags"/>
+   </operation>
+   <operation name="DeleteArticleOp" returnRequestStatus="true">
+      <description>Delete article operation                                    &#xd;                                    </description>
+      <call-query href="DeleteArticle">
+         <with-param name="articleID" query-param="articleID"/>
+      </call-query>
+   </operation>
+   <operation name="GetUserAndRoleOp">
+      <call-query href="GetUserAndRole"/>
+   </operation>
+   <operation name="SPDeleteArticleOp">
+      <call-query href="sp_deletearticle">
+         <with-param name="articleid" query-param="articleid"/>
+      </call-query>
+   </operation>
+   <operation name="sp_publisharticlestateOp">
+      <call-query href="sp_publisharticlestateQuery">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="article_state" query-param="article_state"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </operation>
+   <operation name="GetUsersAndIDsOp">
+      <call-query href="GetUsersQuery"/>
+   </operation>
+   <resource method="GET" path="GetArticles">
+      <call-query href="ArticleQuery"/>
+   </resource>
+   <resource method="POST" path="insertarticles" returnRequestStatus="true">
+      <call-query href="insertArticle">
+         <with-param name="articleTitle" query-param="articleTitle"/>
+         <with-param name="articleDesc" query-param="articleDesc"/>
+         <with-param name="articlePath" query-param="articlePath"/>
+         <with-param name="articleContent" query-param="articleContent"/>
+         <with-param name="categoryID" query-param="categoryID"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="GetUserDetails">
+      <call-query href="GetUsers"/>
+   </resource>
+   <resource method="GET" path="GetArticlesByStatus">
+      <call-query href="GetArticlesByStatusQuery">
+         <with-param name="statuscondition" query-param="statuscondition"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="GetArticleDetailsByID">
+      <call-query href="GetArticleDetailsByIDQuery">
+         <with-param name="articleID" query-param="articleID"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="getParentCategory">
+      <call-query href="getParentCategoryQuery"/>
+   </resource>
+   <resource method="GET" path="GetSubCategories">
+      <call-query href="GetSubCategories"/>
+   </resource>
+   <resource method="GET" path="GetApprover">
+      <call-query href="GetApproverQuery">
+         <with-param name="userID" query-param="userID"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="InsertArticle" returnRequestStatus="true">
+      <call-query href="sp_insertarticle">
+         <with-param name="article_title" query-param="article_title"/>
+         <with-param name="article_desc" query-param="article_desc"/>
+         <with-param name="article_path" query-param="article_path"/>
+         <with-param name="article_content" query-param="article_content"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="categoryid" query-param="categoryid"/>
+         <with-param name="article_tag" query-param="article_tag"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="UpdateArticle" returnRequestStatus="true">
+      <call-query href="sp_updatearticle">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="article_title" query-param="article_title"/>
+         <with-param name="article_desc" query-param="article_desc"/>
+         <with-param name="article_path" query-param="article_path"/>
+         <with-param name="article_content" query-param="article_content"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="categoryid" query-param="categoryid"/>
+         <with-param name="article_tag" query-param="article_tag"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="InsertArticleFeedback" returnRequestStatus="true">
+      <call-query href="sp_insertarticlefeedback">
+         <with-param name="rating" query-param="rating"/>
+         <with-param name="article_comment" query-param="article_comment"/>
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="username" query-param="username"/>
+         <with-param name="user_id" query-param="user_id"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="UpdateArticleState" returnRequestStatus="true">
+      <call-query href="sp_updatearticlestate">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="article_state" query-param="article_state"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="InsertViewCounts" returnRequestStatus="true">
+      <call-query href="sp_insertviewcounts">
+         <with-param name="article_views_id" query-param="article_views_id"/>
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="view_counts" query-param="view_counts"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="GetArticleFeedbacks">
+      <call-query href="GetArticleFeedbackQuery">
+         <with-param name="articleID" query-param="articleID"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="SearchArticles">
+      <call-query href="SearchArticlesQuery">
+         <with-param name="searchcondition" query-param="searchcondition"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="SearchAuthor">
+      <call-query href="SearchAuthorQuery"/>
+   </resource>
+   <resource method="GET" path="GetPopularTags">
+      <call-query href="PopularTags"/>
+   </resource>
+   <resource method="GET" path="GetSummary">
+      <call-query href="SummaryTags"/>
+   </resource>
+   <resource method="GET" path="GetUserAndRole">
+      <call-query href="GetUserAndRole"/>
+   </resource>
+   <resource method="POST" path="DeleteArticle">
+      <call-query href="sp_deletearticle">
+         <with-param name="articleid" query-param="articleid"/>
+      </call-query>
+   </resource>
+   <resource method="POST" path="updateArticlePublishedState">
+      <call-query href="sp_publisharticlestateQuery">
+         <with-param name="article_id" query-param="article_id"/>
+         <with-param name="user_id" query-param="user_id"/>
+         <with-param name="article_state" query-param="article_state"/>
+         <with-param name="username" query-param="username"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="GetUsersAndIDs">
+      <call-query href="GetUsersQuery"/>
+   </resource>
+</data>
