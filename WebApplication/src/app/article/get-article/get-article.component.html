@@ -8,12 +8,12 @@
     </a>
   </li>
    <li role="presentation" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
-    <a (click)=" displayInReview()">In Review
+    <a (click)="displayInReview()" *ngIf="roleId != 3">In Review
       <span class="badge">{{inReviewDataLength}}</span>
     </a>
   </li>
   <li role="presentation" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
-    <a (click)="displayDraftDiv()">Draft
+    <a (click)="displayDraftDiv()" *ngIf="roleId != 3">Draft
       <span class="badge">{{draftDataLength}}</span>
     </a>
   </li>

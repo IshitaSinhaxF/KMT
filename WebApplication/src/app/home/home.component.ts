@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   userName: any = "";
   roles: any = [];
   hideCreateArticle: boolean = false;
-  showAddButton: boolean = true;
+  showAddButton: boolean;
+  //if = true;
   showHomeButton: boolean = false;
   searchedInfo: boolean = true;
   hideViewArticle: boolean = false;
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
   hidePendingArticle: boolean = false;
   hideDraftArticle: boolean = false;
   hideArticleMenu: boolean = true;
+
+  // roles: any = this.articleService.getFromSessionStorage("Roles");
+  roleId: any;
 
   constructor(private articleService: ArticleService, private router: Router) { }
 
@@ -36,6 +40,14 @@ export class HomeComponent implements OnInit {
       } else {
         this.userName = this.articleService.getFromSessionStorage("UserName");
         this.roles = this.articleService.getFromSessionStorage("Roles");
+        for (var i = 0; i < this.roles.length; i++) {
+          this.roleId = this.roles[i].lkpRoleID;
+          
+          if(this.roleId != 3)
+          this.showAddButton = true;
+          else
+          this.showAddButton = false; 
+        }
         // console.log("roles:")
         // console.log(this.roles);
       }
@@ -49,11 +61,15 @@ export class HomeComponent implements OnInit {
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
+    if (this.roleId != 3)
     this.showAddButton = event;
+    else
+    this.showAddButton = false;
+   // this.showAddButton = event;
     this.showHomeButton = false;
   }
 
-  showFeedbackView(event){
+  showFeedbackView(event) {
     this.hideViewArticle = true;
   }
 
@@ -75,7 +91,10 @@ export class HomeComponent implements OnInit {
     this.hidePendingArticle = false;
     this.hideDraftArticle = false;
     this.hideCreateArticle = false;
+    if (this.roleId != 3)
     this.showAddButton = true;
+    else
+    this.showAddButton = false;
     this.showHomeButton = false;
   }
   showFeedback(event) {

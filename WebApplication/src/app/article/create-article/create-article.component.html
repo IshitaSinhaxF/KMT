@@ -7,61 +7,76 @@
       </h4>
     </div>
   </div>
-  <div class="portlet-body bodySize">
-    <div class="row">
-      <div class="col-md-5 author">
-        <form class="form-inline">
-          <select name="category" placeholder="Select a Category" class="form-control" [(ngModel)]="categoryName">
+  <div class="row">
+    <div class="portlet-body bodySize">
+      <div class="row">
+        <div class="col-md-5 author">
+          <form class="form-inline">
+            <select name="category" placeholder="Select a Category" class="form-control" [(ngModel)]="categoryName">
             <option selected="selected">Select a Category</option>
             <option *ngFor="let d of data">{{d.categoryName}}</option>
           </select>
-        </form>
-      </div>
-      <div class="col-md-5 author">
-        <form class="form-inline">
-          <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
+          </form>
+        </div>
+        <div class="col-md-5 author">
+          <form class="form-inline">
+            <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
             <option value="">Select a SubCategory</option>
             <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
           </select>
-        </form>
+          </form>
+        </div>
       </div>
-      <br/>
-      <div class="col-md-8 author">
-        <!-- <label>Article Title:</label> -->
-        <input placeholder="Article Title" name="article" type="text" class="form-control authorTitle" [(ngModel)]="article_title"
-        />
+      <div class="row">
+        <br/>
       </div>
-      <div class="col-md-11 author">
-        <span></span>
-        <textarea placeholder="Summary" name="articleContent" id="texteditor1" class="form-control summary" rows="4" data-role="collapsible"
-          [(ngModel)]="article_desc"></textarea>
+      <div class="row">
+        <div class="col-md-12 author">
+          <!-- <label>Article Title:</label> -->
+          <input placeholder="Article Title" name="article" type="text" class="form-control" style="width:100%" [(ngModel)]="article_title"
+          />
+        </div>
       </div>
-      <div class="col-md-5 form-group editor">
-        <app-ngx-editor height="100px" width="620px" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
+      <div class="row">
+        <br/>
       </div>
-      <!-- <div class="form-group">
-        <p>
-          <label>Sub-Category:</label>
-          <select name="SubCategoryName" class="form-control" [(ngModel)]="SubCategoryName">
-            <option value=""> Choose One </option>
-            <option [(ngValue)]="s.categoryID" *ngFor="let s of subData">{{s.categoryName}}</option>
-          </select>
-        </p>
-      </div> -->
+      <div class="row">
+        <div class="col-md-12 author">
+          <span></span>
+          <textarea placeholder="Summary" name="articleContent" type="text" id="texteditor1" class="form-control" style="width:100%"
+            rows="2" [(ngModel)]="article_desc"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <br/>
+      </div>
+      <div class="row">
+        <div class="col-md-12 author">
+          <app-ngx-editor minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
+        </div>
+      </div>
+      <div class="row">
+        <br/>
+      </div>       
+      <div class="row">
       <div class="col-md-5 author ">
-        <div  class="input-group">
-            <input placeholder="Add Tags" name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit" (click)="createArticleInputTag('')">
+        <div class="input-group">
+          <input placeholder="Add Tags" name="article_tag" id="articleInputTags" name="articleTags" type="text" class="form-control">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" (click)="createArticleInputTag('')">
                   <i class="glyphicon glyphicon-plus"></i>
                 </button>
-              </div>
+          </div>
         </div>
-       
+      </div>
+      </div>
+      
+
         <!-- <button class="button" (click)="createArticleInputTag('')">Add</button> -->
-        <!-- <a (click)="createArticleInputTag('')">
+         <a (click)="createArticleInputTag('')">
           <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
-        </a> -->
+        </a> 
+        <div class="row">
         <div class="form-group">
           <div>
             <div class="">
@@ -75,27 +90,33 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-10 author">
+      <div class="row">
+        <br/>
+      </div>
+       <div class="col-md-10 author">
         <p>
           <b>Article Tags:</b> {{articleDetailsData.articleTag}}</p>
-      </div> -->
-
-      <div class="col-md-5 author form-inline">
+      </div> 
+<div class="row">
+      <div class="col-md-6 author form-inline">
         <div class="form-group">
-          <label for="uploadFile">Upload File:</label>
+          <label for="uploadFile">Attachments </label>
           <div id="igUpload1"></div>
-           <!-- <a  (change)="uploadFile($event)">
+          <!-- <a  (change)="uploadFile($event)">
               <span  class="fa fa-upload fa-2x" aria-hidden="true" title="Upload File"></span>
           </a> -->
-          <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)"/>
+          <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
           <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
           <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
         </div>
+      </div>
 
-      </div>
+<div class="col-md-4" style="float:right">
       <div class="form-group" id="buttons">
-        <input type="submit" class="btn btn-primary" value="Save" (click)="insertArticleData()" />
+         <button class="btn btn-lg" (click)='insertArticleData()'> Save </button>
+        <!--<input type="submit" class="btn" value="Save" (click)="insertArticleData()" />-->
       </div>
-    </div>
+  </div> 
+  </div>  
   </div>
 </div>

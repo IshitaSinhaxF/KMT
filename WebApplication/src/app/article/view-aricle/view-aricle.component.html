@@ -38,6 +38,7 @@
       {{articleDetailsData.articleContent}}
     </div>
     
+    <form #f="ngForm" >
     <div class="row">
       <div class="col-md-12 author" style="padding-bottom:20px">        
         <div class="row author" style="padding-bottom:20px">
@@ -45,13 +46,18 @@
         
         <div class="col-md-8 author">
           <ngb-rating [(rate)]="currentRate" max=5></ngb-rating>
-          <textarea placeholder='Rate and leave a comment/question...' rows="2" name="txtFormQues" style="width:100%" [(ngModel)]="txtFeedbck"></textarea>
+          <textarea class="form-control" required ngModel #commentText id="commentText" placeholder='Rate and leave a comment/question...' rows="2" name="txtFormQues" style="width:100%" [(ngModel)]="txtFeedbck"></textarea>
+        </div>
+        <div *ngIf="commentText.errors?.required" class="error">
+                comment is required
         </div>
         <div class="col-md-2 author" style="padding-top:20px">
-          <button class="btn btn-primary" (click)='OnFeedbackPost()' id="buttons"> Rate and Comment</button>
+          <button class="btn btn-primary" (click)='OnFeedbackPost()' id="buttons" [disabled] = "!f.valid"> Rate and Comment</button>
         </div>
+        
       </div>
     </div>
+    </form>
 
     <div class="row author">
       <div class="col-md-12 author">

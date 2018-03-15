@@ -54,6 +54,10 @@ export class ViewAricleComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+submit(f)
+{
+  console.log(f);
+}
   //   OnFeedbackPost() {
 
   //   this.articleFeedbackText = this.txtFeedbck;

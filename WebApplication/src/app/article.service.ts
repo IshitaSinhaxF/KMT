@@ -79,7 +79,7 @@ export class ArticleService {
 
 getUsers() {
     //prod
-    //return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetUsersAndIDs', {headers});
+   // return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetUsersAndIDs', {headers});
     //dev
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetUsersAndIDs', {headers});
   }
@@ -87,7 +87,7 @@ getUsers() {
 
   getAuthorData() {
     //prod
-    //return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/SearchAuthor', {headers});
+   // return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/SearchAuthor', {headers});
     //dev
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/SearchAuthor', {headers});
   }
@@ -161,7 +161,7 @@ getUsers() {
 
   getArticleFeedbacks(articleId) {
     //prod
-    //return this.result = this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
+   //return this.result = this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
     //dev
     return this.result = this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetArticleFeedbacks?articleID=' + articleId + '',{headers});
     
@@ -211,7 +211,7 @@ getUsers() {
 
   getSummaryDetails() {
     //prod
-    //return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetSummary', {headers});
+   // return this.http.get('http://13.57.242.90:8281/KMTool/v1.0.0/GetSummary', {headers});
     //dev
     return this.http.get('http://8.39.51.27:8281/KMTool/v1.0.0/GetSummary', {headers});
   }

@@ -73,7 +73,7 @@
       <div>
         <!-- <app-search-article></app-search-article> -->
         <app-search-article (searchClicked)="hideArticle($event)" (showViewArticle)="showFeedbackView($event)"></app-search-article>
-        <a *ngIf="showAddButton" (click)="createNewArticle()">           
+          <a *ngIf="showAddButton" (click)="createNewArticle()">           
             <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
             <span class="icon" >Add Article</span>
           </a>
