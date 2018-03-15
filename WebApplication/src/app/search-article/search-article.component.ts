@@ -13,6 +13,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class SearchArticleComponent implements OnInit {
   @Output() searchClicked = new EventEmitter();
   @Output() showViewArticle = new EventEmitter();
+  @Output() showSearchForms = new EventEmitter();
+  @Output() eyeClickedArticle = new EventEmitter();
+  @Output() eyeClickedReviewArticle = new EventEmitter();
+  @Output() eyeClickedDraftArticle = new EventEmitter();
+  @Output() eyeClickedPendingArticle = new EventEmitter();
+
   hideArticles: any = true;
   searchForm: any = {};
   results: any = "";
@@ -34,9 +40,13 @@ export class SearchArticleComponent implements OnInit {
   //isCollapsed : boolean = false;
   fromDate: any;
   toDate: any ;
+  Tags:any;
+  
+
   constructor(private articleService: ArticleService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+    
     this.articleService.getSubCategory().subscribe(
       (res: Response) => {
         this.results = res;
@@ -56,6 +66,22 @@ export class SearchArticleComponent implements OnInit {
   }
 
   SearchData(): void {
+
+  this.Tags = this.articleService.getFromSessionStorage("Tags") ;
+  
+  if(this.Tags !=  null)
+  {
+    this.searchForm.articleContent = this.Tags;
+    this.articleService.removeFromSessionStorage("Tags") ;
+    // this.eyeClickedArticle.emit(false);
+    // this.eyeClickedReviewArticle.emit(false);
+    // this.eyeClickedDraftArticle.emit(false);
+    // this.eyeClickedPendingArticle.emit(false);
+    
+  }
+  else{
+//  console.log('failed');
+  }
     this.searchClicked.emit(false);
     this.hideHomeButton=true;
     this.hideAdvancedSerachForm = true;
@@ -163,9 +189,13 @@ export class SearchArticleComponent implements OnInit {
         this.searchResults = res;
         if (this.searchResults.entries.entry != undefined) {
           this.searchData = this.searchResults.entries.entry;
+
+
           this.showSearchForm = true;
           this.showErrorMessage = false;
-          this.hideSearchForm = true;          
+          this.hideSearchForm = true;  
+
+          //this.eyeClickedArticle.emit(false);      
           //this.searchForm.Category = null;
         } else {
           this.showSearchForm = false;

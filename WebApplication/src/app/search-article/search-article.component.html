@@ -18,14 +18,15 @@
             </div>
              <div class="col-md-3">
               <div>
-                <button type="button" class="btn btn-primary" style="float:right" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
                   aria-controls="collapseSearch">Advanced Search 
-                  <i class="fa fa-arrow-down"></i>
+                  <span class="fa fa-angle-down"></span>
+                  <!--<i class="fa fa-arrow-down"></i>-->
                 </button>
               </div>   
             </div>
                   <div>
-                  <button class="btn btn-primary " *ngIf="hideHomeButton" (click)="showArticles()"><span class="fa fa-reply" ></span></button>
+                  <button class="btn btn-primary " *ngIf="hideHomeButton" (click)="showArticles()"><span class="fa fa-reply"></span></button>
                 </div>
 
             </div>
@@ -60,20 +61,20 @@
                 </select>
               </div>
             </div>
-            <div  class="col-md-5">
+            <div  class="col-md-5" style="padding-right:0px">
               <div class="form-group">
                 <label>From</label>
                 <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="fromDate" ngbDatepicker #d="ngbDatepicker" #c1="ngModel">
-                <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <button class="btn btn-outline-secondary" style="padding:1px" (click)="d.toggle()" type="button">
           <span class="fa fa-calendar" style="vertical-align: middle"></span>
         </button>
               </div>
             </div>
-            <div  class="col-md-5">
+            <div  class="col-md-5" style="padding-left:5px;padding-right:0px">
               <div class="form-group">
                 <label>To</label>
                 <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker" #c2="ngModel">
-                <button class="btn btn-outline-secondary" (click)="d2.toggle()" type="button">
+                <button class="btn btn-outline-secondary" style="padding:1px" (click)="d2.toggle()" type="button">
           <span class="fa fa-calendar" style="vertical-align: middle"></span>
         </button>
               </div>

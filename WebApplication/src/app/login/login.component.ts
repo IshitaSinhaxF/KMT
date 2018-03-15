@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
       
     this.articleService.saveInSessionStorage("Roles", userDetails);
     this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
-    this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName);
+    //this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName);
+    this.articleService.saveInSessionStorage("UserName", userDetails[0].userLastName);
    
   }
   ngOnInit() {      
