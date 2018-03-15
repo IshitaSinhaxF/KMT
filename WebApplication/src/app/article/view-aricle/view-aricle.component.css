@@ -209,6 +209,11 @@
  color:  #e67e22;
 
 }
+.validationError
+{
+	font-weight:bold;
+	color:red;
+}
 
 .glyphicon-star-empty:before{
     

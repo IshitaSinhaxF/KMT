@@ -2,18 +2,16 @@
        
           <div class="row">
             <div class="col-md-4 col-lg-12 container">
-              <div class="panel-group" id="accordion3">
+              <div class="panel-group" >
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#popularTags">
-                        Most Popular Tags
-                      </a>
+                    <h4 class="panel-title">                      
+                        Most Popular Tags                      
                     </h4>
                   </div>
                   <div id="popularTags" class="panel-collapse collapse in">
                     <div  *ngFor= "let d of data">    
-                       <a href="#" class="badge badge-secondary">{{d.articleTag}}</a>                      
+                       <a class="badge badge-secondary" (click)="takeToSearch(d.articleTag)">{{d.articleTag}}</a>                      
                     </div>
                   </div>
                 </div>
