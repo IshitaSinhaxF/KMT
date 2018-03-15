@@ -163,8 +163,8 @@ _**--------------------------------------------------- End of Technical Approach
 
 # Explicit Reference Requirements:
 
-| Requirement  | Our approach |
-| :------------- | :------------- |
+| Requirement           | Our approach |
+| :------------------------ | :------------- |
 | a. Assign one team leader | Sanjib Nayak was designated to lead our team as the Product Manager and was accountable and responsible for the quality of our working prototype  |
 | b. Assembled a multidisciplinary and collaborative team  | We assembled a [multidisciplinary team](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Roles%20and%20Responsibilities.pdf) of twelve experienced professionals from fifteen of the labor categories identified in the RFI  |
 | c. Understood what people needed | We followed a [user-centric approach](https://github.com/xFusionTech/KMT/wiki/User-Centric-Design) to the design and development of our prototype. We engaged users early in the process through the use of interviews and surveys. Upon conducting interviews we created [User Personas](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/User%20Personas.pdf) for the various [User Roles](https://github.com/xFusionTech/KMT/wiki/User-Roles-and-User-Stories). Then we created wireframes which provided us a quick, visual way to communicate to developers the desired prototype look and feel so development could begin once the PM approved the initial stories.  |
