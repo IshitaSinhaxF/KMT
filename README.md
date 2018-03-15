@@ -185,3 +185,8 @@ _**--------------------------------------------------- End of Technical Approach
 | r. Deployed their software in an open source container, such as Docker (i.e., utilized operating-system-level virtualization)            | ---  |
 | s. Provided sufficient documentation to install and run their prototype on another machine                      | ---  |
 | t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | ---  |
+
+
+# US Digital Services Playbook:
+
+Our team followed the US Digital Services Playbook, covering each of the 13 plays.  We have provided [evidence of how each play was followed]().
