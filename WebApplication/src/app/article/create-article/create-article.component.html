@@ -83,9 +83,9 @@
       
 
         <!-- <button class="button" (click)="createArticleInputTag('')">Add</button> -->
-         <a (click)="createArticleInputTag('')">
+         <!--<a (click)="createArticleInputTag('')">
           <span id="addIcon" class="fa fa-plus-circle fa-2x myIcon" aria-hidden="true" title="Add Article"></span>
-        </a> 
+        </a> -->
         <div class="row">
         <div class="form-group">
           <div>
@@ -123,7 +123,7 @@
 
 <div class="col-md-4" style="float:right">
       <div class="form-group" id="buttons">
-         <button class="btn btn-lg" (click)='insertArticleData()' [disabled]="!p.valid" > Save </button>
+         <button class="btn btn-lg" style="float:right" (click)='insertArticleData()' [disabled]="!p.valid" > Save </button>
         <!--<input type="submit" class="btn" value="Save" (click)="insertArticleData()" />-->
       </div>
   </div> 
