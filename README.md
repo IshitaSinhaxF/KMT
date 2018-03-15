@@ -11,7 +11,7 @@ In addition, we have documented our approach, process, tools and technologies in
 The diagram below represents the User Roles, Permissions, Business Process Workflow and the key User Stories implemented in the Working Prototype.
 
 <p align="center">
-  <img width="720" height="360" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Business%20Process%20Workflow.png">
+  <img width="840" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Business%20Process%20Workflow.png">
 </p>
 
 Below are the key URLs for the working Prototype:
