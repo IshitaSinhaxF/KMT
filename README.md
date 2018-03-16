@@ -25,6 +25,15 @@ Below are the key URLs for the working Prototype:
 | **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
 
 
+All business and administrative email notifications are sent to the email id, kmtadmin@xfusiontech.com  : 
+
+The email box can be accessed through the following URL:
+
+Email URL: https://apps.rackspace.com/a/index.php?version=full
+Email: kmtadmin@xfusiontech.com
+Password: kmtadmin2018# 
+
+
 # Our Approach
 
 ## Sprint Zero - Planning Effort:
