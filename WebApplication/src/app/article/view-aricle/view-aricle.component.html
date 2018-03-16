@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-12 author" *ngIf="articleDetailsData?.articlePath">
       <b>Attachments</b>&nbsp;
-      <a target="_blank" href={{articleDetailsData.articlePath}}> {{articleDetailsData.articlePath}} </a>
+      <a target="_blank" href=https://s3.us-west-1.amazonaws.com/kmtweb/{{articleDetailsData.articlePath}}> {{articleDetailsData.articlePath}} </a>
     </div>
     <div class="col-md-10 author" *ngIf="articleDetailsData?.articleContent">{{articleDetailsData.articleContent}}</div>    
     <form #f="ngForm" >
