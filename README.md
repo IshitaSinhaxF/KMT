@@ -29,9 +29,9 @@ All business and administrative email notifications are sent to the email id, km
 
 The email box can be accessed through the following URL:
 
-Email URL: https://apps.rackspace.com/a/index.php?version=full
-Email: kmtadmin@xfusiontech.com
-Password: kmtadmin2018# 
+**Email URL**: https://apps.rackspace.com/a/index.php?version=full <br>
+**Email id**: kmtadmin@xfusiontech.com <br>
+**Password**: kmtadmin2018# 
 
 
 # Our Approach
