@@ -52,7 +52,7 @@ The result of our efforts is a collaboratively designed and built Working Protot
 
 ## Agile Process:
 
-Our agile process followed various iterations of the stages discussed below:
+We used the following Scrum events during the implementation of the Working Prototype:
 
 **Release Planning** - Our team created the backlogs(user stories and tasks) in our JIRA environment and a high-level prioritisation of the backlogs was performed during the planning phase. As part of the release planning, our team worked collaboratively to establish the release plan that includes high-level scoping for each of remaining four sprints.
 
