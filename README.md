@@ -128,15 +128,15 @@ The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusio
 
 ### Development Environment
 
-Agile Development effort employed user-centric design techniques, a sprint based development work-flow and open-source technologies to design and build our Knowledge Management Portal, our implementation of Working Prototype. Developers will connect to GitHub source code repository and work on the individual stories in their local environment. Before checking in, developers issued a pull request and review the code and merged into a source repository.
+Developers used their local environment for development and unit testing where from they connected to GitHub source code repository and work on the individual stories/tasks. Before checking in, developers issued a pull request and reviewed the code and merged into the GitHub source code repository.
 
 ### Test Environment
 
-Jenkins retrieved the code from GitHub, built the application, and executed unit tests.  If all unit tests passed, Docker created a distribution image and uploaded it into a docker hub. We employed a moderated CD approach to the test environment nightly to avoid interfering with ongoing functional testing.
+We used our data centre environment host by Open Group on the public cloud as Test environment. The Continuous Integration and Continuous Deployment (CI/CD) job implemented using [Jenkins](http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F) retrieves the source code from GitHub, builds the application, and executes unit tests.  If all the unit tests are passed, Docker creates a distribution image and uploads it into a Docker Hub. The CI/CD job was scheduled nightly for the Test environment to avoid interfering with ongoing functional testing.
 
 ### Production Environment
 
-Once Jenkins job successfully created a distribution image then it will automatically deployed it into production.  
+The production environment Once Jenkins job is successfully created, a distribution image then it will automatically deploy it into production.  
 
 ### Source Code Repository
 
