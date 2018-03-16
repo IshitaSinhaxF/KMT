@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   onLoginClick() {
 
-    if(this.selectedUser != undefined )
+    if(this.selectedUser != undefined && this.selectedUser != 0 && this.selectedUser != "select user" )
     {
 
     console.log(this.selectedUser);

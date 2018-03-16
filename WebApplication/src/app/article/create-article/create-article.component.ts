@@ -14,14 +14,14 @@ export class CreateArticleComponent implements OnInit {
   data: any = '';
   subData: any = '';
   result: any = '';
-  article_title: any = '';
-  article_desc: any = '';
-  article_path: any = '';
-  article_content: any = '';
+  article_title: any;
+  article_desc: any;
+  article_path: any;
+  article_content: any;
   categoryName: any = '';
   SubCategoryName: any = '';
   categoryID: any = '';
-  userName: any = "";
+  userName: any ;
   roles: any = "";
   user_id: any = +this.articleService.getFromSessionStorage('UserId');
   username: any = this.articleService.getFromSessionStorage('UserName');
@@ -37,6 +37,9 @@ export class CreateArticleComponent implements OnInit {
   articleTagResult: string;
   artFileParam: any;
   artTagParam: any;
+  validationError: boolean = false;
+  artDescParam : any;
+  artContent : any;
 
   constructor(private articleService: ArticleService, private router: Router) {   }
 
@@ -81,6 +84,15 @@ export class CreateArticleComponent implements OnInit {
 
   insertArticleData() {
 
+    console.log(this.article_title);
+
+    if(this.article_title == undefined || this.SubCategoryName == ''|| this.article_title.trim() == "")
+    {
+       this.validationError = true;
+    }
+    else
+    {
+
     //console.log(this.username);
 
     this.categoryID = this.data.categoryID;
@@ -92,12 +104,22 @@ export class CreateArticleComponent implements OnInit {
     this.artFileParam = null;
     
 
-     if(this.articleTagResult != undefined)
+    if(this.articleTagResult != undefined)
     this.artTagParam = this.articleTagResult;
     else
     this.artTagParam = null;
 
+    if(this.article_desc != undefined)
+    this.artDescParam = this.article_desc;
+    else
+    this.artDescParam = null;
 
+    if(this.article_content != undefined)
+    this.artContent = this.article_content;
+    else
+    this.artContent = null;
+
+    
      //console.log(this.fileName);
      //console.log(this.articleTagResult);
      //console.log(this.article_content);
@@ -105,10 +127,12 @@ export class CreateArticleComponent implements OnInit {
     let dataObj = {
       '_postinsertarticle': {
         'article_title': this.article_title,
-        'article_desc': this.article_desc,
+        'article_desc': this.artDescParam,
+        //'article_desc': this.article_desc,
         //'article_path': this.fileName,
         'article_path':this.artFileParam,
-        'article_content': this.article_content,
+        //'article_content': this.article_content,
+        'article_content': this.artContent,
         'user_id': this.user_id,
         'categoryid': subCategoryId,
         'article_tag': this.artTagParam,
@@ -126,7 +150,8 @@ export class CreateArticleComponent implements OnInit {
         alert(err);
       }
       );
-    this.articleService.sendEmail('Knowledge Article Inserted', 'Dear user, The Knowedge article has been inserted successfully. You can review your article in Draft for any changes and submit for approval.');
+    this.articleService.sendEmail('Knowledge Article Inserted', 'Dear User, The Knowedge article has been inserted successfully. You can review your article in Draft for any changes and submit for approval.');
+  }
   }
 
   public createArticleInputTag(TagName: string) {

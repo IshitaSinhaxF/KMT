@@ -26,18 +26,52 @@
       <p>
         <b>Article Tags</b>&nbsp;{{articleDetailsinDraftData.articleTag}}</p>
     </div>
-    <div class="col-md-11 author">
-      <b>Summary</b>&nbsp;
-      <textarea name="articleDesc" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="2" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
-    </div>
     <div class="col-md-12 author" *ngIf="articleDetailsinDraftData?.articlePath">
-      <b>Attachments</b>&nbsp;
-      <a target="_blank" href="https://kmtweb.s3.us-west-1.amazonaws.com/{{articleDetailsinDraftData.articlePath}}"> {{articleDetailsinDraftData.articlePath}} </a>
+      <p><b>Attachments</b>&nbsp;
+        <a target="_blank" href="https://kmtweb.s3.us-west-1.amazonaws.com/{{articleDetailsinDraftData.articlePath}}"> {{articleDetailsinDraftData.articlePath}} </a>
+      </p>
     </div>
-    <div class="col-md-11 author" *ngIf="articleDetailsinDraftData?.articleContent">
-      <b>Content</b>&nbsp;
-      <textarea name="articleContent" style="width: 100%; height: 50px; border:solid 1px lightgrey" rows="7" data-role="collapsible"
-        [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
+    <!--<div class="col-md-11 author" *ngIf="articleDetailsinDraftData?.articleDesc">-->
+    <div class="col-md-12 author">
+
+      <b>Summary</b>
+    </div>
+
+    <div class="col-md-12 author">
+      <p>
+
+        <!--{{articleDetailsinDraftData.articleDesc}}-->
+        <textarea name="articleDesc" style=" width: 100%; height: 50px; border:solid 1px lightgrey" rows="2" [(ngModel)]="articleDetailsinDraftData.articleDesc"></textarea>
+      </p>
+    </div>
+    <!--<div class="col-md-11 author" *ngIf="articleDetailsinDraftData.articleDesc == undefined">          
+          <textarea placeholder="Summary" name="articleDesc" type="text" class="form-control" style="width:100%"
+            rows="2" [(ngModel)]="article_desc"></textarea>
+    </div>      -->
+    <div class="col-md-12 author">
+
+      <b>Content</b>
+    </div>
+
+    <div class="col-md-12 author">
+      <p>
+
+        <textarea name="articleContent" style="width: 100%; border:solid 1px lightgrey" rows="7" data-role="collapsible" [(ngModel)]="articleDetailsinDraftData.articleContent"></textarea>
+      </p>
+      <!--<app-ngx-editor minHeight="200px" height="100%" width="100%" [spellcheck]="true" [(ngModel)]="articleDetailsinDraftData.articleContent"
+         id="texteditor"></app-ngx-editor>-->
+    </div>
+    <div class="col-md-6 author form-inline" *ngIf="articleDetailsinDraftData.articlePath == null">
+      <div class="form-group">
+        <label for="uploadFile">Attachments </label>
+        <div id="igUpload1"></div>
+        <!-- <a  (change)="uploadFile($event)">
+              <span  class="fa fa-upload fa-2x" aria-hidden="true" title="Upload File"></span>
+          </a> -->
+        <input id="uploadBtn0" type="file" name="file" class="upload" (change)="uploadFile($event)" />
+        <label for="uploadFile" *ngIf="uploadStatus == 'true'">File Uploaded successfully</label>
+        <label for="uploadFile" *ngIf="uploadStatus == 'false'">Error uploading File</label>
+      </div>
     </div>
     <div class="col-md-9 author" id="buttons">
       <!--<input type="button" class="btn btn-primary btn-lg" id="backbutton" value="Back" (click)="onbackToHome()" />-->

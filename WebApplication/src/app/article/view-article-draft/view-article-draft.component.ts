@@ -16,6 +16,11 @@ export class ViewArticleDraftComponent implements OnInit {
   articleDetailsinDraftData: any;
   subCatData: any;
   categoryID: number;
+  files: any;
+  fileName: any;
+  artFileParam:any;
+  uploadStatus: any;
+  fileSuccessMessage: string;
 
   constructor(private articleService: ArticleService, private router: Router) { }
 
@@ -67,13 +72,27 @@ export class ViewArticleDraftComponent implements OnInit {
   SaveArticleChanges() {
 
     this.categoryID = this.articleDetailsinDraftData.categoryID;
+    if(this.articleDetailsinDraftData.articlePath == undefined)
+    {
+      if(this.fileName != undefined)
+      this.artFileParam = this.fileName
+      else 
+      this.artFileParam = null
+    }
+    else
+    {
+      this.artFileParam = this.articleDetailsinDraftData.articlePath
+    }
+
+
 
     let modifiedArticle = {
       '_postupdatearticle': {
         'article_id': +this.articleDetailsinDraftData.articleID,
         'article_title': this.articleDetailsinDraftData.articleTitle,
         'article_desc': this.articleDetailsinDraftData.articleDesc,
-        'article_path': this.articleDetailsinDraftData.articlePath,
+        //'article_path': this.articleDetailsinDraftData.articlePath,
+         'article_path': this.artFileParam,
         'article_content': this.articleDetailsinDraftData.articleContent,
         'user_id': +this.userID,
         'categoryid': +this.categoryID,
@@ -91,6 +110,18 @@ export class ViewArticleDraftComponent implements OnInit {
         alert(err);
       }
       );      
+  }
+
+    uploadFile(event) {
+    this.files = event.target.files;
+    this.fileName = this.files[0].name;
+    //console.log(this.fileName);
+    this.uploadStatus = this.articleService.uploadFile(this.files[0]);
+    if (this.uploadStatus == 'true') {
+      this.fileSuccessMessage = 'File uploaded successfully';
+    }
+    else
+      this.fileSuccessMessage = 'Error occured while upload file';
   }
 
 }

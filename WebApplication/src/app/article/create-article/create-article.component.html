@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="row">
-    <span class="validationError">All fields are mandatory</span>
+    <span *ngIf="validationError===true" class="validationError">Article category, sub-category and title mandatory</span>
     <div class="row">
         <br/>
       </div>

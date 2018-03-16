@@ -16,6 +16,7 @@
         
         <label>Username</label>        
          <select name="loginUser" class="dropdown" style="padding:5px 5px 5px 5px; border-radius:4px"  placeholder="select user" [(ngModel)]="selectedUser">                  
+            <option value="0" selected>select user</option>
             <option [(ngValue)]="a.userID" *ngFor="let a of usersDropdown">{{a.UserName}}</option>
          </select>
                 <!--<input id="loginbox_username" maxlength="64" size="10" type="text" name="username" value="" class="text username" [(ngModel)] = "userFirstName" #name="ngModel" />-->       
@@ -27,7 +28,7 @@
             </label> &nbsp;&nbsp;
                 <input type="submit" name="login" value="Login" class="btn btn-primary" (click)="onLoginClick()" />           
             <input type="hidden" name="islogin" value="1" />            
-              <span *ngIf="loginError == true" class="validationError"> username required </span>
+              <span *ngIf="loginError == true" class="validationError"> username and password required </span>
     </div>    
 </section>
 <section class="row">
