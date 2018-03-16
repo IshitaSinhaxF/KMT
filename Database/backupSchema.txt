@@ -1,0 +1,772 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.2
+-- Dumped by pg_dump version 10.2
+
+-- Started on 2018-03-12 10:58:44
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12924)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2897 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 227 (class 1255 OID 18092)
+-- Name: sp_deletearticle(integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_deletearticle(articleid integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+
+	
+    BEGIN
+	  Delete from "articleFeedback" where "articleID" = articleId ;
+      Delete from "articleActionHistory" where "articleID" = articleId ;
+	  Delete from "Article" where "articleID" = articleId ;	
+    END;
+    
+
+$$;
+
+
+ALTER FUNCTION public.sp_deletearticle(articleid integer) OWNER TO postgres;
+
+--
+-- TOC entry 235 (class 1255 OID 18023)
+-- Name: sp_insertarticle(character varying, character varying, character varying, text, integer, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_insertarticle(article_title character varying, article_desc character varying, article_path character varying, article_content text, user_id integer, categoryid integer, article_tag character varying, username character varying) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+
+	DECLARE resultID integer;
+    BEGIN
+      INSERT INTO public."Article"
+	  ("articleTitle", "articleDesc", "articlePath", "articleContent", "dateCreated", "dateModified", "createdBy", "modifiedBy", "categoryID", "articleTag","articleCurrentStateID")
+     VALUES (article_Title,article_Desc,article_Path,article_Content,current_timestamp,current_timestamp,userName,userName,categoryID,article_tag,(SELECT artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"='DRAFT'));
+	 
+	 Select lastval() into resultID;
+		 
+	 INSERT INTO public."articleActionHistory"
+	 ("userID", "createdDate", "modifiedDate", "createdBy", "modifiedBy", "articleID", "ArticleStateID","articleApproverID")
+   VALUES (user_ID,current_timestamp,current_timestamp,userName,userName,resultID,(SELECT artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"='DRAFT'),(select "approverID" from "userRole" where "userID" = user_ID));	 
+			
+    END;
+    
+$$;
+
+
+ALTER FUNCTION public.sp_insertarticle(article_title character varying, article_desc character varying, article_path character varying, article_content text, user_id integer, categoryid integer, article_tag character varying, username character varying) OWNER TO postgres;
+
+--
+-- TOC entry 229 (class 1255 OID 18079)
+-- Name: sp_insertarticlefeedback(integer, character varying, integer, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_insertarticlefeedback(rating integer, article_comment character varying, article_id integer, username character varying) RETURNS void
+    LANGUAGE plpgsql
+    AS $$	
+    BEGIN
+      
+	  INSERT INTO public."articleFeedback"
+	  ("rating", "comment", "dateCreated", "dateModified", "createdBy", "modifiedBy", "articleID")
+     VALUES(rating,article_comment,current_timestamp,current_timestamp,userName,userName,article_id);
+	 
+	 END;
+    
+$$;
+
+
+ALTER FUNCTION public.sp_insertarticlefeedback(rating integer, article_comment character varying, article_id integer, username character varying) OWNER TO postgres;
+
+--
+-- TOC entry 234 (class 1255 OID 18083)
+-- Name: sp_insertarticlefeedback(integer, character varying, integer, character varying, integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_insertarticlefeedback(rating integer, article_comment character varying, article_id integer, username character varying, user_id integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+
+	
+    BEGIN
+      
+	  INSERT INTO public."articleFeedback"
+	  ("rating", "comment", "dateCreated", "dateModified", "createdBy", "modifiedBy", "articleID","userID")
+     VALUES(rating,article_comment,current_timestamp,current_timestamp,userName,userName,article_id,user_id);
+	 
+	 END;
+    
+
+$$;
+
+
+ALTER FUNCTION public.sp_insertarticlefeedback(rating integer, article_comment character varying, article_id integer, username character varying, user_id integer) OWNER TO postgres;
+
+--
+-- TOC entry 231 (class 1255 OID 18082)
+-- Name: sp_insertviewcounts(integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_insertviewcounts(article_views_id integer, article_id integer, view_counts integer) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+    BEGIN
+      
+	  INSERT INTO public."articleViews"
+	  ("articleViewsID", "articleID", "viewCounts")
+     VALUES(article_views_id,article_id,view_counts);
+	 
+	 END;
+$$;
+
+
+ALTER FUNCTION public.sp_insertviewcounts(article_views_id integer, article_id integer, view_counts integer) OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1255 OID 18076)
+-- Name: sp_updatearticle(integer, character varying, character varying, character varying, text, integer, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_updatearticle(article_id integer, article_title character varying, article_desc character varying, article_path character varying, article_content text, user_id integer, categoryid integer, article_tag character varying, username character varying) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+
+    BEGIN
+	
+      UPDATE public."Article"
+	  set "articleTitle" = article_Title,
+	  "articleDesc" = article_Desc, 
+	  "articlePath" = article_Path, 
+	  "articleContent" = article_Content, 
+	  "dateModified" = current_timestamp, 
+	  "modifiedBy" = username, 
+	  "categoryID" = categoryID, 
+	  "articleTag" = article_tag
+      WHERE "articleID" = article_id	;
+	  
+    END;
+    
+$$;
+
+
+ALTER FUNCTION public.sp_updatearticle(article_id integer, article_title character varying, article_desc character varying, article_path character varying, article_content text, user_id integer, categoryid integer, article_tag character varying, username character varying) OWNER TO postgres;
+
+--
+-- TOC entry 228 (class 1255 OID 18067)
+-- Name: sp_updatearticlestate(integer, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_updatearticlestate(article_id integer, user_id integer, article_state character varying, username character varying) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+
+    BEGIN      
+	 UPDATE public."Article"
+	 SET "articleCurrentStateID" = (SELECT artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"=article_state) 
+	 WHEre "articleID" = article_Id;
+	 		 
+	 INSERT INTO public."articleActionHistory"
+	 ("userID", "createdDate", "modifiedDate", "createdBy", "modifiedBy", "articleID", "ArticleStateID","articleApproverID")
+	VALUES (user_ID, current_timestamp, current_timestamp, userName, userName, article_Id, (select artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"=article_state),
+			(select "approverID" from public."userRole" where "userID" = user_id limit 1));
+	
+    END;
+    
+
+$$;
+
+
+ALTER FUNCTION public.sp_updatearticlestate(article_id integer, user_id integer, article_state character varying, username character varying) OWNER TO postgres;
+
+--
+-- TOC entry 233 (class 1255 OID 18095)
+-- Name: sp_updatearticlestatetopublished(integer, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION sp_updatearticlestatetopublished(article_id integer, user_id integer, article_state character varying, username character varying) RETURNS void
+    LANGUAGE plpgsql
+    AS $$   		
+    BEGIN      
+	 UPDATE public."Article"
+	 SET "articleCurrentStateID" = (SELECT artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"=article_state) 
+	 WHEre "articleID" = article_Id;
+	 		 	
+	
+	 INSERT INTO public."articleActionHistory"
+	 ("userID", "createdDate", "modifiedDate", "createdBy", "modifiedBy", "articleID", "ArticleStateID","articleApproverID")
+	VALUES ((select "userID" from public."articleActionHistory" where "articleID" = article_id), current_timestamp, current_timestamp, userName, userName, article_Id, (select artSt."lkpArticleStateID" from public."LKP_ArticleState" artSt where artSt."StateName"=article_state),user_ID);
+	
+    END;
+    
+
+$$;
+
+
+ALTER FUNCTION public.sp_updatearticlestatetopublished(article_id integer, user_id integer, article_state character varying, username character varying) OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 209 (class 1259 OID 17835)
+-- Name: Article; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "Article" (
+    "articleID" integer NOT NULL,
+    "articleTitle" character varying(100) NOT NULL,
+    "articleDesc" character varying(300),
+    "articlePath" character varying(500),
+    "articleContent" text,
+    "dateCreated" date,
+    "dateModified" character varying(50),
+    "createdBy" character varying(50),
+    "modifiedBy" character varying(50),
+    "categoryID" integer,
+    "articleTag" character varying(500),
+    "articleCurrentStateID" integer
+);
+
+
+ALTER TABLE "Article" OWNER TO postgres;
+
+--
+-- TOC entry 208 (class 1259 OID 17833)
+-- Name: Article_articleID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "Article" ALTER COLUMN "articleID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "Article_articleID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 213 (class 1259 OID 17967)
+-- Name: LKP_ArticleAction; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "LKP_ArticleAction" (
+    "lkpArticleActionID" integer NOT NULL,
+    "lkpStateID" integer,
+    "lkpRoleID" integer,
+    action character varying(50)
+);
+
+
+ALTER TABLE "LKP_ArticleAction" OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 17965)
+-- Name: LKP_ArticleAction_lkpArticleActionID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "LKP_ArticleAction" ALTER COLUMN "lkpArticleActionID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "LKP_ArticleAction_lkpArticleActionID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 211 (class 1259 OID 17926)
+-- Name: LKP_ArticleState; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "LKP_ArticleState" (
+    "lkpArticleStateID" integer NOT NULL,
+    "StateName" character varying(50) NOT NULL,
+    "StateDesc" character varying(50)
+);
+
+
+ALTER TABLE "LKP_ArticleState" OWNER TO postgres;
+
+--
+-- TOC entry 210 (class 1259 OID 17924)
+-- Name: LKP_ArticleState_lkpArticleStateID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "LKP_ArticleState" ALTER COLUMN "lkpArticleStateID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "LKP_ArticleState_lkpArticleStateID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 216 (class 1259 OID 17987)
+-- Name: LKP_Category; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "LKP_Category" (
+    "categoryID" integer NOT NULL,
+    "categoryName" character varying(50) NOT NULL,
+    "categoryDesc" character varying(50),
+    "parentCategoryID" integer
+);
+
+
+ALTER TABLE "LKP_Category" OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 17985)
+-- Name: LKP_Category_categoryID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "LKP_Category" ALTER COLUMN "categoryID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "LKP_Category_categoryID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 201 (class 1259 OID 17793)
+-- Name: LKP_Role; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "LKP_Role" (
+    "lkpRoleID" integer NOT NULL,
+    "roleName" character varying(50) NOT NULL,
+    "roleDesc" character varying(50)
+);
+
+
+ALTER TABLE "LKP_Role" OWNER TO postgres;
+
+--
+-- TOC entry 200 (class 1259 OID 17791)
+-- Name: LKP_Role_lkpRoleID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "LKP_Role" ALTER COLUMN "lkpRoleID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "LKP_Role_lkpRoleID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 199 (class 1259 OID 17786)
+-- Name: User; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "User" (
+    "userID" integer NOT NULL,
+    "userFirstName" character varying(100),
+    "userLastName" character varying(100),
+    "userMiddleName" character varying(50)
+);
+
+
+ALTER TABLE "User" OWNER TO postgres;
+
+--
+-- TOC entry 198 (class 1259 OID 17784)
+-- Name: User_userID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "User" ALTER COLUMN "userID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "User_userID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 207 (class 1259 OID 17828)
+-- Name: articleActionHistory; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "articleActionHistory" (
+    "articleActionHistoryID" integer NOT NULL,
+    "userID" integer NOT NULL,
+    "createdDate" date NOT NULL,
+    "modifiedDate" date NOT NULL,
+    "createdBy" character varying(50),
+    "modifiedBy" character varying(50),
+    "articleID" integer,
+    "ArticleStateID" integer NOT NULL,
+    "articleApproverID" integer
+);
+
+
+ALTER TABLE "articleActionHistory" OWNER TO postgres;
+
+--
+-- TOC entry 206 (class 1259 OID 17826)
+-- Name: articleActionHistory_articleActionHistoryID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "articleActionHistory" ALTER COLUMN "articleActionHistoryID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "articleActionHistory_articleActionHistoryID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 205 (class 1259 OID 17821)
+-- Name: articleFeedback; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "articleFeedback" (
+    "articleFeedbackID" integer NOT NULL,
+    rating integer,
+    comment text,
+    "dateCreated" date NOT NULL,
+    "dateModified" date NOT NULL,
+    "createdBy" character varying(50) NOT NULL,
+    "modifiedBy" character varying(50) NOT NULL,
+    "articleID" integer,
+    "userID" integer
+);
+
+
+ALTER TABLE "articleFeedback" OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 17819)
+-- Name: articleFeedback_articleFeedbackID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "articleFeedback" ALTER COLUMN "articleFeedbackID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "articleFeedback_articleFeedbackID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 203 (class 1259 OID 17814)
+-- Name: articleViews; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "articleViews" (
+    "articleViewsID" integer NOT NULL,
+    "articleID" integer,
+    "viewCounts" integer
+);
+
+
+ALTER TABLE "articleViews" OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 17812)
+-- Name: articleViews_articleViewsID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "articleViews" ALTER COLUMN "articleViewsID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "articleViews_articleViewsID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 214 (class 1259 OID 17982)
+-- Name: categories; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE categories (
+    "categoryID" integer,
+    "categoryName" character varying(50),
+    "categoryDesc" character varying(50),
+    "parentCategoryID" character varying(50)
+);
+
+
+ALTER TABLE categories OWNER TO postgres;
+
+--
+-- TOC entry 197 (class 1259 OID 17779)
+-- Name: userRole; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE "userRole" (
+    "userRoleID" integer NOT NULL,
+    "userID" integer NOT NULL,
+    "lkpRoleID" integer,
+    "approverID" integer
+);
+
+
+ALTER TABLE "userRole" OWNER TO postgres;
+
+--
+-- TOC entry 196 (class 1259 OID 17777)
+-- Name: userRole_userRoleID_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE "userRole" ALTER COLUMN "userRoleID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME "userRole_userRoleID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 2751 (class 2606 OID 17839)
+-- Name: Article Article_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Article"
+    ADD CONSTRAINT "Article_pkey" PRIMARY KEY ("articleID");
+
+
+--
+-- TOC entry 2755 (class 2606 OID 17971)
+-- Name: LKP_ArticleAction LKP_ArticleAction_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_ArticleAction"
+    ADD CONSTRAINT "LKP_ArticleAction_pkey" PRIMARY KEY ("lkpArticleActionID");
+
+
+--
+-- TOC entry 2753 (class 2606 OID 17930)
+-- Name: LKP_ArticleState LKP_ArticleState_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_ArticleState"
+    ADD CONSTRAINT "LKP_ArticleState_pkey" PRIMARY KEY ("lkpArticleStateID");
+
+
+--
+-- TOC entry 2757 (class 2606 OID 17991)
+-- Name: LKP_Category LKP_Category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_Category"
+    ADD CONSTRAINT "LKP_Category_pkey" PRIMARY KEY ("categoryID");
+
+
+--
+-- TOC entry 2743 (class 2606 OID 17797)
+-- Name: LKP_Role LKP_Role_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_Role"
+    ADD CONSTRAINT "LKP_Role_pkey" PRIMARY KEY ("lkpRoleID");
+
+
+--
+-- TOC entry 2741 (class 2606 OID 17790)
+-- Name: User User_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "User"
+    ADD CONSTRAINT "User_pkey" PRIMARY KEY ("userID");
+
+
+--
+-- TOC entry 2749 (class 2606 OID 17832)
+-- Name: articleActionHistory articleActionHistory_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleActionHistory"
+    ADD CONSTRAINT "articleActionHistory_pkey" PRIMARY KEY ("articleActionHistoryID");
+
+
+--
+-- TOC entry 2747 (class 2606 OID 17825)
+-- Name: articleFeedback articleFeedback_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleFeedback"
+    ADD CONSTRAINT "articleFeedback_pkey" PRIMARY KEY ("articleFeedbackID");
+
+
+--
+-- TOC entry 2745 (class 2606 OID 17818)
+-- Name: articleViews articleViews_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleViews"
+    ADD CONSTRAINT "articleViews_pkey" PRIMARY KEY ("articleViewsID");
+
+
+--
+-- TOC entry 2739 (class 2606 OID 17783)
+-- Name: userRole userRole_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "userRole"
+    ADD CONSTRAINT "userRole_pkey" PRIMARY KEY ("userRoleID");
+
+
+--
+-- TOC entry 2766 (class 2606 OID 18007)
+-- Name: Article FK_Article_LKP_Category; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Article"
+    ADD CONSTRAINT "FK_Article_LKP_Category" FOREIGN KEY ("categoryID") REFERENCES "LKP_Category"("categoryID");
+
+
+--
+-- TOC entry 2767 (class 2606 OID 18034)
+-- Name: Article FK_Article_LKP_StateID; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "Article"
+    ADD CONSTRAINT "FK_Article_LKP_StateID" FOREIGN KEY ("articleCurrentStateID") REFERENCES "LKP_ArticleState"("lkpArticleStateID") ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- TOC entry 2769 (class 2606 OID 17977)
+-- Name: LKP_ArticleAction FK_LKP_articleAction_LKP_ArticleState; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_ArticleAction"
+    ADD CONSTRAINT "FK_LKP_articleAction_LKP_ArticleState" FOREIGN KEY ("lkpStateID") REFERENCES "LKP_ArticleState"("lkpArticleStateID");
+
+
+--
+-- TOC entry 2768 (class 2606 OID 17972)
+-- Name: LKP_ArticleAction FK_LKP_articleAction_LKP_Role; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "LKP_ArticleAction"
+    ADD CONSTRAINT "FK_LKP_articleAction_LKP_Role" FOREIGN KEY ("lkpRoleID") REFERENCES "LKP_Role"("lkpRoleID");
+
+
+--
+-- TOC entry 2764 (class 2606 OID 17905)
+-- Name: articleActionHistory FK_articleActionHistory_Article; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleActionHistory"
+    ADD CONSTRAINT "FK_articleActionHistory_Article" FOREIGN KEY ("articleID") REFERENCES "Article"("articleID") ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- TOC entry 2765 (class 2606 OID 18068)
+-- Name: articleActionHistory FK_articleActionHistory_articleApproverID; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleActionHistory"
+    ADD CONSTRAINT "FK_articleActionHistory_articleApproverID" FOREIGN KEY ("articleApproverID") REFERENCES "User"("userID");
+
+
+--
+-- TOC entry 2763 (class 2606 OID 17931)
+-- Name: articleActionHistory FK_articleActionHistory_articleState; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleActionHistory"
+    ADD CONSTRAINT "FK_articleActionHistory_articleState" FOREIGN KEY ("ArticleStateID") REFERENCES "LKP_ArticleState"("lkpArticleStateID");
+
+
+--
+-- TOC entry 2762 (class 2606 OID 17900)
+-- Name: articleFeedback FK_articleFeedback_Article; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleFeedback"
+    ADD CONSTRAINT "FK_articleFeedback_Article" FOREIGN KEY ("articleID") REFERENCES "Article"("articleID") ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- TOC entry 2761 (class 2606 OID 18050)
+-- Name: articleViews FK_articleViews_Article; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "articleViews"
+    ADD CONSTRAINT "FK_articleViews_Article" FOREIGN KEY ("articleID") REFERENCES "Article"("articleID");
+
+
+--
+-- TOC entry 2760 (class 2606 OID 17840)
+-- Name: userRole FK_userRole_LKP_Role; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "userRole"
+    ADD CONSTRAINT "FK_userRole_LKP_Role" FOREIGN KEY ("lkpRoleID") REFERENCES "LKP_Role"("lkpRoleID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2759 (class 2606 OID 17885)
+-- Name: userRole FK_userRole_User; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "userRole"
+    ADD CONSTRAINT "FK_userRole_User" FOREIGN KEY ("userID") REFERENCES "User"("userID") ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- TOC entry 2758 (class 2606 OID 17880)
+-- Name: userRole FK_userRole_approverID; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY "userRole"
+    ADD CONSTRAINT "FK_userRole_approverID" FOREIGN KEY ("approverID") REFERENCES "User"("userID") ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+-- Completed on 2018-03-12 10:58:44
+
+--
+-- PostgreSQL database dump complete
+--
+
