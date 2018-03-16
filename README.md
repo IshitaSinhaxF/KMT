@@ -22,7 +22,7 @@ Below are the key URLs for the working Prototype:
 | **GitHub – Source Code Repository** | https://github.com/xFusionTech/KMT | No credential required
 | **Working Prototype Wiki** | https://github.com/xFusionTech/KMT/wiki | No credential required
 | **DockerHub – Docker Image Repository** | https://hub.docker.com/r/xfusiontech/kmtrepo/tags/| No credential required 
-| **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
+| **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | Credentials are not made public
 
 
 All business and administrative email notifications are sent to the email id, kmtadmin@xfusiontech.com  : 
