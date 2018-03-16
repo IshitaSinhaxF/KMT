@@ -264,7 +264,7 @@ getUsers() {
     //return this.http.post('http://8.39.51.27:9763/services/KMTool/DeleteArticle', articleTobeDeleted,{headers});
     //prod
     return this.http.post('http://13.57.242.90:8281/KMTool/v1.0.0/DeleteArticle', articleTobeDeleted,{headers});
-    //dev
+    //dev 
     //return this.http.post('http://8.39.51.27:8281/KMTool/v1.0.0/DeleteArticle', articleTobeDeleted,{headers});
   }
 
