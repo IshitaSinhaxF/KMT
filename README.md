@@ -241,7 +241,7 @@ Our team followed the US Digital Services Playbook, covering each of the 13 play
 | q. Setup or used continuous monitoring                  | Continuous monitoring performed for all instances listed below by AWS cloud watch <br> 1. AWS EC2(2VMs), <br> 2. AWS SES, <br> 3. AWS S3 <br> 4. AWS RDS  |
 | r. Deployed their software in an open source container, such as Docker (i.e., utilized operating-system-level virtualization)            | Used all open-source docker containers |
 | s. Provided sufficient documentation to install and run their prototype on another machine                      | Created installation guide and instructions for complete documentation |
-| t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | prototype created  with all open source technologies like Angular4,wso2 API Manager, wso2 dataservices and Postgresql are open source licenses  |
+| t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | We used openly licensed and free of charge platforms  |
 
 
 
