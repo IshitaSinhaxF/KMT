@@ -235,13 +235,13 @@ Our team followed the US Digital Services Playbook, covering each of the 13 play
 | k. Created a prototype that works on multiple devices, and presents a responsive design                     | KMP Business functions are accessed and delivered to its business and system users through various access channels as delineated in [Responsive UI Design](https://github.com/xFusionTech/KMT/wiki/Responsive-UI-Design)  |
 | l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)                                 | We have used the following modern open-source technologies and open standards for the implementation of our Working Prototype. The Solution Architecture and use of these technologies are described in the [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack) page: <br>  Angular 4 <br>  Angular CLI <br>  Typescript <br>  Angular Bootstrap <br>  jQuery <br>  HTML5 <br>  CSS3 <br>  REST API <br>  JSON <br>  PostgreSql <br>  WSO2 API Manager <br> WSO2 Data Services Server <br>  Swagger <br>  Jasmine <br>  KARMA <br>  Selenium <br>  Jenkins <br>  Docker <br>  DockerHub <br>  GitHub   |
 | m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used                     | We have deployed our Working Prototype on Amazon Web Services – an Infrastructure as a Service provider  |
-| n. Developed automated unit tests for their code                       | We automated unit testing through GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, and updates/deploys of the Docker Hub Images to DockerHub  |
-| o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | ---  |
+| n. Developed automated unit tests for their code                       | We automated unit testing through Jenkins GitHub web hook so that whenever GitHub commits kick off Jenkins builds, and updates/deploys the Docker Hub Images to DockerHub and executes the test cases and if there are any failures it will send an notification to kmpadmin  |
+| o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | When new changes are checked-in into GitHub then Jenkins automatically initiates the build and deploys the changes.  |
 | p. Setup or used configuration management                 | ---  |
-| q. Setup or used continuous monitoring                  | ---  |
-| r. Deployed their software in an open source container, such as Docker (i.e., utilized operating-system-level virtualization)            | ---  |
-| s. Provided sufficient documentation to install and run their prototype on another machine                      | ---  |
-| t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | ---  |
+| q. Setup or used continuous monitoring                  | Continuous monitoring performed for all instances listed below by AWS cloud watch <br> 1. AWS EC2(2VMs), <br> 2. AWS SES, <br> 3. AWS S3 <br> 4. AWS RDS  |
+| r. Deployed their software in an open source container, such as Docker (i.e., utilized operating-system-level virtualization)            | Used all open-source docker containers |
+| s. Provided sufficient documentation to install and run their prototype on another machine                      | Created installation guide and instructions for complete documentation |
+| t. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge                           | prototype created  with all open source technologies like Angular4,wso2 API Manager, wso2 dataservices and Postgresql are open source licenses  |
 
 
 
