@@ -214,7 +214,7 @@ _**--------------------------------------------------- End of Technical Approach
 
 # US Digital Services Playbook:
 
-Our team followed the US Digital Services Playbook, covering each of the 13 plays.  We have provided [evidence of how each play was followed]().
+Our team followed the US Digital Services Playbook, covering each of the 13 plays.  We have provided [evidence of how each play was followed](https://github.com/xFusionTech/KMT/blob/master/US%20Digital%20Services%20Playbook.pdf).
 
 
 
