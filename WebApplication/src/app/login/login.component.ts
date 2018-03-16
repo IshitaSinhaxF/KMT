@@ -33,10 +33,14 @@ export class LoginComponent implements OnInit {
   selectedUser:any;
   userFirstName: any = "";
   roleData : any = [];
+  loginError: boolean = false;
 
   onLoginClick() {
 
-    //console.log(this.selectedUser);
+    if(this.selectedUser != undefined )
+    {
+
+    console.log(this.selectedUser);
     this.router.navigate(['./home']);
     var userDetails = this.data.filter(el => {
       if (el.userID
@@ -50,7 +54,15 @@ export class LoginComponent implements OnInit {
     this.articleService.saveInSessionStorage("UserId", userDetails[0].userID);
     //this.articleService.saveInSessionStorage("UserName", userDetails[0].userFirstName);
     this.articleService.saveInSessionStorage("UserName", userDetails[0].userLastName);
-   
+  }
+  else
+  {
+    this.getUserRoles();
+    this.getUsers();
+    this.loginError = true;
+    //this.router.navigate(['']);
+    
+  }
   }
   ngOnInit() {      
     this.getUserRoles();
