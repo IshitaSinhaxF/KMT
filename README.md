@@ -110,7 +110,7 @@ The logical architecture for the Knowledge Management Portal (KMP) is based on S
 -	KMP Application access these APIs from the API Layer to deliver KMP business functions to the KMP Human Users through Web and Mobile Channels.
 -	In future, various System users such as external IVR Application and the system partners can access the KMP functions by accessing the KMP APIs through the API Layer. 
 
-The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Service-Oriented-Architecture) for the KMP solution is presented in the following diagram and the detailed explanation of the Technology Stack is provided [here](https://github.com/xFusionTech/KMT/wiki/Technology-Stack).
+The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusionTech/KMT/wiki/Solution-Architecture) for the KMP solution is presented in the following diagram and the detailed explanation of the Technology Stack is provided [here](https://github.com/xFusionTech/KMT/wiki/Technology-Stack).
   
   
 <p align="center">
