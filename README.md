@@ -25,6 +25,15 @@ Below are the key URLs for the working Prototype:
 | **Jenkins – CI/CD Server** | http://ec2-13-57-242-90.us-west-1.compute.amazonaws.com:8080/login?from=%2F | User ID: admin <br> Password: admin
 
 
+All business and administrative email notifications are sent to the email id, kmtadmin@xfusiontech.com  : 
+
+The email box can be accessed through the following URL:
+
+**Email URL**: https://apps.rackspace.com/a/index.php?version=full <br>
+**Email id**: kmtadmin@xfusiontech.com <br>
+**Password**: kmtadmin2018# 
+
+
 # Our Approach
 
 ## Sprint Zero - Planning Effort:
@@ -119,15 +128,24 @@ The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusio
 
 ### Development Environment
 
+Agile Development effort employed user-centric design techniques, a sprint based development work-flow and open-source technologies to design and build our Knowledge Management Portal, our implementation of Working Prototype. Developers will connect to GitHub source code repository and work on the individual stories in their local environment. Before checking in, developers issued a pull request and review the code and merged into a source repository.
+
 ### Test Environment
+
+Jenkins retrieved the code from GitHub, built the application, and executed unit tests.  If all unit tests passed, Docker created a distribution image and uploaded it into a docker hub. We employed a moderated CD approach to the test environment nightly to avoid interfering with ongoing functional testing.
 
 ### Production Environment
 
+Once Jenkins job successfully created a distribution image then it will automatically deployed it into production.  
+
 ### Source Code Repository
+
+We used GitHub as a source code repository where developers connect and performs check-in's and check-out's. 
 
 ### Docker Image Repository
 
-	
+We used Docker Hub to place all our docker images where Jenkins job connects and performs check-in's and check-out's. 
+
 ### Container Model
 
 
@@ -135,7 +153,6 @@ The [N-Tier Distributed Service Oriented Architecture](https://github.com/xFusio
   <img width="680" height="240" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/Docker%20Container.png">
 </p>
 
-### Infrastructure Deployment and CI/CD Framework 
 
 
 ## DevOps Automation:
@@ -155,6 +172,33 @@ Our team followed Continuous Integration approach and focused on integrating wor
 <p align="center">
   <img width="680" height="420" src="https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Scrum%20Process/CICD%20Framework%20Architecture.png">
 </p>
+
+Here is an overview of the steps we followed in our approach:
+
+a.            Developer sets their local development environment connecting to GitHub repository to mimic the operations environment
+
+b.            Developer creates unit tests and writes the appropriate source code to implement a user story/feature.
+
+c.             To merge the unit test and source code, developer submits a pull request and validate and fixes in case of any code conflicts. Then they will check-in the changes
+
+e.            Whenever any changes happened in source code, then Jenkins automatically compiles the source code and all unit tests are executed automatically
+
+f.  In-case of any failures Jenkins will send an email to KMTadmin and developers.
+
+g.  If these fail, developer is notified to fix the issue. Steps 3, 4 and 5 are repeated until the ad-hoc tests pass.
+
+f.             Once the unit tests pass, Jenkins executes Docker files to build the Docker images for the UI and the back-end.
+
+g.            Docker pushes the images to the Docker Hub, and then deploys them to the test environment where the functional tests are executed automatically.
+
+h.            Once the functional tests succeed, a notification is sent regarding the successful test execution.
+
+i.              QA performs ad-hoc/manual tests. If these fail, developer is notified to fix the issue. Steps 4, 5, 6, 7, 8 and 9 are repeated until the ad-hoc tests pass.
+
+j.             Once the error is fixed, then Finally Jenkins takes the latest code and builds and create the final image
+
+k.            Image created for testing is deployed to the production environment.
+
 
 
 
@@ -183,7 +227,7 @@ Our team followed the US Digital Services Playbook, covering each of the 13 play
 | i. Performed usability tests with people                         | ---  |
 | j. Used an iterative approach, where feedback informed subsequent work or versions of the prototype                  | We conducted five sprints, each sprint informing the subsequent. The team decomposed the product [backlogs](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%204%20Backlog.png) into work tasks and assigned the tasks among the team members for completion in the next sprint in the [Sprint Planning meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Meeting%20Snapshot1.jpg) and ended with a [Sprint Review meeting](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/Project%20Team/Meeting%20Snapshots/Sprint%20Review%20Meeting.jpg) and [Sprint Retrospective meetings](https://github.com/xFusionTech/KMT/tree/master/ReadMe_EvidenceFiles/Team%20Communication/Sprint%20Retrospectives) . Daily scrum meetings provided our team the opportunity to review our progress and discuss testing feedback. These were incorporated into the sprint and product backlog. For each sprint cycle, our product manager would lead a collaborative session of [whiteboarding brainstorming](https://github.com/xFusionTech/KMT/wiki/Whiteboard-and-Drafts) that ultimately drove the creation of user stories, [wireframes mockups](https://github.com/xFusionTech/KMT/blob/master/ReadMe_EvidenceFiles/UI-UX/Wireframe%20Mockup.pdf) and defined what was to be accomplished in each sprint or put into the product backlog for the next iteration. |
 | k. Created a prototype that works on multiple devices, and presents a responsive design                     | KMP Business functions are accessed and delivered to its business and system users through various access channels as delineated in [Responsive UI Design](https://github.com/xFusionTech/KMT/wiki/Responsive-UI-Design)  |
-| l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)                                 | We have used the following modern open-source technologies and open standards for the implementation of our Working Prototype. The Solution Architecture and use of these technologies are described in the [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack) page: <br> - Angular 4 <br> - Angular CLI <br> - Typescript <br> - Angular Bootstrap <br> - jQuery <br> - HTML5 <br> - CSS3 <br> - REST API <br> - JSON <br> - PostgreSql <br> - WSO2 API Manager <br>- WSO2 Data Services Server <br> - Swagger <br> - Jasmine <br> - KARMA <br> - Selenium <br> - Jenkins <br> - Docker <br> - DockerHub <br> - GitHub   |
+| l. Used at least five (5) modern and open-source technologies, regardless of architectural layer (frontend, backend, etc.)                                 | We have used the following modern open-source technologies and open standards for the implementation of our Working Prototype. The Solution Architecture and use of these technologies are described in the [Technology Stack](https://github.com/xFusionTech/KMT/wiki/Technology-Stack) page: <br>  Angular 4 <br>  Angular CLI <br>  Typescript <br>  Angular Bootstrap <br>  jQuery <br>  HTML5 <br>  CSS3 <br>  REST API <br>  JSON <br>  PostgreSql <br>  WSO2 API Manager <br> WSO2 Data Services Server <br>  Swagger <br>  Jasmine <br>  KARMA <br>  Selenium <br>  Jenkins <br>  Docker <br>  DockerHub <br>  GitHub   |
 | m. Deployed the prototype on an Infrastructure as a Service (IaaS) or Platform as Service (PaaS) provider, and indicated which provider they used                     | We have deployed our Working Prototype on Amazon Web Services – an Infrastructure as a Service provider  |
 | n. Developed automated unit tests for their code                       | We automated unit testing through GitHub and the Jenkins GitHub web hook so that GitHub commits kick off Jenkins builds, and updates/deploys of the Docker Hub Images to DockerHub  |
 | o. Setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider  | ---  |
