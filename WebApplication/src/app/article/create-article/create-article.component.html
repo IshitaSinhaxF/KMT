@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col-md-12 author">
           <span></span>
-          <textarea placeholder="Summary" name="articleContent" type="text" id="texteditor1" class="form-control" style="width:100%"
+          <textarea placeholder="Summary" name="articleDesc" type="text" id="texteditor1" class="form-control" style="width:100%"
             rows="2" [(ngModel)]="article_desc"></textarea>
         </div>
       </div>
@@ -56,7 +56,9 @@
       </div>
       <div class="row">
         <div class="col-md-12 author">
-          <app-ngx-editor minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>
+          <textarea placeholder="Enter article content" name="articleContent" type="text" id="texteditor2" class="form-control" style="width:100%"
+            rows="7" [(ngModel)]="article_content"></textarea>
+          <!--<app-ngx-editor minHeight="200px" height="100%" width="100%" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="article_content" id="texteditor"></app-ngx-editor>-->
         </div>
       </div>
       <div class="row">
